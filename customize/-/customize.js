@@ -1,3 +1,82 @@
+
+(function(context) {
+
+    var db = {}
+        ,trigger
+        ,on
+    ;
+    
+    trigger = function(id, fn) {
+    
+        var done
+            fnexists = fn ? true : false
+        ;
+        
+        db[id] = db[id] || {count:0,length:0};
+        
+        db[id].length += 1;
+        
+        done = function() {
+            var cb = function() {
+                db[id].count += 1;
+                if (db[id].count === db[id].length && db[id].callback) {
+                    db[id].callback();
+                }
+            }
+            // If the function exists then treat as a async, even if no AJAX is done in the function
+            if (fnexists) {
+                // setTimeout ensures all triggers are collected into the db before a done is called, thus allowing db[id].length to be more than 1
+                setTimeout(cb, 1);
+            }
+            // Otherwise call done immediately, allows the use of the on/trigger pattern without using setTimeout unnecessarily
+            else {
+                cb();
+            }
+        }
+        fn = fn || function(done) {done()};
+        fn(done);
+    };
+    
+    on = function(id, fn) {
+        db[id] = db[id] || {count:0,length:0};
+        db[id].callback = fn;
+    };
+    
+    context.on = on;
+    context.trigger = trigger;
+    
+//    // Async
+//    trigger('loadtemplates', function(done) {
+//        if (typeof _in.templates.demo === 'undefined') {
+//            $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
+//                _in.templates.demo = text;
+//                done();
+//            });
+//        }
+//        else {
+//            done();
+//        }
+//    });
+//    trigger('loadtemplates', function(done) {
+//        if (typeof _in.templates.demo === 'undefined') {
+//            $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
+//                _in.templates.demo = text;
+//                done();
+//            });
+//        }
+//        else {
+//            done();
+//        }
+//    });
+//
+//    // Immediate
+//    trigger('loadtemplates');
+//
+//    // Capture custom event
+//    on('loadtemplates', makeInputsDone);
+            
+}(this));
+
 (function() {
 
     'use strict';
@@ -7,10 +86,16 @@
         ,_out = {}
         ,_payload = {}
         ,_tid = {}
-        ,makeIn
-        ,makeInDone
-        ,makeOut
-        ,makePayload
+        ,_urls = {}
+        ,asyncs
+        ,makeInputs
+        ,makeInputsDone
+        ,makeInputDone
+        ,makeOutputs
+        ,makeOutputsDone
+        ,makePayloads
+        ,makePayloadsDone
+        ,makeDeliveries
         ,makeHeadingMargins
         ,trim
         ,processRules
@@ -24,9 +109,13 @@
         ,inputBasesxChange
         ,breakpointAdd
         ,init
-        ,run
+        ,redraw
     ;
-    
+    _urls = {
+        templateDemoHTML: '-/template-demo.html'
+        ,templateCSS: '-/template.css'
+        ,templateJS: '-/template.js'
+    };
     _selectors = {
     
         // inputs
@@ -81,13 +170,8 @@
     };
     
     
+    makeInputs = function() {
     
-    makeIn = function(o) {
-    
-        var callback = o.callback;
-        
-        _in.inputAjaxCalls = {callback: callback, expected: 3, count: 0};
-        
         _in.breakpoints = [];
         $(_selectors.formbreakpoint).each(function(i) {
             _in.breakpoints[i] = {
@@ -136,54 +220,52 @@
         _in.gutmultipliermedium = $(_selectors.gutmultipliermedium).val();
         _in.gutmultiplierlarge = $(_selectors.gutmultiplierlarge).val();
         
-        if (typeof _in.templates.css === 'undefined') {
-            $.ajax('./../assets/templates/baseup-tpl.css',{dataType:'text',async:false}).done(function(text) {
-                _in.templates.css = text;
-                makeInDone();
-            });
-        }
-        else {
-            makeInDone();
-        }
         
-        if (typeof _in.templates.js === 'undefined') {
-            $.ajax('./../assets/templates/baseup-tpl.js',{dataType:'text',async:false}).done(function(text) {
-                _in.templates.js = text;
-                makeInDone();
-            });
-        }
-        else {
-            makeInDone();
-        }
-        
-        if (typeof _in.templates.demo === 'undefined') {
-            $.ajax('./../assets/templates/baseup-demo-tpl.html',{dataType:'text',async:false}).done(function(text) {
-                _in.templates.demo = text;
-                makeInDone();
-            });
-        }
-        else {
-            makeInDone();
-        }
-        
-    };
-    makeInDone = function() {
-        
-        _in.inputAjaxCalls.count += 1;
-        
-        if (_in.inputAjaxCalls.count === _in.inputAjaxCalls.expected) {
-            _in.inputAjaxCalls.callback();
-        }
+        trigger('loadtemplates', function(done) {
+            if (typeof _in.templates.css === 'undefined') {
+                $.ajax(_urls.templateCSS, {dataType:'text',async:false}).done(function(text) {
+                    _in.templates.css = text;
+                    done();
+                });
+            }
+            else {
+                done();
+            }
+        });
+        trigger('loadtemplates', function(done) {
+            if (typeof _in.templates.js === 'undefined') {
+                $.ajax(_urls.templateJS ,{dataType:'text',async:false}).done(function(text) {
+                    _in.templates.js = text;
+                    done();
+                });
+            }
+            else {
+                done();
+            }
+        });
+        trigger('loadtemplates', function(done) {
+            if (typeof _in.templates.demo === 'undefined') {
+                $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
+                    _in.templates.demo = text;
+                    done();
+                });
+            }
+            else {
+                done();
+            }
+        });
+        on('loadtemplates', function() {
+            trigger('makeinputs');
+        });
         
     };
     
 
 
 
-    makeOut = function(o) {
+    makeOutputs = function(o) {
     
-        var callback = o.callback
-            ,hidegutlefts
+        var hidegutlefts
             ,gutlefts
             ,gutrights
             ,guts
@@ -372,7 +454,6 @@
             
 
 
-            
             _outbreakpointi.base = _inbreakpointi.base;
             _outbreakpointi.base2x = _inbreakpointi.base * 2;
             _outbreakpointi.base1o2 = round(_inbreakpointi.base/2, _in.decimalPlaces);
@@ -896,16 +977,26 @@
         }
 
         
-        return callback();
+        trigger('makeoutputs');
+        
+        return;
         
     };
     
-    makePayload = function() {
+    makePayloads = function() {
         
         // Render outputs
         _payload.css = Mustache.render(_in.templates.css, _out);
         _payload.js = Mustache.render(_in.templates.js, _out);
         _payload.demo = Mustache.render(_in.templates.demo, _out.demo);
+        
+        trigger('makepayloads');
+        
+        return;
+                
+    };
+    
+    makeDeliveries = function() {
         
 
         // Textarea outputs
@@ -927,6 +1018,10 @@
         // Demo
         $(_selectors.demo).html(_payload.demo);
         
+        trigger('makedeliveries');
+        
+        return;
+
     };
     
     
@@ -1175,7 +1270,7 @@
     inputChange = function() {
                     
         clearTimeout(_tid.inputChange);
-        _tid.inputChange = setTimeout(run, 400);
+        _tid.inputChange = setTimeout(redraw, 1);
         
     };
     
@@ -1196,7 +1291,7 @@
             $this.val(multipliers[i] * $(_selectors.base).val());
         });
         
-        _tid.inputBasesxChange = setTimeout(run, 400);
+        _tid.inputBasesxChange = setTimeout(redraw, 1);
         
     };
     inputBasesChange = function() {
@@ -1213,7 +1308,7 @@
             $this.val(bases[i] / $(_selectors.base).val());
         });
         
-        _tid.inputBasesChange = setTimeout(run, 400);
+        _tid.inputBasesChange = setTimeout(redraw, 1);
         
     };
     
@@ -1221,7 +1316,7 @@
         var last = $(_selectors.formbreakpoint).last();
         last.after(last.clone());
         last.next().find('td:first').text(_in.breakpointsLength);
-        run();
+        redraw();
         return false;
     };
     
@@ -1285,17 +1380,23 @@
         
         $(_selectors.formbreakpoint).slice(1).append('<td class="form-breakpoint-remove"><span tabindex="-1">x</span></td>').parent().find('tr:first').append('<th>Remove</th>');
         
-        run();
+        inputBaseChange();
+        
+        redraw();
         
     };
     
-    run = function() {
-        makeIn({callback:function() {
-            makeOut({callback:function() {
-                makePayload();
-            }});
-        }});
+    redraw = function() {
+    
+        makeInputs();
+        
     };
+    
+    on('makeinputs', function() {
+        makeOutputs();
+        makePayloads();
+        makeDeliveries();
+    });
     
     $(document)
         .on('change', function(e) {
