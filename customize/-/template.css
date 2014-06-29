@@ -12,20 +12,22 @@
 
 /* Copy */
 {{#is0}}
-h1, h2, h3, h4, h5, h6 {margin:0;}
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {display:block;}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {margin:0;}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
+.h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {adisplay:block;}
 p,form,ol,ul,dl {margin-top:0;}
 {{/is0}}
 
 {{#basechanged}}
 body {font-size:{{copyfontsize}}em;line-height:{{copylineheight}};}
 p,form,ol,ul,dl {margin-bottom:{{base}}px;}
-h1 {font-size:{{h1}}%;line-height:{{h1lineheight}};margin-top:{{h1margintopval}};margin-bottom:{{h1marginbottomval}};}
-h2 {font-size:{{h2}}%;line-height:{{h2lineheight}};margin-top:{{h2margintopval}};margin-bottom:{{h2marginbottomval}};}
-h3 {font-size:{{h3}}%;line-height:{{h3lineheight}};margin-top:{{h3margintopval}};margin-bottom:{{h3marginbottomval}};}
-h4 {font-size:{{h4}}%;line-height:{{h4lineheight}};margin-top:{{h4margintopval}};margin-bottom:{{h4marginbottomval}};}
-h5 {font-size:{{h5}}%;line-height:{{h5lineheight}};margin-top:{{h5margintopval}};margin-bottom:{{h5marginbottomval}};}
-h6 {font-size:{{h6}}%;line-height:{{h6lineheight}};margin-top:{{h6margintopval}};margin-bottom:{{h6marginbottomval}};}
+h1, .h1 {font-size:{{h1}}%;line-height:{{h1lineheight}};margin-top:{{h1margintopval}};margin-bottom:{{h1marginbottomval}};}
+h2, .h2 {font-size:{{h2}}%;line-height:{{h2lineheight}};margin-top:{{h2margintopval}};margin-bottom:{{h2marginbottomval}};}
+h3, .h3 {font-size:{{h3}}%;line-height:{{h3lineheight}};margin-top:{{h3margintopval}};margin-bottom:{{h3marginbottomval}};}
+h4, .h4 {font-size:{{h4}}%;line-height:{{h4lineheight}};margin-top:{{h4margintopval}};margin-bottom:{{h4marginbottomval}};}
+h5, .h5 {font-size:{{h5}}%;line-height:{{h5lineheight}};margin-top:{{h5margintopval}};margin-bottom:{{h5marginbottomval}};}
+h6, .h6 {font-size:{{h6}}%;line-height:{{h6lineheight}};margin-top:{{h6margintopval}};margin-bottom:{{h6marginbottomval}};}
 {{/basechanged}}
 
 {{#is0}}

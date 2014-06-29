@@ -1,4 +1,4 @@
-
+// Custom events on and trigger
 (function(context) {
 
     var db = {}
@@ -12,15 +12,20 @@
             fnexists = fn ? true : false
         ;
         
-        db[id] = db[id] || {count:0,length:0};
+        db[id] = db[id] || {count:0,length:0,callback:[]};
         
         db[id].length += 1;
         
         done = function() {
             var cb = function() {
+                var dbidcallbacklength = db[id].callback.length
+                    ,i
+                ;
                 db[id].count += 1;
-                if (db[id].count === db[id].length && db[id].callback) {
-                    db[id].callback();
+                if (db[id].count === db[id].length && dbidcallbacklength) {
+                    for (i = 0; i < dbidcallbacklength; i++) {
+                        db[id].callback[i]();
+                    }
                 }
             }
             // If the function exists then treat as a async, even if no AJAX is done in the function
@@ -38,8 +43,8 @@
     };
     
     on = function(id, fn) {
-        db[id] = db[id] || {count:0,length:0};
-        db[id].callback = fn;
+        db[id] = db[id] || {count:0,length:0,callback:[]};
+        db[id].callback.push(fn);
     };
     
     context.on = on;
