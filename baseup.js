@@ -121,28 +121,6 @@
                 });
                 
             }
-            // For IE 6 or 7 at the mo, but really it's whether box-sizing border-box is supported
-            // CSS hacks used instead for greater transparency
-            /*if (isIE == 6 || isIE == 7) {
-            
-                this.each(function() {
-                
-                    var $this = $(this)
-                        ,val
-                    ;
-                    
-                    // Guts classes: Remove the guts class because the guts class is dependent on border-box
-                    val = $this.attr('class').match(/\s?guts(?!-fw)-?[0-9a-z-]+|\s?guts(?!-fw)/g);
-
-                    if (val) {
-                        // Get the last set widths class if more than one is set
-                        val = val[val.length - 1];
-                        $this.removeClass(val);
-                        alert(val + ' ' + $this.attr('class'));
-                    }
-                    
-                });
-            }*/
             return this;
 
         }
