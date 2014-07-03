@@ -1,4 +1,4 @@
-// Custom events on and trigger
+// Custom events
 (function(context) {
 
     var db = {}
@@ -47,38 +47,7 @@
         db[id].callback.push(fn);
     };
     
-    context.on = on;
-    context.trigger = trigger;
-    
-//    // Async
-//    trigger('loadtemplates', function(done) {
-//        if (typeof _in.templates.demo === 'undefined') {
-//            $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
-//                _in.templates.demo = text;
-//                done();
-//            });
-//        }
-//        else {
-//            done();
-//        }
-//    });
-//    trigger('loadtemplates', function(done) {
-//        if (typeof _in.templates.demo === 'undefined') {
-//            $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
-//                _in.templates.demo = text;
-//                done();
-//            });
-//        }
-//        else {
-//            done();
-//        }
-//    });
-//
-//    // Immediate
-//    trigger('loadtemplates');
-//
-//    // Capture custom event
-//    on('loadtemplates', makeInputsDone);
+    context.stream = {on: on, trigger: trigger};
             
 }(this));
 
@@ -118,7 +87,7 @@
     ;
     _urls = {
         templateDemoHTML: '-/template-demo.html'
-        ,templateCSS: '-/template.css'
+        ,templateCSS: '-/template.css?v=1'
         ,templateJS: '-/template.js'
     };
     _selectors = {
@@ -226,7 +195,7 @@
         _in.gutmultiplierlarge = $(_selectors.gutmultiplierlarge).val();
         
         
-        trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(done) {
             if (typeof _in.templates.css === 'undefined') {
                 $.ajax(_urls.templateCSS, {dataType:'text',async:false}).done(function(text) {
                     _in.templates.css = text;
@@ -237,7 +206,7 @@
                 done();
             }
         });
-        trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(done) {
             if (typeof _in.templates.js === 'undefined') {
                 $.ajax(_urls.templateJS ,{dataType:'text',async:false}).done(function(text) {
                     _in.templates.js = text;
@@ -248,7 +217,7 @@
                 done();
             }
         });
-        trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(done) {
             if (typeof _in.templates.demo === 'undefined') {
                 $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
                     _in.templates.demo = text;
@@ -258,9 +227,6 @@
             else {
                 done();
             }
-        });
-        on('loadtemplates', function() {
-            trigger('makeinputs');
         });
         
     };
@@ -439,8 +405,9 @@
             
             // Heading Margins
             
+
             _in.headingspaceminimum = 2;
-            
+
             headingMargins = makeHeadingMargins(_inbreakpointi.base, headingLineHeights, copyfontsizepx);
 
             _outbreakpointi.h1marginbottomval = headingMargins.h1.marginBottom + 'px';
@@ -982,7 +949,7 @@
         }
 
         
-        trigger('makeoutputs');
+        stream.trigger('makeoutputs');
         
         return;
         
@@ -995,7 +962,7 @@
         _payload.js = Mustache.render(_in.templates.js, _out);
         _payload.demo = Mustache.render(_in.templates.demo, _out.demo);
         
-        trigger('makepayloads');
+        stream.trigger('makepayloads');
         
         return;
                 
@@ -1023,7 +990,7 @@
         // Demo
         $(_selectors.demo).html(_payload.demo);
         
-        trigger('makedeliveries');
+        stream.trigger('makedeliveries');
         
         return;
 
@@ -1175,65 +1142,120 @@
     
     
     makeHeadingMargins = function(base, lineHeights, copyfontsizepx) {
+console.log('asd', base, lineHeights, copyfontsizepx);
         /*
         
         ----------------------------
         text
-        ----------------------------
-                                    
-        -------------------------   hmargintop
-        Heading                     hheight
-        -------------------------   hmarginbottom
-        ----------------------------
+        ----------------------------------------------------------
+                                    heading margintop
+        ----------------------------------------------------------   
+        Heading                     heading height            |
+        ------------------------------------------------    height
+                                    heading marginbottom      |
+        ----------------------------------------------------------
         text
         ----------------------------
         
-        hheightbase = Math.floor((hheight + hmarginbottom) / base);
-        hheightbaseremainder = (hheight + hmarginbottom) / %;
+        heightbase = Math.floor((height + marginbottom) / base);
+        heightbasediff = (height + marginbottom) / %;
         
-        if (hheightbase < _in.headingspaceminimum) {
-            hheightbase = _in.headingspaceminimum; // 2 min
+        if (heightbase < _in.headingspaceminimum) {
+            heightbase = _in.headingspaceminimum; // 2 min
         }
+        
+        use = 0;
+        x = 0.5;
+        do {
+            use += 1;
+            x += 1;
+        }
+        while (height <= x * base);
+        
         */
         
         var out = {}
-            ,hheightandmarginbottom
-            ,hheightandmarginbottombase
-            ,hheightandmarginbottombaseremainder
+            ,heightdiff
+            ,fauxHeight
+            ,realHeight
+            ,height
+            ,heightbase
+            ,heightbasediff
             ,h
             ,i
+            ,marginBottom
+            ,marginTop
         ;
         
         for (i = 1; i < 7; i++) {
             
             h = 'h' + i;
             
+            marginTop = 0;
+            marginBottom = _in.headingmarginbottomadjust * base;
+            height = copyfontsizepx * _in[h] * lineHeights[h];
+            height += marginBottom;
+            
+console.log(height);
+            var use = 0;
+            var x = 0.5;
+//            do {
+//                use += 1;
+//                x += 1;
+//            }
+//            while (height <= x * base);
+            
+            marginTop = (use * base) - height;
+
+/*
+            realHeight = copyfontsizepx * _in[h] * lineHeights[h];
+            fauxHeight = copyfontsizepx * _in[h] * 2;
+            fauxHeight = realHeight;
+            
+            height = fauxHeight + marginBottom;
+console.log(h, copyfontsizepx, _in[h]);
+
+            heightbase = Math.floor(height / base);
+            heightbasediff = height % base;
+console.log(h, heightbase,heightbasediff);
+            
+            if (heightbase < _in.headingspaceminimum) {
+                heightbase = _in.headingspaceminimum;
+            }
+            
+            // Margin top set so following copy snaps to base grid 
+//            marginTop = base - heightbasediff + ((heightbase - 2) * base);
+            marginTop = base - heightbasediff;
+            
+console.log(h,'mt',marginTop);
+            // We used fauxHeight above, this corrects the difference
+            marginTop += fauxHeight - realHeight;
+console.log(h,'mt',marginTop);
+            
+            
+            
+            // Ensure marginTop is greater than marginBottom, otherwise the heading just looks weird
+            while (marginTop < marginBottom) {
+                marginTop += base;
+            }
+            
+            if (marginTop < base) {
+                if (base - marginTop < base / 2) {
+    console.log(h,'-mt');
+                    marginTop = -1 * (base - marginTop);
+                }
+                else {
+                    marginTop += base;
+                }
+            }
+            
+console.log(h,'mt',marginTop);
+ */           
+            
             out[h] = {
-                marginBottom:_in.headingmarginbottomadjust * base
-                ,marginTop: 0
+                marginTop: marginTop
+                ,marginBottom: marginBottom
             };
-            
-            hheightandmarginbottom = (copyfontsizepx * _in[h] * lineHeights[h]) + out[h].marginBottom;
-            hheightandmarginbottombase = Math.floor(hheightandmarginbottom / base);
-            hheightandmarginbottombaseremainder = hheightandmarginbottom % base;
-            
-            if (hheightandmarginbottombase < _in.headingspaceminimum) {
-                hheightandmarginbottombase = _in.headingspaceminimum;
-            }
-            if (h === 'h1') {
-                out[h].marginTop = base - hheightandmarginbottombaseremainder + ((hheightandmarginbottombase - 2) * base);
-            }
-            else if (hheightandmarginbottombaseremainder > base / 2) {
-                // push it on
-                out[h].marginTop = base - hheightandmarginbottombaseremainder + ((hheightandmarginbottombase - 1) * base);
-            }
-            else {
-                // Pull it up
-                out[h].marginTop = -hheightandmarginbottombaseremainder;
-            }
-            while (out[h].marginTop < out[h].marginBottom) {
-                out[h].marginTop += base;
-            }
         }
         
         return out;
@@ -1387,17 +1409,17 @@
         
         inputBaseChange();
         
-        redraw();
-        
     };
     
     redraw = function() {
-    
         makeInputs();
-        
     };
-    
-    on('makeinputs', function() {
+
+    // Event stream handling
+    stream.on('loadtemplates', function() {
+        stream.trigger('makeinputs');
+    });
+    stream.on('makeinputs', function() {
         makeOutputs();
         makePayloads();
         makeDeliveries();
@@ -1408,7 +1430,6 @@
             
             var $t = $(e.target)
             ;
-            
             // On change of various input
             if (
                 $t.is(_selectors.decimalPlaces)
@@ -1436,13 +1457,13 @@
                 inputChange();
             }
             
-            if ($t.is(_selectors.base)) {
+            else if ($t.is(_selectors.base)) {
                 inputBaseChange();
             }
-            if ($t.is(_selectors.basesx)) {
+            else if ($t.is(_selectors.basesx)) {
                 inputBasesxChange();
             }
-            if ($t.is(_selectors.bases)) {
+            else if ($t.is(_selectors.bases)) {
                 inputBasesChange();
             }
             
