@@ -1,6 +1,8 @@
 // Custom events
 (function(context) {
 
+    'use strict';
+
     var db = {}
         ,trigger
         ,on
@@ -9,7 +11,7 @@
     trigger = function(id, fn) {
     
         var done
-            fnexists = fn ? true : false
+            ,fnexists = fn ? true : false
         ;
         
         db[id] = db[id] || {count:0,length:0,callback:[]};
@@ -119,6 +121,12 @@
         ,h5: '#input-h5'
         ,h6: '#input-h6'
         ,hMarginBottomAdjust: '#input-hmarginbottomadjust'
+        ,h1space: '#input-h1space'
+        ,h2space: '#input-h2space'
+        ,h3space: '#input-h3space'
+        ,h4space: '#input-h4space'
+        ,h5space: '#input-h5space'
+        ,h6space: '#input-h6space'
         
         ,gutmultipliersmall: '#input-gutmultipliersmall'
         ,gutmultipliermedium: '#input-gutmultipliermedium'
@@ -185,6 +193,12 @@
         _in.h5 = $(_selectors.h5).val() * 1;
         _in.h6 = $(_selectors.h6).val() * 1;
         _in.headingmarginbottomadjust = $(_selectors.hMarginBottomAdjust).val() * 1;
+        _in.h1space = $(_selectors.h1space).val() * 1;
+        _in.h2space = $(_selectors.h2space).val() * 1;
+        _in.h3space = $(_selectors.h3space).val() * 1;
+        _in.h4space = $(_selectors.h4space).val() * 1;
+        _in.h5space = $(_selectors.h5space).val() * 1;
+        _in.h6space = $(_selectors.h6space).val() * 1;
         
         _in.headingspaceminimum = 1; // x base
         
@@ -1142,7 +1156,6 @@
     
     
     makeHeadingMargins = function(base, lineHeights, copyfontsizepx) {
-console.log('asd', base, lineHeights, copyfontsizepx);
         /*
         
         ----------------------------
@@ -1157,34 +1170,16 @@ console.log('asd', base, lineHeights, copyfontsizepx);
         text
         ----------------------------
         
-        heightbase = Math.floor((height + marginbottom) / base);
-        heightbasediff = (height + marginbottom) / %;
-        
-        if (heightbase < _in.headingspaceminimum) {
-            heightbase = _in.headingspaceminimum; // 2 min
-        }
-        
-        use = 0;
-        x = 0.5;
-        do {
-            use += 1;
-            x += 1;
-        }
-        while (height <= x * base);
-        
         */
         
         var out = {}
-            ,heightdiff
-            ,fauxHeight
-            ,realHeight
             ,height
-            ,heightbase
-            ,heightbasediff
             ,h
             ,i
             ,marginBottom
             ,marginTop
+            ,use
+            ,x
         ;
         
         for (i = 1; i < 7; i++) {
@@ -1193,69 +1188,34 @@ console.log('asd', base, lineHeights, copyfontsizepx);
             
             marginTop = 0;
             marginBottom = _in.headingmarginbottomadjust * base;
-            height = copyfontsizepx * _in[h] * lineHeights[h];
-            height += marginBottom;
             
-console.log(height);
-            var use = 0;
-            var x = 0.5;
+            height = (copyfontsizepx * _in[h] * lineHeights[h]) + marginBottom;
+            
+//            use = 0;
+//            x = _in.headingmargintopknee;
+//            x = x - 1;
 //            do {
 //                use += 1;
 //                x += 1;
 //            }
-//            while (height <= x * base);
+//            while (height >= x * base);
             
-            marginTop = (use * base) - height;
-
-/*
-            realHeight = copyfontsizepx * _in[h] * lineHeights[h];
-            fauxHeight = copyfontsizepx * _in[h] * 2;
-            fauxHeight = realHeight;
+            marginTop = (_in[h+'space'] * base) - height;
             
-            height = fauxHeight + marginBottom;
-console.log(h, copyfontsizepx, _in[h]);
-
-            heightbase = Math.floor(height / base);
-            heightbasediff = height % base;
-console.log(h, heightbase,heightbasediff);
-            
-            if (heightbase < _in.headingspaceminimum) {
-                heightbase = _in.headingspaceminimum;
-            }
-            
-            // Margin top set so following copy snaps to base grid 
-//            marginTop = base - heightbasediff + ((heightbase - 2) * base);
-            marginTop = base - heightbasediff;
-            
-console.log(h,'mt',marginTop);
-            // We used fauxHeight above, this corrects the difference
-            marginTop += fauxHeight - realHeight;
-console.log(h,'mt',marginTop);
-            
-            
-            
-            // Ensure marginTop is greater than marginBottom, otherwise the heading just looks weird
+            // Ensure the space above is greater than the space below
             while (marginTop < marginBottom) {
                 marginTop += base;
             }
             
             if (marginTop < base) {
-                if (base - marginTop < base / 2) {
-    console.log(h,'-mt');
-                    marginTop = -1 * (base - marginTop);
-                }
-                else {
-                    marginTop += base;
-                }
+                marginTop = -(base - marginTop);
             }
-            
-console.log(h,'mt',marginTop);
- */           
-            
+
             out[h] = {
                 marginTop: marginTop
                 ,marginBottom: marginBottom
             };
+            
         }
         
         return out;
@@ -1453,6 +1413,12 @@ console.log(h,'mt',marginTop);
                 || $t.is(_selectors.h5)
                 || $t.is(_selectors.h6)
                 || $t.is(_selectors.hMarginBottomAdjust)
+                || $t.is(_selectors.h1space)
+                || $t.is(_selectors.h2space)
+                || $t.is(_selectors.h3space)
+                || $t.is(_selectors.h4space)
+                || $t.is(_selectors.h5space)
+                || $t.is(_selectors.h6space)
             ) {
                 inputChange();
             }
