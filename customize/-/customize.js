@@ -270,7 +270,7 @@
             ,nHeight
             ,nGutsWhole
             ,nGutsFraction
-			,nGutsPXs
+			,nGutsPX
             ,j
             ,i
             ,k
@@ -515,7 +515,7 @@
             nHeight = 21;
             nGutsWhole = 7;
             nGutsFraction = 5;
-            nGutsPXs = 11;
+            nGutsPX = 11;
             
             for (m = bpi; m <= i; m++) {
                 
@@ -582,6 +582,12 @@
                         });
                     }
                 }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    hidegutlefts.push({
+                        val: -j + 'px'
+                        ,selector: '.' + _out.ns + _out.innguthide + '-' + j + 'px' + _out.breakpoints[m].bp
+                    });
+                }
                 hidegutlefts.push(
                     {
                         val: '0'
@@ -610,6 +616,12 @@
                         });
                     }
                 }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutsfws.push({
+                        val: -j + 'px'
+                        ,selector: '.' + _out.ns + _out.gutsfw + '-' + j + 'px' + _out.breakpoints[m].bp
+                    });
+                }
                 gutsfws.push({
                     val: _inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutsfw + _out.breakpoints[m].bp + ' > * > *'
@@ -627,6 +639,12 @@
                             ,selector: '.' + _out.ns + _out.gutsfw + '-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp + ' > * > *'
                         });
                     }
+                }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutsfws.push({
+                        val: j + 'px'
+                        ,selector: '.' + _out.ns + _out.gutsfw + '-' + j + 'px' + _out.breakpoints[m].bp + ' > * > *'
+                    });
                 }
                 
                 
@@ -650,6 +668,12 @@
                         });
                     }
                 }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutsmargin.push({
+                        val: -round(j / 2, _in.decimalPlaces) + 'px'
+                        ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp
+                    });
+                }
                 
                 
                 
@@ -671,6 +695,12 @@
                             ,selector: '.' + _out.ns + _out.gut + 's-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp
                         });
                     }
+                }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutsmarginall.push({
+                        val: ''
+                        ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp
+                    });
                 }
                 
                 
@@ -694,6 +724,12 @@
                         });
                     }
                 }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutspadding.push({
+                        val: round(j / 2, _in.decimalPlaces) + 'px'
+                        ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp + ' > *'
+                    });
+                }
                 
                 
                 
@@ -715,6 +751,12 @@
                             ,selector: '.' + _out.ns + _out.gut + 's-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp + ' > *'
                         });
                     }
+                }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutspaddingall.push({
+                        val: val
+                        ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp + ' > *'
+                    });
                 }
                 
                 
@@ -1234,9 +1276,11 @@
     };
     
     resizeOutput = function(el) {
-    
-        el.style.height = "1px";
-        el.style.height = (el.scrollHeight)+"px";
+    	if (el.scrollHeight !== undefined && el.clientHeight !== undefined) {
+			el.style.height = "1px";
+			el.style.height = el.scrollHeight +"px";
+			el.style.height = el.scrollHeight + el.scrollHeight - el.clientHeight + 'px';
+		}
         
     };
     
