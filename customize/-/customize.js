@@ -265,6 +265,12 @@
             ,heights
             ,maxwidths
             ,widthspx
+			,nMaxWidths
+            ,nWidths
+            ,nHeight
+            ,nGutsWhole
+            ,nGutsFraction
+			,nGutsPXs
             ,j
             ,i
             ,k
@@ -504,14 +510,19 @@
             maxwidths = [];
             widthspx = [];
             
-            
+            nMaxWidths = 8;
+            nWidths = 24;
+            nHeight = 21;
+            nGutsWhole = 7;
+            nGutsFraction = 5;
+            nGutsPXs = 11;
             
             for (m = bpi; m <= i; m++) {
                 
                 
                 
                 // Maxwidths
-                for (j = 1; j < 8; j += 1) {
+                for (j = 1; j < nMaxWidths; j += 1) {
                     maxwidths.push({
                         selector: '.' + _out.ns + _out.widthmax + '-' + j + 'dx' + _out.breakpoints[m].bp
                         ,val: (_inbreakpointi.base * ((j * 12) - 1)) + 'px',
@@ -525,7 +536,7 @@
                 
                 
                 // Widths px
-                for (j = 1; j < 24; j += 1) {
+                for (j = 1; j < nWidths; j += 1) {
                     widthspx.push({
                         selector: '.' + _out.ns + _out.width + '-' + j + 'x' + _out.breakpoints[m].bp
                         ,val: _inbreakpointi.base * j + 'px',
@@ -539,7 +550,7 @@
                     val: round(_inbreakpointi.base / 2, _in.decimalPlaces) + 'px'
                     ,selector: '.' + _out.ns + _out.height + '-1o2x' + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 21; j += 1) {
+                for (j = 1; j < nHeight; j += 1) {
                     heights.push({
                         val: _inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.height + '-' + j + 'x' + _out.breakpoints[m].bp
@@ -557,13 +568,13 @@
                     val: -_inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.innguthide + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     hidegutlefts.push({
                         val: -_inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.innguthide + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         hidegutlefts.push({
                             val: round(-_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
@@ -585,13 +596,13 @@
                     val: -_inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutsfw + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutsfws.push({
                         val: -_inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.gutsfw + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutsfws.push({
                             val: -round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
@@ -603,13 +614,13 @@
                     val: _inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutsfw + _out.breakpoints[m].bp + ' > * > *'
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutsfws.push({
                         val: _inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.gutsfw + '-' + j + 'x' + _out.breakpoints[m].bp + ' > * > *'
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutsfws.push({
                             val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
@@ -625,13 +636,13 @@
                     val: -round(_inbreakpointi.base / 2, _in.decimalPlaces) + 'px'
                     ,selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutsmargin.push({
                         val: -round(_inbreakpointi.base * j / 2, _in.decimalPlaces) + 'px'
                         ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutsmargin.push({
                             val: -round(_inbreakpointi.base * k / j / 2, _in.decimalPlaces) + 'px'
@@ -647,13 +658,13 @@
                     val: ''
                     ,selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutsmarginall.push({
                         val: ''
                         ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutsmarginall.push({
                             val: ''
@@ -669,13 +680,13 @@
                     val: round(_inbreakpointi.base / 2, _in.decimalPlaces) + 'px'
                     ,selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp + ' > *'
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutspadding.push({
                         val: round(_inbreakpointi.base * j / 2, _in.decimalPlaces) + 'px'
                         ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *'
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutspadding.push({
                             val: round(_inbreakpointi.base * k / j / 2, _in.decimalPlaces) + 'px'
@@ -691,13 +702,13 @@
                     val: val
                     ,selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp + ' > *'
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutspaddingall.push({
                         val: val
                         ,selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *'
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutspaddingall.push({
                             val: val
@@ -713,13 +724,13 @@
                     val: _inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutleft + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutlefts.push({
                         val: _inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.gutleft + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutlefts.push({
                             val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
@@ -753,13 +764,13 @@
                     val: _inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutright + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutrights.push({
                         val: _inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.gutright + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutrights.push({
                             val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
@@ -793,13 +804,13 @@
                     val: _inbreakpointi.base + 'px'
                     ,selector: '.' + _out.ns + _out.gutbot + _out.breakpoints[m].bp
                 });
-                for (j = 1; j < 7; j += 1) {
+                for (j = 1; j < nGutsWhole; j += 1) {
                     gutbottoms.push({
                         val: _inbreakpointi.base * j + 'px'
                         ,selector: '.' + _out.ns + _out.gutbot + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < 5; j += 1) {
+                for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutbottoms.push({
                             val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px'
