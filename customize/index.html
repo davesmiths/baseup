@@ -124,6 +124,16 @@
 
 <div class="copyoptions">
     <p>
+        <label for="input-hfont">Heading Font</label><br />
+        <input name="input-hfont" id="input-hfont" value="Josefin Sans:600" /><br />
+        <label for="input-hfontsource-google">Google Fonts</label><input name="input-hfontsource" id="input-hfontsource-google" value="google" type="radio" /><br />
+        <label for="input-hfontsource-none">None</label><input name="input-hfontsource" id="input-hfontsource-none" value="none" type="radio" />
+    </p>
+    <p>
+        <label for="input-copyfont">Copy Font</label>
+        <input name="input-copyfont" id="input-copyfont" value="" />
+    </p>
+    <p>
         <label for="input-hmarginbottomadjust">Heading Margin Bottom Adjust</label><br />
         <input name="input-hmarginbottomadjust" id="input-hmarginbottomadjust" type="number" step="0.01" value="0" /><br />
         The value here is the multiplied by the base and produces a margin top that snaps the body copy to the vertical baseline (limit of this is to single line headings) and the margin top is always greater than the margin bottom.
@@ -134,7 +144,7 @@
     </p>
     <p>
         <label for="input-h1space">Heading 1 Space</label><br />
-        <input name="input-h1space" id="input-h1space" type="number" step="1" min="2" value="2" /><br />
+        <input name="input-h1space" id="input-h1space" type="number" step="1" min="2" value="3" /><br />
     </p>
     <p>
         <label for="input-h2">Heading 2</label><br />
@@ -191,7 +201,7 @@
     <h2>Columns</h2>
     <p>
     <label for="input-columns">Columns</label><br />
-    <input name="input-columns" id="input-columns" class="input-columns" type="number" value="8" /><br />
+    <input name="input-columns" id="input-columns" class="input-columns" type="number" value="12" /><br />
     <em>Creates widths from width-1o1 to width-[columns]o[columns].</em>
     </p>
     <h2>Breakpoints</h2>
