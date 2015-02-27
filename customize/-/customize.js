@@ -209,37 +209,37 @@
         _in.gutmultiplierlarge = $(_selectors.gutmultiplierlarge).val();
         
         
-        stream.trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.css === 'undefined') {
                 $.ajax(_urls.templateCSS, {dataType:'text',async:false}).done(function(text) {
                     _in.templates.css = text;
-                    done();
+                    trigger();
                 });
             }
             else {
-                done();
+                trigger();
             }
         });
-        stream.trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.js === 'undefined') {
                 $.ajax(_urls.templateJS ,{dataType:'text',async:false}).done(function(text) {
                     _in.templates.js = text;
-                    done();
+                    trigger();
                 });
             }
             else {
-                done();
+                trigger();
             }
         });
-        stream.trigger('loadtemplates', function(done) {
+        stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.demo === 'undefined') {
                 $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
                     _in.templates.demo = text;
-                    done();
+                    trigger();
                 });
             }
             else {
-                done();
+                trigger();
             }
         });
         
