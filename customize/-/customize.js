@@ -145,7 +145,8 @@
 
         layoutoptions: '.layoutoptions',
         generaloptions: '.generaloptions',
-        copyoptions: '.copyoptions'
+        copyoptions: '.copyoptions',
+        tabbedoptions: '.tabbedoptions'
 
     };
 
@@ -1356,61 +1357,61 @@
 
     init = function() {
 
-        (function() {
-            var toggleText = ['Layout', 'Close Layout'],
-                toggleTextLength = toggleText.length,
-                togglePointer = (/#layoutoptions/g.exec(window.location.href)) ? 1 : 0,
-                html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-                toggleHTML;
+        //(function() {
+        //    var toggleText = ['Layout', 'Close Layout'],
+        //        toggleTextLength = toggleText.length,
+        //        togglePointer = (/#layoutoptions/g.exec(window.location.href)) ? 1 : 0,
+        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
+        //        toggleHTML;
 
-            toggleHTML = $(html);
-            toggleHTML = $(_selectors.layoutoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-            toggleHTML.on('click', 'a', function() {
-                var $this = $(this);
-                togglePointer = (togglePointer + 1) % toggleTextLength;
-                $this.text(toggleText[togglePointer]);
-                $(_selectors.layoutoptions).toggleClass('inactive');
-                resizeOutput($(_selectors.css)[0]);
-                resizeOutput($(_selectors.js)[0]);
-                return false;
-            });
-        }());
+        //    toggleHTML = $(html);
+        //    toggleHTML = $(_selectors.layoutoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
+        //    toggleHTML.on('click', 'a', function() {
+        //        var $this = $(this);
+        //        togglePointer = (togglePointer + 1) % toggleTextLength;
+        //        $this.text(toggleText[togglePointer]);
+        //        $(_selectors.layoutoptions).toggleClass('inactive');
+        //        resizeOutput($(_selectors.css)[0]);
+        //        resizeOutput($(_selectors.js)[0]);
+        //        return false;
+        //    });
+        //}());
 
-        (function() {
-            var toggleText = ['General', 'Close General'],
-                toggleTextLength = toggleText.length,
-                togglePointer = (/#generaloptions/g.exec(window.location.href)) ? 1 : 0,
-                html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-                toggleHTML;
+        //(function() {
+        //    var toggleText = ['General', 'Close General'],
+        //        toggleTextLength = toggleText.length,
+        //        togglePointer = (/#generaloptions/g.exec(window.location.href)) ? 1 : 0,
+        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
+        //        toggleHTML;
 
-            toggleHTML = $(html);
-            toggleHTML = $(_selectors.generaloptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-            toggleHTML.on('click', 'a', function() {
-                var $this = $(this);
-                togglePointer = (togglePointer + 1) % toggleTextLength;
-                $this.text(toggleText[togglePointer]);
-                $(_selectors.generaloptions).toggleClass('inactive');
-                return false;
-            });
-        }());
+        //    toggleHTML = $(html);
+        //    toggleHTML = $(_selectors.generaloptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
+        //    toggleHTML.on('click', 'a', function() {
+        //        var $this = $(this);
+        //        togglePointer = (togglePointer + 1) % toggleTextLength;
+        //        $this.text(toggleText[togglePointer]);
+        //        $(_selectors.generaloptions).toggleClass('inactive');
+        //        return false;
+        //    });
+        //}());
 
-        (function() {
-            var toggleText = ['Copy', 'Close Copy'],
-                toggleTextLength = toggleText.length,
-                togglePointer = (/#copyoptions/g.exec(window.location.href)) ? 1 : 0,
-                html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-                toggleHTML;
+        //(function() {
+        //    var toggleText = ['Copy', 'Close Copy'],
+        //        toggleTextLength = toggleText.length,
+        //        togglePointer = (/#copyoptions/g.exec(window.location.href)) ? 1 : 0,
+        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
+        //        toggleHTML;
 
-            toggleHTML = $(html);
-            toggleHTML = $(_selectors.copyoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-            toggleHTML.on('click', 'a', function() {
-                var $this = $(this);
-                togglePointer = (togglePointer + 1) % toggleTextLength;
-                $this.text(toggleText[togglePointer]);
-                $(_selectors.copyoptions).toggleClass('inactive');
-                return false;
-            });
-        }());
+        //    toggleHTML = $(html);
+        //    toggleHTML = $(_selectors.copyoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
+        //    toggleHTML.on('click', 'a', function() {
+        //        var $this = $(this);
+        //        togglePointer = (togglePointer + 1) % toggleTextLength;
+        //        $this.text(toggleText[togglePointer]);
+        //        $(_selectors.copyoptions).toggleClass('inactive');
+        //        return false;
+        //    });
+        //}());
 
         $(_selectors.formbreakpoint).slice(1).append('<td class="form-breakpoint-remove"><span tabindex="-1">x</span></td>').parent().find('tr:first').append('<th>Remove</th>');
 
@@ -1502,7 +1503,7 @@
         .on('submit', function(e) {
             var $t = $(e.target),
                 rtn = true;
-            
+
             if ($t.not('input[type="submit"]')) {
                 rtn = false;
             }
@@ -1512,3 +1513,29 @@
 
 
 }(this));
+
+
+$(function() {
+    $tabs = $('.radiotab');
+    $panels = $([]);
+    $tabs.each(function() {
+        $panels = $panels.add($($(this).attr('href')));
+        //$panels = $panels.add($('[href="#'+$(this).attr('id')+'"]'));
+    });
+    console.log($panels);
+    $tabs.on('click', function(e) {
+
+        e.preventDefault();
+
+        $tabgroup = $(this).data('radiotab-group');
+
+        $tabs.filter(function() {
+            console.log($(this).data('radiotab-group'), $tabgroup);
+            return $(this).data('radiotab-group') === $tabgroup;
+        }).each(function() {
+            $($(this).attr('href')).hide();
+        });
+
+        $($(this).attr('href')).show();
+    });
+});
