@@ -1509,6 +1509,10 @@
             }
             return rtn;
         })
+        .on('radiotab-opened', function() {
+            resizeOutput($(_selectors.css)[0]);
+            resizeOutput($(_selectors.js)[0]);
+        })
         .ready(init);
 
 
@@ -1516,26 +1520,43 @@
 
 
 $(function() {
-    $tabs = $('.radiotab');
-    $panels = $([]);
+
+    var radiotab,
+        $tabs,
+        panels,
+        tabs,
+        i;
+
+    radiotab = 'radiotab';
+    $tabs = $('[data-' + radiotab + ']');
+    panels = {};
+    tabs = {};
+
     $tabs.each(function() {
-        $panels = $panels.add($($(this).attr('href')));
-        //$panels = $panels.add($('[href="#'+$(this).attr('id')+'"]'));
+        var $this,
+            group;
+        $this = $(this);
+        group = $this.data(radiotab);
+        tabs[group] = tabs[group] || $([]);
+        tabs[group] = tabs[group].add($this);
+        panels[group] = panels[group] || $([]);
+        panels[group] = panels[group].add($($(this).attr('href')));
     });
-    console.log($panels);
+    for (i in panels) {
+        if (panels.hasOwnProperty(i)) {
+            $(panels[i]).slice(1).hide();
+        }
+    }
     $tabs.on('click', function(e) {
+
+        var group;
 
         e.preventDefault();
 
-        $tabgroup = $(this).data('radiotab-group');
+        group = $(this).data(radiotab);
 
-        $tabs.filter(function() {
-            console.log($(this).data('radiotab-group'), $tabgroup);
-            return $(this).data('radiotab-group') === $tabgroup;
-        }).each(function() {
-            $($(this).attr('href')).hide();
-        });
+        panels[group].hide();
 
-        $($(this).attr('href')).show();
+        $($(this).attr('href')).show().trigger(radiotab + '-opened');
     });
 });
