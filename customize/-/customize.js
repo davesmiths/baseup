@@ -1452,6 +1452,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         inputBaseChange();
 
+        history.replaceState(null, null, makeSettingsForURI());
+
     };
 
     redraw = function() {
