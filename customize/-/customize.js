@@ -1,3 +1,6 @@
+window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=s,u=[],c={},f=":",m="/",l="indexOf",d="split",v="shift",y="join",b=s[l](f),g=s[l](m),w=s[l]("?"),j=s[l]("#");return s=s.replace(/^\s+|\s+$/g,""),-1!==b&&(-1===g||g>b)&&(-1===w||w>b)&&(s=s[d](f),a=s[v](),s=s[y](f)),(a===r||"http,https,ftp"[d](a,2)[1])&&(-1!==j&&(b=s[d]("#"),s=b[v](),t=b[y]("#")||""),-1!==w&&(-1===j||j>w)&&(b=s[d]("?"),s=b[v](),b=b[y]("?")[d]("&"),u=b.map(function(s,r){return s=s[d]("="),r=s[v]().replace(/^amp;/,""),s=s[y]("="),c[r]=s,{key:r,value:s}})),s.substr(0,2)===m+m&&(s=s.substr(2)[d](m),b=s[v]()[d]("@"),g=b.pop()[d](f),b=b[y]("@")[d](f),e=b[v]()||r,p=b[y](f)||r,h=g[v](),i=g[y](f)||r,s=m+s[y](m))),n=s||r,{readonly:{source:o,params:u},params:c,hash:t,scheme:a,user:e,pass:p,host:h,port:i,path:n}},stringify:function(s,r){var t,a=s.scheme,e="",p=s.params,h=s.host,i=s.user,n=s.pass,o=s.port,u=s.hash,c=a?a+":":"";if(h&&(c+="//"),i&&(c+=i,n&&(c+=":"+n),c+="@"),c+=h||"",o&&(c+=":"+o),c+=s.path||"",p){for(t in p)p.hasOwnProperty(t)&&(e+=t+(p[t]?"="+p[t]:"")+"&");e&&(c+="?"+e.slice(0,-1))}return u!==r&&(c+="#"+u),c}};
+
+
 // Custom events
 (function(context) {
 
@@ -62,6 +65,7 @@
         _tid = {},
         _urls = {},
         asyncs,
+        getSettingsFromURI,
         makeInputs,
         makeInputsDone,
         makeInputDone,
@@ -71,6 +75,7 @@
         makePayloadsDone,
         makeDeliveries,
         makeHeadingMargins,
+        makeSettingsForURI,
         trim,
         processRules,
         makeWidthClasses,
@@ -93,47 +98,68 @@
     _selectors = {
 
         // inputs
-        decimalPlaces: '#input-decimalplaces',
-        positionClasses: '#input-positionclasses',
-        heightClasses: '#input-heightclasses',
-        heightClassesNum: '#input-heightclassesnum',
-        columns: '.input-columns',
-        at: '.input-at',
-        bases: '.input-bases',
-        basesx: '.input-basesx',
+        inputs: {
+
+            base: '#input-base',
+            fontSize: '#input-fontsize',
+            columns: '.input-columns',
+
+            at: '.input-at',
+            basesx: '.input-basesx',
+
+            decimalPlaces: '#input-decimalplaces',
+            heights: '#input-heights',
+            ns: '#input-ns',
+
+            positionClasses: '#input-positionclasses',
+            legacysupport: '.input-legacysupport',
+
+            h1: '#input-h1',
+            h2: '#input-h2',
+            h3: '#input-h3',
+            h4: '#input-h4',
+            h5: '#input-h5',
+            h6: '#input-h6',
+
+            h1nx: '#input-h1nx',
+            h2nx: '#input-h2nx',
+            h3nx: '#input-h3nx',
+            h4nx: '#input-h4nx',
+            h5nx: '#input-h5nx',
+            h6nx: '#input-h6nx',
+
+            hadj: '#input-hadj',
+            h1adj: '#input-h1adj',
+            h2adj: '#input-h2adj',
+            h3adj: '#input-h3adj',
+            h4adj: '#input-h4adj',
+            h5adj: '#input-h5adj',
+            h6adj: '#input-h6adj',
+
+            gutnxsmall: '#input-gutnxsmall',
+            gutnxmedium: '#input-gutnxmedium',
+            gutnxlarge: '#input-gutnxlarge',
+
+            scrollbardepthadjust: '#input-scrollbardepthadjust',
+
+            hfont: '#input-hfont',
+            hweight: '#input-hweight',
+            copyfont: '#input-copyfont',
+            copyweight: '#input-copyweight'
+
+        },
+
+        breakpointadd: '.input-breakpoint-add',
+
+        baseBasedBPs: '.input-base-based-bps',
+
         maxWidths: '.input-maxwidths',
         maxWidthsBP: '.input-maxwidths-bp',
-        baseBasedBPs: '.input-base-based-bps',
-        classNamespace: '#input-classnamespace',
-        breakpointadd: '.input-breakpoint-add',
-        base: '#input-base',
-        hbase: '#input-base',
-        basehbase: '#input-basehbase',
-        legacysupport: '.input-legacysupport',
-        copyFontSizeBaseRatio: '#input-copyfontsizebaseratio',
-
-        h1: '#input-h1',
-        h2: '#input-h2',
-        h3: '#input-h3',
-        h4: '#input-h4',
-        h5: '#input-h5',
-        h6: '#input-h6',
-        hMarginBottomAdjust: '#input-hmarginbottomadjust',
-        h1space: '#input-h1space',
-        h2space: '#input-h2space',
-        h3space: '#input-h3space',
-        h4space: '#input-h4space',
-        h5space: '#input-h5space',
-        h6space: '#input-h6space',
-
-        gutmultipliersmall: '#input-gutmultipliersmall',
-        gutmultipliermedium: '#input-gutmultipliermedium',
-        gutmultiplierlarge: '#input-gutmultiplierlarge',
+        bases: '.input-bases',
 
         formbreakpoint: '.form-breakpoint',
         formbreakpointremove: '.form-breakpoint-remove',
 
-        scrollbardepthadjust: '#input-scrollbardepthadjust',
 
         // outputs
         css: '.output-css',
@@ -156,56 +182,67 @@
         _in.breakpoints = [];
         $(_selectors.formbreakpoint).each(function(i) {
             _in.breakpoints[i] = {
-                at: $(this).find(_selectors.at).val() * 1,
+                at: $(this).find(_selectors.inputs.at).val() * 1,
                 base: $(this).find(_selectors.bases).val() * 1,
-                basex: $(this).find(_selectors.basesx).val() * 1
+                basex: $(this).find(_selectors.inputs.basesx).val() * 1
             };
         });
         _in.breakpointsLength = _in.breakpoints.length;
-        _in.columns = $(_selectors.columns).val();
-        _in.decimalPlaces = $(_selectors.decimalPlaces).val();
-        _in.positionClasses = $(_selectors.positionClasses)[0].checked;
-        _in.heightClasses = $(_selectors.heightClasses)[0].checked;
-        _in.heightClassesNum = $(_selectors.heightClassesNum).val() * 1;
-        _in.classNamespace = $(_selectors.classNamespace).val().replace(/\s+/g, '');
+        _in.columns = $(_selectors.inputs.columns).val();
+        _in.decimalPlaces = $(_selectors.inputs.decimalPlaces).val();
+        _in.positionClasses = $(_selectors.inputs.positionClasses)[0].checked;
+        _in.heightClasses = $(_selectors.inputs.heights).val() * 1;
+        _in.classNamespace = $(_selectors.inputs.ns).val().replace(/\s+/g, '');
         _in.maxWidths = $(_selectors.maxWidths).val().replace(/\s+/g, '').split(',');
         _in.maxWidthsLength = _in.maxWidths.length;
-//        _in.maxWidthsBP = $(_selectors.maxWidthsBP).val().replace(/\s+/g, '').split(',');
-//        _in.maxWidthsBPLength = _in.maxWidthsBP.length;
-        _in.base = $(_selectors.base).val();
-        _in.hbase = $(_selectors.hbase).val();
-        _in.basehbase = $(_selectors.basehbase).val();
-        _in.legacysupport = $(_selectors.legacysupport)[0].checked;
 
-        _in.copyFontSizeBaseRatio = $(_selectors.copyFontSizeBaseRatio).val();
+        _in.base = $(_selectors.inputs.base).val();
+
+        _in.legacysupport = $(_selectors.inputs.legacysupport)[0].checked;
+
+        _in.fontSize = $(_selectors.inputs.fontSize).val();
         // Handle simple divisions like 2/3
-        if (_in.copyFontSizeBaseRatio.indexOf('/') !== -1) {
-            _in.copyFontSizeBaseRatio = _in.copyFontSizeBaseRatio.split('/');
-            _in.copyFontSizeBaseRatio = _in.copyFontSizeBaseRatio[0] * 1 / _in.copyFontSizeBaseRatio[1] * 1;
+        if (_in.fontSize.indexOf('/') !== -1) {
+            _in.fontSize = _in.fontSize.split('/');
+            _in.fontSize = _in.fontSize[0] * 1 / _in.fontSize[1] * 1;
         }
-        _in.copyFontSizeBaseRatio = _in.copyFontSizeBaseRatio * 1;
+        _in.fontSize = _in.fontSize * 1;
 
-        _in.h1 = $(_selectors.h1).val() * 1;
-        _in.h2 = $(_selectors.h2).val() * 1;
-        _in.h3 = $(_selectors.h3).val() * 1;
-        _in.h4 = $(_selectors.h4).val() * 1;
-        _in.h5 = $(_selectors.h5).val() * 1;
-        _in.h6 = $(_selectors.h6).val() * 1;
-        _in.headingmarginbottomadjust = $(_selectors.hMarginBottomAdjust).val() * 1;
-        _in.h1space = $(_selectors.h1space).val() * 1;
-        _in.h2space = $(_selectors.h2space).val() * 1;
-        _in.h3space = $(_selectors.h3space).val() * 1;
-        _in.h4space = $(_selectors.h4space).val() * 1;
-        _in.h5space = $(_selectors.h5space).val() * 1;
-        _in.h6space = $(_selectors.h6space).val() * 1;
+        _in.h1 = $(_selectors.inputs.h1).val() * 1;
+        _in.h2 = $(_selectors.inputs.h2).val() * 1;
+        _in.h3 = $(_selectors.inputs.h3).val() * 1;
+        _in.h4 = $(_selectors.inputs.h4).val() * 1;
+        _in.h5 = $(_selectors.inputs.h5).val() * 1;
+        _in.h6 = $(_selectors.inputs.h6).val() * 1;
+
+        _in.h1nx = $(_selectors.inputs.h1nx).val() * 1;
+        _in.h2nx = $(_selectors.inputs.h2nx).val() * 1;
+        _in.h3nx = $(_selectors.inputs.h3nx).val() * 1;
+        _in.h4nx = $(_selectors.inputs.h4nx).val() * 1;
+        _in.h5nx = $(_selectors.inputs.h5nx).val() * 1;
+        _in.h6nx = $(_selectors.inputs.h6nx).val() * 1;
+
+        _in.hadj = $(_selectors.inputs.hadj).val(); // nx || px so far
+
+        _in.h1adj = $(_selectors.inputs.h1adj).val() * 1;
+        _in.h2adj = $(_selectors.inputs.h2adj).val() * 1;
+        _in.h3adj = $(_selectors.inputs.h3adj).val() * 1;
+        _in.h4adj = $(_selectors.inputs.h4adj).val() * 1;
+        _in.h5adj = $(_selectors.inputs.h5adj).val() * 1;
+        _in.h6adj = $(_selectors.inputs.h6adj).val() * 1;
+
+        _in.hfont = $(_selectors.inputs.hfont).val();
+        _in.hweight = $(_selectors.inputs.hweight).val();
+        _in.copyfont = $(_selectors.inputs.copyfont).val();
+        _in.copyweight = $(_selectors.inputs.copyweight).val();
 
         _in.headingspaceminimum = 1; // x base
 
-        _in.scrollbardepthadjust = $(_selectors.scrollbardepthadjust).val() * 1;
+        _in.scrollbardepthadjust = $(_selectors.inputs.scrollbardepthadjust).val() * 1;
 
-        _in.gutmultipliersmall = $(_selectors.gutmultipliersmall).val();
-        _in.gutmultipliermedium = $(_selectors.gutmultipliermedium).val();
-        _in.gutmultiplierlarge = $(_selectors.gutmultiplierlarge).val();
+        _in.gutnxsmall = $(_selectors.inputs.gutnxsmall).val();
+        _in.gutnxmedium = $(_selectors.inputs.gutnxmedium).val();
+        _in.gutnxlarge = $(_selectors.inputs.gutnxlarge).val();
 
 
         stream.trigger('loadtemplates', function(trigger) {
@@ -354,7 +391,7 @@
         _out.breakpoints = [];
 
         // Copy
-        _out.copylineheight = 1/_in.copyFontSizeBaseRatio; // Or font-size adjust
+        _out.copylineheight = 1/_in.fontSize; // Or font-size adjust
         _out.defaultcopyfontsize = 16; // The default untouched font-size cross-browser
 
         // Headings
@@ -383,6 +420,12 @@
         _out.h4lineheight = round(headingLineHeights.h4, _in.decimalPlaces);
         _out.h5lineheight = round(headingLineHeights.h5, _in.decimalPlaces);
         _out.h6lineheight = round(headingLineHeights.h6, _in.decimalPlaces);
+
+        _out.hfont = _in.hfont;
+        _out.hweight = _in.hweight;
+        _out.copyfont = _in.copyfont;
+        _out.copyweight = _in.copyweight;
+
 
 
         // widths
@@ -509,7 +552,7 @@
 
             nMaxWidths = 8;
             nWidths = 24;
-            nHeight = 21;
+            nHeight = _in.heightClasses + 1;
             nGutsWhole = 7;
             nGutsFraction = 5;
             nGutsPX = 11;
@@ -783,15 +826,15 @@
                         selector: '.' + _out.ns + _out.gutleft + '-none' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultipliersmall + 'px',
+                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
                         selector: '.' + _out.ns + _out.gutsmall + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultipliermedium + 'px',
+                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
                         selector: '.' + _out.ns + _out.gutmedium + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultiplierlarge + 'px',
+                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
                         selector: '.' + _out.ns + _out.gutlarge + _out.breakpoints[m].bp
                     }
                 );
@@ -823,15 +866,15 @@
                         selector: '.' + _out.ns + _out.gutright + '-none' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultipliersmall + 'px',
+                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
                         selector: '.' + _out.ns + _out.gutrightsmall + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultipliermedium + 'px',
+                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
                         selector: '.' + _out.ns + _out.gutrightmedium + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutmultiplierlarge + 'px',
+                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
                         selector: '.' + _out.ns + _out.gutrightlarge + _out.breakpoints[m].bp
                     }
                 );
@@ -933,7 +976,7 @@
             _outbreakpointi.gutbottoms = gutbottoms;
             _outbreakpointi.maxwidths = maxwidths;
             _outbreakpointi.widthspx = widthspx;
-            if (_in.heightClasses) {
+            if (_in.heightClasses > 0) {
                 _outbreakpointi.heights = heights;
             }
 
@@ -1203,21 +1246,6 @@
 
 
     makeHeadingMargins = function(base, lineHeights, copyfontsizepx) {
-        /*
-
-        ----------------------------
-        text
-        ----------------------------------------------------------
-                                    heading margintop
-        ----------------------------------------------------------
-        Heading                     heading height            |
-        ------------------------------------------------    height
-                                    heading marginbottom      |
-        ----------------------------------------------------------
-        text
-        ----------------------------
-
-        */
 
         var out = {},
             height,
@@ -1232,29 +1260,21 @@
 
             h = 'h' + i;
 
-            marginTop = 0;
-            marginBottom = _in.headingmarginbottomadjust * base;
-
-            height = (copyfontsizepx * _in[h] * lineHeights[h]) + marginBottom;
-
-//            use = 0;
-//            x = _in.headingmargintopknee;
-//            x = x - 1;
-//            do {
-//                use += 1;
-//                x += 1;
-//            }
-//            while (height >= x * base);
-
-            marginTop = (_in[h+'space'] * base) - height;
-
-            // Ensure the space above is greater than the space below
-            while (marginTop < marginBottom) {
-                marginTop += base;
+            if(_in.hadj === 'px') {
+                marginBottom = _in[h + 'adj'];
+            }
+            else {
+                marginBottom = _in[h + 'adj'] * base;
             }
 
+
+            height = (copyfontsizepx * _in[h] * lineHeights[h]);
+
+            marginTop = (_in[h + 'nx'] * base) - height;
+            // - base used to account for margin bottom of base on paragraphs etc.
+
             if (marginTop < base) {
-                marginTop = -(base - marginTop);
+                marginTop = marginTop - base;
             }
 
             out[h] = {
@@ -1318,12 +1338,12 @@
 
         clearTimeout(_tid.inputBasesxChange);
 
-        $(_selectors.basesx).each(function() {
+        $(_selectors.inputs.basesx).each(function() {
             multipliers.push($(this).val());
         });
         $(_selectors.bases).each(function(i) {
             var $this = $(this);
-            $this.val(multipliers[i] * $(_selectors.base).val());
+            $this.val(multipliers[i] * $(_selectors.inputs.base).val());
         });
 
         _tid.inputBasesxChange = setTimeout(redraw, 1);
@@ -1338,80 +1358,95 @@
         $(_selectors.bases).each(function() {
             bases.push($(this).val());
         });
-        $(_selectors.basesx).each(function(i) {
+        $(_selectors.inputs.basesx).each(function(i) {
             var $this = $(this);
-            $this.val(bases[i] / $(_selectors.base).val());
+            $this.val(bases[i] / $(_selectors.inputs.base).val());
         });
 
         _tid.inputBasesChange = setTimeout(redraw, 1);
 
     };
 
-    breakpointAdd = function() {
-        var last = $(_selectors.formbreakpoint).last();
-        last.after(last.clone());
-        last.next().find('td:first').text(_in.breakpointsLength);
-        redraw();
+    breakpointAdd = function(o) {
+        var last = $(_selectors.formbreakpoint).last(),
+            lastIndex = last.index(),
+            next;
+        last.after(last.clone(1));
+        next = last.next();
+        next.find('td:first').text(lastIndex);
+        next.find(_selectors.inputs.at).prop('disabled', false);
+        if (o === undefined || o.redraw === true) {
+            redraw();
+        }
         return false;
+    };
+    makeSettingsForURI = function() {
+
+        var uri,i,val;
+
+        uri = '';
+
+        for (i in _selectors.inputs) {
+            if (_selectors.inputs.hasOwnProperty(i)) {
+                if (i === 'at' || i === 'basesx') {
+                    val = '';
+                    $(_selectors.inputs[i]).each(function() {
+                        val += ',' + $(this).val();
+                    });
+                    val = val.slice(1);
+                    uri += '&' + i + '=' + val;
+                }
+                else if (i === 'positionClasses' || i === 'legacysupport') {
+                    uri += '&' + i + '=' + $(_selectors.inputs[i]).prop('checked');
+                }
+                else {
+                    uri += '&' + i + '=' + $(_selectors.inputs[i]).val();
+                }
+            }
+        }
+        return '?' + uri.slice(1);
+    };
+    getSettingsFromURI = function() {
+
+        var uri,i,selector,at,atLength,basesx;
+
+        uri = window["github.com/davesmiths/uri-js"].parse(window.location.href);
+
+        if (uri.params.at !== undefined) {
+
+            at = uri.params.at.split(',');
+            atLength = at.length;
+            basesx = uri.params.basesx.split(',');
+
+            $(_selectors.formbreakpoint).slice(1).remove();
+            for (i = 1; i < atLength; i++) {
+                breakpointAdd({redraw:false});
+            }
+
+            $(_selectors.formbreakpoint).each(function(i) {
+                $(this).find(_selectors.inputs.at).val(at[i]);
+                $(this).find(_selectors.inputs.basesx).val(basesx[i]);
+            });
+        }
+
+        for (i in _selectors.inputs) {
+            if (_selectors.inputs.hasOwnProperty(i) && i !== 'at' && i !== 'basesx') {
+                selector = _selectors.inputs[i];
+                if (uri.params[i] !== undefined) {
+                    if (i === 'positionClasses' || i === 'legacysupport') {
+                        $(selector).prop('checked', uri.params[i] === 'true');
+                    }
+                    else {
+                        $(selector).val(uri.params[i]);
+                    }
+                }
+            }
+        }
     };
 
     init = function() {
 
-        //(function() {
-        //    var toggleText = ['Layout', 'Close Layout'],
-        //        toggleTextLength = toggleText.length,
-        //        togglePointer = (/#layoutoptions/g.exec(window.location.href)) ? 1 : 0,
-        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-        //        toggleHTML;
-
-        //    toggleHTML = $(html);
-        //    toggleHTML = $(_selectors.layoutoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-        //    toggleHTML.on('click', 'a', function() {
-        //        var $this = $(this);
-        //        togglePointer = (togglePointer + 1) % toggleTextLength;
-        //        $this.text(toggleText[togglePointer]);
-        //        $(_selectors.layoutoptions).toggleClass('inactive');
-        //        resizeOutput($(_selectors.css)[0]);
-        //        resizeOutput($(_selectors.js)[0]);
-        //        return false;
-        //    });
-        //}());
-
-        //(function() {
-        //    var toggleText = ['General', 'Close General'],
-        //        toggleTextLength = toggleText.length,
-        //        togglePointer = (/#generaloptions/g.exec(window.location.href)) ? 1 : 0,
-        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-        //        toggleHTML;
-
-        //    toggleHTML = $(html);
-        //    toggleHTML = $(_selectors.generaloptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-        //    toggleHTML.on('click', 'a', function() {
-        //        var $this = $(this);
-        //        togglePointer = (togglePointer + 1) % toggleTextLength;
-        //        $this.text(toggleText[togglePointer]);
-        //        $(_selectors.generaloptions).toggleClass('inactive');
-        //        return false;
-        //    });
-        //}());
-
-        //(function() {
-        //    var toggleText = ['Copy', 'Close Copy'],
-        //        toggleTextLength = toggleText.length,
-        //        togglePointer = (/#copyoptions/g.exec(window.location.href)) ? 1 : 0,
-        //        html = '<p><a href="">'+toggleText[togglePointer]+'</a></p>',
-        //        toggleHTML;
-
-        //    toggleHTML = $(html);
-        //    toggleHTML = $(_selectors.copyoptions).before(toggleHTML).addClass((togglePointer ? '' : 'inactive')).prev();
-        //    toggleHTML.on('click', 'a', function() {
-        //        var $this = $(this);
-        //        togglePointer = (togglePointer + 1) % toggleTextLength;
-        //        $this.text(toggleText[togglePointer]);
-        //        $(_selectors.copyoptions).toggleClass('inactive');
-        //        return false;
-        //    });
-        //}());
+        getSettingsFromURI();
 
         $(_selectors.formbreakpoint).slice(1).append('<td class="form-breakpoint-remove"><span tabindex="-1">x</span></td>').parent().find('tr:first').append('<th>Remove</th>');
 
@@ -1438,43 +1473,54 @@
 
             var $t = $(e.target)
             ;
+
+            history.replaceState(null, null, makeSettingsForURI());
+
             // On change of various input
             if (
-                $t.is(_selectors.decimalPlaces) ||
-                $t.is(_selectors.positionClasses) ||
-                $t.is(_selectors.heightClasses) ||
-                $t.is(_selectors.at) ||
-                $t.is(_selectors.columns) ||
-                $t.is(_selectors.maxWidths) ||
-                $t.is(_selectors.maxWidthsBP) ||
-                $t.is(_selectors.classNamespace) ||
-                $t.is(_selectors.legacysupport) ||
-                $t.is(_selectors.gutmultipliersmall) ||
-                $t.is(_selectors.gutmultipliermedium) ||
-                $t.is(_selectors.gutmultiplierlarge) ||
-                $t.is(_selectors.scrollbardepthadjust) ||
-                $t.is(_selectors.copyFontSizeBaseRatio) ||
-                $t.is(_selectors.h1) ||
-                $t.is(_selectors.h2) ||
-                $t.is(_selectors.h3) ||
-                $t.is(_selectors.h4) ||
-                $t.is(_selectors.h5) ||
-                $t.is(_selectors.h6) ||
-                $t.is(_selectors.hMarginBottomAdjust) ||
-                $t.is(_selectors.h1space) ||
-                $t.is(_selectors.h2space) ||
-                $t.is(_selectors.h3space) ||
-                $t.is(_selectors.h4space) ||
-                $t.is(_selectors.h5space) ||
-                $t.is(_selectors.h6space)
+                $t.is(_selectors.inputs.decimalPlaces) ||
+                $t.is(_selectors.inputs.positionClasses) ||
+                $t.is(_selectors.inputs.heights) ||
+                $t.is(_selectors.inputs.at) ||
+                $t.is(_selectors.inputs.columns) ||
+                $t.is(_selectors.inputs.ns) ||
+                $t.is(_selectors.inputs.legacysupport) ||
+                $t.is(_selectors.inputs.gutnxsmall) ||
+                $t.is(_selectors.inputs.gutnxmedium) ||
+                $t.is(_selectors.inputs.gutnxlarge) ||
+                $t.is(_selectors.inputs.scrollbardepthadjust) ||
+                $t.is(_selectors.inputs.fontSize) ||
+                $t.is(_selectors.inputs.hfont) ||
+                $t.is(_selectors.inputs.hweight) ||
+                $t.is(_selectors.inputs.copyfont) ||
+                $t.is(_selectors.inputs.copyweight) ||
+                $t.is(_selectors.inputs.h1) ||
+                $t.is(_selectors.inputs.h2) ||
+                $t.is(_selectors.inputs.h3) ||
+                $t.is(_selectors.inputs.h4) ||
+                $t.is(_selectors.inputs.h5) ||
+                $t.is(_selectors.inputs.h6) ||
+                $t.is(_selectors.inputs.hadj) ||
+                $t.is(_selectors.inputs.h1adj) ||
+                $t.is(_selectors.inputs.h2adj) ||
+                $t.is(_selectors.inputs.h3adj) ||
+                $t.is(_selectors.inputs.h4adj) ||
+                $t.is(_selectors.inputs.h5adj) ||
+                $t.is(_selectors.inputs.h6adj) ||
+                $t.is(_selectors.inputs.h1nx) ||
+                $t.is(_selectors.inputs.h2nx) ||
+                $t.is(_selectors.inputs.h3nx) ||
+                $t.is(_selectors.inputs.h4nx) ||
+                $t.is(_selectors.inputs.h5nx) ||
+                $t.is(_selectors.inputs.h6nx)
             ) {
                 inputChange();
             }
 
-            else if ($t.is(_selectors.base)) {
+            else if ($t.is(_selectors.inputs.base)) {
                 inputBaseChange();
             }
-            else if ($t.is(_selectors.basesx)) {
+            else if ($t.is(_selectors.inputs.basesx)) {
                 inputBasesxChange();
             }
             else if ($t.is(_selectors.bases)) {
@@ -1485,16 +1531,19 @@
 
         })
         .on('click', function(e) {
+
             var $t = $(e.target),
                 rtn = true;
 
             if ($t.is(_selectors.breakpointadd)) {
                 breakpointAdd();
+                history.replaceState(null, null, makeSettingsForURI());
                 rtn = false;
             }
             else if ($t.closest(_selectors.formbreakpointremove).length) {
                 $t.closest('tr').remove();
                 inputChange();
+                history.replaceState(null, null, makeSettingsForURI());
                 rtn = false;
             }
 
@@ -1558,5 +1607,6 @@ $(function() {
         panels[group].hide();
 
         $($(this).attr('href')).show().trigger(radiotab + '-opened');
+
     });
 });
