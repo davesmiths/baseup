@@ -477,6 +477,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             _outbreakpointi.h5marginbottomval = headingMargins.h5.marginBottom + 'px';
             _outbreakpointi.h6marginbottomval = headingMargins.h6.marginBottom + 'px';
 
+console.log(headingMargins.h1.marginTop);
+
             _outbreakpointi.h1margintopval = headingMargins.h1.marginTop + 'px';
             _outbreakpointi.h2margintopval = headingMargins.h2.marginTop + 'px';
             _outbreakpointi.h3margintopval = headingMargins.h3.marginTop + 'px';
@@ -1268,14 +1270,15 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             }
 
 
+
             height = (copyfontsizepx * _in[h] * lineHeights[h]);
 
-            marginTop = (_in[h + 'nx'] * base) - height;
+            marginTop = ((_in[h + 'nx'] - 1) * base) - height;
             // - base used to account for margin bottom of base on paragraphs etc.
 
-            if (marginTop < base) {
-                marginTop = marginTop - base;
-            }
+            //if (marginTop < base) {
+            //    marginTop = marginTop - base;
+            //}
 
             out[h] = {
                 marginTop: marginTop,

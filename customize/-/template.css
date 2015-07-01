@@ -18,18 +18,19 @@ h1, h2, h3, h4, h5, h6,
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
 .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {adisplay:block;}
 p,form,ol,ul,dl {margin-top:0;}
+hr {border:0;border-top:1px solid #ccc;margin-top:-1px;}
 {{/is0}}
 
 {{#basechanged}}
 body {font-size:{{copyfontsize}}em;line-height:{{copylineheight}};font-family:{{copyfont}};font-weight:{{copyweight}};}
 input, textarea {font-size:1em;line-height:1;font-family:{{copyfont}};font-weight:{{copyweight}};}
-p,form,ol,ul,dl {margin-bottom:{{base}}px;}
-h1, .h1 {font-size:{{h1}}%;font-weight:{{hweight}};line-height:{{h1lineheight}};margin-top:{{h1margintopval}};position:relative;bottom:{{h1marginbottomval}};}
-h2, .h2 {font-size:{{h2}}%;font-weight:{{hweight}};line-height:{{h2lineheight}};margin-top:{{h2margintopval}};position:relative;bottom:{{h2marginbottomval}};}
-h3, .h3 {font-size:{{h3}}%;font-weight:{{hweight}};line-height:{{h3lineheight}};margin-top:{{h3margintopval}};position:relative;bottom:{{h3marginbottomval}};}
-h4, .h4 {font-size:{{h4}}%;font-weight:{{hweight}};line-height:{{h4lineheight}};margin-top:{{h4margintopval}};position:relative;bottom:{{h4marginbottomval}};}
-h5, .h5 {font-size:{{h5}}%;font-weight:{{hweight}};line-height:{{h5lineheight}};margin-top:{{h5margintopval}};position:relative;bottom:{{h5marginbottomval}};}
-h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};margin-top:{{h6margintopval}};position:relative;bottom:{{h6marginbottomval}};}
+p,form,ol,ul,dl,hr {margin-bottom:{{base}}px;}
+h1, .h1 {font-size:{{h1}}%;font-weight:{{hweight}};line-height:{{h1lineheight}};padding-top:{{h1margintopval}};position:relative;bottom:{{h1marginbottomval}};}
+h2, .h2 {font-size:{{h2}}%;font-weight:{{hweight}};line-height:{{h2lineheight}};padding-top:{{h2margintopval}};position:relative;bottom:{{h2marginbottomval}};}
+h3, .h3 {font-size:{{h3}}%;font-weight:{{hweight}};line-height:{{h3lineheight}};padding-top:{{h3margintopval}};position:relative;bottom:{{h3marginbottomval}};}
+h4, .h4 {font-size:{{h4}}%;font-weight:{{hweight}};line-height:{{h4lineheight}};padding-top:{{h4margintopval}};position:relative;bottom:{{h4marginbottomval}};}
+h5, .h5 {font-size:{{h5}}%;font-weight:{{hweight}};line-height:{{h5lineheight}};padding-top:{{h5margintopval}};position:relative;bottom:{{h5marginbottomval}};}
+h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};padding-top:{{h6margintopval}};position:relative;bottom:{{h6marginbottomval}};}
 {{/basechanged}}
 
 {{#is0}}
