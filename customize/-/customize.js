@@ -470,21 +470,20 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             headingMargins = makeHeadingMargins(_inbreakpointi.base, headingLineHeights, copyfontsizepx);
 
-            _outbreakpointi.h1marginbottomval = headingMargins.h1.marginBottom + 'px';
-            _outbreakpointi.h2marginbottomval = headingMargins.h2.marginBottom + 'px';
-            _outbreakpointi.h3marginbottomval = headingMargins.h3.marginBottom + 'px';
-            _outbreakpointi.h4marginbottomval = headingMargins.h4.marginBottom + 'px';
-            _outbreakpointi.h5marginbottomval = headingMargins.h5.marginBottom + 'px';
-            _outbreakpointi.h6marginbottomval = headingMargins.h6.marginBottom + 'px';
+            _outbreakpointi.h1bottomval = headingMargins.h1.bottom + 'px';
+            _outbreakpointi.h2bottomval = headingMargins.h2.bottom + 'px';
+            _outbreakpointi.h3bottomval = headingMargins.h3.bottom + 'px';
+            _outbreakpointi.h4bottomval = headingMargins.h4.bottom + 'px';
+            _outbreakpointi.h5bottomval = headingMargins.h5.bottom + 'px';
+            _outbreakpointi.h6bottomval = headingMargins.h6.bottom + 'px';
 
-console.log(headingMargins.h1.marginTop);
 
-            _outbreakpointi.h1margintopval = headingMargins.h1.marginTop + 'px';
-            _outbreakpointi.h2margintopval = headingMargins.h2.marginTop + 'px';
-            _outbreakpointi.h3margintopval = headingMargins.h3.marginTop + 'px';
-            _outbreakpointi.h4margintopval = headingMargins.h4.marginTop + 'px';
-            _outbreakpointi.h5margintopval = headingMargins.h5.marginTop + 'px';
-            _outbreakpointi.h6margintopval = headingMargins.h6.marginTop + 'px';
+            _outbreakpointi.h1paddingtopval = round(headingMargins.h1.paddingTop, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h2paddingtopval = round(headingMargins.h2.paddingTop, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h3paddingtopval = round(headingMargins.h3.paddingTop, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h4paddingtopval = round(headingMargins.h4.paddingTop, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h5paddingtopval = round(headingMargins.h5.paddingTop, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h6paddingtopval = round(headingMargins.h6.paddingTop, _in.decimalPlaces) + 'px';
 
 
 
@@ -1253,8 +1252,8 @@ console.log(headingMargins.h1.marginTop);
             height,
             h,
             i,
-            marginBottom,
-            marginTop,
+            bottom,
+            paddingTop,
             use,
             x;
 
@@ -1263,26 +1262,26 @@ console.log(headingMargins.h1.marginTop);
             h = 'h' + i;
 
             if(_in.hadj === 'px') {
-                marginBottom = _in[h + 'adj'];
+                bottom = _in[h + 'adj'];
             }
             else {
-                marginBottom = _in[h + 'adj'] * base;
+                bottom = _in[h + 'adj'] * base;
             }
 
 
 
             height = (copyfontsizepx * _in[h] * lineHeights[h]);
 
-            marginTop = ((_in[h + 'nx'] - 1) * base) - height;
+            paddingTop = ((_in[h + 'nx'] - 1) * base) - height;
             // - base used to account for margin bottom of base on paragraphs etc.
 
-            //if (marginTop < base) {
-            //    marginTop = marginTop - base;
+            //if (paddingTop < base) {
+            //    paddingTop = paddingTop - base;
             //}
 
             out[h] = {
-                marginTop: marginTop,
-                marginBottom: marginBottom
+                paddingTop: paddingTop,
+                bottom: bottom
             };
 
         }
