@@ -517,7 +517,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
             // maxwidth based on breakpoints
-            maxwidthbp = (_inbreakpointi.base * 2) + _inbreakpointi.at;
+            maxwidthbp = _inbreakpointi.at - _inbreakpointi.base;
             _outbreakpointi.maxwidthbp = maxwidthbp;
             maxwidthbps.push(maxwidthbp);
 
@@ -1032,7 +1032,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         for (i = 1; i < _in.breakpointsLength; i += 1) {
             _out.formMaxWidths.push(_in.breakpoints[i].at * 1);
         }
-        _out.formMaxWidthBP = maxwidthbps.join(',');
+        _out.formMaxWidthBP = maxwidthbps.slice(1);
+        _out.formMaxWidthBP = '0,' + _out.formMaxWidthBP.join(',');
 
 
         // Demo
@@ -1278,7 +1279,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             height = (copyfontsizepx * _in[h] * lineHeights[h]);
 
-            paddingTop = ((_in[h + 'nx'] - 1) * base) - height;
+            paddingTop = ((_in[h + 'nx'] - 1) * base) - height - bottom;
             // - base used to account for margin bottom of base on paragraphs etc.
 
             //if (paddingTop < base) {
