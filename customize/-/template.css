@@ -3,6 +3,8 @@
 //  Your original custom settings: {{uriPermalink}}
 */
 {{#breakpoints}}
+
+{{#layoutclasses}}
 {{#isgt0}}
 
 /* Breakpoint{{bp}} */
@@ -10,13 +12,16 @@
 
 {{/isgt0}}
 
+{{/layoutclasses}}
+
+{{#copyclasses}}
 
 /* Copy */
 {{#is0}}
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {margin:0;font-family:{{hfont}};}
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
-.h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {adisplay:block;}
+/*h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
+.h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {adisplay:block;}*/
 p,form,ol,ul,dl {margin-top:0;}
 hr {border:0;border-top:1px solid #ccc;margin-top:-1px;}
 {{/is0}}
@@ -32,6 +37,12 @@ h4, .h4 {font-size:{{h4}}%;font-weight:{{hweight}};line-height:{{h4lineheight}};
 h5, .h5 {font-size:{{h5}}%;font-weight:{{hweight}};line-height:{{h5lineheight}};padding-top:{{h5paddingtopval}};position:relative;bottom:{{h5bottomval}};}
 h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};padding-top:{{h6paddingtopval}};position:relative;bottom:{{h6bottomval}};}
 {{/basechanged}}
+
+{{/copyclasses}}
+
+
+{{#layoutclasses}}
+
 
 {{#is0}}
 
@@ -107,10 +118,12 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 
+{{#positionclasses}}
 
 /* Layout > Positioned Columns */
 .{{ns}}{{pos}} {margin-right:-100%;}
 
+{{/positionclasses}}
 
 
 
@@ -300,6 +313,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/gutsfws}}
 
 
+{{#positionclasses}}
+
 /* Pos */
 {{#poss}}
 {{#fractions}}{{#isnotfirst}},
@@ -309,11 +324,14 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{#poss}}{{#fractions}}{{#isnotveryfirst}},
 {{/isnotveryfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-right:-100%;}
 
+{{/positionclasses}}
 
 
 
 {{#bp}}
 }
 {{/bp}}
+
+{{/layoutclasses}}
 
 {{/breakpoints}}

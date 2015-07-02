@@ -112,6 +112,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             ns: '#input-ns',
 
             positionClasses: '#input-positionclasses',
+            layoutClasses: '#input-layoutclasses',
+            copyClasses: '#input-copyclasses',
             legacysupport: '.input-legacysupport',
 
             h1: '#input-h1',
@@ -190,7 +192,6 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         _in.breakpointsLength = _in.breakpoints.length;
         _in.columns = $(_selectors.inputs.columns).val();
         _in.decimalPlaces = $(_selectors.inputs.decimalPlaces).val();
-        _in.positionClasses = $(_selectors.inputs.positionClasses)[0].checked;
         _in.heightClasses = $(_selectors.inputs.heights).val() * 1;
         _in.classNamespace = $(_selectors.inputs.ns).val().replace(/\s+/g, '');
         _in.maxWidths = $(_selectors.maxWidths).val().replace(/\s+/g, '').split(',');
@@ -198,6 +199,9 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         _in.base = $(_selectors.inputs.base).val();
 
+        _in.positionClasses = $(_selectors.inputs.positionClasses)[0].checked;
+        _in.copyClasses = $(_selectors.inputs.copyClasses)[0].checked;
+        _in.layoutClasses = $(_selectors.inputs.layoutClasses)[0].checked;
         _in.legacysupport = $(_selectors.inputs.legacysupport)[0].checked;
 
         _in.fontSize = $(_selectors.inputs.fontSize).val();
@@ -1007,7 +1011,9 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         }
 
         _out.legacysupport = _in.legacysupport;
-
+        _out.layoutclasses = _in.layoutClasses;
+        _out.copyclasses = _in.copyClasses;
+        _out.positionclasses = _in.positionClasses;
 
 
 
@@ -1398,7 +1404,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     val = val.slice(1);
                     uri += '&' + i + '=' + val;
                 }
-                else if (i === 'positionClasses' || i === 'legacysupport') {
+                else if (i === 'positionClasses' || i === 'legacysupport' || i === 'layoutClasses' || i === 'copyClasses') {
                     uri += '&' + i + '=' + $(_selectors.inputs[i]).prop('checked');
                 }
                 else {
@@ -1435,7 +1441,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             if (_selectors.inputs.hasOwnProperty(i) && i !== 'at' && i !== 'basesx') {
                 selector = _selectors.inputs[i];
                 if (uri.params[i] !== undefined) {
-                    if (i === 'positionClasses' || i === 'legacysupport') {
+                    if (i === 'positionClasses' || i === 'legacysupport' || i === 'layoutClasses' || i === 'copyClasses') {
                         $(selector).prop('checked', uri.params[i] === 'true');
                     }
                     else {
@@ -1486,6 +1492,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             if (
                 $t.is(_selectors.inputs.decimalPlaces) ||
                 $t.is(_selectors.inputs.positionClasses) ||
+                $t.is(_selectors.inputs.layoutClasses) ||
+                $t.is(_selectors.inputs.copyClasses) ||
                 $t.is(_selectors.inputs.heights) ||
                 $t.is(_selectors.inputs.at) ||
                 $t.is(_selectors.inputs.columns) ||
