@@ -19,7 +19,7 @@
 /* Copy */
 {{#is0}}
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {margin:0;font-family:{{hfont}};}
+.h1, .h2, .h3, .h4, .h5, .h6 {margin:0;font-family:{{{hfont}}};}
 /*h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
 .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {adisplay:block;}*/
 p,form,ol,ul,dl {margin-top:0;}
@@ -27,7 +27,7 @@ hr {border:0;border-top:1px solid #ccc;margin-top:-1px;}
 {{/is0}}
 
 {{#basechanged}}
-body {font-size:{{copyfontsize}}em;line-height:{{copylineheight}};font-family:{{copyfont}};font-weight:{{copyweight}};}
+body {font-size:{{copyfontsize}}em;line-height:{{copylineheight}};font-family:{{{copyfont}}};font-weight:{{copyweight}};}
 input, textarea {font-size:1em;line-height:1;font-family:{{copyfont}};font-weight:{{copyweight}};}
 p,form,ol,ul,dl,hr {margin-bottom:{{base}}px;}
 h1, .h1 {font-size:{{h1}}%;font-weight:{{hweight}};line-height:{{h1lineheight}};padding-top:{{h1paddingtopval}};position:relative;bottom:{{h1bottomval}};}

@@ -474,12 +474,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             headingMargins = makeHeadingMargins(_inbreakpointi.base, headingLineHeights, copyfontsizepx);
 
-            _outbreakpointi.h1bottomval = headingMargins.h1.bottom + 'px';
-            _outbreakpointi.h2bottomval = headingMargins.h2.bottom + 'px';
-            _outbreakpointi.h3bottomval = headingMargins.h3.bottom + 'px';
-            _outbreakpointi.h4bottomval = headingMargins.h4.bottom + 'px';
-            _outbreakpointi.h5bottomval = headingMargins.h5.bottom + 'px';
-            _outbreakpointi.h6bottomval = headingMargins.h6.bottom + 'px';
+            _outbreakpointi.h1bottomval = round(headingMargins.h1.bottom, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h2bottomval = round(headingMargins.h2.bottom, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h3bottomval = round(headingMargins.h3.bottom, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h4bottomval = round(headingMargins.h4.bottom, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h5bottomval = round(headingMargins.h5.bottom, _in.decimalPlaces) + 'px';
+            _outbreakpointi.h6bottomval = round(headingMargins.h6.bottom, _in.decimalPlaces) + 'px';
 
 
             _outbreakpointi.h1paddingtopval = round(headingMargins.h1.paddingTop, _in.decimalPlaces) + 'px';
@@ -1445,7 +1445,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         $(selector).prop('checked', uri.params[i] === 'true');
                     }
                     else {
-                        $(selector).val(uri.params[i]);
+                        $(selector).val(decodeURIComponent(uri.params[i]));
                     }
                 }
             }
