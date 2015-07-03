@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+∫<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -57,47 +57,47 @@ hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}
 </style>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<link href="../../baseup.css" rel="stylesheet" />
-<script src="../../baseup.js"></script>
+<script src="../customize/-/jquery.min.js"></script>
+<link href="../baseup.css" rel="stylesheet" />
+<script src="../baseup.js"></script>
 
 
 <script>
-    
+
     (function($) {
-        
+
         'strict';
-        
+
         var dom_ready
             ,filter_class_a
             ,filter_class_bc
             ,filter_class_all
             ,$main
         ;
-        
-        
+
+
         // Actions
         make_it_so = function() {
-            
+
             var html = ''
                 ,$filters_placeholder
                 ,address = window.location.href
                 ,fragment
             ;
-            
+
             html += '<p>Filters: ';
             html += '<a href="" class="filter-class-all">All</a> ';
             html += '<a href="#class-a" class="filter-class-a">Class A Browsers</a> ';
             html += '<a href="#class-afw" class="filter-class-afw">Class A Browsers Full-Width Friendly</a> ';
             html += '<a href="#class-b" class="filter-class-b">Class B Browsers</a> ';
             html += '</p>';
-            
+
             $filters_placeholder = $('.filters-placeholder').html(html);
-            
+
             $main = $('main');
-            
+
             fragment = address.match(/\#[a-zA-Z-]+$/g);
-            
+
             if (fragment) {
                 if (fragment[0] == '#class-a') {
                     filter_class_a();
@@ -109,11 +109,11 @@ hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}
                     filter_class_afw();
                 }
             }
-            
+
         };
-        
+
         classes = 'a b afw';
-        
+
         filter_class_a = function() {
             $main.removeClass(classes).addClass('a');
         };
@@ -126,19 +126,19 @@ hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}
         filter_class_all = function() {
             $main.removeClass(classes);
         };
-        
-        
+
+
         // Event Stream Handling
-        
+
         // Dom Ready Event
         $(make_it_so);
-        
+
         // Document Click Events
         $(document).on('click', function(e) {
-           
+
            var $el = $(e.target)
            ;
-           
+
            if ($el.is('.filter-class-a')) {
                 filter_class_a();
            }
@@ -151,17 +151,17 @@ hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}
            else if ($el.is('.filter-class-all')) {
                 filter_class_all();
            }
-           
+
            return true;
-           
+
         });
-        
+
     }(jQuery));
 
 
 </script>
 
-<script src="../assets/js/respond.js"></script>
+<script src="../-/js/respond.js"></script>
 
 </head>
 
@@ -621,7 +621,7 @@ hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}
 <h3>Divs</h3>
 <div class="lay gut-right-small">
     <div class="pull-gut-right">
-        <div class="item" title="pull-gut-right-small" style="overflow:hidden;text-overflow:ellipsis;white-space: nowrap"><span class="source">div</span>pull-gut-right-small</div>
+        <div class="item" title="pull-gut-right" style="overflow:hidden;text-overflow:ellipsis;white-space: nowrap"><span class="source">div</span>pull- gut- right- small</div>
     </div>
     <div class="item"><span class="source">div</span>lay gut-right-small</div>
 </div>

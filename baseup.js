@@ -8,13 +8,13 @@
 (function($){
 
     'use strict';
-    
+
     // isIE
     /* github.com/davesmiths/isIE */var isIE=false,isIEmode;/*@cc_on isIE=@_jscript_version;@*/if(isIE!==false){if(isIE==5.8)isIE=8;else if(isIE==5.7 && window.XMLHttpRequest)isIE=7;else if(isIE==5.7 || isIE==5.6)isIE=6;else if(isIE<=5.5)isIE=5;isIEmode=isIE;if(document.documentMode)isIEmode=document.documentMode;}
 
 
     $.fn.baseUp = function(o) {
-        
+
         /*
         //  - Fix for .clear to work when placed after positional floats in IE 6 and 7
         //    - Note clear must not have hasLayout triggered otherwise the fix will fail
@@ -45,29 +45,29 @@
                 });
             }
         }
-            
+
         if (o.legacySupportCols) {
-            
+
             // For IE 6 at the mo, but really it's whether child selector is supported
             if (isIE == 6) {
                 this.each(function() {
-                
+
                     var $cols = $this = $(this)
                         ,val
                         ,valLength
                     ;
-                    
-                    
+
+
                     // Cols classes
                     if ($this.find('> .baseup-legacy-support-lay').length) {
                         $cols = $this.find('> .baseup-legacy-support-lay');
                     }
-                    
+
                     $cols.find('> *').not('.clear').each(function() {
                         $(this).addClass('col');
                     });
-                    
-                    
+
+
                     // Widths classes
                     // Copies the class div.widths-blah or div.widths-blah-Nup, renames to width-blah or width-blah-Nup and applies to all children except with .clear class or those already with a width class
                     val = $this.attr('class').match(/\s?widths-[0-9a-z-]+/g);
@@ -82,9 +82,9 @@
                             else {
                                 val[i] = {bp: 0, val: val[i]};
                             }
-                                
+
                         }
-                        
+
                         $cols.find('> *').not('.clear').each(function() {
                             var $this = $(this)
                                 ,className = $this.attr('class')
@@ -99,7 +99,7 @@
                                     $this.addClass(val[i].val);
                                 }
                             }
-                        });                        
+                        });
                     }
 
 
@@ -111,21 +111,21 @@
                         // Get the last set widths class if more than one is set
                         val = val[val.length - 1];
                         val = val.replace('guts-fw', 'gut-left');
-                        
+
                         $cols.find('> * > *').not(".clear, [class^='gut-left-'],[class*=' gut-left-']").each(function() {
                             $(this).addClass(val);
                         });
                     }
 
-                    
+
                 });
-                
+
             }
             return this;
 
         }
     };
-    
+
     // Engage legacy support
     $(function() {
         $('.clear').baseUp({legacySupportClear:true});
@@ -133,5 +133,5 @@
         $('.cols').baseUp({legacySupportCols:true});
     });
 
-    
+
 }(jQuery));

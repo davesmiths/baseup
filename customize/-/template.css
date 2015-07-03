@@ -1,6 +1,6 @@
 /*
 //  BaseUp CSS
-//  Your original custom settings: {{uriPermalink}}
+//  Your original custom settings: {{{uriPermalink}}}
 */
 {{#breakpoints}}
 
@@ -177,7 +177,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Layout > Gut Right */
 {{#gutrights}}
 {{selector}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};}
+{{/isnotlast}} {margin-right:{{val}};}
 {{/gutrights}}
 
 
@@ -185,7 +185,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Layout > Gut Bottom */
 {{#gutbottoms}}
 {{selector}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};}
+{{/isnotlast}} {margin-bottom:{{val}};}
 {{/gutbottoms}}
 
 
