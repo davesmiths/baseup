@@ -2,8 +2,6 @@
 // BaseUp JS
 */
 
-
-{{#legacysupport}}
 // Legacy browser support requires jQuery to work
 
 (function($){
@@ -16,7 +14,7 @@
     $.fn.baseUp = function(o) {
 
         /*
-        //  - Fix for .{{clear}} to work when placed after positional floats in IE 6 and 7
+        //  - Fix for .clear to work when placed after positional floats in IE 6 and 7
         //    - Note clear must not have hasLayout triggered otherwise the fix will fail
         //    - Note Positional floats can also be cleared with a wrapping .lay element
         */
@@ -24,23 +22,23 @@
             if (isIE == 7 || isIE == 6) {
                 return this.each(function() {
                     var $this = $(this);
-                    if ($this.find('> .baseup-legacy-support-{{clear}}-a').length === 0) {
-                        $this.prepend('<div class="baseup-legacy-support-{{clear}}-a"></div><div class="baseup-legacy-support-{{clear}}-b"></div>');
+                    if ($this.find('> .baseup-legacy-support-clear-a').length === 0) {
+                        $this.prepend('<div class="baseup-legacy-support-clear-a"></div><div class="baseup-legacy-support-clear-b"></div>');
                     }
                 });
             }
         }
 
         /*
-        //  - Fix for .{{lay}} .{{layleft}}, {{layright}} and .{{laycentered}} to ensure positional
+        //  - Fix for .lay .lay-left, lay-right and .lay-centered to ensure positional
         //    floats display as expected in IE 6
         */
         if (o.legacySupportLay) {
             if (isIE == 6) {
                 return this.each(function() {
                     var $this = $(this);
-                    if ($this.find('> .baseup-legacy-support-{{lay}}').length === 0) {
-                        $this.html('<div class="baseup-legacy-support-{{lay}}">'+$this.html()+'</div>');
+                    if ($this.find('> .baseup-legacy-support-lay').length === 0) {
+                        $this.html('<div class="baseup-legacy-support-lay">'+$this.html()+'</div>');
                     }
                 });
             }
@@ -49,7 +47,7 @@
         if (o.legacySupportCols) {
 
             // For IE 6 at the mo, but really it's whether child selector is supported
-            if (isIE == 6) {
+            if (isIE === 6) {
                 this.each(function() {
 
                     var $cols = $this = $(this)
@@ -59,23 +57,23 @@
 
 
                     // Cols classes
-                    if ($this.find('> .baseup-legacy-support-{{lay}}').length) {
-                        $cols = $this.find('> .baseup-legacy-support-{{lay}}');
+                    if ($this.find('> .baseup-legacy-support-lay').length) {
+                        $cols = $this.find('> .baseup-legacy-support-lay');
                     }
 
-                    $cols.find('> *').not('.{{ns}}{{clear}}').each(function() {
-                        $(this).addClass('{{ns}}{{col}}');
+                    $cols.find('> *').not('.clear').each(function() {
+                        $(this).addClass('col');
                     });
 
 
                     // Widths classes
-                    // Copies the class div.{{width}}s-blah or div.{{width}}s-blah-Nup, renames to {{width}}-blah or {{width}}-blah-Nup and applies to all children except with .clear class or those already with a {{width}} class
-                    val = $this.attr('class').match(/\s?{{ns}}{{width}}s-[0-9a-z-]+/g);
+                    // Copies the class div.widths-blah or div.widths-blah-Nup, renames to width-blah or width-blah-Nup and applies to all children except with .clear class or those already with a width class
+                    val = $this.attr('class').match(/\s?widths-[0-9a-z-]+/g);
                     if (val) {
                         valLength = val.length;
-                        // Get the last set {{width}}s class if more than one is set
+                        // Get the last set widths class if more than one is set
                         for (i = 0; i < valLength; i++) {
-                            val[i] = val[i].replace('{{ns}}{{width}}s', '{{ns}}{{width}}');
+                            val[i] = val[i].replace('widths', 'width');
                             if (m = val[i].match(/([0-9]+)up$/)) {
                                 val[i] = {bp: m[1], val: val[i]};
                             }
@@ -85,7 +83,7 @@
 
                         }
 
-                        $cols.find('> *').not('.{{ns}}{{clear}}').each(function() {
+                        $cols.find('> *').not('.clear').each(function() {
                             var $this = $(this)
                                 ,className = $this.attr('class')
                                 ,bp
@@ -95,7 +93,7 @@
                                 if (val[i].bp === 0) {
                                     bp = '';
                                 }
-                                if (!className.match(new RegExp("/\s?{{ns}}{{width}}-[0-9a-z]+"+bp+"/g"))) {
+                                if (!className.match(new RegExp("/\s?width-[0-9a-z]+"+bp+"/g"))) {
                                     $this.addClass(val[i].val);
                                 }
                             }
@@ -105,14 +103,14 @@
 
 
                     // Guts Full Width Friendly classes
-                    val = $this.attr('class').match(/\s?{{ns}}{{gutsfw}}[0-9a-z-]*/g);
+                    val = $this.attr('class').match(/\s?guts-fw[0-9a-z-]*/g);
 
                     if (val) {
                         // Get the last set widths class if more than one is set
                         val = val[val.length - 1];
-                        val = val.replace('{{ns}}{{gutsfw}}', '{{ns}}{{gutleft}}');
+                        val = val.replace('guts-fw', 'gut-left');
 
-                        $cols.find('> * > *').not(".{{ns}}{{clear}}, [class^='{{ns}}{{gutleft}}-'],[class*=' {{ns}}{{gutleft}}-']").each(function() {
+                        $cols.find('> * > *').not(".clear, [class^='gut-left-'],[class*=' gut-left-']").each(function() {
                             $(this).addClass(val);
                         });
                     }
@@ -128,12 +126,10 @@
 
     // Engage legacy support
     $(function() {
-        $('.{{ns}}{{clear}}').baseUp({legacySupportClear:true});
-        $('.{{ns}}{{lay}}, .{{ns}}{{layleft}}, .{{ns}}{{layright}}, .{{ns}}{{laycentered}}').baseUp({legacySupportLay:true});
-        $('.{{ns}}{{col}}s').baseUp({legacySupportCols:true});
+        $('.clear').baseUp({legacySupportClear:true});
+        $('.lay, .lay-left, .lay-right, .lay-centered').baseUp({legacySupportLay:true});
+        $('.cols').baseUp({legacySupportCols:true});
     });
 
 
 }(jQuery));
-
-{{/legacysupport}}

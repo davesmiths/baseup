@@ -1,0 +1,45 @@
+
+body {margin:0;padding:0 0 100px 0;line-height:20px;font-family:helvetica, arial;}
+h1, h2, h3 {line-height:40px;padding:0 20px;}
+h1, h2 {margin:0;}
+section {margin-bottom:40px;}
+header {padding:20px;}
+pre {padding:0 20px;}
+h1 small,
+h2 small {display:block;line-height:20px;font-style:italic;margin-top:-5px;margin-bottom:20px;opacity:0.7;}
+p {margin-top:0;margin-bottom:20px;}
+
+.style1 {background:#eee;}
+.style2 {background:#dde;}
+.style3 {background:#edd;}
+
+
+.item {padding:10px;background:#eee;border:1px solid #aaa;text-align:left;height:100%;box-sizing:border-box;}
+.source {color:#aaa;display:block;}
+a .source {text-decoration:none;}
+
+textarea {width:90%;padding:20px;margin-bottom:20px;margin-left:20px;}
+
+.grid-5 .col {width:20%;}
+
+.filters-placeholder a {margin-left:20px;}
+
+main.a section {display:none;}
+main.a section.a {display:block;}
+
+main.b section {display:none;}
+main.b section.b {display:block;}
+
+main.c section {display:none;}
+main.c section.c {display:block;}
+
+main.afw section {display:none;}
+main.afw section.afw {display:block;}
+
+main.a h2 .grades,
+main.b h2 .grades,
+main.c h2 .grades,
+main.afw h2 .grades {display:block;}
+
+
+hr {border:0;border-top:20px solid #eee;margin-bottom:40px;margin-top:40px;}

@@ -75,6 +75,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{laycentered}} {display:block;}
 {{/legacysupport}}
 
+.{{ns}}{{lay}} {display:flex;}
+
 .{{ns}}{{layleft}} {margin-right:auto;}
 .{{ns}}{{layright}} {margin-left:auto;}
 .{{ns}}{{laycentered}} {margin-left:auto;margin-right:auto;}
@@ -254,8 +256,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Widths */
 {{#widthclasses}}{{#widths}}
 {{#fractions}}{{#isnotfirst}},
-{{/isnotfirst}}.{{ns}}{{width}}s-{{numerator}}o{{denominator}}{{bp}} .col-cols,
-.{{ns}}{{width}}s-{{numerator}}o{{denominator}}{{bp}} > *{{/fractions}} {width:{{value}}%;}
+{{/isnotfirst}}.{{ns}}{{width}}s-{{numerator}}o{{denominator}}{{bp}} > *{{/fractions}} {width:{{value}}%;}
 {{/widths}}{{/widthclasses}}
 .{{ns}}{{width}}s-auto{{bp}} > * {width:auto;}
 
@@ -281,7 +282,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Guts */
 {{#gutsmargin}}
 {{selector}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};margin-right:{{val}}}
+{{/isnotlast}} {margin-left:{{val}};}
 {{/gutsmargin}}
 {{#gutspaddingall}}
 {{{selector}}}{{#isnotlast}},
@@ -289,8 +290,9 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/gutspaddingall}}
 {{#gutspadding}}
 {{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {padding-left:{{val}};padding-right:{{val}}}
+{{/isnotlast}} {padding-left:{{val}};}
 {{/gutspadding}}
+
 {{#legacysupport}}
 
 /* IE 6 and 7 fixes because they don't support box-sizing */

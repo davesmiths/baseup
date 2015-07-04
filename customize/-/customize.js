@@ -251,7 +251,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.css === 'undefined') {
-                $.ajax(_urls.templateCSS, {dataType:'text',async:false}).done(function(text) {
+                $.ajax(_urls.templateCSS, {dataType:'text',async:false,cache:false}).done(function(text) {
                     _in.templates.css = text;
                     trigger();
                 });
@@ -262,7 +262,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         });
         stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.js === 'undefined') {
-                $.ajax(_urls.templateJS ,{dataType:'text',async:false}).done(function(text) {
+                $.ajax(_urls.templateJS ,{dataType:'text',async:false,cache:false}).done(function(text) {
                     _in.templates.js = text;
                     trigger();
                 });
@@ -696,26 +696,26 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
                 // Guts Margin
                 gutsmargin.push({
-                    val: -round(_inbreakpointi.base / 2, _in.decimalPlaces) + 'px',
+                    val: -round(_inbreakpointi.base, _in.decimalPlaces) + 'px',
                     selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp
                 });
                 for (j = 1; j < nGutsWhole; j += 1) {
                     gutsmargin.push({
-                        val: -round(_inbreakpointi.base * j / 2, _in.decimalPlaces) + 'px',
+                        val: -round(_inbreakpointi.base * j, _in.decimalPlaces) + 'px',
                         selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
                 for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutsmargin.push({
-                            val: -round(_inbreakpointi.base * k / j / 2, _in.decimalPlaces) + 'px',
+                            val: -round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px',
                             selector: '.' + _out.ns + _out.gut + 's-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp
                         });
                     }
                 }
                 for (j = 1; j < nGutsPX; j += 1) {
                     gutsmargin.push({
-                        val: -round(j / 2, _in.decimalPlaces) + 'px',
+                        val: -round(j, _in.decimalPlaces) + 'px',
                         selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp
                     });
                 }
@@ -752,26 +752,26 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
                 // Guts Padding
                 gutspadding.push({
-                    val: round(_inbreakpointi.base / 2, _in.decimalPlaces) + 'px',
+                    val: round(_inbreakpointi.base, _in.decimalPlaces) + 'px',
                     selector: '.' + _out.ns + _out.gut + 's' + _out.breakpoints[m].bp + ' > *'
                 });
                 for (j = 1; j < nGutsWhole; j += 1) {
                     gutspadding.push({
-                        val: round(_inbreakpointi.base * j / 2, _in.decimalPlaces) + 'px',
+                        val: round(_inbreakpointi.base * j, _in.decimalPlaces) + 'px',
                         selector: '.' + _out.ns + _out.gut + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *'
                     });
                 }
                 for (j = 1; j < nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         gutspadding.push({
-                            val: round(_inbreakpointi.base * k / j / 2, _in.decimalPlaces) + 'px',
+                            val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px',
                             selector: '.' + _out.ns + _out.gut + 's-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp + ' > *'
                         });
                     }
                 }
                 for (j = 1; j < nGutsPX; j += 1) {
                     gutspadding.push({
-                        val: round(j / 2, _in.decimalPlaces) + 'px',
+                        val: round(j, _in.decimalPlaces) + 'px',
                         selector: '.' + _out.ns + _out.gut + 's-' + j + 'px' + _out.breakpoints[m].bp + ' > *'
                     });
                 }
@@ -1084,7 +1084,6 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
     };
 
     makeDeliveries = function() {
-
 
         // Textarea outputs
         $(_selectors.css).val(trim(_payload.css));
@@ -1462,7 +1461,9 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         inputBaseChange();
 
         _out.uriPermalink = makeSettingsForURI();
-        history.replaceState(null, null, _out.uriPermalink);
+        if (window.history.replaceState !== undefined) {
+            window.history.replaceState(null, null, _out.uriPermalink);
+        }
 
     };
 
@@ -1487,7 +1488,9 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             ;
 
             _out.uriPermalink = makeSettingsForURI();
-            history.replaceState(null, null, _out.uriPermalink);
+            if (window.history.replaceState !== undefined) {
+                window.history.replaceState(null, null, _out.uriPermalink);
+            }
 
             // On change of various input
             if (
@@ -1552,13 +1555,17 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             if ($t.is(_selectors.breakpointadd)) {
                 breakpointAdd();
-                history.replaceState(null, null, makeSettingsForURI());
+                if (window.history.replaceState !== undefined) {
+                    window.history.replaceState(null, null, makeSettingsForURI());
+                }
                 rtn = false;
             }
             else if ($t.closest(_selectors.formbreakpointremove).length) {
                 $t.closest('tr').remove();
                 inputChange();
-                history.replaceState(null, null, makeSettingsForURI());
+                if (window.history.replaceState !== undefined) {
+                    window.history.replaceState(null, null, makeSettingsForURI());
+                }
                 rtn = false;
             }
 
