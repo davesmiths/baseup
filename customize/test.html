@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Test BaseUp</title>
@@ -7,11 +8,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
     <!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
     <script src="-/jquery.min.js"></script>
+
+    <!-- Baseup version for the test page -->
     <link href="-/test-baseup.css" rel="stylesheet" />
     <script src="-/test-baseup.js" type="text/javascript"></script>
+
+    <!-- Test page CSS and JS -->
     <link href="-/test.css" rel="stylesheet" />
     <script src="-/test.js" type="text/javascript"></script>
-
     <script src="../-/js/respond.js"></script>
 
 </head>
@@ -19,438 +23,409 @@
 <body>
 
     <header>
-    <p><a href="./../">BaseUp</a></p>
-    <div class="filters-placeholder"></div>
-    <div class="lay cols widths-1o2-1up">
-    <div>
-    <dl>
-        <dt>Class A</dt>
-            <dd>Latest and greatest</dd>
-            <dd>Dependencies: Media Query and box-sizing border-box support</dd>
-            <dd>IE 9+</dd>
-        <dt>Class B</dt>
-            <dd>Using respond.js to patch media query support will work</dd>
-            <dd>To completely support IE 7 use the full-width friendly markup</dd>
-            <dd>Dependencies: Child selector support</dd>
-            <dd>IE 7 and 8</dd>
-        <dt>Unsupported</dt>
-            <dd>IE 6-</dd>
-    </dl>
-    <p>box-sizing border-box support is needed for .guts</p>
-    </div>
-    <div>
-    <dl>
-        <dt>Media Queries</dt>
-            <dd>IE 9+, Firefox 3.5+, Safari 4+, Opera 9.5+</dd>
-            <dd><a href="http://caniuse.com/css-mediaqueries">Media Queries (caniuse.com)</a></dd>
-            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries#Browser_compatibility">Media Queries (developer.mozilla.org)</a></dd>
-        <dt>box-sizing border-box</dt>
-            <dd>IE 8+, Opera 9.5+, Safari 3+</dd>
-            <dd><a href="http://caniuse.com/css3-boxsizing">box-sizing (caniuse.com)</a></dd>
-            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#Browser_compatibility">box-sizing (developer.mozilla.org)</a></dd>
-        <dt>Child selector &gt;</dt>
-            <dd>IE 7+</dd>
-            <dd><a href="http://caniuse.com/css-sel2">Child selectors (caniuse.com)</a></dd>
-            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors#Browser_compatibility">Child selectors (developer.mozilla.org)</a></dd>
-    </dl>
-    <p>Support notes gathered from caniuse.com and Mozilla MDN</p>
-    </div>
-    </div>
+        <p><a href="./../">BaseUp</a></p>
+        <div class="lay cols widths-1o2-1up">
+            <div>
+                <dl>
+                    <dt>Class A</dt>
+                    <dd>Latest and greatest</dd>
+                    <dd>Dependencies: Flexbox, Media Query and box-sizing border-box support</dd>
+                    <dd>IE 9+</dd>
+                    <dt>Class B</dt>
+                    <dd>Using respond.js to patch media query support will work</dd>
+                    <dd>To completely support IE 7 use the full-width friendly markup</dd>
+                    <dd>Dependencies: Child selector support</dd>
+                    <dd>IE 7 and 8</dd>
+                    <dt>Unsupported</dt>
+                    <dd>IE 6-</dd>
+                </dl>
+                <p>box-sizing border-box support is needed for .guts</p>
+            </div>
+            <div>
+                <dl>
+                    <dt>Flexbox</dt>
+                    <dd>
+                        <dl class="gut-bottom-none">
+                            <dt>Mobile</dt>
+                            <dd>Android 4.4+, Blackberry 10+, iOS Safari 7.1+, Opera Mini 8+, Opera Mobile 12.1+</dd>
+                            <dt>Desktop</dt>
+                            <dd>IE 11+, Firefox 28+ (partial from 22), Chrome 21+ (-webkit-), Safari 6.1 (-webkit-)+, Opera 12.1+</dd>
+                            <dt>References</dt>
+                            <dd><a href="http://caniuse.com/#feat=flexbox">Flexbox (caniuse.com)</a></dd>
+                        </dl>
+                    </dd>
+                    <dt>Media Queries</dt>
+                    <dd>
+                        <dl class="gut-bottom-none">
+                            <dt>Desktop</dt>
+                            <dd>IE 9+, Firefox 3.5+, Safari 4+, Opera 9.5+</dd>
+                            <dt>References</dt>
+                            <dd><a href="http://caniuse.com/css-mediaqueries">Media Queries (caniuse.com)</a></dd>
+                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries#Browser_compatibility">Media Queries (developer.mozilla.org)</a></dd>
+                        </dl>
+                    </dd>
+                    <dt>box-sizing border-box</dt>
+                    <dd>
+                        <dl class="gut-bottom-none">
+                            <dt>Desktop</dt>
+                            <dd>IE 8+, Opera 9.5+, Safari 3+</dd>
+                            <dt>References</dt>
+                            <dd><a href="http://caniuse.com/css3-boxsizing">box-sizing (caniuse.com)</a></dd>
+                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#Browser_compatibility">box-sizing (developer.mozilla.org)</a></dd>
+                        </dl>
+                    </dd>
+                    <dt>Child selector &gt;</dt>
+                    <dd>
+                        <dl class="gut-bottom-none">
+                            <dt>Desktop</dt>
+                            <dd>IE 7+</dd>
+                            <dt>References</dt>
+                            <dd><a href="http://caniuse.com/css-sel2">Child selectors (caniuse.com)</a></dd>
+                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors#Browser_compatibility">Child selectors (developer.mozilla.org)</a></dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
     </header>
     <main>
+<div class="" style="background:#ddd;">
+    <p class="pull-right">
+        asd
+    </p>
+</div>
+<div class="lay" style="background:#ddd;">
+    <p class="pull-right">
+        asd
+    </p>
+</div>
 
+        <pre>
+            add a border in the gutter
+            .gut-divider > *::before {
+                border-left: 4px solid #ddd;
+                content: "";
+                display: block;
+                float: left;
+                height: 100%;
+                left: -17px;
+                margin-right: -100%;
+                position: relative;
+                }
+        </pre>
 
-<pre>
-    add a border in the gutter
+        <p>
+            .component-height Applying height of 100% on the component has no ill affects in Firefox and IE 7-10
+            <br> The advantage is that 100% fills the flexbox when used
+        </p>
 
-    .gut-divider > *::before {
-    border-left: 4px solid #ddd;
-    content: "";
-    display: block;
-    float: left;
-    height: 100%;
-    left: -17px;
-    margin-right: -100%;
-    position: relative;
-}
-</pre>
+        <section class="a">
+            <h2>Columns</h2>
+            <div class="lay cols widths-1o8-1up gut-bottom component-heights">
+                <div>
+                    <div class="component">
+                        <span class="source">div 1</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 2</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 3</span>
+                    </div>
+                </div>
+                <div class="width-2o8-1up">
+                    <div class="component">
+                        <span class="source">div 4</span>width-2o8-1up</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 5</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 7</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 8</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="lay cols widths-1o5-1up">
+                <li>
+                    <div class="component">
+                        <span class="source">li 1</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="component">
+                        <span class="source">li 2</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="component">
+                        <span class="source">li 3</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="component">
+                        <span class="source">li 4</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="component">
+                        <span class="source">li 5</span>
+                    </div>
+                </li>
+            </ul>
 
+            <div class="lay cols widths-1o3-1up">
+                <a href="">
+                    <div class="component">
+                        <span class="source">a 1</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="component">
+                        <span class="source">a 2</span>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="component">
+                        <span class="source">a 3</span>
+                    </div>
+                </a>
+            </div>
 
-    <section class="a afw">
-    <h2>Columns <small>Class A</small></h2>
-    <div class="lay cols widths-1o8-1up gut-bottom">
-        <div><div class="item"><span class="source">div 1</span></div></div>
-        <div><div class="item"><span class="source">div 2</span></div></div>
-        <div><div class="item"><span class="source">div 3</span></div></div>
-        <div class="width-2o8-1up"><div class="item"><span class="source">div 4</span>width-2o8-1up</div></div>
-        <div><div class="item"><span class="source">div 5</span></div></div>
-        <div><div class="item"><span class="source">div 7</span></div></div>
-        <div><div class="item"><span class="source">div 8</span></div></div>
-    </div>
-    <ul class="lay cols widths-1o5-1up">
-        <li><div class="item"><span class="source">li 1</span></div></li>
-        <li><div class="item"><span class="source">li 2</span></div></li>
-        <li><div class="item"><span class="source">li 3</span></div></li>
-        <li><div class="item"><span class="source">li 4</span></div></li>
-        <li><div class="item"><span class="source">li 5</span></div></li>
-    </ul>
-    <div class="lay cols widths-1o3-1up">
-        <a href=""><div class="item"><span class="source">a 1</span></div></a>
-        <a href=""><div class="item"><span class="source">a 2</span></div></a>
-        <a href=""><div class="item"><span class="source">a 3</span></div></a>
-    </div>
-
-    <textarea rows="8">&lt;div class="lay cols widths-1o8-1up"&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div class="width-2o8-1up"&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
+        </section>
 
 
 
 
 <!--
-    <section class="b">
-    <h2>Columns <small>Class B: Legacy browsers may require col and width classes on each div</small></h2>
-    <div class="lay gut-bottom">
-        <div class="col width-1o8"><div class="item"><span class="source">div 1</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 2</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 3</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 4</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 5</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 6</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 7</span>col width-1o8</div></div>
-        <div class="col width-1o8"><div class="item"><span class="source">div 8</span>col width-1o8</div></div>
-    </div>
-    <ul class="lay gut-bottom">
-        <li class="col width-2o3"><div class="item"><span class="source">li 1</span>col width-2o3</div></li>
-        <li class="col width-1o3"><div class="item"><span class="source">li 2</span>col width-1o3</div></li>
-    </ul>
-    <div class="lay gut-bottom">
-        <a href="" class="col width-1o3"><div class="item"><span class="source">a 1</span>col width-1o3</div></a>
-        <a href="" class="col width-1o3"><div class="item"><span class="source">a 2</span>col width-1o3</div></a>
-        <a href="" class="col width-1o3"><div class="item"><span class="source">a 3</span>col width-1o3</div></a>
-    </div>
-    <textarea rows="4">&lt;div class="lay"&gt;
-        &lt;div class="col width-1o2"&gt;&lt;/div&gt;
-        &lt;div class="col width-1o2"&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
- -->
-
-
-
-    <hr />
-
-
-<p>
-    Applying height of 100% on the item has no ill affects in Firefox and IE 7-10 <br>
-    The advantage is that 100% fills the flexbox when used
-</p>
-
-    <section class="a">
-    <h2>Columns and gutters <small>Class A</small></h2>
-    <p>If Media Query support has been polyfilled IE 7 will still have problems here because it lacks box-sizing support, use the full-width friendly version for greatest compatibility</p>
-    <div class="lay cols guts widths-1o8-1up gut-bottom">
-        <div><div class="item"><span class="source">div 1</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 2</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 3</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 4</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 5</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 6</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 7</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 8</span>&nbsp;</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts"&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    <!--
-    <div class="lay cols guts-2x widths-1o8-1up gut-bottom">
-        <div><div class="item"><span class="source">div 1</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 2</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 3</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 4</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 5</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 6</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 7</span>&nbsp;</div></div>
-        <div><div class="item"><span class="source">div 8</span>&nbsp;</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts-2x"&gt;
-        &lt;div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea> -->
-    </section>
-
-
-
-<!--
-
-
-    <section class="afw">
-    <h2>Columns and gutters: full-width friendly <small>Class A</small></h2>
-    <div class="lay cols guts-fw widths-1o8-1up gut-bottom">
-        <div><div><div class="item"><span class="source">div 1</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 2</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 3</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 4</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 5</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 6</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 7</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 8</span>&nbsp;</div></div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts-fw"&gt;
-        &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    <div class="lay cols guts-fw-2x widths-1o8-1up gut-bottom">
-        <div><div><div class="item"><span class="source">div 1</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 2</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 3</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 4</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 5</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 6</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 7</span>&nbsp;</div></div></div>
-        <div><div><div class="item"><span class="source">div 8</span>&nbsp;</div></div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts-fw-2x"&gt;
-        &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-
-    <section class="b">
-    <h2>Columns and gutters (full-width friendly) <small>Class B Legacy browsers may require extra classes each div</small></h2>
-    <div class="lay hide-gut-left gut-bottom">
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 1</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 2</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 3</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 4</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 5</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 6</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 7</span>col width-1o8</div></div></div>
-        <div class="col width-1o8"><div class="gut-left"><div class="item"><span class="source">div 8</span>col width-1o8</div></div></div>
-    </div>
-    <div class="lay hide-gut-left-2x gut-bottom">
-        <div class="col width-2o3"><div class="gut-left-2x"><div class="item"><span class="source">div 1</span>col width-2o3</div></div></div>
-        <div class="col width-1o3"><div class="gut-left-2x"><div class="item"><span class="source">div 2</span>col width-1o3</div></div></div>
-    </div>
-    <div class="lay hide-gut-left-1o2x gut-bottom">
-        <div class="col width-1o3"><div class="gut-left-1o2x"><div class="item"><span class="source">div 1</span>col width-1o3</div></div></div>
-        <div class="col width-1o3"><div class="gut-left-1o2x"><div class="item"><span class="source">div 2</span>col width-1o3</div></div></div>
-        <div class="col width-1o3"><div class="gut-left-1o2x"><div class="item"><span class="source">div 3</span>col width-1o3</div></div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay hide-gut-left"&gt;
-        &lt;div class="col width-1o2"&gt;&lt;div class="gut-left"&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class="col width-1o2"&gt;&lt;div class="gut-left"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    <!--
-    <h3>Options</h3>
-    <pre><code>.gut-left
-    .gut-left-1x
-    .gut-left-2x
-    .gut-left-&hellip;
-    .gut-left-<var>n</var>x
-    .gut-left-1o2x
-    .gut-left-none
-
-    .hide-gut-left
-    .hide-gut-left-1x
-    .hide-gut-left-2x
-    .hide-gut-left-&hellip;
-    .hide-gut-left-<var>n</var>x
-    .hide-gut-left-1o2x
-    .hide-gut-left-none</code></pre>
-    -->
-    </section>
-
- -->
-
-
-
-
-
-    <hr />
-
-
-<!--
-
-
-    <section class="a afw">
-    <h2>Columns positioned <small>Class A</small></h2>
-    <div class="lay cols widths-1o8-1up gut-bottom">
-        <div class="pos-4o8-1up"><div class="item"><span class="source">div 1</span>pos-4o8-1up</div></div>
-        <div class="pos-6o8-1up"><div class="item"><span class="source">div 2</span>pos-6o8-1up</div></div>
-        <div class="pos-2o8-1up"><div class="item"><span class="source">div 3</span>pos-2o8-1up</div></div>
-        <div class="pos-8o8-1up"><div class="item"><span class="source">div 4</span>pos-8o8-1up</div></div>
-        <div class="pos-1o8-1up"><div class="item"><span class="source">div 5</span>pos-1o8-1up</div></div>
-        <div class="pos-7o8-1up"><div class="item"><span class="source">div 6</span>pos-7o8-1up</div></div>
-        <div class="pos-3o8-1up"><div class="item"><span class="source">div 7</span>pos-3o8-1up</div></div>
-        <div class="pos-5o8-1up"><div class="item"><span class="source">div 8</span>pos-5o8-1up</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up"&gt;
-        &lt;div class="pos-2o2-1up"&gt;&lt;/div&gt;
-        &lt;div class="pos-1o2-1up"&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-
-    <section class="b">
-    <h2>Columns positioned <small>Class B Legacy browsers may require extra classes each div</small></h2>
-    <div class="lay gut-bottom">
-        <div class="col width-2o3-1up pos-2o3-1up"><div class="item"><span class="source">div 1</span>col width-2o3-1up pos-2o3-1up</div></div>
-        <div class="col width-1o3-1up pos-1o3-1up"><div class="item"><span class="source">div 2</span>col width-1o3-1up pos-1o3-1up</div></div>
-    </div>
-    <div class="lay gut-bottom">
-        <div class="col width-1o3-1up pos-2o3-1up"><div class="item"><span class="source">div 1</span>col width-1o3-1up pos-2o3-1up</div></div>
-        <div class="col width-1o3-1up pos-3o3-1up"><div class="item"><span class="source">div 2</span>col width-1o3-1up pos-3o3-1up</div></div>
-        <div class="col width-1o3-1up pos-1o3-1up"><div class="item"><span class="source">div 3</span>col width-1o3-1up pos-1o3-1up</div></div>
-    </div>
-    <div class="lay gut-bottom">
-        <div class="col width-1o5-1up pos-3o5-1up"><div class="item"><span class="source">div 1</span>col width-1o5-1up pos-3o5-1up</div></div>
-        <div class="col width-1o5-1up pos-4o5-1up"><div class="item"><span class="source">div 2</span>col width-1o5-1up pos-4o5-1up</div></div>
-        <div class="col width-1o5-1up pos-5o5-1up"><div class="item"><span class="source">div 3</span>col width-1o5-1up pos-5o5-1up</div></div>
-        <div class="col width-1o5-1up pos-1o5-1up"><div class="item"><span class="source">div 4</span>col width-1o5-1up pos-1o5-1up</div></div>
-        <div class="col width-1o5-1up pos-2o5-1up"><div class="item"><span class="source">div 5</span>col width-1o5-1up pos-2o5-1up</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay"&gt;
-        &lt;div class="col width-1o2-1up pos-2o2-1up"&gt;&lt;/div&gt;
-        &lt;div class="col width-1o2-1up pos-1o2-1up"&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-    <hr />
-
-
-
-
-
-    <section class="a">
-    <h2>Columns positioned and gutters <small>Class A</small></h2>
-    <p>If Media Query support has been polyfilled IE 7 will still have problems here because it lacks box-sizing support, use the full-width friendly version for greatest compatibility</p>
-    <div class="lay cols widths-1o8-1up guts gut-bottom">
-        <div class="pos-4o8-1up"><div class="item"><span class="source">div 1</span>pos-4o8-1up</div></div>
-        <div class="pos-6o8-1up"><div class="item"><span class="source">div 2</span>pos-6o8-1up</div></div>
-        <div class="pos-2o8-1up"><div class="item"><span class="source">div 3</span>pos-2o8-1up</div></div>
-        <div class="pos-8o8-1up"><div class="item"><span class="source">div 4</span>pos-8o8-1up</div></div>
-        <div class="pos-1o8-1up"><div class="item"><span class="source">div 5</span>pos-1o8-1up</div></div>
-        <div class="pos-7o8-1up"><div class="item"><span class="source">div 6</span>pos-7o8-1up</div></div>
-        <div class="pos-3o8-1up"><div class="item"><span class="source">div 7</span>pos-3o8-1up</div></div>
-        <div class="pos-5o8-1up"><div class="item"><span class="source">div 8</span>pos-5o8-1up</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts"&gt;
-        &lt;div class="pos-2o2-1up"&gt;&lt;/div&gt;
-        &lt;div class="pos-1o2-1up"&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-
-
-    <section class="afw">
-    <h2>Columns positioned and gutters: full-width friendly <small>Class A</small></h2>
-    <div class="lay cols widths-1o8-1up guts-fw gut-bottom">
-        <div class="pos-4o8-1up"><div class="item"><span class="source">div 1</span>pos-4o8-1up</div></div>
-        <div class="pos-6o8-1up"><div class="item"><span class="source">div 2</span>pos-6o8-1up</div></div>
-        <div class="pos-2o8-1up"><div class="item"><span class="source">div 3</span>pos-2o8-1up</div></div>
-        <div class="pos-8o8-1up"><div class="item"><span class="source">div 4</span>pos-8o8-1up</div></div>
-        <div class="pos-1o8-1up"><div class="item"><span class="source">div 5</span>pos-1o8-1up</div></div>
-        <div class="pos-7o8-1up"><div class="item"><span class="source">div 6</span>pos-7o8-1up</div></div>
-        <div class="pos-3o8-1up"><div class="item"><span class="source">div 7</span>pos-3o8-1up</div></div>
-        <div class="pos-5o8-1up"><div class="item"><span class="source">div 8</span>pos-5o8-1up</div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay cols widths-1o2-1up guts-fw"&gt;
-        &lt;div class="pos-2o2-1up"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class="pos-1o2-1up"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-    <section class="b">
-    <h2>Columns positioned and gutters (full-width friendly) <small>Class B</small></h2>
-    <div class="lay hide-gut-left gut-bottom">
-        <div class="col width-2o3-1up pos-2o3-1up"><div class="gut-left"><div class="item"><span class="source">div 1</span>col width-2o3-1up pos-2o3-1up</div></div></div>
-        <div class="col width-1o3-1up pos-1o3-1up"><div class="gut-left"><div class="item"><span class="source">div 2</span>col width-1o3-1up pos-1o3-1up</div></div></div>
-    </div>
-    <div class="lay hide-gut-left gut-bottom">
-        <div class="col width-1o3-1up pos-2o3-1up"><div class="gut-left"><div class="item"><span class="source">div 1</span>col width-1o3-1up pos-2o3-1up</div></div></div>
-        <div class="col width-1o3-1up pos-3o3-1up"><div class="gut-left"><div class="item"><span class="source">div 2</span>col width-1o3-1up pos-3o3-1up</div></div></div>
-        <div class="col width-1o3-1up pos-1o3-1up"><div class="gut-left"><div class="item"><span class="source">div 3</span>col width-1o3-1up pos-1o3-1up</div></div></div>
-    </div>
-    <div class="lay hide-gut-left gut-bottom">
-        <div class="col width-1o5-1up pos-3o5-1up"><div class="gut-left"><div class="item"><span class="source">div 1</span>col width-1o5-1up pos-3o5-1up</div></div></div>
-        <div class="col width-1o5-1up pos-4o5-1up"><div class="gut-left"><div class="item"><span class="source">div 2</span>col width-1o5-1up pos-4o5-1up</div></div></div>
-        <div class="col width-1o5-1up pos-5o5-1up"><div class="gut-left"><div class="item"><span class="source">div 3</span>col width-1o5-1up pos-5o5-1up</div></div></div>
-        <div class="col width-1o5-1up pos-1o5-1up"><div class="gut-left"><div class="item"><span class="source">div 4</span>col width-1o5-1up pos-1o5-1up</div></div></div>
-        <div class="col width-1o5-1up pos-2o5-1up"><div class="gut-left"><div class="item"><span class="source">div 5</span>col width-1o5-1up pos-2o5-1up</div></div></div>
-    </div>
-    <textarea rows="4">&lt;div class="lay hide-gut-left"&gt;
-        &lt;div class="col width-1o2-1up pos-2o2-1up"&gt;&lt;div class="gut-left"&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class="col width-1o2-1up pos-1o2-1up"&gt;&lt;div class="gut-left"&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;</textarea>
-    </section>
-
-
-
-
-
-    <hr />
-
-
-
-
-
-
-
+.cols applies the floats, which are overridden by flex
+    .ord-2 applies order 2, in a browser that doesn't support flex this will be ignored
+    .pos-2o3 applies margin-right -100% and margin-left 33.3333%
+        This can be applied after the fact with JS
+            order = 2
+            numberofcols = (.cols > *).length
+            class = 'pos-' + order + 'o' + numberofcols
+        However wrap cannot be supported because the calculation will be wrong
+        Well maybe it can be calculated
+        Note that tabbing order on legacy browsers will be different to flex supported browsers
+
+
+-->
+
+        <section class="a">
+            <h2>Columns and gutters</h2>
+            <p>IE7: If Media Query support has been polyfilled IE 7 will still have problems because it lacks box-sizing support</p>
+            <p>
+                Each flexbox item gets a margin bottom when using .gut-bottoms. Ideally I would hide the gut-bottom, but I haven't done this yet
+                <br> Could do this with hide-gut-bottom similar to hide-gut-left
+            </p>
+            <div class="lay cols guts widths-1o8-1up component-heights gut-bottoms">
+                <div>
+                    <div class="component">
+                        <span class="source">div 1</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 2</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 3</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 4</span>as</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 5</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 6</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 7</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 8</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 9</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 10</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 11</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 12</span>as</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 13</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 14</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 15</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 16</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 17</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="a">
+            <h2>Columns positioned</h2>
+            <div class="lay cols widths-1o8-1up component-heights gut-bottom">
+                <div class="pos-4o8-1up">
+                    <div class="component">
+                        <span class="source">div 1</span>pos-4o8-1up</div>
+                </div>
+                <div class="pos-6o8-1up">
+                    <div class="component">
+                        <span class="source">div 2</span>pos-6o8-1up <br>asd</div>
+                </div>
+                <div class="pos-2o8-1up">
+                    <div class="component">
+                        <span class="source">div 3</span>pos-2o8-1up</div>
+                </div>
+                <div class="pos-8o8-1up">
+                    <div class="component">
+                        <span class="source">div 4</span>pos-8o8-1up</div>
+                </div>
+                <div class="pos-1o8-1up">
+                    <div class="component">
+                        <span class="source">div 5</span>pos-1o8-1up</div>
+                </div>
+                <div class="pos-7o8-1up">
+                    <div class="component">
+                        <span class="source">div 6</span>pos-7o8-1up</div>
+                </div>
+                <div class="pos-3o8-1up">
+                    <div class="component">
+                        <span class="source">div 7</span>pos-3o8-1up</div>
+                </div>
+                <div class="pos-5o8-1up">
+                    <div class="component">
+                        <span class="source">div 8</span>pos-5o8-1up</div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="a">
+            <h2>Columns positioned and gutters</h2>
+            <p>IE7: If Media Query support has been polyfilled IE 7 will still have problems here because it lacks box-sizing support, use the full-width friendly version for greatest compatibility</p>
+            <div class="lay cols widths-1o8-1up guts component-heights gut-bottom">
+                <div class="pos-4o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 1</span>pos-4o8-1up</a>
+                </div>
+                <div class="pos-6o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 2</span>pos-6o8-1up <br>asd</a>
+                </div>
+                <div class="pos-2o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 3</span>pos-2o8-1up</a>
+                </div>
+                <div class="pos-8o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 4</span>pos-8o8-1up</a>
+                </div>
+                <div class="pos-1o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 5</span>pos-1o8-1up</a>
+                </div>
+                <div class="pos-7o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 6</span>pos-7o8-1up</a>
+                </div>
+                <div class="pos-3o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 7</span>pos-3o8-1up</a>
+                </div>
+                <div class="pos-5o8-1up">
+                    <a class="component" href="">
+                        <span class="source">div 8</span>pos-5o8-1up</a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!--
     <section class="a afw b">
     <h2>Pull <small>Class A and B</small></h2>
     <div class="pull-right">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-right
         </div>
     </div>
 
     <div class="pull-right">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-right
         </div>
     </div>
     <div class="clear"></div>
     <div class="pull-right gut-left">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-right gut-left
         </div>
     </div>
 
     <div class="pull-right gut-left">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-right gut-left
         </div>
     </div>
@@ -458,13 +433,13 @@
     <div class="clear"></div>
 
     <div class="pull-left gut-right">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-left gut-right
         </div>
     </div>
 
     <div class="pull-left gut-right">
-        <div class="item">
+        <div class="component">
         <span class="source">div</span>pull-left gut-right
         </div>
     </div>
@@ -477,10 +452,10 @@
 
 
 
-    <hr />
+        <hr />
 
 
-<!--
+        <!--
 
 
     <section class="a afw b">
@@ -489,65 +464,65 @@
     <h3>Divs</h3>
     <div class="lay gut-right-small">
         <div class="pull-gut-right">
-            <div class="item" title="pull-gut-right" style="overflow:hidden;text-overflow:ellipsis;white-space: nowrap"><span class="source">div</span>pull- gut- right- small</div>
+            <div class="component" title="pull-gut-right" style="overflow:hidden;text-overflow:ellipsis;white-space: nowrap"><span class="source">div</span>pull- gut- right- small</div>
         </div>
-        <div class="item"><span class="source">div</span>lay gut-right-small</div>
+        <div class="component"><span class="source">div</span>lay gut-right-small</div>
     </div>
     </div>
     <div class="lay gut-right-medium">
-        <div class="pull-gut-right width-2x"><div class="item"><span class="source">div</span>pull-gut-right-medium</div></div>
-        <div class="item"><span class="source">div</span>lay gut-right-medium</div></div>
+        <div class="pull-gut-right width-2x"><div class="component"><span class="source">div</span>pull-gut-right-medium</div></div>
+        <div class="component"><span class="source">div</span>lay gut-right-medium</div></div>
     </div>
     <div class="lay gut-right-large">
-        <div class="pull-gut-right"><div class="item"><span class="source">div</span>pull-gut-right-large</div></div>
-        <div class="item"><span class="source">div</span>lay gut-right-large</div></div>
+        <div class="pull-gut-right"><div class="component"><span class="source">div</span>pull-gut-right-large</div></div>
+        <div class="component"><span class="source">div</span>lay gut-right-large</div></div>
     </div>
     <div class="lay gut-right-large">
-        <div class="pull-gut-right"><div class="item"><span class="source">div</span>pull-gut-right-large-gut-1x</div></div>
-        <div class="item"><span class="source">div</span>lay gut-right-large</div></div>
+        <div class="pull-gut-right"><div class="component"><span class="source">div</span>pull-gut-right-large-gut-1x</div></div>
+        <div class="component"><span class="source">div</span>lay gut-right-large</div></div>
     </div>
     <div class="lay gut-left-12x">
-        <div class="pull-gut-left -12x"><div class="item"><span class="source">div</span>pull-gut-left-12x</div></div>
-        <div class="item"><span class="source">div</span>lay gut-left-12x</div></div>
+        <div class="pull-gut-left -12x"><div class="component"><span class="source">div</span>pull-gut-left-12x</div></div>
+        <div class="component"><span class="source">div</span>lay gut-left-12x</div></div>
     </div>
     <div class="lay gut-left-12x">
-        <div class="pull-gut-left width-12x"><div class="item"><span class="source">div</span>pull-gut-left-12x-gut-1o2x</div></div>
-        <div class="item"><span class="source">div</span>lay gut-left-12x-gut-1o2x</div></div>
+        <div class="pull-gut-left width-12x"><div class="component"><span class="source">div</span>pull-gut-left-12x-gut-1o2x</div></div>
+        <div class="component"><span class="source">div</span>lay gut-left-12x-gut-1o2x</div></div>
     </div>
     <div class="lay gut-left-12x">
-        <div class="pull-gut-left -12x-gut-1x"><div class="item"><span class="source">div</span>pull-gut-left-12x-gut-1x</div></div>
-        <div class="item"><span class="source">div</span>lay gut-left-12x-gut-1x</div></div>
+        <div class="pull-gut-left -12x-gut-1x"><div class="component"><span class="source">div</span>pull-gut-left-12x-gut-1x</div></div>
+        <div class="component"><span class="source">div</span>lay gut-left-12x-gut-1x</div></div>
     </div>
 
     <h3>List</h3>
     <ul class="lay gut-left-large">
         <li>
-            <div class="pull-gut-left -large"><div class="item"><span class="source">div</span>pull-gut-left-large</div></div>
-            <div class="item"><span class="source">li</span>&nbsp;</div>
+            <div class="pull-gut-left -large"><div class="component"><span class="source">div</span>pull-gut-left-large</div></div>
+            <div class="component"><span class="source">li</span>&nbsp;</div>
         </li>
         <li>
-            <div class="pull-gut-left -large-gut-1o2x"><div class="item"><span class="source">div</span>pull-gut-left-large</div></div>
-            <div class="item"><span class="source">li</span>&nbsp;</div>
+            <div class="pull-gut-left -large-gut-1o2x"><div class="component"><span class="source">div</span>pull-gut-left-large</div></div>
+            <div class="component"><span class="source">li</span>&nbsp;</div>
         </li>
         <li>
-            <div class="pull-gut-left -large-gut-1x"><div class="item"><span class="source">div</span>pull-gut-left-large</div></div>
-            <div class="item"><span class="source">li</span>&nbsp;</div>
+            <div class="pull-gut-left -large-gut-1x"><div class="component"><span class="source">div</span>pull-gut-left-large</div></div>
+            <div class="component"><span class="source">li</span>&nbsp;</div>
         </li>
     </ul>
 
-    <h3>List items</h3>
+    <h3>List components</h3>
     <ul>
         <li class="lay gut-left-large">
-            <div class="pull-gut-left -large"><div class="item"><span class="source">div</span>pull-gut-left-large</div></div>
-            <div class="item"><span class="source">li</span>gut-left-large</div>
+            <div class="pull-gut-left -large"><div class="component"><span class="source">div</span>pull-gut-left-large</div></div>
+            <div class="component"><span class="source">li</span>gut-left-large</div>
         </li>
         <li class="lay gut-left-large">
-            <div class="pull-gut-left -large-gut-1o2x"><div class="item"><span class="source">div</span>pull-gut-left-large-gut-1o2x</div></div>
-            <div class="item"><span class="source">li</span>gut-left-large</div>
+            <div class="pull-gut-left -large-gut-1o2x"><div class="component"><span class="source">div</span>pull-gut-left-large-gut-1o2x</div></div>
+            <div class="component"><span class="source">li</span>gut-left-large</div>
         </li>
         <li class="lay gut-left-large">
-            <div class="pull-gut-left -large-gut-1x"><div class="item"><span class="source">div</span>pull-gut-left-large-gut-1x</div></div>
-            <div class="item"><span class="source">li</span>gut-left-large</div>
+            <div class="pull-gut-left -large-gut-1x"><div class="component"><span class="source">div</span>pull-gut-left-large-gut-1x</div></div>
+            <div class="component"><span class="source">li</span>gut-left-large</div>
         </li>
     </ul>
     </section>
@@ -555,17 +530,17 @@
 
 
 
-    <!--
+        <!--
     <section class="b">
     <h2>Non-nestable layouts <small>Class B</small></h2>
     <p>.col laid out in 5 columns</p>
     <div class="lay cols widths-1o5-1up">
-        <div class="col"><div class="item">col</div></div>
-        <div class="col"><div class="item">col</div></div>
-        <div class="col"><div class="item">col</div></div>
-        <div class="col"><div class="item">col</div></div>
-        <div class="col"><div class="item">col</div></div>
-        <div class="col"><div class="item">col</div></div>
+        <div class="col"><div class="component">col</div></div>
+        <div class="col"><div class="component">col</div></div>
+        <div class="col"><div class="component">col</div></div>
+        <div class="col"><div class="component">col</div></div>
+        <div class="col"><div class="component">col</div></div>
+        <div class="col"><div class="component">col</div></div>
     </div>
 
     <textarea rows="10">&lt;div class="lay cols widths-1o5-1up"&gt;
@@ -580,28 +555,28 @@
 
     <p>.col laid out in 5 columns with gutter</p>
     <div class="lay cols-5-col-1up hide-gut-left">
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
-        <div class="col"><div class="item gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
+        <div class="col"><div class="component gut-left gut-bottom">col</div></div>
     </div>
     <div class="lay cols-5-1up hide-col-gut">
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
-        <div class="col col-gut gut-bottom"><div class="item">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
+        <div class="col col-gut gut-bottom"><div class="component">col</div></div>
     </div>
     <ul class="lay cols-5-1up">
-        <li><div class="item">col</div></li>
-        <li><div class="item">col</div></li>
-        <li><div class="item">col</div></li>
-        <li><div class="item">col</div></li>
-        <li><div class="item">col</div></li>
-        <li><div class="item">col</div></li>
+        <li><div class="component">col</div></li>
+        <li><div class="component">col</div></li>
+        <li><div class="component">col</div></li>
+        <li><div class="component">col</div></li>
+        <li><div class="component">col</div></li>
+        <li><div class="component">col</div></li>
     </ul>
     </section>
     -->
@@ -610,53 +585,57 @@
 
 
 
-    <hr />
+        <hr />
 
 
 
 
-    <section class="a afw b">
-    <h2>Centered <small>Class A and B</small></h2>
-    <div class="style1">
-        <div class="lay-centered width-max">
-            <div class="item">lay-centered width-max</div>
-        </div>
-    </div>
-    <div class="style1">
-        <div class="lay-centered width-max-2dx">
-            <div class="item">lay-centered width-max-2dx</div>
-        </div>
-    </div>
-    <div class="style1">
-        <div class="lay-centered width-max-1dx width-max-2dx-1up width-max-3dx-2up">
-            <div class="item">lay-centered width-max-1dx width-max-2dx-1up width-max-3dx-2up</div>
-        </div>
-    </div>
-    </section>
-
-
-
-
-
-    <hr />
+        <section class="a afw b">
+            <h2>Centered
+                <small>Class A and B</small>
+            </h2>
+            <div class="style1">
+                <div class="lay-centered width-max">
+                    <div class="component">lay-centered width-max</div>
+                </div>
+            </div>
+            <div class="style1">
+                <div class="lay-centered width-max-2dx">
+                    <div class="component">lay-centered width-max-2dx</div>
+                </div>
+            </div>
+            <div class="style1">
+                <div class="lay-centered width-max-1dx width-max-2dx-1up width-max-3dx-2up">
+                    <div class="component">lay-centered width-max-1dx width-max-2dx-1up width-max-3dx-2up</div>
+                </div>
+            </div>
+        </section>
 
 
 
 
 
-    <section class="a afw b">
-    <h2>Left and right <small>Class A and B</small></h2>
-    <div class="style1">
-        <div class="lay-left width-max">
-            <div class="item">lay-left width-max</div>
-        </div>
-    </div>
-    <div class="style1">
-        <div class="lay-right width-max">
-            <div class="item">lay-right width-max</div>
-        </div>
-    </div>
-    </section>
+        <hr />
+
+
+
+
+
+        <section class="a afw b">
+            <h2>Left and right
+                <small>Class A and B</small>
+            </h2>
+            <div class="style1">
+                <div class="lay-left width-max">
+                    <div class="component">lay-left width-max</div>
+                </div>
+            </div>
+            <div class="style1">
+                <div class="lay-right width-max">
+                    <div class="component">lay-right width-max</div>
+                </div>
+            </div>
+        </section>
 
 
 

@@ -57,7 +57,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{layright}}:after,
 .{{ns}}{{layright}}:before,
 .{{ns}}{{laycentered}}:after,
-.{{ns}}{{laycentered}}:before {content:"";display:table;}
+.{{ns}}{{laycentered}}:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 .{{ns}}{{lay}}:after,
 .{{ns}}{{layleft}}:after,
 .{{ns}}{{layright}}:after,
@@ -75,7 +75,15 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{laycentered}} {display:block;}
 {{/legacysupport}}
 
-.{{ns}}{{lay}} {display:flex;}
+{{#legacysupport}}
+@supports (display:-webkit-flex) or (display:flex) {
+    .{{ns}}{{lay}} {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+}
+{{/legacysupport}}
+{{^legacysupport}}
+.{{ns}}{{lay}} {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+{{/legacysupport}}
+/*-webkit-flex-wrap:wrap;flex-wrap:wrap; removed wrap because of bug in webkit */
 
 .{{ns}}{{layleft}} {margin-right:auto;}
 .{{ns}}{{layright}} {margin-left:auto;}
@@ -87,8 +95,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Layout > Columns */
-.{{ns}}{{col}} {float:left;width:100%;}
-.{{ns}}{{col}}s > * {float:left;width:100%;}
+.{{ns}}{{col}} {float:left;width:100%;-webkit-flex:1;flex:1;}
+.{{ns}}{{col}}s > * {float:left;width:100%;-webkit-flex:none;flex:none;}
 
 {{#legacysupport}}
 /* Layout > Cols > Legacy Support */
@@ -132,7 +140,17 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Layout > Pull Left and Right */
 .{{ns}}{{pullleft}} {float:left;width:100%;}
 .{{ns}}{{pullright}} {float:right;width:100%;}
+
+
+/* Components */
+.{{ns}}component-heights > * {display:-webkit-flex;flex;display:flex;}
+.{{ns}}component-heights > * > * {-webkit-flex:1;flex:1;}
+/*.{{ns}}component-heights > * > * {height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}*/
+
+
 {{/is0}}
+
+
 {{#isgt0}}
 
 /* Layout > Columns */
@@ -278,6 +296,12 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/widthspx}}
 
 
+/* Component Guts */
+{{#gutbottoms}}
+{{{selector}}}{{#isnotlast}},
+{{/isnotlast}} {margin-bottom:{{val}};}
+{{/gutbottoms}}
+
 
 /* Guts */
 {{#gutsmargin}}
@@ -318,16 +342,34 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{#positionclasses}}
 
 /* Pos */
+
+{{#legacysupport}}
+
 {{#poss}}
 {{#fractions}}{{#isnotfirst}},
-{{/isnotfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;}
+{{/isnotfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;-webkit-order:{{valueinteger}};order:{{valueinteger}};}
 {{/poss}}
 
 {{#poss}}{{#fractions}}{{#isnotveryfirst}},
 {{/isnotveryfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-right:-100%;}
 
-{{/positionclasses}}
+@supports (display:-webkit-flex) or (display:flex) {
+    {{#poss}}{{#fractions}}{{#isnotveryfirst}},
+    {{/isnotveryfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-left:0;margin-right:0;}
+}
 
+{{/legacysupport}}
+{{^legacysupport}}
+
+{{#poss}}
+{{#fractions}}{{#isnotfirst}},
+{{/isnotfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {-webkit-order:{{valueinteger}};order:{{valueinteger}};}
+{{/poss}}
+
+{{/legacysupport}}
+
+
+{{/positionclasses}}
 
 
 {{#bp}}

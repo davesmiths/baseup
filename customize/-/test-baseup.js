@@ -50,11 +50,9 @@
             if (isIE === 6) {
                 this.each(function() {
 
-                    var $cols = $this = $(this)
-                        ,val
-                        ,valLength
-                    ;
+                    var $cols,val,valLength;
 
+                    $cols = $this = $(this);
 
                     // Cols classes
                     if ($this.find('> .baseup-legacy-support-lay').length) {
@@ -84,10 +82,11 @@
                         }
 
                         $cols.find('> *').not('.clear').each(function() {
-                            var $this = $(this)
-                                ,className = $this.attr('class')
-                                ,bp
-                            ;
+                            var $this,className,bp;
+
+                            $this = $(this);
+                            className = $this.attr('class');
+
                             for (i = 0; i < valLength; i++) {
                                 bp = val[i].bp + 'up';
                                 if (val[i].bp === 0) {
@@ -129,6 +128,23 @@
         $('.clear').baseUp({legacySupportClear:true});
         $('.lay, .lay-left, .lay-right, .lay-centered').baseUp({legacySupportLay:true});
         $('.cols').baseUp({legacySupportCols:true});
+
+
+// // if flex is supported we don't want margin-left nor margin-right
+//
+//         // Detect flex
+//         var display = document.documentElement.style.display;
+//         var flexsupported = false;
+//         document.documentElement.style.display = 'flex';
+//         if (document.documentElement.style.display === 'flex') {
+//             //supported
+//         }
+//         document.documentElement.style.display = '-webkit-flex';
+//         if (document.documentElement.style.display === '-webkit-flex') {
+//             //supported
+//         }
+//         document.documentElement.style.display = display;
+
     });
 
 

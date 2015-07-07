@@ -295,6 +295,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutrights,
             guts,
             gutsfws,
+            gutbottoms,
             gutsmargin,
             gutsmarginall,
             gutspadding,
@@ -304,6 +305,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutbottoms,
             heights,
             maxwidths,
+            // ords,
             widthspx,
 			nMaxWidths,
             nWidths,
@@ -384,6 +386,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         _out.height = 'height';
         _out.widthmax = 'width-max';
         _out.pos = 'pos';
+        // _out.ord = 'ord';
         _out.clearie6and7fixp1 = 'clear-ie6and7fixp1';
         _out.clearie6and7fixp2 = 'clear-ie6and7fixp2';
         _out.layie6fix = 'lay-ie6fix';
@@ -538,12 +541,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             _outbreakpointi.poss = makePositionClasses({columns: _in.columns});
 
 
-
             // Everything based on base
             hidegutlefts = [];
             gutlefts = [];
             gutrights = [];
             gutsfws = [];
+            gutbottoms = [];
             gutsmargin = [];
             gutsmarginall = [];
             gutspadding = [];
@@ -554,6 +557,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             heights = [];
             maxwidths = [];
             widthspx = [];
+            // ords = [];
 
             nMaxWidths = 8;
             nWidths = 24;
@@ -562,8 +566,15 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             nGutsFraction = 5;
             nGutsPX = 11;
 
+
             for (m = bpi; m <= i; m++) {
 
+                // for (j = 0; j < _in.columns; j++) {
+                //     ords.push({
+                //         value:-100-j,
+                //         selector: '.' + _out.ns + _out.ord + '-' + (j+1) + _out.breakpoints[m].bp,
+                //     });
+                // }
 
 
                 // Maxwidths
@@ -601,6 +612,10 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         selector: '.' + _out.ns + _out.height + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
+                heights.push({
+                    val: '100%',
+                    selector: '.' + _out.ns + _out.height + '-1o1' + _out.breakpoints[m].bp
+                });
                 heights.push({
                     val: 'auto',
                     selector: '.' + _out.ns + _out.height + '-auto' + _out.breakpoints[m].bp
@@ -689,6 +704,34 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     gutsfws.push({
                         val: j + 'px',
                         selector: '.' + _out.ns + _out.gutsfw + '-' + j + 'px' + _out.breakpoints[m].bp + ' > * > *'
+                    });
+                }
+
+
+
+                // Components Gut Margin
+                gutbottoms.push({
+                    val: round(_inbreakpointi.base, _in.decimalPlaces) + 'px',
+                    selector: '.' + _out.ns + _out.gutbot + 's' + _out.breakpoints[m].bp + ' > *'
+                });
+                for (j = 1; j < nGutsWhole; j += 1) {
+                    gutbottoms.push({
+                        val: round(_inbreakpointi.base * j, _in.decimalPlaces) + 'px',
+                        selector: '.' + _out.ns + _out.gutbot + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *'
+                    });
+                }
+                for (j = 1; j < nGutsFraction; j += 1) {
+                    for (k = 1; k < j; k++) {
+                        gutbottoms.push({
+                            val: round(_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px',
+                            selector: '.' + _out.ns + _out.gutbot + 's-' + k + 'o' + j + 'x' + _out.breakpoints[m].bp + ' > *'
+                        });
+                    }
+                }
+                for (j = 1; j < nGutsPX; j += 1) {
+                    gutbottoms.push({
+                        val: round(j, _in.decimalPlaces) + 'px',
+                        selector: '.' + _out.ns + _out.gutbot + 's-' + j + 'px' + _out.breakpoints[m].bp + ' > *'
                     });
                 }
 
@@ -934,6 +977,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             // Process the base dependent rules
             hidegutlefts = processRules(hidegutlefts);
             gutsfws = processRules(gutsfws);
+            gutbottoms = processRules(gutbottoms);
             gutsmargin = processRules(gutsmargin);
             gutsmarginall = processRules(gutsmarginall);
             gutspadding = processRules(gutspadding);
@@ -946,6 +990,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             maxwidths = processRules(maxwidths);
             widthspx = processRules(widthspx);
             heights = processRules(heights);
+            // ords = ords;
 
 
 
@@ -970,6 +1015,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             };
             _outbreakpointi.innguthides = hidegutlefts;
             _outbreakpointi.gutsfws = gutsfws;
+            _outbreakpointi.gutbottoms = gutbottoms;
             _outbreakpointi.gutsmargin = gutsmargin;
             _outbreakpointi.gutsmarginall = gutsmarginall;
             _outbreakpointi.gutspadding = gutspadding;
@@ -981,6 +1027,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             _outbreakpointi.gutbottoms = gutbottoms;
             _outbreakpointi.maxwidths = maxwidths;
             _outbreakpointi.widthspx = widthspx;
+            // _outbreakpointi.ords = ords;
             if (_in.heightClasses > 0) {
                 _outbreakpointi.heights = heights;
             }
@@ -1241,7 +1288,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     fractions[0].isnotfirst = false;
                     output.push({
                         fractions: positions[i],
-                        value: i
+                        value: i,
+                        valueinteger: round(i, 0) -50 // -50 to 50
                     });
                 }
             }

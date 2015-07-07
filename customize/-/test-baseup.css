@@ -1,6 +1,6 @@
 /*
 //  BaseUp CSS
-//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=true&h1=1.4&h2=1.2&h3=1.1&h4=1.05&h5=1.02&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.25&h2adj=0.25&h3adj=0.25&h4adj=0.25&h5adj=0.25&h6adj=0.25&gutnxsmall=4&gutnxmedium=9&gutnxlarge=14&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
+//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=false&h1=1.64&h2=1.32&h3=1.16&h4=1.08&h5=1.04&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.28&h2adj=0.28&h3adj=0.28&h4adj=0.28&h5adj=0.28&h6adj=0.28&gutnxsmall=4&gutnxmedium=9&gutnxlarge=14&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
 */
 
 
@@ -17,12 +17,12 @@ hr {border:0;border-top:1px solid #ccc;margin-top:-1px;}
 body {font-size:1.3125em;line-height:1.4285714285714286;font-family:Helvetica,Arial;font-weight:200;}
 /*input, textarea {font-size:1em;line-height:1;font-family:Helvetica,Arial;font-weight:200;}*/
 p,form,ol,ul,dl,hr {margin-bottom:30px;}
-h1, .h1 {font-size:140%;font-weight:200;line-height:1.3061;padding-top:14.1px;padding-bottom:7.5px;}
-h2, .h2 {font-size:120%;font-weight:200;line-height:1.3571;padding-top:18.2999px;padding-bottom:7.5px;}
-h3, .h3 {font-size:110%;font-weight:200;line-height:1.3896;padding-top:20.4px;padding-bottom:7.5px;}
-h4, .h4 {font-size:105%;font-weight:200;line-height:1.4081;padding-top:21.45px;padding-bottom:7.5px;}
-h5, .h5 {font-size:102%;font-weight:200;line-height:1.4201;padding-top:22.0799px;padding-bottom:7.5px;}
-h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;padding-bottom:7.5px;}
+h1, .h1 {font-size:164%;font-weight:200;line-height:1.2613;padding-top:8.16px;padding-bottom:8.4px;}
+h2, .h2 {font-size:132%;font-weight:200;line-height:1.3246;padding-top:14.8799px;padding-bottom:8.4px;}
+h3, .h3 {font-size:115.9999%;font-weight:200;line-height:1.3694;padding-top:18.24px;padding-bottom:8.4px;}
+h4, .h4 {font-size:108%;font-weight:200;line-height:1.3968;padding-top:19.92px;padding-bottom:8.4px;}
+h5, .h5 {font-size:104%;font-weight:200;line-height:1.412;padding-top:20.7599px;padding-bottom:8.4px;}
+h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;padding-bottom:8.4px;}
 
 
 
@@ -40,23 +40,15 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .lay-right:after,
 .lay-right:before,
 .lay-centered:after,
-.lay-centered:before {content:"";display:table;}
+.lay-centered:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 .lay:after,
 .lay-left:after,
 .lay-right:after,
 .lay-centered:after {clear:both;}
 
-/* Layout > Legacy Support > IE 6 and 7 fix to trigger hasLayout */
-.lay,
-.lay-left,
-.lay-right,
-.lay-centered {display:inline-block;}
-.lay,
-.lay-left,
-.lay-right,
-.lay-centered {display:block;}
 
-.lay {display:flex;}
+.lay {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+/*-webkit-flex-wrap:wrap;flex-wrap:wrap; removed wrap because of bug in webkit */
 
 .lay-left {margin-right:auto;}
 .lay-right {margin-left:auto;}
@@ -68,33 +60,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Layout > Columns */
-.col {float:left;width:100%;}
-.cols > * {float:left;width:100%;}
-
-/* Layout > Cols > Legacy Support */
-/*  IE 6 and 7 fix */
-.col {
-    _display:inline; /* 1 */
-    _word-wrap:break-word; /* 2 */
-    _overflow:hidden; /* 3 */
-    *margin-right:-1px; /* 4 */
-}
-.cols > * {
-    *margin-right:-1px; /* 4 */
-}
-/*
-//  1. Fix the double margin float bug in IE 6
-//  2. Prevent unbroken strings of text and URLs breaking the layout in IE 6
-//  3. Prevent images wider than the column width breaking the layout in IE 6
-//  4. Account for pixel-rounding of percentages in IE 6 and 7
-*/
-
-/* IE 6 and 7 fix applied in baseup.js */
-.baseup-legacy-support-clear-a {float:left;width:100%;height:0;overflow:hidden;}
-.baseup-legacy-support-clear-b {clear:both;height:0;overflow:hidden;}
-
-/* IE 6 fix applied in baseup.js */
-.baseup-legacy-support-lay {float:left;width:100%;}
+.col {float:left;width:100%;-webkit-flex:1;flex:1;}
+.cols > * {float:left;width:100%;-webkit-flex:none;flex:none;}
 
 
 
@@ -109,6 +76,16 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 /* Layout > Pull Left and Right */
 .pull-left {float:left;width:100%;}
 .pull-right {float:right;width:100%;}
+
+
+/* Components */
+.component-heights > * {display:-webkit-flex;flex;display:flex;}
+.component-heights > * > * {-webkit-flex:1;flex:1;}
+/*.component-heights > * > * {height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}*/
+
+
+
+
 
 
 
@@ -135,6 +112,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .height-18x {height:540px;}
 .height-19x {height:570px;}
 .height-20x {height:600px;}
+.height-1o1 {height:100%;}
 .height-auto {height:auto;}
 
 
@@ -210,27 +188,48 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Layout > Gut Bottom */
+.gut-bottoms &gt; *,
+.gut-bottoms-1x &gt; *,
 .gut-bottom,
 .gut-bottom-1x {margin-bottom:30px;}
+.gut-bottoms-2x &gt; *,
 .gut-bottom-2x {margin-bottom:60px;}
+.gut-bottoms-3x &gt; *,
 .gut-bottom-3x {margin-bottom:90px;}
+.gut-bottoms-4x &gt; *,
 .gut-bottom-4x {margin-bottom:120px;}
+.gut-bottoms-5x &gt; *,
 .gut-bottom-5x {margin-bottom:150px;}
+.gut-bottoms-6x &gt; *,
 .gut-bottom-6x {margin-bottom:180px;}
+.gut-bottoms-1o2x &gt; *,
+.gut-bottoms-2o4x &gt; *,
 .gut-bottom-1o2x,
 .gut-bottom-2o4x {margin-bottom:15px;}
+.gut-bottoms-1o3x &gt; *,
+.gut-bottoms-10px &gt; *,
 .gut-bottom-1o3x {margin-bottom:10px;}
+.gut-bottoms-2o3x &gt; *,
 .gut-bottom-2o3x {margin-bottom:20px;}
+.gut-bottoms-1o4x &gt; *,
 .gut-bottom-1o4x {margin-bottom:7.5px;}
+.gut-bottoms-3o4x &gt; *,
 .gut-bottom-3o4x {margin-bottom:22.5px;}
+.gut-bottoms-1px &gt; * {margin-bottom:1px;}
+.gut-bottoms-2px &gt; * {margin-bottom:2px;}
+.gut-bottoms-3px &gt; * {margin-bottom:3px;}
+.gut-bottoms-4px &gt; * {margin-bottom:4px;}
+.gut-bottoms-5px &gt; * {margin-bottom:5px;}
+.gut-bottoms-6px &gt; * {margin-bottom:6px;}
+.gut-bottoms-7px &gt; * {margin-bottom:7px;}
+.gut-bottoms-8px &gt; * {margin-bottom:8px;}
+.gut-bottoms-9px &gt; * {margin-bottom:9px;}
 .gut-bottom-none {margin-bottom:0;}
 
 
 
 /* Layout > Pull Gut Left */
 .pull-gut-left {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left {margin-right:30px;}
 
@@ -238,8 +237,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 /* Layout > Pull Gut Right */
 .pull-gut-right {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right {*margin-right:0;*left:0;*float:right;}
 .pull-gut-right-none {margin-right:0;width:auto;float:none;position:static;}
 .pull-gut-right {margin-left:30px;}
 
@@ -449,6 +446,45 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .width-23x {width:690px;}
 
 
+/* Component Guts */
+.gut-bottoms > *,
+.gut-bottoms-1x > *,
+.gut-bottom,
+.gut-bottom-1x {margin-bottom:30px;}
+.gut-bottoms-2x > *,
+.gut-bottom-2x {margin-bottom:60px;}
+.gut-bottoms-3x > *,
+.gut-bottom-3x {margin-bottom:90px;}
+.gut-bottoms-4x > *,
+.gut-bottom-4x {margin-bottom:120px;}
+.gut-bottoms-5x > *,
+.gut-bottom-5x {margin-bottom:150px;}
+.gut-bottoms-6x > *,
+.gut-bottom-6x {margin-bottom:180px;}
+.gut-bottoms-1o2x > *,
+.gut-bottoms-2o4x > *,
+.gut-bottom-1o2x,
+.gut-bottom-2o4x {margin-bottom:15px;}
+.gut-bottoms-1o3x > *,
+.gut-bottoms-10px > *,
+.gut-bottom-1o3x {margin-bottom:10px;}
+.gut-bottoms-2o3x > *,
+.gut-bottom-2o3x {margin-bottom:20px;}
+.gut-bottoms-1o4x > *,
+.gut-bottom-1o4x {margin-bottom:7.5px;}
+.gut-bottoms-3o4x > *,
+.gut-bottom-3o4x {margin-bottom:22.5px;}
+.gut-bottoms-1px > * {margin-bottom:1px;}
+.gut-bottoms-2px > * {margin-bottom:2px;}
+.gut-bottoms-3px > * {margin-bottom:3px;}
+.gut-bottoms-4px > * {margin-bottom:4px;}
+.gut-bottoms-5px > * {margin-bottom:5px;}
+.gut-bottoms-6px > * {margin-bottom:6px;}
+.gut-bottoms-7px > * {margin-bottom:7px;}
+.gut-bottoms-8px > * {margin-bottom:8px;}
+.gut-bottoms-9px > * {margin-bottom:9px;}
+.gut-bottom-none {margin-bottom:0;}
+
 
 /* Guts */
 .guts,
@@ -522,54 +558,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .guts-9px > * {padding-left:9px;}
 
 
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts,
-.guts-1x,
-.guts-2x,
-.guts-3x,
-.guts-4x,
-.guts-5x,
-.guts-6x,
-.guts-1o2x,
-.guts-1o3x,
-.guts-2o3x,
-.guts-1o4x,
-.guts-2o4x,
-.guts-3o4x,
-.guts-1px,
-.guts-2px,
-.guts-3px,
-.guts-4px,
-.guts-5px,
-.guts-6px,
-.guts-7px,
-.guts-8px,
-.guts-9px,
-.guts-10px {*margin-left:0;*margin-right:0;}
-.guts > *,
-.guts-1x > *,
-.guts-2x > *,
-.guts-3x > *,
-.guts-4x > *,
-.guts-5x > *,
-.guts-6x > *,
-.guts-1o2x > *,
-.guts-1o3x > *,
-.guts-2o3x > *,
-.guts-1o4x > *,
-.guts-2o4x > *,
-.guts-3o4x > *,
-.guts-1px > *,
-.guts-2px > *,
-.guts-3px > *,
-.guts-4px > *,
-.guts-5px > *,
-.guts-6px > *,
-.guts-7px > *,
-.guts-8px > *,
-.guts-9px > *,
-.guts-10px > * {*padding-left:0;*padding-right:0;}
-
 
 
 /* Guts Full-Width classes */
@@ -623,84 +611,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Pos */
-.pos-1o1,
-.pos-1o2,
-.pos-1o3,
-.pos-1o4,
-.pos-1o5,
-.pos-1o6,
-.pos-1o7,
-.pos-1o8,
-.pos-1o9,
-.pos-1o10,
-.pos-1o11,
-.pos-1o12 {margin-left:0%;}
-.pos-2o10 {margin-left:10%;}
-.pos-2o5,
-.pos-3o10 {margin-left:20%;}
-.pos-2o4,
-.pos-3o8,
-.pos-4o12 {margin-left:25%;}
-.pos-4o10 {margin-left:30%;}
-.pos-3o5,
-.pos-5o10 {margin-left:40%;}
-.pos-2o2,
-.pos-3o4,
-.pos-4o6,
-.pos-5o8,
-.pos-6o10,
-.pos-7o12 {margin-left:50%;}
-.pos-4o5,
-.pos-7o10 {margin-left:60%;}
-.pos-8o10 {margin-left:70%;}
-.pos-4o4,
-.pos-7o8,
-.pos-10o12 {margin-left:75%;}
-.pos-5o5,
-.pos-9o10 {margin-left:80%;}
-.pos-10o10 {margin-left:90%;}
-.pos-2o3,
-.pos-3o6,
-.pos-4o9,
-.pos-5o12 {margin-left:33.3333%;}
-.pos-2o6,
-.pos-3o12 {margin-left:16.6666%;}
-.pos-2o7 {margin-left:14.2857%;}
-.pos-2o8 {margin-left:12.5%;}
-.pos-2o9 {margin-left:11.1111%;}
-.pos-2o11 {margin-left:9.0909%;}
-.pos-2o12 {margin-left:8.3333%;}
-.pos-3o3,
-.pos-5o6,
-.pos-7o9,
-.pos-9o12 {margin-left:66.6666%;}
-.pos-3o7 {margin-left:28.5714%;}
-.pos-3o9 {margin-left:22.2222%;}
-.pos-3o11 {margin-left:18.1818%;}
-.pos-4o7 {margin-left:42.8571%;}
-.pos-4o8 {margin-left:37.5%;}
-.pos-4o11 {margin-left:27.2727%;}
-.pos-5o7 {margin-left:57.1428%;}
-.pos-5o9 {margin-left:44.4444%;}
-.pos-5o11 {margin-left:36.3636%;}
-.pos-6o6,
-.pos-11o12 {margin-left:83.3333%;}
-.pos-6o7 {margin-left:71.4285%;}
-.pos-6o8 {margin-left:62.5%;}
-.pos-6o9 {margin-left:55.5555%;}
-.pos-6o11 {margin-left:45.4545%;}
-.pos-6o12 {margin-left:41.6666%;}
-.pos-7o7 {margin-left:85.7142%;}
-.pos-7o11 {margin-left:54.5454%;}
-.pos-8o8 {margin-left:87.5%;}
-.pos-8o9 {margin-left:77.7777%;}
-.pos-8o11 {margin-left:63.6363%;}
-.pos-8o12 {margin-left:58.3333%;}
-.pos-9o9 {margin-left:88.8888%;}
-.pos-9o11 {margin-left:72.7272%;}
-.pos-10o11 {margin-left:81.8181%;}
-.pos-11o11 {margin-left:90.909%;}
-.pos-12o12 {margin-left:91.6666%;}
+
 
 .pos-1o1,
 .pos-1o2,
@@ -713,73 +624,74 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .pos-1o9,
 .pos-1o10,
 .pos-1o11,
-.pos-1o12,
-.pos-2o10,
+.pos-1o12 {-webkit-order:-50;order:-50;}
+.pos-2o10 {-webkit-order:-40;order:-40;}
 .pos-2o5,
-.pos-3o10,
+.pos-3o10 {-webkit-order:-30;order:-30;}
 .pos-2o4,
 .pos-3o8,
-.pos-4o12,
-.pos-4o10,
+.pos-4o12 {-webkit-order:-25;order:-25;}
+.pos-4o10 {-webkit-order:-20;order:-20;}
 .pos-3o5,
-.pos-5o10,
+.pos-5o10 {-webkit-order:-10;order:-10;}
 .pos-2o2,
 .pos-3o4,
 .pos-4o6,
 .pos-5o8,
 .pos-6o10,
-.pos-7o12,
+.pos-7o12 {-webkit-order:0;order:0;}
 .pos-4o5,
-.pos-7o10,
-.pos-8o10,
+.pos-7o10 {-webkit-order:10;order:10;}
+.pos-8o10 {-webkit-order:20;order:20;}
 .pos-4o4,
 .pos-7o8,
-.pos-10o12,
+.pos-10o12 {-webkit-order:25;order:25;}
 .pos-5o5,
-.pos-9o10,
-.pos-10o10,
+.pos-9o10 {-webkit-order:30;order:30;}
+.pos-10o10 {-webkit-order:40;order:40;}
 .pos-2o3,
 .pos-3o6,
 .pos-4o9,
-.pos-5o12,
+.pos-5o12 {-webkit-order:-17;order:-17;}
 .pos-2o6,
-.pos-3o12,
-.pos-2o7,
-.pos-2o8,
-.pos-2o9,
-.pos-2o11,
-.pos-2o12,
+.pos-3o12 {-webkit-order:-34;order:-34;}
+.pos-2o7 {-webkit-order:-36;order:-36;}
+.pos-2o8 {-webkit-order:-38;order:-38;}
+.pos-2o9 {-webkit-order:-39;order:-39;}
+.pos-2o11 {-webkit-order:-41;order:-41;}
+.pos-2o12 {-webkit-order:-42;order:-42;}
 .pos-3o3,
 .pos-5o6,
 .pos-7o9,
-.pos-9o12,
-.pos-3o7,
-.pos-3o9,
-.pos-3o11,
-.pos-4o7,
-.pos-4o8,
-.pos-4o11,
-.pos-5o7,
-.pos-5o9,
-.pos-5o11,
+.pos-9o12 {-webkit-order:16;order:16;}
+.pos-3o7 {-webkit-order:-22;order:-22;}
+.pos-3o9 {-webkit-order:-28;order:-28;}
+.pos-3o11 {-webkit-order:-32;order:-32;}
+.pos-4o7 {-webkit-order:-8;order:-8;}
+.pos-4o8 {-webkit-order:-13;order:-13;}
+.pos-4o11 {-webkit-order:-23;order:-23;}
+.pos-5o7 {-webkit-order:7;order:7;}
+.pos-5o9 {-webkit-order:-6;order:-6;}
+.pos-5o11 {-webkit-order:-14;order:-14;}
 .pos-6o6,
-.pos-11o12,
-.pos-6o7,
-.pos-6o8,
-.pos-6o9,
-.pos-6o11,
-.pos-6o12,
-.pos-7o7,
-.pos-7o11,
-.pos-8o8,
-.pos-8o9,
-.pos-8o11,
-.pos-8o12,
-.pos-9o9,
-.pos-9o11,
-.pos-10o11,
-.pos-11o11,
-.pos-12o12 {margin-right:-100%;}
+.pos-11o12 {-webkit-order:33;order:33;}
+.pos-6o7 {-webkit-order:21;order:21;}
+.pos-6o8 {-webkit-order:12;order:12;}
+.pos-6o9 {-webkit-order:5;order:5;}
+.pos-6o11 {-webkit-order:-5;order:-5;}
+.pos-6o12 {-webkit-order:-9;order:-9;}
+.pos-7o7 {-webkit-order:35;order:35;}
+.pos-7o11 {-webkit-order:4;order:4;}
+.pos-8o8 {-webkit-order:37;order:37;}
+.pos-8o9 {-webkit-order:27;order:27;}
+.pos-8o11 {-webkit-order:13;order:13;}
+.pos-8o12 {-webkit-order:8;order:8;}
+.pos-9o9 {-webkit-order:38;order:38;}
+.pos-9o11 {-webkit-order:22;order:22;}
+.pos-10o11 {-webkit-order:31;order:31;}
+.pos-11o11 {-webkit-order:40;order:40;}
+.pos-12o12 {-webkit-order:41;order:41;}
+
 
 
 
@@ -795,6 +707,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Copy */
+
+
 
 
 
@@ -838,6 +752,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .height-18x-1up {height:540px;}
 .height-19x-1up {height:570px;}
 .height-20x-1up {height:600px;}
+.height-1o1-1up {height:100%;}
 .height-auto-1up {height:auto;}
 
 
@@ -913,27 +828,48 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Layout > Gut Bottom */
+.gut-bottoms-1up &gt; *,
+.gut-bottoms-1x-1up &gt; *,
 .gut-bottom-1up,
 .gut-bottom-1x-1up {margin-bottom:30px;}
+.gut-bottoms-2x-1up &gt; *,
 .gut-bottom-2x-1up {margin-bottom:60px;}
+.gut-bottoms-3x-1up &gt; *,
 .gut-bottom-3x-1up {margin-bottom:90px;}
+.gut-bottoms-4x-1up &gt; *,
 .gut-bottom-4x-1up {margin-bottom:120px;}
+.gut-bottoms-5x-1up &gt; *,
 .gut-bottom-5x-1up {margin-bottom:150px;}
+.gut-bottoms-6x-1up &gt; *,
 .gut-bottom-6x-1up {margin-bottom:180px;}
+.gut-bottoms-1o2x-1up &gt; *,
+.gut-bottoms-2o4x-1up &gt; *,
 .gut-bottom-1o2x-1up,
 .gut-bottom-2o4x-1up {margin-bottom:15px;}
+.gut-bottoms-1o3x-1up &gt; *,
+.gut-bottoms-10px-1up &gt; *,
 .gut-bottom-1o3x-1up {margin-bottom:10px;}
+.gut-bottoms-2o3x-1up &gt; *,
 .gut-bottom-2o3x-1up {margin-bottom:20px;}
+.gut-bottoms-1o4x-1up &gt; *,
 .gut-bottom-1o4x-1up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-1up &gt; *,
 .gut-bottom-3o4x-1up {margin-bottom:22.5px;}
+.gut-bottoms-1px-1up &gt; * {margin-bottom:1px;}
+.gut-bottoms-2px-1up &gt; * {margin-bottom:2px;}
+.gut-bottoms-3px-1up &gt; * {margin-bottom:3px;}
+.gut-bottoms-4px-1up &gt; * {margin-bottom:4px;}
+.gut-bottoms-5px-1up &gt; * {margin-bottom:5px;}
+.gut-bottoms-6px-1up &gt; * {margin-bottom:6px;}
+.gut-bottoms-7px-1up &gt; * {margin-bottom:7px;}
+.gut-bottoms-8px-1up &gt; * {margin-bottom:8px;}
+.gut-bottoms-9px-1up &gt; * {margin-bottom:9px;}
 .gut-bottom-none-1up {margin-bottom:0;}
 
 
 
 /* Layout > Pull Gut Left */
 .pull-gut-left-1up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-1up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-1up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-1up {margin-right:30px;}
 
@@ -941,8 +877,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 /* Layout > Pull Gut Right */
 .pull-gut-right-1up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-1up {*margin-right:0;*left:0;*float:right;}
 .pull-gut-right-none-1up {margin-right:0;width:auto;float:none;position:static;}
 .pull-gut-right-1up {margin-left:30px;}
 
@@ -1153,6 +1087,45 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .width-23x-1up {width:690px;}
 
 
+/* Component Guts */
+.gut-bottoms-1up > *,
+.gut-bottoms-1x-1up > *,
+.gut-bottom-1up,
+.gut-bottom-1x-1up {margin-bottom:30px;}
+.gut-bottoms-2x-1up > *,
+.gut-bottom-2x-1up {margin-bottom:60px;}
+.gut-bottoms-3x-1up > *,
+.gut-bottom-3x-1up {margin-bottom:90px;}
+.gut-bottoms-4x-1up > *,
+.gut-bottom-4x-1up {margin-bottom:120px;}
+.gut-bottoms-5x-1up > *,
+.gut-bottom-5x-1up {margin-bottom:150px;}
+.gut-bottoms-6x-1up > *,
+.gut-bottom-6x-1up {margin-bottom:180px;}
+.gut-bottoms-1o2x-1up > *,
+.gut-bottoms-2o4x-1up > *,
+.gut-bottom-1o2x-1up,
+.gut-bottom-2o4x-1up {margin-bottom:15px;}
+.gut-bottoms-1o3x-1up > *,
+.gut-bottoms-10px-1up > *,
+.gut-bottom-1o3x-1up {margin-bottom:10px;}
+.gut-bottoms-2o3x-1up > *,
+.gut-bottom-2o3x-1up {margin-bottom:20px;}
+.gut-bottoms-1o4x-1up > *,
+.gut-bottom-1o4x-1up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-1up > *,
+.gut-bottom-3o4x-1up {margin-bottom:22.5px;}
+.gut-bottoms-1px-1up > * {margin-bottom:1px;}
+.gut-bottoms-2px-1up > * {margin-bottom:2px;}
+.gut-bottoms-3px-1up > * {margin-bottom:3px;}
+.gut-bottoms-4px-1up > * {margin-bottom:4px;}
+.gut-bottoms-5px-1up > * {margin-bottom:5px;}
+.gut-bottoms-6px-1up > * {margin-bottom:6px;}
+.gut-bottoms-7px-1up > * {margin-bottom:7px;}
+.gut-bottoms-8px-1up > * {margin-bottom:8px;}
+.gut-bottoms-9px-1up > * {margin-bottom:9px;}
+.gut-bottom-none-1up {margin-bottom:0;}
+
 
 /* Guts */
 .guts-1up,
@@ -1226,54 +1199,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .guts-9px-1up > * {padding-left:9px;}
 
 
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-1up,
-.guts-1x-1up,
-.guts-2x-1up,
-.guts-3x-1up,
-.guts-4x-1up,
-.guts-5x-1up,
-.guts-6x-1up,
-.guts-1o2x-1up,
-.guts-1o3x-1up,
-.guts-2o3x-1up,
-.guts-1o4x-1up,
-.guts-2o4x-1up,
-.guts-3o4x-1up,
-.guts-1px-1up,
-.guts-2px-1up,
-.guts-3px-1up,
-.guts-4px-1up,
-.guts-5px-1up,
-.guts-6px-1up,
-.guts-7px-1up,
-.guts-8px-1up,
-.guts-9px-1up,
-.guts-10px-1up {*margin-left:0;*margin-right:0;}
-.guts-1up > *,
-.guts-1x-1up > *,
-.guts-2x-1up > *,
-.guts-3x-1up > *,
-.guts-4x-1up > *,
-.guts-5x-1up > *,
-.guts-6x-1up > *,
-.guts-1o2x-1up > *,
-.guts-1o3x-1up > *,
-.guts-2o3x-1up > *,
-.guts-1o4x-1up > *,
-.guts-2o4x-1up > *,
-.guts-3o4x-1up > *,
-.guts-1px-1up > *,
-.guts-2px-1up > *,
-.guts-3px-1up > *,
-.guts-4px-1up > *,
-.guts-5px-1up > *,
-.guts-6px-1up > *,
-.guts-7px-1up > *,
-.guts-8px-1up > *,
-.guts-9px-1up > *,
-.guts-10px-1up > * {*padding-left:0;*padding-right:0;}
-
 
 
 /* Guts Full-Width classes */
@@ -1327,84 +1252,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Pos */
-.pos-1o1-1up,
-.pos-1o2-1up,
-.pos-1o3-1up,
-.pos-1o4-1up,
-.pos-1o5-1up,
-.pos-1o6-1up,
-.pos-1o7-1up,
-.pos-1o8-1up,
-.pos-1o9-1up,
-.pos-1o10-1up,
-.pos-1o11-1up,
-.pos-1o12-1up {margin-left:0%;}
-.pos-2o10-1up {margin-left:10%;}
-.pos-2o5-1up,
-.pos-3o10-1up {margin-left:20%;}
-.pos-2o4-1up,
-.pos-3o8-1up,
-.pos-4o12-1up {margin-left:25%;}
-.pos-4o10-1up {margin-left:30%;}
-.pos-3o5-1up,
-.pos-5o10-1up {margin-left:40%;}
-.pos-2o2-1up,
-.pos-3o4-1up,
-.pos-4o6-1up,
-.pos-5o8-1up,
-.pos-6o10-1up,
-.pos-7o12-1up {margin-left:50%;}
-.pos-4o5-1up,
-.pos-7o10-1up {margin-left:60%;}
-.pos-8o10-1up {margin-left:70%;}
-.pos-4o4-1up,
-.pos-7o8-1up,
-.pos-10o12-1up {margin-left:75%;}
-.pos-5o5-1up,
-.pos-9o10-1up {margin-left:80%;}
-.pos-10o10-1up {margin-left:90%;}
-.pos-2o3-1up,
-.pos-3o6-1up,
-.pos-4o9-1up,
-.pos-5o12-1up {margin-left:33.3333%;}
-.pos-2o6-1up,
-.pos-3o12-1up {margin-left:16.6666%;}
-.pos-2o7-1up {margin-left:14.2857%;}
-.pos-2o8-1up {margin-left:12.5%;}
-.pos-2o9-1up {margin-left:11.1111%;}
-.pos-2o11-1up {margin-left:9.0909%;}
-.pos-2o12-1up {margin-left:8.3333%;}
-.pos-3o3-1up,
-.pos-5o6-1up,
-.pos-7o9-1up,
-.pos-9o12-1up {margin-left:66.6666%;}
-.pos-3o7-1up {margin-left:28.5714%;}
-.pos-3o9-1up {margin-left:22.2222%;}
-.pos-3o11-1up {margin-left:18.1818%;}
-.pos-4o7-1up {margin-left:42.8571%;}
-.pos-4o8-1up {margin-left:37.5%;}
-.pos-4o11-1up {margin-left:27.2727%;}
-.pos-5o7-1up {margin-left:57.1428%;}
-.pos-5o9-1up {margin-left:44.4444%;}
-.pos-5o11-1up {margin-left:36.3636%;}
-.pos-6o6-1up,
-.pos-11o12-1up {margin-left:83.3333%;}
-.pos-6o7-1up {margin-left:71.4285%;}
-.pos-6o8-1up {margin-left:62.5%;}
-.pos-6o9-1up {margin-left:55.5555%;}
-.pos-6o11-1up {margin-left:45.4545%;}
-.pos-6o12-1up {margin-left:41.6666%;}
-.pos-7o7-1up {margin-left:85.7142%;}
-.pos-7o11-1up {margin-left:54.5454%;}
-.pos-8o8-1up {margin-left:87.5%;}
-.pos-8o9-1up {margin-left:77.7777%;}
-.pos-8o11-1up {margin-left:63.6363%;}
-.pos-8o12-1up {margin-left:58.3333%;}
-.pos-9o9-1up {margin-left:88.8888%;}
-.pos-9o11-1up {margin-left:72.7272%;}
-.pos-10o11-1up {margin-left:81.8181%;}
-.pos-11o11-1up {margin-left:90.909%;}
-.pos-12o12-1up {margin-left:91.6666%;}
+
 
 .pos-1o1-1up,
 .pos-1o2-1up,
@@ -1417,73 +1265,74 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .pos-1o9-1up,
 .pos-1o10-1up,
 .pos-1o11-1up,
-.pos-1o12-1up,
-.pos-2o10-1up,
+.pos-1o12-1up {-webkit-order:-50;order:-50;}
+.pos-2o10-1up {-webkit-order:-40;order:-40;}
 .pos-2o5-1up,
-.pos-3o10-1up,
+.pos-3o10-1up {-webkit-order:-30;order:-30;}
 .pos-2o4-1up,
 .pos-3o8-1up,
-.pos-4o12-1up,
-.pos-4o10-1up,
+.pos-4o12-1up {-webkit-order:-25;order:-25;}
+.pos-4o10-1up {-webkit-order:-20;order:-20;}
 .pos-3o5-1up,
-.pos-5o10-1up,
+.pos-5o10-1up {-webkit-order:-10;order:-10;}
 .pos-2o2-1up,
 .pos-3o4-1up,
 .pos-4o6-1up,
 .pos-5o8-1up,
 .pos-6o10-1up,
-.pos-7o12-1up,
+.pos-7o12-1up {-webkit-order:0;order:0;}
 .pos-4o5-1up,
-.pos-7o10-1up,
-.pos-8o10-1up,
+.pos-7o10-1up {-webkit-order:10;order:10;}
+.pos-8o10-1up {-webkit-order:20;order:20;}
 .pos-4o4-1up,
 .pos-7o8-1up,
-.pos-10o12-1up,
+.pos-10o12-1up {-webkit-order:25;order:25;}
 .pos-5o5-1up,
-.pos-9o10-1up,
-.pos-10o10-1up,
+.pos-9o10-1up {-webkit-order:30;order:30;}
+.pos-10o10-1up {-webkit-order:40;order:40;}
 .pos-2o3-1up,
 .pos-3o6-1up,
 .pos-4o9-1up,
-.pos-5o12-1up,
+.pos-5o12-1up {-webkit-order:-17;order:-17;}
 .pos-2o6-1up,
-.pos-3o12-1up,
-.pos-2o7-1up,
-.pos-2o8-1up,
-.pos-2o9-1up,
-.pos-2o11-1up,
-.pos-2o12-1up,
+.pos-3o12-1up {-webkit-order:-34;order:-34;}
+.pos-2o7-1up {-webkit-order:-36;order:-36;}
+.pos-2o8-1up {-webkit-order:-38;order:-38;}
+.pos-2o9-1up {-webkit-order:-39;order:-39;}
+.pos-2o11-1up {-webkit-order:-41;order:-41;}
+.pos-2o12-1up {-webkit-order:-42;order:-42;}
 .pos-3o3-1up,
 .pos-5o6-1up,
 .pos-7o9-1up,
-.pos-9o12-1up,
-.pos-3o7-1up,
-.pos-3o9-1up,
-.pos-3o11-1up,
-.pos-4o7-1up,
-.pos-4o8-1up,
-.pos-4o11-1up,
-.pos-5o7-1up,
-.pos-5o9-1up,
-.pos-5o11-1up,
+.pos-9o12-1up {-webkit-order:16;order:16;}
+.pos-3o7-1up {-webkit-order:-22;order:-22;}
+.pos-3o9-1up {-webkit-order:-28;order:-28;}
+.pos-3o11-1up {-webkit-order:-32;order:-32;}
+.pos-4o7-1up {-webkit-order:-8;order:-8;}
+.pos-4o8-1up {-webkit-order:-13;order:-13;}
+.pos-4o11-1up {-webkit-order:-23;order:-23;}
+.pos-5o7-1up {-webkit-order:7;order:7;}
+.pos-5o9-1up {-webkit-order:-6;order:-6;}
+.pos-5o11-1up {-webkit-order:-14;order:-14;}
 .pos-6o6-1up,
-.pos-11o12-1up,
-.pos-6o7-1up,
-.pos-6o8-1up,
-.pos-6o9-1up,
-.pos-6o11-1up,
-.pos-6o12-1up,
-.pos-7o7-1up,
-.pos-7o11-1up,
-.pos-8o8-1up,
-.pos-8o9-1up,
-.pos-8o11-1up,
-.pos-8o12-1up,
-.pos-9o9-1up,
-.pos-9o11-1up,
-.pos-10o11-1up,
-.pos-11o11-1up,
-.pos-12o12-1up {margin-right:-100%;}
+.pos-11o12-1up {-webkit-order:33;order:33;}
+.pos-6o7-1up {-webkit-order:21;order:21;}
+.pos-6o8-1up {-webkit-order:12;order:12;}
+.pos-6o9-1up {-webkit-order:5;order:5;}
+.pos-6o11-1up {-webkit-order:-5;order:-5;}
+.pos-6o12-1up {-webkit-order:-9;order:-9;}
+.pos-7o7-1up {-webkit-order:35;order:35;}
+.pos-7o11-1up {-webkit-order:4;order:4;}
+.pos-8o8-1up {-webkit-order:37;order:37;}
+.pos-8o9-1up {-webkit-order:27;order:27;}
+.pos-8o11-1up {-webkit-order:13;order:13;}
+.pos-8o12-1up {-webkit-order:8;order:8;}
+.pos-9o9-1up {-webkit-order:38;order:38;}
+.pos-9o11-1up {-webkit-order:22;order:22;}
+.pos-10o11-1up {-webkit-order:31;order:31;}
+.pos-11o11-1up {-webkit-order:40;order:40;}
+.pos-12o12-1up {-webkit-order:41;order:41;}
+
 
 
 
@@ -1500,6 +1349,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Copy */
+
+
 
 
 
@@ -1540,6 +1391,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .height-18x-2up {height:540px;}
 .height-19x-2up {height:570px;}
 .height-20x-2up {height:600px;}
+.height-1o1-2up {height:100%;}
 .height-auto-2up {height:auto;}
 
 
@@ -1615,27 +1467,48 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Layout > Gut Bottom */
+.gut-bottoms-2up &gt; *,
+.gut-bottoms-1x-2up &gt; *,
 .gut-bottom-2up,
 .gut-bottom-1x-2up {margin-bottom:30px;}
+.gut-bottoms-2x-2up &gt; *,
 .gut-bottom-2x-2up {margin-bottom:60px;}
+.gut-bottoms-3x-2up &gt; *,
 .gut-bottom-3x-2up {margin-bottom:90px;}
+.gut-bottoms-4x-2up &gt; *,
 .gut-bottom-4x-2up {margin-bottom:120px;}
+.gut-bottoms-5x-2up &gt; *,
 .gut-bottom-5x-2up {margin-bottom:150px;}
+.gut-bottoms-6x-2up &gt; *,
 .gut-bottom-6x-2up {margin-bottom:180px;}
+.gut-bottoms-1o2x-2up &gt; *,
+.gut-bottoms-2o4x-2up &gt; *,
 .gut-bottom-1o2x-2up,
 .gut-bottom-2o4x-2up {margin-bottom:15px;}
+.gut-bottoms-1o3x-2up &gt; *,
+.gut-bottoms-10px-2up &gt; *,
 .gut-bottom-1o3x-2up {margin-bottom:10px;}
+.gut-bottoms-2o3x-2up &gt; *,
 .gut-bottom-2o3x-2up {margin-bottom:20px;}
+.gut-bottoms-1o4x-2up &gt; *,
 .gut-bottom-1o4x-2up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-2up &gt; *,
 .gut-bottom-3o4x-2up {margin-bottom:22.5px;}
+.gut-bottoms-1px-2up &gt; * {margin-bottom:1px;}
+.gut-bottoms-2px-2up &gt; * {margin-bottom:2px;}
+.gut-bottoms-3px-2up &gt; * {margin-bottom:3px;}
+.gut-bottoms-4px-2up &gt; * {margin-bottom:4px;}
+.gut-bottoms-5px-2up &gt; * {margin-bottom:5px;}
+.gut-bottoms-6px-2up &gt; * {margin-bottom:6px;}
+.gut-bottoms-7px-2up &gt; * {margin-bottom:7px;}
+.gut-bottoms-8px-2up &gt; * {margin-bottom:8px;}
+.gut-bottoms-9px-2up &gt; * {margin-bottom:9px;}
 .gut-bottom-none-2up {margin-bottom:0;}
 
 
 
 /* Layout > Pull Gut Left */
 .pull-gut-left-2up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-2up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-2up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-2up {margin-right:30px;}
 
@@ -1643,8 +1516,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 /* Layout > Pull Gut Right */
 .pull-gut-right-2up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-2up {*margin-right:0;*left:0;*float:right;}
 .pull-gut-right-none-2up {margin-right:0;width:auto;float:none;position:static;}
 .pull-gut-right-2up {margin-left:30px;}
 
@@ -1855,6 +1726,45 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .width-23x-2up {width:690px;}
 
 
+/* Component Guts */
+.gut-bottoms-2up > *,
+.gut-bottoms-1x-2up > *,
+.gut-bottom-2up,
+.gut-bottom-1x-2up {margin-bottom:30px;}
+.gut-bottoms-2x-2up > *,
+.gut-bottom-2x-2up {margin-bottom:60px;}
+.gut-bottoms-3x-2up > *,
+.gut-bottom-3x-2up {margin-bottom:90px;}
+.gut-bottoms-4x-2up > *,
+.gut-bottom-4x-2up {margin-bottom:120px;}
+.gut-bottoms-5x-2up > *,
+.gut-bottom-5x-2up {margin-bottom:150px;}
+.gut-bottoms-6x-2up > *,
+.gut-bottom-6x-2up {margin-bottom:180px;}
+.gut-bottoms-1o2x-2up > *,
+.gut-bottoms-2o4x-2up > *,
+.gut-bottom-1o2x-2up,
+.gut-bottom-2o4x-2up {margin-bottom:15px;}
+.gut-bottoms-1o3x-2up > *,
+.gut-bottoms-10px-2up > *,
+.gut-bottom-1o3x-2up {margin-bottom:10px;}
+.gut-bottoms-2o3x-2up > *,
+.gut-bottom-2o3x-2up {margin-bottom:20px;}
+.gut-bottoms-1o4x-2up > *,
+.gut-bottom-1o4x-2up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-2up > *,
+.gut-bottom-3o4x-2up {margin-bottom:22.5px;}
+.gut-bottoms-1px-2up > * {margin-bottom:1px;}
+.gut-bottoms-2px-2up > * {margin-bottom:2px;}
+.gut-bottoms-3px-2up > * {margin-bottom:3px;}
+.gut-bottoms-4px-2up > * {margin-bottom:4px;}
+.gut-bottoms-5px-2up > * {margin-bottom:5px;}
+.gut-bottoms-6px-2up > * {margin-bottom:6px;}
+.gut-bottoms-7px-2up > * {margin-bottom:7px;}
+.gut-bottoms-8px-2up > * {margin-bottom:8px;}
+.gut-bottoms-9px-2up > * {margin-bottom:9px;}
+.gut-bottom-none-2up {margin-bottom:0;}
+
 
 /* Guts */
 .guts-2up,
@@ -1928,54 +1838,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .guts-9px-2up > * {padding-left:9px;}
 
 
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-2up,
-.guts-1x-2up,
-.guts-2x-2up,
-.guts-3x-2up,
-.guts-4x-2up,
-.guts-5x-2up,
-.guts-6x-2up,
-.guts-1o2x-2up,
-.guts-1o3x-2up,
-.guts-2o3x-2up,
-.guts-1o4x-2up,
-.guts-2o4x-2up,
-.guts-3o4x-2up,
-.guts-1px-2up,
-.guts-2px-2up,
-.guts-3px-2up,
-.guts-4px-2up,
-.guts-5px-2up,
-.guts-6px-2up,
-.guts-7px-2up,
-.guts-8px-2up,
-.guts-9px-2up,
-.guts-10px-2up {*margin-left:0;*margin-right:0;}
-.guts-2up > *,
-.guts-1x-2up > *,
-.guts-2x-2up > *,
-.guts-3x-2up > *,
-.guts-4x-2up > *,
-.guts-5x-2up > *,
-.guts-6x-2up > *,
-.guts-1o2x-2up > *,
-.guts-1o3x-2up > *,
-.guts-2o3x-2up > *,
-.guts-1o4x-2up > *,
-.guts-2o4x-2up > *,
-.guts-3o4x-2up > *,
-.guts-1px-2up > *,
-.guts-2px-2up > *,
-.guts-3px-2up > *,
-.guts-4px-2up > *,
-.guts-5px-2up > *,
-.guts-6px-2up > *,
-.guts-7px-2up > *,
-.guts-8px-2up > *,
-.guts-9px-2up > *,
-.guts-10px-2up > * {*padding-left:0;*padding-right:0;}
-
 
 
 /* Guts Full-Width classes */
@@ -2029,84 +1891,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Pos */
-.pos-1o1-2up,
-.pos-1o2-2up,
-.pos-1o3-2up,
-.pos-1o4-2up,
-.pos-1o5-2up,
-.pos-1o6-2up,
-.pos-1o7-2up,
-.pos-1o8-2up,
-.pos-1o9-2up,
-.pos-1o10-2up,
-.pos-1o11-2up,
-.pos-1o12-2up {margin-left:0%;}
-.pos-2o10-2up {margin-left:10%;}
-.pos-2o5-2up,
-.pos-3o10-2up {margin-left:20%;}
-.pos-2o4-2up,
-.pos-3o8-2up,
-.pos-4o12-2up {margin-left:25%;}
-.pos-4o10-2up {margin-left:30%;}
-.pos-3o5-2up,
-.pos-5o10-2up {margin-left:40%;}
-.pos-2o2-2up,
-.pos-3o4-2up,
-.pos-4o6-2up,
-.pos-5o8-2up,
-.pos-6o10-2up,
-.pos-7o12-2up {margin-left:50%;}
-.pos-4o5-2up,
-.pos-7o10-2up {margin-left:60%;}
-.pos-8o10-2up {margin-left:70%;}
-.pos-4o4-2up,
-.pos-7o8-2up,
-.pos-10o12-2up {margin-left:75%;}
-.pos-5o5-2up,
-.pos-9o10-2up {margin-left:80%;}
-.pos-10o10-2up {margin-left:90%;}
-.pos-2o3-2up,
-.pos-3o6-2up,
-.pos-4o9-2up,
-.pos-5o12-2up {margin-left:33.3333%;}
-.pos-2o6-2up,
-.pos-3o12-2up {margin-left:16.6666%;}
-.pos-2o7-2up {margin-left:14.2857%;}
-.pos-2o8-2up {margin-left:12.5%;}
-.pos-2o9-2up {margin-left:11.1111%;}
-.pos-2o11-2up {margin-left:9.0909%;}
-.pos-2o12-2up {margin-left:8.3333%;}
-.pos-3o3-2up,
-.pos-5o6-2up,
-.pos-7o9-2up,
-.pos-9o12-2up {margin-left:66.6666%;}
-.pos-3o7-2up {margin-left:28.5714%;}
-.pos-3o9-2up {margin-left:22.2222%;}
-.pos-3o11-2up {margin-left:18.1818%;}
-.pos-4o7-2up {margin-left:42.8571%;}
-.pos-4o8-2up {margin-left:37.5%;}
-.pos-4o11-2up {margin-left:27.2727%;}
-.pos-5o7-2up {margin-left:57.1428%;}
-.pos-5o9-2up {margin-left:44.4444%;}
-.pos-5o11-2up {margin-left:36.3636%;}
-.pos-6o6-2up,
-.pos-11o12-2up {margin-left:83.3333%;}
-.pos-6o7-2up {margin-left:71.4285%;}
-.pos-6o8-2up {margin-left:62.5%;}
-.pos-6o9-2up {margin-left:55.5555%;}
-.pos-6o11-2up {margin-left:45.4545%;}
-.pos-6o12-2up {margin-left:41.6666%;}
-.pos-7o7-2up {margin-left:85.7142%;}
-.pos-7o11-2up {margin-left:54.5454%;}
-.pos-8o8-2up {margin-left:87.5%;}
-.pos-8o9-2up {margin-left:77.7777%;}
-.pos-8o11-2up {margin-left:63.6363%;}
-.pos-8o12-2up {margin-left:58.3333%;}
-.pos-9o9-2up {margin-left:88.8888%;}
-.pos-9o11-2up {margin-left:72.7272%;}
-.pos-10o11-2up {margin-left:81.8181%;}
-.pos-11o11-2up {margin-left:90.909%;}
-.pos-12o12-2up {margin-left:91.6666%;}
+
 
 .pos-1o1-2up,
 .pos-1o2-2up,
@@ -2119,73 +1904,74 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .pos-1o9-2up,
 .pos-1o10-2up,
 .pos-1o11-2up,
-.pos-1o12-2up,
-.pos-2o10-2up,
+.pos-1o12-2up {-webkit-order:-50;order:-50;}
+.pos-2o10-2up {-webkit-order:-40;order:-40;}
 .pos-2o5-2up,
-.pos-3o10-2up,
+.pos-3o10-2up {-webkit-order:-30;order:-30;}
 .pos-2o4-2up,
 .pos-3o8-2up,
-.pos-4o12-2up,
-.pos-4o10-2up,
+.pos-4o12-2up {-webkit-order:-25;order:-25;}
+.pos-4o10-2up {-webkit-order:-20;order:-20;}
 .pos-3o5-2up,
-.pos-5o10-2up,
+.pos-5o10-2up {-webkit-order:-10;order:-10;}
 .pos-2o2-2up,
 .pos-3o4-2up,
 .pos-4o6-2up,
 .pos-5o8-2up,
 .pos-6o10-2up,
-.pos-7o12-2up,
+.pos-7o12-2up {-webkit-order:0;order:0;}
 .pos-4o5-2up,
-.pos-7o10-2up,
-.pos-8o10-2up,
+.pos-7o10-2up {-webkit-order:10;order:10;}
+.pos-8o10-2up {-webkit-order:20;order:20;}
 .pos-4o4-2up,
 .pos-7o8-2up,
-.pos-10o12-2up,
+.pos-10o12-2up {-webkit-order:25;order:25;}
 .pos-5o5-2up,
-.pos-9o10-2up,
-.pos-10o10-2up,
+.pos-9o10-2up {-webkit-order:30;order:30;}
+.pos-10o10-2up {-webkit-order:40;order:40;}
 .pos-2o3-2up,
 .pos-3o6-2up,
 .pos-4o9-2up,
-.pos-5o12-2up,
+.pos-5o12-2up {-webkit-order:-17;order:-17;}
 .pos-2o6-2up,
-.pos-3o12-2up,
-.pos-2o7-2up,
-.pos-2o8-2up,
-.pos-2o9-2up,
-.pos-2o11-2up,
-.pos-2o12-2up,
+.pos-3o12-2up {-webkit-order:-34;order:-34;}
+.pos-2o7-2up {-webkit-order:-36;order:-36;}
+.pos-2o8-2up {-webkit-order:-38;order:-38;}
+.pos-2o9-2up {-webkit-order:-39;order:-39;}
+.pos-2o11-2up {-webkit-order:-41;order:-41;}
+.pos-2o12-2up {-webkit-order:-42;order:-42;}
 .pos-3o3-2up,
 .pos-5o6-2up,
 .pos-7o9-2up,
-.pos-9o12-2up,
-.pos-3o7-2up,
-.pos-3o9-2up,
-.pos-3o11-2up,
-.pos-4o7-2up,
-.pos-4o8-2up,
-.pos-4o11-2up,
-.pos-5o7-2up,
-.pos-5o9-2up,
-.pos-5o11-2up,
+.pos-9o12-2up {-webkit-order:16;order:16;}
+.pos-3o7-2up {-webkit-order:-22;order:-22;}
+.pos-3o9-2up {-webkit-order:-28;order:-28;}
+.pos-3o11-2up {-webkit-order:-32;order:-32;}
+.pos-4o7-2up {-webkit-order:-8;order:-8;}
+.pos-4o8-2up {-webkit-order:-13;order:-13;}
+.pos-4o11-2up {-webkit-order:-23;order:-23;}
+.pos-5o7-2up {-webkit-order:7;order:7;}
+.pos-5o9-2up {-webkit-order:-6;order:-6;}
+.pos-5o11-2up {-webkit-order:-14;order:-14;}
 .pos-6o6-2up,
-.pos-11o12-2up,
-.pos-6o7-2up,
-.pos-6o8-2up,
-.pos-6o9-2up,
-.pos-6o11-2up,
-.pos-6o12-2up,
-.pos-7o7-2up,
-.pos-7o11-2up,
-.pos-8o8-2up,
-.pos-8o9-2up,
-.pos-8o11-2up,
-.pos-8o12-2up,
-.pos-9o9-2up,
-.pos-9o11-2up,
-.pos-10o11-2up,
-.pos-11o11-2up,
-.pos-12o12-2up {margin-right:-100%;}
+.pos-11o12-2up {-webkit-order:33;order:33;}
+.pos-6o7-2up {-webkit-order:21;order:21;}
+.pos-6o8-2up {-webkit-order:12;order:12;}
+.pos-6o9-2up {-webkit-order:5;order:5;}
+.pos-6o11-2up {-webkit-order:-5;order:-5;}
+.pos-6o12-2up {-webkit-order:-9;order:-9;}
+.pos-7o7-2up {-webkit-order:35;order:35;}
+.pos-7o11-2up {-webkit-order:4;order:4;}
+.pos-8o8-2up {-webkit-order:37;order:37;}
+.pos-8o9-2up {-webkit-order:27;order:27;}
+.pos-8o11-2up {-webkit-order:13;order:13;}
+.pos-8o12-2up {-webkit-order:8;order:8;}
+.pos-9o9-2up {-webkit-order:38;order:38;}
+.pos-9o11-2up {-webkit-order:22;order:22;}
+.pos-10o11-2up {-webkit-order:31;order:31;}
+.pos-11o11-2up {-webkit-order:40;order:40;}
+.pos-12o12-2up {-webkit-order:41;order:41;}
+
 
 
 
@@ -2202,6 +1988,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Copy */
+
+
 
 
 
@@ -2242,6 +2030,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .height-18x-3up {height:540px;}
 .height-19x-3up {height:570px;}
 .height-20x-3up {height:600px;}
+.height-1o1-3up {height:100%;}
 .height-auto-3up {height:auto;}
 
 
@@ -2317,27 +2106,48 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Layout > Gut Bottom */
+.gut-bottoms-3up &gt; *,
+.gut-bottoms-1x-3up &gt; *,
 .gut-bottom-3up,
 .gut-bottom-1x-3up {margin-bottom:30px;}
+.gut-bottoms-2x-3up &gt; *,
 .gut-bottom-2x-3up {margin-bottom:60px;}
+.gut-bottoms-3x-3up &gt; *,
 .gut-bottom-3x-3up {margin-bottom:90px;}
+.gut-bottoms-4x-3up &gt; *,
 .gut-bottom-4x-3up {margin-bottom:120px;}
+.gut-bottoms-5x-3up &gt; *,
 .gut-bottom-5x-3up {margin-bottom:150px;}
+.gut-bottoms-6x-3up &gt; *,
 .gut-bottom-6x-3up {margin-bottom:180px;}
+.gut-bottoms-1o2x-3up &gt; *,
+.gut-bottoms-2o4x-3up &gt; *,
 .gut-bottom-1o2x-3up,
 .gut-bottom-2o4x-3up {margin-bottom:15px;}
+.gut-bottoms-1o3x-3up &gt; *,
+.gut-bottoms-10px-3up &gt; *,
 .gut-bottom-1o3x-3up {margin-bottom:10px;}
+.gut-bottoms-2o3x-3up &gt; *,
 .gut-bottom-2o3x-3up {margin-bottom:20px;}
+.gut-bottoms-1o4x-3up &gt; *,
 .gut-bottom-1o4x-3up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-3up &gt; *,
 .gut-bottom-3o4x-3up {margin-bottom:22.5px;}
+.gut-bottoms-1px-3up &gt; * {margin-bottom:1px;}
+.gut-bottoms-2px-3up &gt; * {margin-bottom:2px;}
+.gut-bottoms-3px-3up &gt; * {margin-bottom:3px;}
+.gut-bottoms-4px-3up &gt; * {margin-bottom:4px;}
+.gut-bottoms-5px-3up &gt; * {margin-bottom:5px;}
+.gut-bottoms-6px-3up &gt; * {margin-bottom:6px;}
+.gut-bottoms-7px-3up &gt; * {margin-bottom:7px;}
+.gut-bottoms-8px-3up &gt; * {margin-bottom:8px;}
+.gut-bottoms-9px-3up &gt; * {margin-bottom:9px;}
 .gut-bottom-none-3up {margin-bottom:0;}
 
 
 
 /* Layout > Pull Gut Left */
 .pull-gut-left-3up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-3up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-3up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-3up {margin-right:30px;}
 
@@ -2345,8 +2155,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 /* Layout > Pull Gut Right */
 .pull-gut-right-3up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
-/* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-3up {*margin-right:0;*left:0;*float:right;}
 .pull-gut-right-none-3up {margin-right:0;width:auto;float:none;position:static;}
 .pull-gut-right-3up {margin-left:30px;}
 
@@ -2557,6 +2365,45 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .width-23x-3up {width:690px;}
 
 
+/* Component Guts */
+.gut-bottoms-3up > *,
+.gut-bottoms-1x-3up > *,
+.gut-bottom-3up,
+.gut-bottom-1x-3up {margin-bottom:30px;}
+.gut-bottoms-2x-3up > *,
+.gut-bottom-2x-3up {margin-bottom:60px;}
+.gut-bottoms-3x-3up > *,
+.gut-bottom-3x-3up {margin-bottom:90px;}
+.gut-bottoms-4x-3up > *,
+.gut-bottom-4x-3up {margin-bottom:120px;}
+.gut-bottoms-5x-3up > *,
+.gut-bottom-5x-3up {margin-bottom:150px;}
+.gut-bottoms-6x-3up > *,
+.gut-bottom-6x-3up {margin-bottom:180px;}
+.gut-bottoms-1o2x-3up > *,
+.gut-bottoms-2o4x-3up > *,
+.gut-bottom-1o2x-3up,
+.gut-bottom-2o4x-3up {margin-bottom:15px;}
+.gut-bottoms-1o3x-3up > *,
+.gut-bottoms-10px-3up > *,
+.gut-bottom-1o3x-3up {margin-bottom:10px;}
+.gut-bottoms-2o3x-3up > *,
+.gut-bottom-2o3x-3up {margin-bottom:20px;}
+.gut-bottoms-1o4x-3up > *,
+.gut-bottom-1o4x-3up {margin-bottom:7.5px;}
+.gut-bottoms-3o4x-3up > *,
+.gut-bottom-3o4x-3up {margin-bottom:22.5px;}
+.gut-bottoms-1px-3up > * {margin-bottom:1px;}
+.gut-bottoms-2px-3up > * {margin-bottom:2px;}
+.gut-bottoms-3px-3up > * {margin-bottom:3px;}
+.gut-bottoms-4px-3up > * {margin-bottom:4px;}
+.gut-bottoms-5px-3up > * {margin-bottom:5px;}
+.gut-bottoms-6px-3up > * {margin-bottom:6px;}
+.gut-bottoms-7px-3up > * {margin-bottom:7px;}
+.gut-bottoms-8px-3up > * {margin-bottom:8px;}
+.gut-bottoms-9px-3up > * {margin-bottom:9px;}
+.gut-bottom-none-3up {margin-bottom:0;}
+
 
 /* Guts */
 .guts-3up,
@@ -2630,54 +2477,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .guts-9px-3up > * {padding-left:9px;}
 
 
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-3up,
-.guts-1x-3up,
-.guts-2x-3up,
-.guts-3x-3up,
-.guts-4x-3up,
-.guts-5x-3up,
-.guts-6x-3up,
-.guts-1o2x-3up,
-.guts-1o3x-3up,
-.guts-2o3x-3up,
-.guts-1o4x-3up,
-.guts-2o4x-3up,
-.guts-3o4x-3up,
-.guts-1px-3up,
-.guts-2px-3up,
-.guts-3px-3up,
-.guts-4px-3up,
-.guts-5px-3up,
-.guts-6px-3up,
-.guts-7px-3up,
-.guts-8px-3up,
-.guts-9px-3up,
-.guts-10px-3up {*margin-left:0;*margin-right:0;}
-.guts-3up > *,
-.guts-1x-3up > *,
-.guts-2x-3up > *,
-.guts-3x-3up > *,
-.guts-4x-3up > *,
-.guts-5x-3up > *,
-.guts-6x-3up > *,
-.guts-1o2x-3up > *,
-.guts-1o3x-3up > *,
-.guts-2o3x-3up > *,
-.guts-1o4x-3up > *,
-.guts-2o4x-3up > *,
-.guts-3o4x-3up > *,
-.guts-1px-3up > *,
-.guts-2px-3up > *,
-.guts-3px-3up > *,
-.guts-4px-3up > *,
-.guts-5px-3up > *,
-.guts-6px-3up > *,
-.guts-7px-3up > *,
-.guts-8px-3up > *,
-.guts-9px-3up > *,
-.guts-10px-3up > * {*padding-left:0;*padding-right:0;}
-
 
 
 /* Guts Full-Width classes */
@@ -2731,84 +2530,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 
 
 /* Pos */
-.pos-1o1-3up,
-.pos-1o2-3up,
-.pos-1o3-3up,
-.pos-1o4-3up,
-.pos-1o5-3up,
-.pos-1o6-3up,
-.pos-1o7-3up,
-.pos-1o8-3up,
-.pos-1o9-3up,
-.pos-1o10-3up,
-.pos-1o11-3up,
-.pos-1o12-3up {margin-left:0%;}
-.pos-2o10-3up {margin-left:10%;}
-.pos-2o5-3up,
-.pos-3o10-3up {margin-left:20%;}
-.pos-2o4-3up,
-.pos-3o8-3up,
-.pos-4o12-3up {margin-left:25%;}
-.pos-4o10-3up {margin-left:30%;}
-.pos-3o5-3up,
-.pos-5o10-3up {margin-left:40%;}
-.pos-2o2-3up,
-.pos-3o4-3up,
-.pos-4o6-3up,
-.pos-5o8-3up,
-.pos-6o10-3up,
-.pos-7o12-3up {margin-left:50%;}
-.pos-4o5-3up,
-.pos-7o10-3up {margin-left:60%;}
-.pos-8o10-3up {margin-left:70%;}
-.pos-4o4-3up,
-.pos-7o8-3up,
-.pos-10o12-3up {margin-left:75%;}
-.pos-5o5-3up,
-.pos-9o10-3up {margin-left:80%;}
-.pos-10o10-3up {margin-left:90%;}
-.pos-2o3-3up,
-.pos-3o6-3up,
-.pos-4o9-3up,
-.pos-5o12-3up {margin-left:33.3333%;}
-.pos-2o6-3up,
-.pos-3o12-3up {margin-left:16.6666%;}
-.pos-2o7-3up {margin-left:14.2857%;}
-.pos-2o8-3up {margin-left:12.5%;}
-.pos-2o9-3up {margin-left:11.1111%;}
-.pos-2o11-3up {margin-left:9.0909%;}
-.pos-2o12-3up {margin-left:8.3333%;}
-.pos-3o3-3up,
-.pos-5o6-3up,
-.pos-7o9-3up,
-.pos-9o12-3up {margin-left:66.6666%;}
-.pos-3o7-3up {margin-left:28.5714%;}
-.pos-3o9-3up {margin-left:22.2222%;}
-.pos-3o11-3up {margin-left:18.1818%;}
-.pos-4o7-3up {margin-left:42.8571%;}
-.pos-4o8-3up {margin-left:37.5%;}
-.pos-4o11-3up {margin-left:27.2727%;}
-.pos-5o7-3up {margin-left:57.1428%;}
-.pos-5o9-3up {margin-left:44.4444%;}
-.pos-5o11-3up {margin-left:36.3636%;}
-.pos-6o6-3up,
-.pos-11o12-3up {margin-left:83.3333%;}
-.pos-6o7-3up {margin-left:71.4285%;}
-.pos-6o8-3up {margin-left:62.5%;}
-.pos-6o9-3up {margin-left:55.5555%;}
-.pos-6o11-3up {margin-left:45.4545%;}
-.pos-6o12-3up {margin-left:41.6666%;}
-.pos-7o7-3up {margin-left:85.7142%;}
-.pos-7o11-3up {margin-left:54.5454%;}
-.pos-8o8-3up {margin-left:87.5%;}
-.pos-8o9-3up {margin-left:77.7777%;}
-.pos-8o11-3up {margin-left:63.6363%;}
-.pos-8o12-3up {margin-left:58.3333%;}
-.pos-9o9-3up {margin-left:88.8888%;}
-.pos-9o11-3up {margin-left:72.7272%;}
-.pos-10o11-3up {margin-left:81.8181%;}
-.pos-11o11-3up {margin-left:90.909%;}
-.pos-12o12-3up {margin-left:91.6666%;}
+
 
 .pos-1o1-3up,
 .pos-1o2-3up,
@@ -2821,73 +2543,74 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:22.5px;pa
 .pos-1o9-3up,
 .pos-1o10-3up,
 .pos-1o11-3up,
-.pos-1o12-3up,
-.pos-2o10-3up,
+.pos-1o12-3up {-webkit-order:-50;order:-50;}
+.pos-2o10-3up {-webkit-order:-40;order:-40;}
 .pos-2o5-3up,
-.pos-3o10-3up,
+.pos-3o10-3up {-webkit-order:-30;order:-30;}
 .pos-2o4-3up,
 .pos-3o8-3up,
-.pos-4o12-3up,
-.pos-4o10-3up,
+.pos-4o12-3up {-webkit-order:-25;order:-25;}
+.pos-4o10-3up {-webkit-order:-20;order:-20;}
 .pos-3o5-3up,
-.pos-5o10-3up,
+.pos-5o10-3up {-webkit-order:-10;order:-10;}
 .pos-2o2-3up,
 .pos-3o4-3up,
 .pos-4o6-3up,
 .pos-5o8-3up,
 .pos-6o10-3up,
-.pos-7o12-3up,
+.pos-7o12-3up {-webkit-order:0;order:0;}
 .pos-4o5-3up,
-.pos-7o10-3up,
-.pos-8o10-3up,
+.pos-7o10-3up {-webkit-order:10;order:10;}
+.pos-8o10-3up {-webkit-order:20;order:20;}
 .pos-4o4-3up,
 .pos-7o8-3up,
-.pos-10o12-3up,
+.pos-10o12-3up {-webkit-order:25;order:25;}
 .pos-5o5-3up,
-.pos-9o10-3up,
-.pos-10o10-3up,
+.pos-9o10-3up {-webkit-order:30;order:30;}
+.pos-10o10-3up {-webkit-order:40;order:40;}
 .pos-2o3-3up,
 .pos-3o6-3up,
 .pos-4o9-3up,
-.pos-5o12-3up,
+.pos-5o12-3up {-webkit-order:-17;order:-17;}
 .pos-2o6-3up,
-.pos-3o12-3up,
-.pos-2o7-3up,
-.pos-2o8-3up,
-.pos-2o9-3up,
-.pos-2o11-3up,
-.pos-2o12-3up,
+.pos-3o12-3up {-webkit-order:-34;order:-34;}
+.pos-2o7-3up {-webkit-order:-36;order:-36;}
+.pos-2o8-3up {-webkit-order:-38;order:-38;}
+.pos-2o9-3up {-webkit-order:-39;order:-39;}
+.pos-2o11-3up {-webkit-order:-41;order:-41;}
+.pos-2o12-3up {-webkit-order:-42;order:-42;}
 .pos-3o3-3up,
 .pos-5o6-3up,
 .pos-7o9-3up,
-.pos-9o12-3up,
-.pos-3o7-3up,
-.pos-3o9-3up,
-.pos-3o11-3up,
-.pos-4o7-3up,
-.pos-4o8-3up,
-.pos-4o11-3up,
-.pos-5o7-3up,
-.pos-5o9-3up,
-.pos-5o11-3up,
+.pos-9o12-3up {-webkit-order:16;order:16;}
+.pos-3o7-3up {-webkit-order:-22;order:-22;}
+.pos-3o9-3up {-webkit-order:-28;order:-28;}
+.pos-3o11-3up {-webkit-order:-32;order:-32;}
+.pos-4o7-3up {-webkit-order:-8;order:-8;}
+.pos-4o8-3up {-webkit-order:-13;order:-13;}
+.pos-4o11-3up {-webkit-order:-23;order:-23;}
+.pos-5o7-3up {-webkit-order:7;order:7;}
+.pos-5o9-3up {-webkit-order:-6;order:-6;}
+.pos-5o11-3up {-webkit-order:-14;order:-14;}
 .pos-6o6-3up,
-.pos-11o12-3up,
-.pos-6o7-3up,
-.pos-6o8-3up,
-.pos-6o9-3up,
-.pos-6o11-3up,
-.pos-6o12-3up,
-.pos-7o7-3up,
-.pos-7o11-3up,
-.pos-8o8-3up,
-.pos-8o9-3up,
-.pos-8o11-3up,
-.pos-8o12-3up,
-.pos-9o9-3up,
-.pos-9o11-3up,
-.pos-10o11-3up,
-.pos-11o11-3up,
-.pos-12o12-3up {margin-right:-100%;}
+.pos-11o12-3up {-webkit-order:33;order:33;}
+.pos-6o7-3up {-webkit-order:21;order:21;}
+.pos-6o8-3up {-webkit-order:12;order:12;}
+.pos-6o9-3up {-webkit-order:5;order:5;}
+.pos-6o11-3up {-webkit-order:-5;order:-5;}
+.pos-6o12-3up {-webkit-order:-9;order:-9;}
+.pos-7o7-3up {-webkit-order:35;order:35;}
+.pos-7o11-3up {-webkit-order:4;order:4;}
+.pos-8o8-3up {-webkit-order:37;order:37;}
+.pos-8o9-3up {-webkit-order:27;order:27;}
+.pos-8o11-3up {-webkit-order:13;order:13;}
+.pos-8o12-3up {-webkit-order:8;order:8;}
+.pos-9o9-3up {-webkit-order:38;order:38;}
+.pos-9o11-3up {-webkit-order:22;order:22;}
+.pos-10o11-3up {-webkit-order:31;order:31;}
+.pos-11o11-3up {-webkit-order:40;order:40;}
+.pos-12o12-3up {-webkit-order:41;order:41;}
+
 
 
 
