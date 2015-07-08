@@ -24,104 +24,16 @@
 
     <header>
         <p><a href="./../">BaseUp</a></p>
-        <div class="lay cols widths-1o2-1up">
-            <div>
-                <dl>
-                    <dt>Class A</dt>
-                    <dd>Latest and greatest</dd>
-                    <dd>Dependencies: Flexbox, Media Query and box-sizing border-box support</dd>
-                    <dd>IE 9+</dd>
-                    <dt>Class B</dt>
-                    <dd>Using respond.js to patch media query support will work</dd>
-                    <dd>To completely support IE 7 use the full-width friendly markup</dd>
-                    <dd>Dependencies: Child selector support</dd>
-                    <dd>IE 7 and 8</dd>
-                    <dt>Unsupported</dt>
-                    <dd>IE 6-</dd>
-                </dl>
-                <p>box-sizing border-box support is needed for .guts</p>
-            </div>
-            <div>
-                <dl>
-                    <dt>Flexbox</dt>
-                    <dd>
-                        <dl class="gut-bottom-none">
-                            <dt>Mobile</dt>
-                            <dd>Android 4.4+, Blackberry 10+, iOS Safari 7.1+, Opera Mini 8+, Opera Mobile 12.1+</dd>
-                            <dt>Desktop</dt>
-                            <dd>IE 11+, Firefox 28+ (partial from 22), Chrome 21+ (-webkit-), Safari 6.1 (-webkit-)+, Opera 12.1+</dd>
-                            <dt>References</dt>
-                            <dd><a href="http://caniuse.com/#feat=flexbox">Flexbox (caniuse.com)</a></dd>
-                        </dl>
-                    </dd>
-                    <dt>Media Queries</dt>
-                    <dd>
-                        <dl class="gut-bottom-none">
-                            <dt>Desktop</dt>
-                            <dd>IE 9+, Firefox 3.5+, Safari 4+, Opera 9.5+</dd>
-                            <dt>References</dt>
-                            <dd><a href="http://caniuse.com/css-mediaqueries">Media Queries (caniuse.com)</a></dd>
-                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries#Browser_compatibility">Media Queries (developer.mozilla.org)</a></dd>
-                        </dl>
-                    </dd>
-                    <dt>box-sizing border-box</dt>
-                    <dd>
-                        <dl class="gut-bottom-none">
-                            <dt>Desktop</dt>
-                            <dd>IE 8+, Opera 9.5+, Safari 3+</dd>
-                            <dt>References</dt>
-                            <dd><a href="http://caniuse.com/css3-boxsizing">box-sizing (caniuse.com)</a></dd>
-                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#Browser_compatibility">box-sizing (developer.mozilla.org)</a></dd>
-                        </dl>
-                    </dd>
-                    <dt>Child selector &gt;</dt>
-                    <dd>
-                        <dl class="gut-bottom-none">
-                            <dt>Desktop</dt>
-                            <dd>IE 7+</dd>
-                            <dt>References</dt>
-                            <dd><a href="http://caniuse.com/css-sel2">Child selectors (caniuse.com)</a></dd>
-                            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors#Browser_compatibility">Child selectors (developer.mozilla.org)</a></dd>
-                        </dl>
-                    </dd>
-                </dl>
-            </div>
-        </div>
+
     </header>
     <main>
-<div class="" style="background:#ddd;">
-    <p class="pull-right">
-        asd
-    </p>
-</div>
-<div class="lay" style="background:#ddd;">
-    <p class="pull-right">
-        asd
-    </p>
-</div>
 
-        <pre>
-            add a border in the gutter
-            .gut-divider > *::before {
-                border-left: 4px solid #ddd;
-                content: "";
-                display: block;
-                float: left;
-                height: 100%;
-                left: -17px;
-                margin-right: -100%;
-                position: relative;
-                }
-        </pre>
-
-        <p>
-            .component-height Applying height of 100% on the component has no ill affects in Firefox and IE 7-10
-            <br> The advantage is that 100% fills the flexbox when used
-        </p>
 
         <section class="a">
-            <h2>Columns</h2>
-            <div class="lay cols widths-1o8-1up gut-bottom component-heights">
+            <h2>
+                <em>.lay.cols.widths-1o8-1up</em>
+            </h2>
+            <div class="lay cols widths-1o8-1up gut-bottom">
                 <div>
                     <div class="component">
                         <span class="source">div 1</span>
@@ -208,7 +120,53 @@
 
 
 
-<!--
+        <section class="a">
+            <h2>.lay.cols.widths-1o8-1up
+                <em>.component-heights</em>
+            </h2>
+            <div class="lay cols widths-1o8-1up gut-bottom component-heights">
+                <div>
+                    <div class="component">
+                        <span class="source">div 1</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 2</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 3</span>
+                    </div>
+                </div>
+                <div class="width-2o8-1up">
+                    <div class="component">
+                        <span class="source">div 4</span>width-2o8-1up</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 5</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 7</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 8</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <!--
 .cols applies the floats, which are overridden by flex
     .ord-2 applies order 2, in a browser that doesn't support flex this will be ignored
     .pos-2o3 applies margin-right -100% and margin-left 33.3333%
@@ -224,11 +182,106 @@
 -->
 
         <section class="a">
-            <h2>Columns and gutters</h2>
+            <h2>.lay.cols.widths-1o8-1up.component-heights
+                <em>.guts</em>
+            </h2>
             <p>IE7: If Media Query support has been polyfilled IE 7 will still have problems because it lacks box-sizing support</p>
+            <div class="lay cols guts widths-1o8-1up component-heights">
+                <div>
+                    <div class="component">
+                        <span class="source">div 1</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 2</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 3</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 4</span>as</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 5</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 6</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 7</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 8</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 9</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 10</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 11</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 12</span>as</div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 13</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 14</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 15</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 16</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="component">
+                        <span class="source">div 17</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="a">
+            <h2>.lay.cols.widths-1o8-1up.component-heights.gut
+                <em>.gut-bottoms</em>
+            </h2>
             <p>
-                Each flexbox item gets a margin bottom when using .gut-bottoms. Ideally I would hide the gut-bottom, but I haven't done this yet
-                <br> Could do this with hide-gut-bottom similar to hide-gut-left
+                Each flexbox item gets a margin bottom when using .gut-bottoms, which means the last row also has gut-bottom. Could be good to have a hide-gut-bottom similar to hide-gut-left, but I haven't done this yet
             </p>
             <div class="lay cols guts widths-1o8-1up component-heights gut-bottoms">
                 <div>
@@ -320,7 +373,9 @@
 
 
         <section class="a">
-            <h2>Columns positioned</h2>
+            <h2>.lay.cols.widths-1o8-1up.component-heights
+                <em> &gt; .pos-4o8-1up</em>
+            </h2>
             <div class="lay cols widths-1o8-1up component-heights gut-bottom">
                 <div class="pos-4o8-1up">
                     <div class="component">
@@ -328,7 +383,8 @@
                 </div>
                 <div class="pos-6o8-1up">
                     <div class="component">
-                        <span class="source">div 2</span>pos-6o8-1up <br>asd</div>
+                        <span class="source">div 2</span>pos-6o8-1up
+                        <br>asd</div>
                 </div>
                 <div class="pos-2o8-1up">
                     <div class="component">
@@ -361,7 +417,8 @@
 
 
         <section class="a">
-            <h2>Columns positioned and gutters</h2>
+            <h2>.lay.cols.widths-1o8-1up.component-heights
+                <em>.guts</em> &gt; .pos-4o8-1up</h2>
             <p>IE7: If Media Query support has been polyfilled IE 7 will still have problems here because it lacks box-sizing support, use the full-width friendly version for greatest compatibility</p>
             <div class="lay cols widths-1o8-1up guts component-heights gut-bottom">
                 <div class="pos-4o8-1up">
@@ -370,7 +427,8 @@
                 </div>
                 <div class="pos-6o8-1up">
                     <a class="component" href="">
-                        <span class="source">div 2</span>pos-6o8-1up <br>asd</a>
+                        <span class="source">div 2</span>pos-6o8-1up
+                        <br>asd</a>
                 </div>
                 <div class="pos-2o8-1up">
                     <a class="component" href="">
@@ -403,71 +461,70 @@
 
 
 
-        <!--
-    <section class="a afw b">
-    <h2>Pull <small>Class A and B</small></h2>
-    <div class="pull-right">
-        <div class="component">
-        <span class="source">div</span>pull-right
-        </div>
-    </div>
+        <section class="a">
+            <h2>.pull-right</h2>
+            <div class="lay">
+                <div class="pull-right">
+                    <div class="component">
+                        <span class="source">div</span>pull-right
+                    </div>
+                </div>
+                <div class="pull-right gut-left">
+                    <div class="component">
+                        <span class="source">div</span>pull-right gut-left
+                    </div>
+                </div>
+                <p>
+                    If you shut your eyes and are a lucky one, you may see at times a shapeless pool of lovely pale colours suspended in the darkness; then if you squeeze your eyes tighter, the pool begins to take shape, and the colours become so vivid that with another
+                    squeeze they must go on fire. But just before they go on fire you see the lagoon. This is the nearest you ever get to it on the mainland, just one heavenly moment; if there could be two moments you might see the surf and hear the mermaids
+                    singing.
+                </p>
+            </div>
+        </section>
 
-    <div class="pull-right">
-        <div class="component">
-        <span class="source">div</span>pull-right
-        </div>
-    </div>
-    <div class="clear"></div>
-    <div class="pull-right gut-left">
-        <div class="component">
-        <span class="source">div</span>pull-right gut-left
-        </div>
-    </div>
-
-    <div class="pull-right gut-left">
-        <div class="component">
-        <span class="source">div</span>pull-right gut-left
-        </div>
-    </div>
-
-    <div class="clear"></div>
-
-    <div class="pull-left gut-right">
-        <div class="component">
-        <span class="source">div</span>pull-left gut-right
-        </div>
-    </div>
-
-    <div class="pull-left gut-right">
-        <div class="component">
-        <span class="source">div</span>pull-left gut-right
-        </div>
-    </div>
-    </section>
-
-    <div class="clear"></div>
-
- -->
-
-
-
+        <section class="a">
+            <h2>.pull-left</h2>
+            <div class="lay">
+                <div class="pull-left">
+                    <div class="component">
+                        <span class="source">div</span>pull-left
+                    </div>
+                </div>
+                <div class="pull-left gut-right">
+                    <div class="component">
+                        <span class="source">div</span>pull-left gut-right
+                    </div>
+                </div>
+                <p>
+                    The children often spent long summer days on this lagoon, swimming or floating most of the time, playing the mermaid games in the water, and so forth. You must not think from this that the mermaids were on friendly terms with them: on the contrary, it
+                    was among Wendy's lasting regrets that all the time she was on the island she never had a civil word from one of them. When she stole softly to the edge of the lagoon she might see them by the score, especially on Marooners' Rock,
+                    where they loved to bask, combing out their hair in a lazy way that quite irritated her; or she might even swim, on tiptoe as it were, to within a yard of them, but then they saw her and dived, probably splashing her with their tails,
+                    not by accident, but intentionally.
+                </p>
+            </div>
+        </section>
 
         <hr />
 
 
-        <!--
 
 
     <section class="a afw b">
-    <h2>Pull Gutter <small>Class A and B</small></h2>
-
-    <h3>Divs</h3>
+    <h2>.lay.gut-right-small > .pull-gut-right</h2>
     <div class="lay gut-right-small">
         <div class="pull-gut-right">
-            <div class="component" title="pull-gut-right" style="overflow:hidden;text-overflow:ellipsis;white-space: nowrap"><span class="source">div</span>pull- gut- right- small</div>
+            <div class="component"><span class="source">div</span>pull- <br>gut- <br>right</div>
         </div>
         <div class="component"><span class="source">div</span>lay gut-right-small</div>
     </div>
+    <h2>.lay.gut-right-small > .pull-gut-right<em>-small</em></h2>
+    <div class="lay gut-right-small">
+        <div class="pull-gut-right-small">
+            <div class="component"><span class="source">div</span>pull- <br>gut- <br>right- <br>small</div>
+        </div>
+        <div class="component"><span class="source">div</span>lay gut-right-small</div>
+    </div>
+        <!--
     </div>
     <div class="lay gut-right-medium">
         <div class="pull-gut-right width-2x"><div class="component"><span class="source">div</span>pull-gut-right-medium</div></div>
@@ -643,6 +700,79 @@
 
     </main>
 
+
+    <div class="lay cols widths-1o2-1up">
+        <div>
+            <dl>
+                <dt>Class A</dt>
+                <dd>Latest and greatest</dd>
+                <dd>Dependencies: Flexbox, Media Query and box-sizing border-box support</dd>
+                <dd>IE 9+</dd>
+                <dt>Legacy</dt>
+                <dd>Using respond.js to patch media query support will work</dd>
+                <dd>To completely support IE 7 use the full-width friendly markup</dd>
+                <dd>Dependencies: Child selector support</dd>
+                <dd>IE 7 and 8</dd>
+                <dt>Unsupported</dt>
+                <dd>IE 6-</dd>
+            </dl>
+            <p>box-sizing border-box support is needed for .guts</p>
+        </div>
+        <div>
+            <dl>
+                <dt>Flexbox</dt>
+                <dd>
+                    <dl class="gut-bottom-none">
+                        <dt>Mobile</dt>
+                        <dd>Android 4.4+, Blackberry 10+, iOS Safari 7.1+, Opera Mini 8+, Opera Mobile 12.1+</dd>
+                        <dt>Desktop</dt>
+                        <dd>IE 11+, Firefox 28+ (partial from 22), Chrome 21+ (-webkit-), Safari 6.1 (-webkit-)+, Opera 12.1+</dd>
+                        <dt>References</dt>
+                        <dd><a href="http://caniuse.com/#feat=flexbox">Flexbox (caniuse.com)</a></dd>
+                    </dl>
+                </dd>
+                <dt>Media Queries</dt>
+                <dd>
+                    <dl class="gut-bottom-none">
+                        <dt>Desktop</dt>
+                        <dd>IE 9+, Firefox 3.5+, Safari 4+, Opera 9.5+</dd>
+                        <dt>References</dt>
+                        <dd><a href="http://caniuse.com/css-mediaqueries">Media Queries (caniuse.com)</a></dd>
+                        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries#Browser_compatibility">Media Queries (developer.mozilla.org)</a></dd>
+                    </dl>
+                </dd>
+                <dt>box-sizing border-box</dt>
+                <dd>
+                    <dl class="gut-bottom-none">
+                        <dt>Desktop</dt>
+                        <dd>IE 8+, Opera 9.5+, Safari 3+</dd>
+                        <dt>References</dt>
+                        <dd><a href="http://caniuse.com/css3-boxsizing">box-sizing (caniuse.com)</a></dd>
+                        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#Browser_compatibility">box-sizing (developer.mozilla.org)</a></dd>
+                    </dl>
+                </dd>
+                <dt>Child selector &gt;</dt>
+                <dd>
+                    <dl class="gut-bottom-none">
+                        <dt>Desktop</dt>
+                        <dd>IE 7+</dd>
+                        <dt>References</dt>
+                        <dd><a href="http://caniuse.com/css-sel2">Child selectors (caniuse.com)</a></dd>
+                        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors#Browser_compatibility">Child selectors (developer.mozilla.org)</a></dd>
+                    </dl>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <p wrap="wrap">
+        add a border in the gutter .gut-divider > *::before { border-left: 4px solid #ddd; content: ""; display: block; float: left; height: 100%; left: -17px; margin-right: -100%; position: relative; }
+    </p>
+
+    <p>
+        .component-height Applying height of 100% on the component has no ill affects in Firefox and IE 7-10
+        <br> The advantage is that 100% fills the flexbox when used
+    </p>
 
 
 

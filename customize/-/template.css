@@ -75,15 +75,6 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{laycentered}} {display:block;}
 {{/legacysupport}}
 
-{{#legacysupport}}
-@supports (display:-webkit-flex) or (display:flex) {
-    .{{ns}}{{lay}} {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-}
-{{/legacysupport}}
-{{^legacysupport}}
-.{{ns}}{{lay}} {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-{{/legacysupport}}
-/*-webkit-flex-wrap:wrap;flex-wrap:wrap; removed wrap because of bug in webkit */
 
 .{{ns}}{{layleft}} {margin-right:auto;}
 .{{ns}}{{layright}} {margin-left:auto;}
@@ -95,7 +86,16 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Layout > Columns */
-.{{ns}}{{col}} {float:left;width:100%;-webkit-flex:1;flex:1;}
+{{#legacysupport}}
+@supports (display:-webkit-flex) or (display:flex) {
+    .{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+}
+{{/legacysupport}}
+{{^legacysupport}}
+.{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+{{/legacysupport}}
+/*-webkit-flex-wrap:wrap;flex-wrap:wrap; removed wrap because of bug in webkit */
+.{{ns}}{{col}} {float:left;width:100%;-webkit-flex:none;flex:none;}
 .{{ns}}{{col}}s > * {float:left;width:100%;-webkit-flex:none;flex:none;}
 
 {{#legacysupport}}
@@ -237,10 +237,12 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 /* Layout > Pull Gut Right */
 {{#pullgutrights}}
+
 {{#main}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 {{/main}}
+
 {{#legacysupport}}
 {{#legacy}}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
@@ -248,15 +250,22 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/isnotlast}} {*margin-right:0;*left:0;*float:right;}
 {{/legacy}}
 {{/legacysupport}}
+
 {{#none}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {margin-right:0;width:auto;float:none;position:static;}
 {{/none}}
+
 {{#more}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:{{val}};}
 {{/more}}
+
 {{/pullgutrights}}
+
+{{#pullgutrightwidths}}
+{{selector}} {width:{{val}};}
+{{/pullgutrightwidths}}
 
 
 
