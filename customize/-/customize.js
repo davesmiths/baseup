@@ -141,6 +141,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutnxsmall: '#input-gutnxsmall',
             gutnxmedium: '#input-gutnxmedium',
             gutnxlarge: '#input-gutnxlarge',
+            gutnxxlarge: '#input-gutnxxlarge',
 
             scrollbardepthadjust: '#input-scrollbardepthadjust',
 
@@ -244,9 +245,10 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         _in.scrollbardepthadjust = $(_selectors.inputs.scrollbardepthadjust).val() * 1;
 
-        _in.gutnxsmall = $(_selectors.inputs.gutnxsmall).val();
-        _in.gutnxmedium = $(_selectors.inputs.gutnxmedium).val();
-        _in.gutnxlarge = $(_selectors.inputs.gutnxlarge).val();
+        _in.gutnxsmall = $(_selectors.inputs.gutnxsmall).val() * 1;
+        _in.gutnxmedium = $(_selectors.inputs.gutnxmedium).val() * 1;
+        _in.gutnxlarge = $(_selectors.inputs.gutnxlarge).val() * 1;
+        _in.gutnxxlarge = $(_selectors.inputs.gutnxxlarge).val() * 1;
 
 
         stream.trigger('loadtemplates', function(trigger) {
@@ -301,6 +303,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutspadding,
             gutspaddingall,
             pullgutlefts,
+            pullgutleftwidths,
             pullgutrights,
             pullgutrightwidths,
             heights,
@@ -366,11 +369,13 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         _out.gutsmall = 'gut-left-small';
         _out.gutmedium = 'gut-left-medium';
         _out.gutlarge = 'gut-left-large';
+        _out.gutxlarge = 'gut-left-xlarge';
 
         _out.gutright = 'gut-right';
         _out.gutrightsmall = 'gut-right-small';
         _out.gutrightmedium = 'gut-right-medium';
         _out.gutrightlarge = 'gut-right-large';
+        _out.gutrightxlarge = 'gut-right-xlarge';
 
         _out.gutbot = 'gut-bottom';
 
@@ -552,6 +557,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutspadding = [];
             gutspaddingall = [];
             pullgutlefts = [];
+            pullgutleftwidths = [];
             pullgutrights = [];
             pullgutrightwidths = [];
             gutbottoms = [];
@@ -875,16 +881,20 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         selector: '.' + _out.ns + _out.gutleft + '-none' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxsmall + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutsmall + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxmedium + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutmedium + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxlarge + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutlarge + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * (_in.gutnxxlarge + 1) + 'px',
+                        selector: '.' + _out.ns + _out.gutxlarge + _out.breakpoints[m].bp
                     }
                 );
 
@@ -915,16 +925,20 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         selector: '.' + _out.ns + _out.gutright + '-none' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxsmall + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutrightsmall + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxmedium + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutrightmedium + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
+                        val: _inbreakpointi.base * (_in.gutnxlarge + 1) + 'px',
                         selector: '.' + _out.ns + _out.gutrightlarge + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * (_in.gutnxxlarge + 1) + 'px',
+                        selector: '.' + _out.ns + _out.gutrightxlarge + _out.breakpoints[m].bp
                     }
                 );
 
@@ -959,10 +973,54 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
                 // Pull Gut Lefts
-                pullgutlefts.push({
-                    val: _inbreakpointi.base + 'px',
-                    selector: '.' + _out.ns + _out.pullgut + _out.breakpoints[m].bp
-                });
+                pullgutlefts.push(
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-none' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-small' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-medium' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-large' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _out.breakpoints[m].bp
+                    }
+                );
+                pullgutleftwidths.push(
+                    {
+                        val: 'auto',
+                        selector: '.' + _out.ns + _out.pullgut + '-none' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-small' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-medium' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-large' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * _in.gutnxxlarge + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _out.breakpoints[m].bp
+                    }
+                );
 
 
 
@@ -987,6 +1045,10 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     {
                         val: _inbreakpointi.base + 'px',
                         selector: '.' + _out.ns + _out.pullgutright + '-large' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _out.breakpoints[m].bp
                     }
                 );
                 pullgutrightwidths.push(
@@ -995,16 +1057,20 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         selector: '.' + _out.ns + _out.pullgutright + '-none' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * (_in.gutnxsmall - 1) + 'px',
+                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
                         selector: '.' + _out.ns + _out.pullgutright + '-small' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * (_in.gutnxmedium - 1) + 'px',
+                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
                         selector: '.' + _out.ns + _out.pullgutright + '-medium' + _out.breakpoints[m].bp
                     },
                     {
-                        val: _inbreakpointi.base * (_in.gutnxlarge - 1) + 'px',
+                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
                         selector: '.' + _out.ns + _out.pullgutright + '-large' + _out.breakpoints[m].bp
+                    },
+                    {
+                        val: _inbreakpointi.base * _in.gutnxxlarge + 'px',
+                        selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _out.breakpoints[m].bp
                     }
                 );
 
@@ -1023,6 +1089,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutlefts = processRules(gutlefts);
             gutrights = processRules(gutrights);
             pullgutlefts = {more:processRules(pullgutlefts), core:[]};
+            pullgutleftwidths = pullgutleftwidths;
             pullgutrights = {more:processRules(pullgutrights), core: []};
             pullgutrightwidths = pullgutrightwidths;
             gutbottoms = processRules(gutbottoms);
@@ -1034,9 +1101,26 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
             // Not dependent on base
-            pullgutlefts.main = {
-                selector: '.' + _out.ns + _out.pullgut + _outbreakpointi.bp
-            };
+            pullgutlefts.main = processRules([
+                {
+                    selector: '.' + _out.ns + _out.pullgut + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgut + '-none' + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgut + '-small' + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgut + '-medium' + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgut + '-large' + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _outbreakpointi.bp
+                }
+            ]);
             pullgutlefts.none = {
                 selector: '.' + _out.ns + _out.pullgut + '-none' + _outbreakpointi.bp
             };
@@ -1058,6 +1142,9 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                 },
                 {
                     selector: '.' + _out.ns + _out.pullgutright + '-large' + _outbreakpointi.bp
+                },
+                {
+                    selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _outbreakpointi.bp
                 }
             ]);
             pullgutrights.none = {
@@ -1076,6 +1163,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             _outbreakpointi.gutlefts = gutlefts;
             _outbreakpointi.gutrights = gutrights;
             _outbreakpointi.pullgutlefts = pullgutlefts;
+            _outbreakpointi.pullgutleftwidths = pullgutleftwidths;
             _outbreakpointi.pullgutrights = pullgutrights;
             _outbreakpointi.pullgutrightwidths = pullgutrightwidths;
             _outbreakpointi.gutbottoms = gutbottoms;
@@ -1608,6 +1696,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                 $t.is(_selectors.inputs.gutnxsmall) ||
                 $t.is(_selectors.inputs.gutnxmedium) ||
                 $t.is(_selectors.inputs.gutnxlarge) ||
+                $t.is(_selectors.inputs.gutnxxlarge) ||
                 $t.is(_selectors.inputs.scrollbardepthadjust) ||
                 $t.is(_selectors.inputs.fontSize) ||
                 $t.is(_selectors.inputs.hfont) ||

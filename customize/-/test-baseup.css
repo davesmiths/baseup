@@ -1,6 +1,6 @@
 /*
 //  BaseUp CSS
-//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=true&h1=1.64&h2=1.32&h3=1.16&h4=1.08&h5=1.04&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.28&h2adj=0.28&h3adj=0.28&h4adj=0.28&h5adj=0.28&h6adj=0.28&gutnxsmall=4&gutnxmedium=9&gutnxlarge=14&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
+//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=true&h1=1.64&h2=1.32&h3=1.16&h4=1.08&h5=1.04&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.28&h2adj=0.28&h3adj=0.28&h4adj=0.28&h5adj=0.28&h6adj=0.28&gutnxsmall=3&gutnxmedium=6&gutnxlarge=12&gutnxxlarge=24&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
 */
 
 
@@ -197,8 +197,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-left-1o4x {margin-left:7.5px;}
 .gut-left-3o4x {margin-left:22.5px;}
 .gut-left-none {margin-left:0;}
-.gut-left-medium {margin-left:270px;}
-.gut-left-large {margin-left:420px;}
+.gut-left-medium {margin-left:210px;}
+.gut-left-large {margin-left:390px;}
+.gut-left-xlarge {margin-left:750px;}
 
 
 
@@ -218,8 +219,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-1o4x {margin-right:7.5px;}
 .gut-right-3o4x {margin-right:22.5px;}
 .gut-right-none {margin-right:0;}
-.gut-right-medium {margin-right:270px;}
-.gut-right-large {margin-right:420px;}
+.gut-right-medium {margin-right:210px;}
+.gut-right-large {margin-right:390px;}
+.gut-right-xlarge {margin-right:750px;}
 
 
 
@@ -265,12 +267,27 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Layout > Pull Gut Left */
-.pull-gut-left {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
+.pull-gut-left,
+.pull-gut-left-none,
+.pull-gut-left-small,
+.pull-gut-left-medium,
+.pull-gut-left-large,
+.pull-gut-left-xlarge {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-left {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none {margin-left:0;width:auto;float:none;position:static;}
-.pull-gut-left {margin-right:30px;}
+.pull-gut-left,
+.pull-gut-left-none,
+.pull-gut-left-small,
+.pull-gut-left-medium,
+.pull-gut-left-large,
+.pull-gut-left-xlarge {margin-right:30px;}
 
+.pull-gut-left-none {width:auto;}
+.pull-gut-left-small {width:90px;}
+.pull-gut-left-medium {width:180px;}
+.pull-gut-left-large {width:360px;}
+.pull-gut-left-xlarge {width:720px;}
 
 
 /* Layout > Pull Gut Right */
@@ -279,7 +296,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none,
 .pull-gut-right-small,
 .pull-gut-right-medium,
-.pull-gut-right-large {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
+.pull-gut-right-large,
+.pull-gut-right-xlarge {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-right {*margin-right:0;*left:0;*float:right;}
@@ -290,13 +308,15 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none,
 .pull-gut-right-small,
 .pull-gut-right-medium,
-.pull-gut-right-large {margin-left:30px;}
+.pull-gut-right-large,
+.pull-gut-right-xlarge {margin-left:30px;}
 
 
 .pull-gut-right-none {width:auto;}
 .pull-gut-right-small {width:90px;}
-.pull-gut-right-medium {width:240px;}
-.pull-gut-right-large {width:390px;}
+.pull-gut-right-medium {width:180px;}
+.pull-gut-right-large {width:360px;}
+.pull-gut-right-xlarge {width:720px;}
 
 
 
@@ -1067,8 +1087,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-left-1o4x-1up {margin-left:7.5px;}
 .gut-left-3o4x-1up {margin-left:22.5px;}
 .gut-left-none-1up {margin-left:0;}
-.gut-left-medium-1up {margin-left:270px;}
-.gut-left-large-1up {margin-left:420px;}
+.gut-left-medium-1up {margin-left:210px;}
+.gut-left-large-1up {margin-left:390px;}
+.gut-left-xlarge-1up {margin-left:750px;}
 
 
 
@@ -1088,8 +1109,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-1o4x-1up {margin-right:7.5px;}
 .gut-right-3o4x-1up {margin-right:22.5px;}
 .gut-right-none-1up {margin-right:0;}
-.gut-right-medium-1up {margin-right:270px;}
-.gut-right-large-1up {margin-right:420px;}
+.gut-right-medium-1up {margin-right:210px;}
+.gut-right-large-1up {margin-right:390px;}
+.gut-right-xlarge-1up {margin-right:750px;}
 
 
 
@@ -1135,12 +1157,27 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Layout > Pull Gut Left */
-.pull-gut-left-1up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
+.pull-gut-left-1up,
+.pull-gut-left-none-1up,
+.pull-gut-left-small-1up,
+.pull-gut-left-medium-1up,
+.pull-gut-left-large-1up,
+.pull-gut-left-xlarge-1up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-left-1up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-1up {margin-left:0;width:auto;float:none;position:static;}
-.pull-gut-left-1up {margin-right:30px;}
+.pull-gut-left-1up,
+.pull-gut-left-none-1up,
+.pull-gut-left-small-1up,
+.pull-gut-left-medium-1up,
+.pull-gut-left-large-1up,
+.pull-gut-left-xlarge-1up {margin-right:30px;}
 
+.pull-gut-left-none-1up {width:auto;}
+.pull-gut-left-small-1up {width:90px;}
+.pull-gut-left-medium-1up {width:180px;}
+.pull-gut-left-large-1up {width:360px;}
+.pull-gut-left-xlarge-1up {width:720px;}
 
 
 /* Layout > Pull Gut Right */
@@ -1149,7 +1186,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-1up,
 .pull-gut-right-small-1up,
 .pull-gut-right-medium-1up,
-.pull-gut-right-large-1up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
+.pull-gut-right-large-1up,
+.pull-gut-right-xlarge-1up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-right-1up {*margin-right:0;*left:0;*float:right;}
@@ -1160,13 +1198,15 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-1up,
 .pull-gut-right-small-1up,
 .pull-gut-right-medium-1up,
-.pull-gut-right-large-1up {margin-left:30px;}
+.pull-gut-right-large-1up,
+.pull-gut-right-xlarge-1up {margin-left:30px;}
 
 
 .pull-gut-right-none-1up {width:auto;}
 .pull-gut-right-small-1up {width:90px;}
-.pull-gut-right-medium-1up {width:240px;}
-.pull-gut-right-large-1up {width:390px;}
+.pull-gut-right-medium-1up {width:180px;}
+.pull-gut-right-large-1up {width:360px;}
+.pull-gut-right-xlarge-1up {width:720px;}
 
 
 
@@ -1936,8 +1976,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-left-1o4x-2up {margin-left:7.5px;}
 .gut-left-3o4x-2up {margin-left:22.5px;}
 .gut-left-none-2up {margin-left:0;}
-.gut-left-medium-2up {margin-left:270px;}
-.gut-left-large-2up {margin-left:420px;}
+.gut-left-medium-2up {margin-left:210px;}
+.gut-left-large-2up {margin-left:390px;}
+.gut-left-xlarge-2up {margin-left:750px;}
 
 
 
@@ -1957,8 +1998,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-1o4x-2up {margin-right:7.5px;}
 .gut-right-3o4x-2up {margin-right:22.5px;}
 .gut-right-none-2up {margin-right:0;}
-.gut-right-medium-2up {margin-right:270px;}
-.gut-right-large-2up {margin-right:420px;}
+.gut-right-medium-2up {margin-right:210px;}
+.gut-right-large-2up {margin-right:390px;}
+.gut-right-xlarge-2up {margin-right:750px;}
 
 
 
@@ -2004,12 +2046,27 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Layout > Pull Gut Left */
-.pull-gut-left-2up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
+.pull-gut-left-2up,
+.pull-gut-left-none-2up,
+.pull-gut-left-small-2up,
+.pull-gut-left-medium-2up,
+.pull-gut-left-large-2up,
+.pull-gut-left-xlarge-2up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-left-2up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-2up {margin-left:0;width:auto;float:none;position:static;}
-.pull-gut-left-2up {margin-right:30px;}
+.pull-gut-left-2up,
+.pull-gut-left-none-2up,
+.pull-gut-left-small-2up,
+.pull-gut-left-medium-2up,
+.pull-gut-left-large-2up,
+.pull-gut-left-xlarge-2up {margin-right:30px;}
 
+.pull-gut-left-none-2up {width:auto;}
+.pull-gut-left-small-2up {width:90px;}
+.pull-gut-left-medium-2up {width:180px;}
+.pull-gut-left-large-2up {width:360px;}
+.pull-gut-left-xlarge-2up {width:720px;}
 
 
 /* Layout > Pull Gut Right */
@@ -2018,7 +2075,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-2up,
 .pull-gut-right-small-2up,
 .pull-gut-right-medium-2up,
-.pull-gut-right-large-2up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
+.pull-gut-right-large-2up,
+.pull-gut-right-xlarge-2up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-right-2up {*margin-right:0;*left:0;*float:right;}
@@ -2029,13 +2087,15 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-2up,
 .pull-gut-right-small-2up,
 .pull-gut-right-medium-2up,
-.pull-gut-right-large-2up {margin-left:30px;}
+.pull-gut-right-large-2up,
+.pull-gut-right-xlarge-2up {margin-left:30px;}
 
 
 .pull-gut-right-none-2up {width:auto;}
 .pull-gut-right-small-2up {width:90px;}
-.pull-gut-right-medium-2up {width:240px;}
-.pull-gut-right-large-2up {width:390px;}
+.pull-gut-right-medium-2up {width:180px;}
+.pull-gut-right-large-2up {width:360px;}
+.pull-gut-right-xlarge-2up {width:720px;}
 
 
 
@@ -2805,8 +2865,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-left-1o4x-3up {margin-left:7.5px;}
 .gut-left-3o4x-3up {margin-left:22.5px;}
 .gut-left-none-3up {margin-left:0;}
-.gut-left-medium-3up {margin-left:270px;}
-.gut-left-large-3up {margin-left:420px;}
+.gut-left-medium-3up {margin-left:210px;}
+.gut-left-large-3up {margin-left:390px;}
+.gut-left-xlarge-3up {margin-left:750px;}
 
 
 
@@ -2826,8 +2887,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-1o4x-3up {margin-right:7.5px;}
 .gut-right-3o4x-3up {margin-right:22.5px;}
 .gut-right-none-3up {margin-right:0;}
-.gut-right-medium-3up {margin-right:270px;}
-.gut-right-large-3up {margin-right:420px;}
+.gut-right-medium-3up {margin-right:210px;}
+.gut-right-large-3up {margin-right:390px;}
+.gut-right-xlarge-3up {margin-right:750px;}
 
 
 
@@ -2873,12 +2935,27 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Layout > Pull Gut Left */
-.pull-gut-left-3up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
+.pull-gut-left-3up,
+.pull-gut-left-none-3up,
+.pull-gut-left-small-3up,
+.pull-gut-left-medium-3up,
+.pull-gut-left-large-3up,
+.pull-gut-left-xlarge-3up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-left-3up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-3up {margin-left:0;width:auto;float:none;position:static;}
-.pull-gut-left-3up {margin-right:30px;}
+.pull-gut-left-3up,
+.pull-gut-left-none-3up,
+.pull-gut-left-small-3up,
+.pull-gut-left-medium-3up,
+.pull-gut-left-large-3up,
+.pull-gut-left-xlarge-3up {margin-right:30px;}
 
+.pull-gut-left-none-3up {width:auto;}
+.pull-gut-left-small-3up {width:90px;}
+.pull-gut-left-medium-3up {width:180px;}
+.pull-gut-left-large-3up {width:360px;}
+.pull-gut-left-xlarge-3up {width:720px;}
 
 
 /* Layout > Pull Gut Right */
@@ -2887,7 +2964,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-3up,
 .pull-gut-right-small-3up,
 .pull-gut-right-medium-3up,
-.pull-gut-right-large-3up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
+.pull-gut-right-large-3up,
+.pull-gut-right-xlarge-3up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 .pull-gut-right-3up {*margin-right:0;*left:0;*float:right;}
@@ -2898,13 +2976,15 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-none-3up,
 .pull-gut-right-small-3up,
 .pull-gut-right-medium-3up,
-.pull-gut-right-large-3up {margin-left:30px;}
+.pull-gut-right-large-3up,
+.pull-gut-right-xlarge-3up {margin-left:30px;}
 
 
 .pull-gut-right-none-3up {width:auto;}
 .pull-gut-right-small-3up {width:90px;}
-.pull-gut-right-medium-3up {width:240px;}
-.pull-gut-right-large-3up {width:390px;}
+.pull-gut-right-medium-3up {width:180px;}
+.pull-gut-right-large-3up {width:360px;}
+.pull-gut-right-xlarge-3up {width:720px;}
 
 
 

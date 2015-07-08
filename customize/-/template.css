@@ -233,6 +233,9 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/more}}
 {{/pullgutlefts}}
 
+{{#pullgutleftwidths}}
+{{selector}} {width:{{val}};}
+{{/pullgutleftwidths}}
 
 
 /* Layout > Pull Gut Right */
