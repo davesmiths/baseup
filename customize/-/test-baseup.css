@@ -271,7 +271,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-left-large,
 .pull-gut-left-xlarge {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left {*margin-left:0;*right:0;*float:left;}
+.pull-gut-left,
+.pull-gut-left-none,
+.pull-gut-left-small,
+.pull-gut-left-medium,
+.pull-gut-left-large,
+.pull-gut-left-xlarge {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left,
 .pull-gut-left-none,
@@ -297,7 +302,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-xlarge {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right {*margin-right:0;*left:0;*float:right;}
+.pull-gut-right,
+.pull-gut-right-none,
+.pull-gut-right-small,
+.pull-gut-right-medium,
+.pull-gut-right-large,
+.pull-gut-right-xlarge {_margin-right:0;_left:0;_float:right;}
 
 .pull-gut-right-none {margin-right:0;width:auto;float:none;position:static;}
 
@@ -1164,7 +1174,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-left-large-1up,
 .pull-gut-left-xlarge-1up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-1up {*margin-left:0;*right:0;*float:left;}
+.pull-gut-left-1up,
+.pull-gut-left-none-1up,
+.pull-gut-left-small-1up,
+.pull-gut-left-medium-1up,
+.pull-gut-left-large-1up,
+.pull-gut-left-xlarge-1up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-1up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-1up,
 .pull-gut-left-none-1up,
@@ -1190,7 +1205,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-xlarge-1up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-1up {*margin-right:0;*left:0;*float:right;}
+.pull-gut-right-1up,
+.pull-gut-right-none-1up,
+.pull-gut-right-small-1up,
+.pull-gut-right-medium-1up,
+.pull-gut-right-large-1up,
+.pull-gut-right-xlarge-1up {_margin-right:0;_left:0;_float:right;}
 
 .pull-gut-right-none-1up {margin-right:0;width:auto;float:none;position:static;}
 
@@ -2056,7 +2076,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-left-large-2up,
 .pull-gut-left-xlarge-2up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-2up {*margin-left:0;*right:0;*float:left;}
+.pull-gut-left-2up,
+.pull-gut-left-none-2up,
+.pull-gut-left-small-2up,
+.pull-gut-left-medium-2up,
+.pull-gut-left-large-2up,
+.pull-gut-left-xlarge-2up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-2up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-2up,
 .pull-gut-left-none-2up,
@@ -2082,7 +2107,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-xlarge-2up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-2up {*margin-right:0;*left:0;*float:right;}
+.pull-gut-right-2up,
+.pull-gut-right-none-2up,
+.pull-gut-right-small-2up,
+.pull-gut-right-medium-2up,
+.pull-gut-right-large-2up,
+.pull-gut-right-xlarge-2up {_margin-right:0;_left:0;_float:right;}
 
 .pull-gut-right-none-2up {margin-right:0;width:auto;float:none;position:static;}
 
@@ -2948,7 +2978,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-left-large-3up,
 .pull-gut-left-xlarge-3up {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-left-3up {*margin-left:0;*right:0;*float:left;}
+.pull-gut-left-3up,
+.pull-gut-left-none-3up,
+.pull-gut-left-small-3up,
+.pull-gut-left-medium-3up,
+.pull-gut-left-large-3up,
+.pull-gut-left-xlarge-3up {*margin-left:0;*right:0;*float:left;}
 .pull-gut-left-none-3up {margin-left:0;width:auto;float:none;position:static;}
 .pull-gut-left-3up,
 .pull-gut-left-none-3up,
@@ -2974,7 +3009,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-gut-right-xlarge-3up {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-.pull-gut-right-3up {*margin-right:0;*left:0;*float:right;}
+.pull-gut-right-3up,
+.pull-gut-right-none-3up,
+.pull-gut-right-small-3up,
+.pull-gut-right-medium-3up,
+.pull-gut-right-large-3up,
+.pull-gut-right-xlarge-3up {_margin-right:0;_left:0;_float:right;}
 
 .pull-gut-right-none-3up {margin-right:0;width:auto;float:none;position:static;}
 
