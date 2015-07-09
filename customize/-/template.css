@@ -209,11 +209,11 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/isnotlast}} {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 {{/main}}
 {{#legacysupport}}
-{{#legacy}}
+{{#main}}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {*margin-left:0;*right:0;*float:left;}
-{{/legacy}}
+{{/main}}
 {{/legacysupport}}
 {{#none}}
 {{selector}}{{#isnotlast}},
@@ -239,11 +239,11 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/main}}
 
 {{#legacysupport}}
-{{#legacy}}
+{{#main}}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
 {{selector}}{{#isnotlast}},
-{{/isnotlast}} {*margin-right:0;*left:0;*float:right;}
-{{/legacy}}
+{{/isnotlast}} {_margin-right:0;_left:0;_float:right;}
+{{/main}}
 {{/legacysupport}}
 
 {{#none}}
