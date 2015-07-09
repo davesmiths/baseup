@@ -2,6 +2,7 @@
 // BaseUp JS
 */
 
+
 // Legacy browser support requires jQuery to work
 
 (function($){
@@ -47,10 +48,10 @@
         if (o.legacySupportCols) {
 
             // For IE 6 at the mo, but really it's whether child selector is supported
-            if (isIE === 6) {
+            if (isIE == 6) {
                 this.each(function() {
 
-                    var $cols,val,valLength;
+                    var $cols,$this,val,valLength;
 
                     $cols = $this = $(this);
 
@@ -72,7 +73,7 @@
                         // Get the last set widths class if more than one is set
                         for (i = 0; i < valLength; i++) {
                             val[i] = val[i].replace('widths', 'width');
-                            if (m = val[i].match(/([0-9]+)up$/)) {
+                            if ((m = val[i].match(/([0-9]+)up$/))) {
                                 val[i] = {bp: m[1], val: val[i]};
                             }
                             else {
@@ -82,7 +83,7 @@
                         }
 
                         $cols.find('> *').not('.clear').each(function() {
-                            var $this,className,bp;
+                            var $this,className;
 
                             $this = $(this);
                             className = $this.attr('class');
@@ -128,24 +129,41 @@
         $('.clear').baseUp({legacySupportClear:true});
         $('.lay, .lay-left, .lay-right, .lay-centered').baseUp({legacySupportLay:true});
         $('.cols').baseUp({legacySupportCols:true});
-
-
-// // if flex is supported we don't want margin-left nor margin-right
-//
-//         // Detect flex
-//         var display = document.documentElement.style.display;
-//         var flexsupported = false;
-//         document.documentElement.style.display = 'flex';
-//         if (document.documentElement.style.display === 'flex') {
-//             //supported
-//         }
-//         document.documentElement.style.display = '-webkit-flex';
-//         if (document.documentElement.style.display === '-webkit-flex') {
-//             //supported
-//         }
-//         document.documentElement.style.display = display;
-
     });
 
+    // If flex is not supported, then we want to engage float positions
+    var flexsupported, display;
+    flexsupported = false;
+
+    // document.documentElement.style.backgroundColor = 'red';
+
+    try {
+
+        display = document.documentElement.style.display;
+
+        document.documentElement.style.display = 'flex';
+        if (document.documentElement.style.display === 'flex') {
+            //supported
+            flexsupported = true;
+            // document.documentElement.style.backgroundColor = 'green';
+        }
+        else {
+            document.documentElement.style.display = '-webkit-flex';
+            if (document.documentElement.style.display === '-webkit-flex') {
+                //supported
+                flexsupported = true;
+                // document.documentElement.style.backgroundColor = 'green';
+            }
+        }
+
+        document.documentElement.style.display = display;
+
+    }
+    catch (e) {
+
+    }
+    if (!flexsupported) {
+        document.documentElement.class += ' baseup-legacy-noflex';
+    }
 
 }(jQuery));

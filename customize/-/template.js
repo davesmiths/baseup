@@ -52,11 +52,9 @@
             if (isIE == 6) {
                 this.each(function() {
 
-                    var $cols = $this = $(this)
-                        ,val
-                        ,valLength
-                    ;
+                    var $cols,$this,val,valLength;
 
+                    $cols = $this = $(this);
 
                     // Cols classes
                     if ($this.find('> .baseup-legacy-support-{{lay}}').length) {
@@ -76,7 +74,7 @@
                         // Get the last set {{width}}s class if more than one is set
                         for (i = 0; i < valLength; i++) {
                             val[i] = val[i].replace('{{ns}}{{width}}s', '{{ns}}{{width}}');
-                            if (m = val[i].match(/([0-9]+)up$/)) {
+                            if ((m = val[i].match(/([0-9]+)up$/))) {
                                 val[i] = {bp: m[1], val: val[i]};
                             }
                             else {
@@ -86,10 +84,11 @@
                         }
 
                         $cols.find('> *').not('.{{ns}}{{clear}}').each(function() {
-                            var $this = $(this)
-                                ,className = $this.attr('class')
-                                ,bp
-                            ;
+                            var $this,className;
+
+                            $this = $(this);
+                            className = $this.attr('class');
+
                             for (i = 0; i < valLength; i++) {
                                 bp = val[i].bp + 'up';
                                 if (val[i].bp === 0) {
@@ -133,6 +132,40 @@
         $('.{{ns}}{{col}}s').baseUp({legacySupportCols:true});
     });
 
+    // If flex is not supported, then we want to engage float positions
+    var flexsupported, display;
+    flexsupported = false;
+
+    // document.documentElement.style.backgroundColor = 'red';
+
+    try {
+
+        display = document.documentElement.style.display;
+
+        document.documentElement.style.display = 'flex';
+        if (document.documentElement.style.display === 'flex') {
+            //supported
+            flexsupported = true;
+            // document.documentElement.style.backgroundColor = 'green';
+        }
+        else {
+            document.documentElement.style.display = '-webkit-flex';
+            if (document.documentElement.style.display === '-webkit-flex') {
+                //supported
+                flexsupported = true;
+                // document.documentElement.style.backgroundColor = 'green';
+            }
+        }
+
+        document.documentElement.style.display = display;
+
+    }
+    catch (e) {
+
+    }
+    if (!flexsupported) {
+        document.documentElement.class += ' baseup-legacy-noflex';
+    }
 
 }(jQuery));
 

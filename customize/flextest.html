@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+
+            var flexsupported, display;
+            flexsupported = false;
+
+            document.documentElement.style.backgroundColor = 'red';
+
+            try {
+
+                display = document.documentElement.style.display;
+
+                document.documentElement.style.display = 'flex';
+                if (document.documentElement.style.display === 'flex') {
+                    //supported
+                    document.documentElement.style.backgroundColor = 'green';
+                }
+                else {
+                    document.documentElement.style.display = '-webkit-flex';
+                    if (document.documentElement.style.display === '-webkit-flex') {
+                        //supported
+                        document.documentElement.style.backgroundColor = 'green';
+                    }
+                }
+
+                document.documentElement.style.display = display;
+
+            }
+            catch (e) {
+
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

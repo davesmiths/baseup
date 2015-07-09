@@ -86,15 +86,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Layout > Columns */
-{{#legacysupport}}
-@supports (display:-webkit-flex) or (display:flex) {
-    .{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-}
-{{/legacysupport}}
-{{^legacysupport}}
 .{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-{{/legacysupport}}
-/*-webkit-flex-wrap:wrap;flex-wrap:wrap; removed wrap because of bug in webkit */
 .{{ns}}{{col}} {float:left;width:100%;-webkit-flex:none;flex:none;}
 .{{ns}}{{col}}s > * {float:left;width:100%;-webkit-flex:none;flex:none;}
 
@@ -351,37 +343,34 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/gutsfws}}
 
 
-{{#positionclasses}}
+
+
+
+
 
 /* Pos */
-
-{{#legacysupport}}
-
-{{#poss}}
-{{#fractions}}{{#isnotfirst}},
-{{/isnotfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;-webkit-order:{{valueinteger}};order:{{valueinteger}};}
-{{/poss}}
-
-{{#poss}}{{#fractions}}{{#isnotveryfirst}},
-{{/isnotveryfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-right:-100%;}
-
-@supports (display:-webkit-flex) or (display:flex) {
-    {{#poss}}{{#fractions}}{{#isnotveryfirst}},
-    {{/isnotveryfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-left:0;margin-right:0;}
-}
-
-{{/legacysupport}}
-{{^legacysupport}}
+{{#positionclasses}}
 
 {{#poss}}
 {{#fractions}}{{#isnotfirst}},
 {{/isnotfirst}}.{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {-webkit-order:{{valueinteger}};order:{{valueinteger}};}
 {{/poss}}
 
+{{#legacysupport}}
+{{#poss}}
+{{#fractions}}{{#isnotfirst}},
+{{/isnotfirst}}.baseup-legacy-noflex .{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;}
+{{/poss}}
+
+{{#poss}}{{#fractions}}{{#isnotveryfirst}},
+{{/isnotveryfirst}}.baseup-legacy-noflex .{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-right:-100%;}
 {{/legacysupport}}
 
 
 {{/positionclasses}}
+
+
+
 
 
 {{#bp}}
