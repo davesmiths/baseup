@@ -111,10 +111,11 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .pull-right {float:right;width:100%;}
 
 
-/* Components */
-.component-heights > * {display:-webkit-flex;flex;display:flex;}
-.component-heights > * > * {-webkit-flex:1;flex:1;}
-/*.component-heights > * > * {height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}*/
+/* Child Height Fill */
+.child-heights-fill > * {display:-webkit-flex;flex;display:flex;}
+.child-heights-fill > * > * {-webkit-flex:1;flex:1;}
+.child-height-fill {display:-webkit-flex;flex;display:flex;}
+.child-height-fill > * {-webkit-flex:1;flex:1;}
 
 
 
