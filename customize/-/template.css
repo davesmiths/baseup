@@ -135,9 +135,9 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Child Height Fill */
-.{{ns}}child-heights-fill > * {display:-webkit-flex;flex;display:flex;}
+.{{ns}}child-heights-fill > * {display:-webkit-flex;display:flex;}
 .{{ns}}child-heights-fill > * > * {-webkit-flex:1;flex:1;}
-.{{ns}}child-height-fill {display:-webkit-flex;flex;display:flex;}
+.{{ns}}child-height-fill {display:-webkit-flex;display:flex;}
 .{{ns}}child-height-fill > * {-webkit-flex:1;flex:1;}
 
 
@@ -170,22 +170,11 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/heights}}
 
 
-
-/* Layout > Hide Gutter Left */
-{{#innguthides}}
-{{selector}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};}
-{{/innguthides}}
-
-
-
 /* Layout > Gut Left */
 {{#gutlefts}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:{{val}};}
 {{/gutlefts}}
-
-
 
 /* Layout > Gut Right */
 {{#gutrights}}
@@ -193,11 +182,9 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/isnotlast}} {margin-right:{{val}};}
 {{/gutrights}}
 
-
-
-/* Layout > Gut Bottom */
+/* Layout > Gut Bottoms */
 {{#gutbottoms}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-bottom:{{val}};}
 {{/gutbottoms}}
 
@@ -286,26 +273,17 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Width */
-.{{ns}}{{width}}-auto{{bp}} {width:auto;}
 {{#widthclasses}}{{#widths}}
 {{#fractions}}{{#isnotfirst}},
 {{/isnotfirst}}.{{ns}}{{width}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {width:{{value}}%;}
 {{/widths}}{{/widthclasses}}
 
-
-
 /* Widths px */
 {{#widthspx}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {width:{{val}};}
 {{/widthspx}}
-
-
-/* Component Guts */
-{{#gutbottoms}}
-{{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {margin-bottom:{{val}};}
-{{/gutbottoms}}
+.{{ns}}{{width}}-auto{{bp}} {width:auto;}
 
 
 /* Guts */
@@ -337,15 +315,6 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 
-/* Guts Full-Width classes */
-{{#gutsfws}}
-{{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};}
-{{/gutsfws}}
-
-
-
-
 
 
 
@@ -360,11 +329,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{#legacysupport}}
 {{#poss}}
 {{#fractions}}{{#isnotfirst}},
-{{/isnotfirst}}.baseup-legacy-noflex .{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;}
+{{/isnotfirst}}.baseup-noflex .{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}} {margin-left:{{value}}%;margin-right:-100%;}
 {{/poss}}
-
-{{#poss}}{{#fractions}}{{#isnotveryfirst}},
-{{/isnotveryfirst}}.baseup-legacy-noflex .{{ns}}{{pos}}-{{numerator}}o{{denominator}}{{bp}}{{/fractions}}{{/poss}} {margin-right:-100%;}
 {{/legacysupport}}
 
 

@@ -605,6 +605,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         val: _inbreakpointi.base * j + 'px',
                     });
                 }
+                for (j = 1; j < nWidths; j += 1) {
+                    widthspx.push({
+                        selector: '.' + _out.ns + _out.width + 's-' + j + 'x > *' + _out.breakpoints[m].bp,
+                        val: _inbreakpointi.base * j + 'px',
+                    });
+                }
 
 
 

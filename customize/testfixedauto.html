@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Test BaseUp</title>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+    <!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+    <script src="-/jquery.min.js"></script>
+
+    <!-- Baseup version for the test page -->
+    <link href="-/test-baseup.css" rel="stylesheet" />
+    <script src="-/test-baseup.js" type="text/javascript"></script>
+
+    <!-- Test page CSS and JS -->
+    <link href="-/test.css" rel="stylesheet" />
+    <script src="-/test.js" type="text/javascript"></script>
+    <script src="../-/js/respond.js"></script>
+
+
+    <style media="screen">
+
+.cols-first-auto {display:-webkit-flex;display:flex;}
+.cols-first-auto > *:first-child {-webkit-flex:none;flex:none;}
+.cols-first-auto > img:first-child {object-fit:cover;height:auto;max-width:300px;flex-basis:none;}
+.cols-first-auto > *:first-child + * {-webkit-flex:1;flex:1;}
+
+.cols-first-auto {margin-left:0;}
+.cols-first-auto > *:first-child {padding-left:0;float:left;*display:inline;}
+.cols-first-auto > *:first-child + * {overflow:hidden;width:auto;}
+
+.cols-auto-first {}
+.cols-auto-first > *:first-child {float:right;*display:inline;}
+.cols-auto-first > *:first-child + * {overflow:hidden;width:auto;}
+/*
+IE6 linear
+IE7 OK, but no gutters
+IE8+ OK
+*/
+
+/*
+for object-fit use in conjuction with @supports as the features were pretty similarly added
+
+*/
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- <ul class="lay cols-first-auto widths-10x guts">
+        <li>
+            <a href="#">
+            	<img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" />
+                <div>
+            		<div class="component">Auto</div>
+                </div>
+            </a>
+        </li>
+    </div> -->
+    <p>
+        First column is image, therefore treated as cover
+    </p>
+    <div class="lay cols-first-auto widths-8x guts">
+        <img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" />
+        <div>
+        <div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+        </div>
+        </div>
+    </div>
+    <p>
+        First column has image inside
+    </p>
+    <div class="lay cols-first-auto widths-10x guts achild-heights-fill">
+        <div>
+            <img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" style="width:100%;height:auto;" />
+        </div>
+        <div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+        </div>
+    </div>
+    <div class="lay cols-first-auto widths-10x guts child-heights-fill">
+    	<div>
+    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
+    	</div>
+        <div>
+    		<div class="component">Auto</div>
+        </div>
+    </div>
+    <p>Clear left in auto</p>
+    <div class="lay cols-auto-first widths-11x guts">
+    	<div>
+    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
+    	</div>
+        <div>
+    		<div class="component">Auto</div>
+    		<div class="component clear">Auto</div>
+    	</div>
+    </div>
+    <p>Clear left in auto</p>
+    <div class="lay cols-first-auto widths-10x">
+    	<div>
+    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
+    	</div>
+        <div>
+    		<div class="component">Auto</div>
+    		<div class="component clear">Auto</div>
+    	</div>
+    </div>
+    <p>Longer auto</p>
+    <div class="lay cols-first-auto widths-10x child-heights-fill">
+    	<div>
+    		<div class="component">Fixed</div>
+    	</div>
+        <div>
+    		<div class="component">Auto <br />Auto <br />Auto <br />Auto <br />Auto <br />Auto <br />Auto <br /></div>
+    	</div>
+    </div>
+
+</body>
+
+</html>
