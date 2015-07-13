@@ -23,7 +23,9 @@
 
 .cols-first-auto {display:-webkit-flex;display:flex;}
 .cols-first-auto > *:first-child {-webkit-flex:none;flex:none;}
-.cols-first-auto > img:first-child {object-fit:cover;height:auto;max-width:300px;flex-basis:none;}
+.cols-first-auto > *:first-child.child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+.cols-first-auto > *:first-child.child-media-cover > img,
+.cols-first-auto > *:first-child.child-media-cover > video {-webkit-flex:1;flex:1;height:auto;max-width:100%;object-fit:cover;object-position:0 100%;}
 .cols-first-auto > *:first-child + * {-webkit-flex:1;flex:1;}
 
 .cols-first-auto {margin-left:0;}
@@ -33,17 +35,19 @@
 .cols-auto-first {}
 .cols-auto-first > *:first-child {float:right;*display:inline;}
 .cols-auto-first > *:first-child + * {overflow:hidden;width:auto;}
-/*
-IE6 linear
-IE7 OK, but no gutters
-IE8+ OK
-*/
 
 /*
-for object-fit use in conjuction with @supports as the features were pretty similarly added
+
+    IE6 linear
+    IE7 OK, but no gutters
+    IE8+ OK
+
+    for object-fit use in conjuction with @supports as the features were pretty similarly added
 
 */
 
+ .image {display:block;height:0;padding-bottom:61.8%;position:relative;overflow:hidden;}
+ .image > img {display:block;position:absolute;width:100%;height:100%;object-fit:cover;object-position:66% 50%;}
 
     </style>
 
@@ -52,24 +56,53 @@ for object-fit use in conjuction with @supports as the features were pretty simi
 <body>
 
 
-    <!-- <ul class="lay cols-first-auto widths-10x guts">
+    <!--
+    <ul class="lay cols-first-auto widths-10x guts">
         <li>
             <a href="#">
-            	<img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" />
+            	<img src="-/images/toby.jpg" alt="" />
                 <div>
             		<div class="component">Auto</div>
                 </div>
             </a>
         </li>
-    </div> -->
+    </div>
+    -->
+    <div class="image">
+        <img src="-/images/toby.jpg" alt="" />
+    </div>
+    <hr>
+
     <p>
         First column is image, therefore treated as cover
     </p>
-    <div class="lay cols-first-auto widths-8x guts">
-        <img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" />
+    <div class="lay cols-first-auto widths-8x">
+        <div class="child-media-cover">
+            <img src="-/images/toby.jpg" width="640" height="480" alt=""  style="object-position:33% 50%" />
+        </div>
         <div>
         <div>
+    		<div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
     		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+    		<div class="component">Auto</div>
+        </div>
+        </div>
+    </div>
+    <p>
+        No attributes
+    </p>
+    <div class="lay cols-first-auto widths-8x guts">
+        <div class="child-media-cover">
+        <img src="-/images/toby.jpg" alt="" style="object-position:66% 50%" />
+    </div>
+        <div>
+        <div>
+    		<div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
     		<div class="component">Auto</div>
     		<div class="component">Auto</div>
     		<div class="component">Auto</div>
@@ -85,7 +118,7 @@ for object-fit use in conjuction with @supports as the features were pretty simi
     </p>
     <div class="lay cols-first-auto widths-10x guts achild-heights-fill">
         <div>
-            <img src="http://thewowstyle.com/wp-content/uploads/2015/02/1622851beautiful-pictures.jpg" alt="" style="width:100%;height:auto;" />
+            <img src="-/images/toby.jpg" alt="" style="width:100%;height:auto;" />
         </div>
         <div>
     		<div class="component">Auto</div>
