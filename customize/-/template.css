@@ -89,9 +89,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
 .{{ns}}{{col}} {float:left;width:100%;-webkit-flex:none;flex:none;}
 .{{ns}}{{col}}s > * {float:left;width:100%;-webkit-flex:none;flex:none;}
-
 {{#legacysupport}}
-/* Layout > Cols > Legacy Support */
+/* Layout > Columns > Legacy Support */
 /*  IE 6 and 7 fix */
 .{{ns}}{{col}} {
     _display:inline; /* 1 */
@@ -108,14 +107,61 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 //  3. Prevent images wider than the column width breaking the layout in IE 6
 //  4. Account for pixel-rounding of percentages in IE 6 and 7
 */
+{{/legacysupport}}
 
+
+/* Layout > Columns First Auto */
+.{{ns}}{{col}}s-first-auto,
+.{{ns}}child-{{col}}s-first-auto > *,
+.{{ns}}gchild-{{col}}s-first-auto > * > * {display:-webkit-flex;display:flex;}
+.{{ns}}{{col}}s-first-auto > *:first-child,
+.{{ns}}child-{{col}}s-first-auto > * > *:first-child,
+.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child {-webkit-flex:none;flex:none;}
+.{{ns}}{{col}}s-first-auto > *:first-child + *,
+.{{ns}}child-{{col}}s-first-auto > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child + * {-webkit-flex:1;flex:1;}
+{{#legacysupport}}
+/* Layout > Columns First Auto Legacy Support */
+.{{ns}}{{col}}s-first-auto,
+.{{ns}}child-{{col}}s-first-auto > *,
+.{{ns}}gchild-{{col}}s-first-auto > * > * {margin-left:0;}
+.{{ns}}{{col}}s-first-auto > *:first-child,
+.{{ns}}child-{{col}}s-first-auto > * > *:first-child,
+.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child {padding-left:0;float:left;*display:inline;}
+.{{ns}}{{col}}s-first-auto > *:first-child + *,
+.{{ns}}child-{{col}}s-first-auto > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child + * {overflow:hidden;width:auto;}
+{{/legacysupport}}
+
+
+/* Layout > Columns Auto First */
+.{{ns}}{{col}}s-auto-first,
+.{{ns}}child-{{col}}s-auto-first > *,
+.{{ns}}gchild-{{col}}s-auto-first > * > * {display:-webkit-flex;display:flex;}
+.{{ns}}{{col}}s-auto-first > *:first-child,
+.{{ns}}child-{{col}}s-auto-first > * > *:first-child,
+.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;}
+.{{ns}}{{col}}s-auto-first > *:first-child + *,
+.{{ns}}child-{{col}}s-auto-first > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child + * {-webkit-flex:1;flex:1;order:1;}
+{{#legacysupport}}
+/* Layout > Columns Auto First Legacy Support */
+.{{ns}}{{col}}s-auto-first > *:first-child,
+.{{ns}}child-{{col}}s-auto-first > * > *:first-child,
+.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child {float:right;*display:inline;}
+.{{ns}}{{col}}s-auto-first > *:first-child + *,
+.{{ns}}child-{{col}}s-auto-first > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child + * {overflow:hidden;width:auto;}
+{{/legacysupport}}
+
+
+{{#legacysupport}}
 /* IE 6 and 7 fix applied in baseup.js */
 .baseup-legacy-support-{{clear}}-a {float:left;width:100%;height:0;overflow:hidden;}
 .baseup-legacy-support-{{clear}}-b {clear:both;height:0;overflow:hidden;}
 
 /* IE 6 fix applied in baseup.js */
 .baseup-legacy-support-{{lay}} {float:left;width:100%;}
-
 {{/legacysupport}}
 
 
@@ -270,8 +316,6 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/widths}}{{/widthclasses}}
 .{{ns}}{{width}}s-auto{{bp}} > * {width:auto;}
 
-
-
 /* Width */
 {{#widthclasses}}{{#widths}}
 {{#fractions}}{{#isnotfirst}},
@@ -283,6 +327,13 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {width:{{val}};}
 {{/widthspx}}
+.{{ns}}{{width}}-auto{{bp}} {width:auto;}
+
+/* Width px */
+{{#widthpx}}
+{{{selector}}}{{#isnotlast}},
+{{/isnotlast}} {width:{{val}};}
+{{/widthpx}}
 .{{ns}}{{width}}-auto{{bp}} {width:auto;}
 
 

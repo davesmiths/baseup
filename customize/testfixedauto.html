@@ -21,54 +21,107 @@
 
     <style media="screen">
 
-.cols-first-auto {display:-webkit-flex;display:flex;}
-.cols-first-auto > *:first-child {-webkit-flex:none;flex:none;}
-.cols-first-auto > *:first-child.child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
-.cols-first-auto > *:first-child.child-media-cover > img,
-.cols-first-auto > *:first-child.child-media-cover > video {-webkit-flex:1;flex:1;height:auto;max-width:100%;object-fit:cover;object-position:0 100%;}
-.cols-first-auto > *:first-child + * {-webkit-flex:1;flex:1;}
 
-.cols-first-auto {margin-left:0;}
-.cols-first-auto > *:first-child {padding-left:0;float:left;*display:inline;}
-.cols-first-auto > *:first-child + * {overflow:hidden;width:auto;}
 
-.cols-auto-first {}
-.cols-auto-first > *:first-child {float:right;*display:inline;}
-.cols-auto-first > *:first-child + * {overflow:hidden;width:auto;}
 
+
+    .rows {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+    .rows > * {-webkit-flex:1;flex:1;}
+
+    .cols-first-auto > *:first-child.child-media-cover > img,
+    .cols-first-auto > *:first-child.child-media-cover > video {width:100%;height:auto;}
+    @supports ((object-fit:cover) and (object-position:0 0)) {
+        .cols-first-auto > *:first-child.child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+        .cols-first-auto > *:first-child.child-media-cover > img,
+        .cols-first-auto > *:first-child.child-media-cover > video {-webkit-flex:1;flex:1;object-fit:cover;object-position:0 100%;}
+    }
+    .child-media-cover > img,
+    .child-media-cover > video {width:100%;height:auto;}
+    @supports ((object-fit:cover) and (object-position:0 0)) {
+        .child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+        .child-media-cover > img,
+        .child-media-cover > video {-webkit-flex:1;flex:1;object-fit:cover;object-position:0 100%;}
+    }
+
+
+    .media {display:block;}
+    .media > img {display:block;width:100%;height:auto;}
+    @supports ((object-fit:cover) and (object-position:0 0)) {
+        .media {display:block;height:0;padding-bottom:20%;position:relative;overflow:hidden;}
+        .media > img {display:block;position:absolute;width:100%;height:100%;object-fit:cover;object-position:66% 20%;}
+    }
 /*
-
     IE6 linear
     IE7 OK, but no gutters
     IE8+ OK
 
     for object-fit use in conjuction with @supports as the features were pretty similarly added
-
 */
-
- .image {display:block;height:0;padding-bottom:61.8%;position:relative;overflow:hidden;}
- .image > img {display:block;position:absolute;width:100%;height:100%;object-fit:cover;object-position:66% 50%;}
-
     </style>
 
 </head>
-
 <body>
 
+<ul class="lay gchild-cols-first-auto gchild-widths-8x">
+    <li>
+        <a href="#">
+            <div>
+                First
+            </div>
+            <div>
+                Auto
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                First
+            </div>
+            <div>
+                Auto
+            </div>
+        </a>
+    </li>
+</ul>
+<ul class="lay gchild-cols-auto-first gchild-widths-8x">
+    <li>
+        <a href="#">
+            <div>
+                First
+            </div>
+            <div>
+                Auto
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                First
+            </div>
+            <div>
+                Auto
+            </div>
+        </a>
+    </li>
+</ul>
+<div class="child-cols-first-auto child-widths-5x">
+    <section>
+        <div class="width-3x">
+            First
+        </div>
+        <div>
+            <h2>Auto</h2>
+        </div>
+    </section>
+    <section>
+        <div>
+            First
+        </div>
+        <div>
+            <h2>Auto</h2>
+        </div>
+    </section>
+</div>
 
-    <!--
-    <ul class="lay cols-first-auto widths-10x guts">
-        <li>
-            <a href="#">
-            	<img src="-/images/toby.jpg" alt="" />
-                <div>
-            		<div class="component">Auto</div>
-                </div>
-            </a>
-        </li>
-    </div>
-    -->
-    <div class="image">
+    <div class="media">
         <img src="-/images/toby.jpg" alt="" />
     </div>
     <hr>
@@ -77,20 +130,25 @@
         First column is image, therefore treated as cover
     </p>
     <div class="lay cols-first-auto widths-8x">
-        <div class="child-media-cover">
-            <img src="-/images/toby.jpg" width="640" height="480" alt=""  style="object-position:33% 50%" />
+        <div class="rows">
+            <div class="child-media-cover">
+                <img src="-/images/toby.jpg" width="640" height="480" alt="" style="object-position:33% 50%" />
+            </div>
+            <div class="child-media-cover">
+                <img src="-/images/toby.jpg" width="640" height="480" alt="" style="object-position:33% 50%" />
+            </div>
         </div>
         <div>
-        <div>
-    		<div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-        </div>
+            <div>
+                <div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+            </div>
         </div>
     </div>
     <p>
@@ -98,19 +156,19 @@
     </p>
     <div class="lay cols-first-auto widths-8x guts">
         <div class="child-media-cover">
-        <img src="-/images/toby.jpg" alt="" style="object-position:66% 50%" />
-    </div>
-        <div>
-        <div>
-    		<div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
+            <img src="-/images/toby.jpg" alt="" style="object-position:66% 50%" />
         </div>
+        <div>
+            <div>
+                <div class="component">Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+                <div class="component">Auto</div>
+            </div>
         </div>
     </div>
     <p>
@@ -121,54 +179,111 @@
             <img src="-/images/toby.jpg" alt="" style="width:100%;height:auto;" />
         </div>
         <div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
-    		<div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
+            <div class="component">Auto</div>
         </div>
     </div>
     <div class="lay cols-first-auto widths-10x guts child-heights-fill">
-    	<div>
-    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
-    	</div>
         <div>
-    		<div class="component">Auto</div>
+            <div class="component">Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />
+            </div>
+        </div>
+        <div>
+            <div class="component">Auto</div>
+        </div>
+    </div>
+    <p>Clear left in auto</p>
+    <div class="lay cols-auto-first widths-10x">
+        <div>
+            <div class="component">Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />
+            </div>
+        </div>
+        <div>
+            <div class="component">Auto</div>
+            <div class="component clear">Auto</div>
         </div>
     </div>
     <p>Clear left in auto</p>
     <div class="lay cols-auto-first widths-11x guts">
-    	<div>
-    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
-    	</div>
         <div>
-    		<div class="component">Auto</div>
-    		<div class="component clear">Auto</div>
-    	</div>
+            <div class="component">Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />
+            </div>
+        </div>
+        <div>
+            <div class="component">Auto</div>
+            <div class="component clear">Auto</div>
+        </div>
     </div>
     <p>Clear left in auto</p>
     <div class="lay cols-first-auto widths-10x">
-    	<div>
-    		<div class="component">Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br />Fixed <br /></div>
-    	</div>
         <div>
-    		<div class="component">Auto</div>
-    		<div class="component clear">Auto</div>
-    	</div>
+            <div class="component">Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />
+            </div>
+        </div>
+        <div>
+            <div class="component">Auto</div>
+            <div class="component clear">Auto</div>
+        </div>
     </div>
     <p>Longer auto</p>
     <div class="lay cols-first-auto widths-10x child-heights-fill">
-    	<div>
-    		<div class="component">Fixed</div>
-    	</div>
         <div>
-    		<div class="component">Auto <br />Auto <br />Auto <br />Auto <br />Auto <br />Auto <br />Auto <br /></div>
-    	</div>
+            <div class="component">Fixed</div>
+        </div>
+        <div>
+            <div class="component">Auto
+                <br />Auto
+                <br />Auto
+                <br />Auto
+                <br />Auto
+                <br />Auto
+                <br />Auto
+                <br />
+            </div>
+        </div>
     </div>
 
 </body>
-
 </html>

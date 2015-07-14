@@ -309,6 +309,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             heights,
             maxwidths,
             // ords,
+            widthpx,
             widthspx,
 			nMaxWidths,
             nWidths,
@@ -563,6 +564,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             gutbottoms = [];
             heights = [];
             maxwidths = [];
+            widthpx = [];
             widthspx = [];
             // ords = [];
 
@@ -600,14 +602,26 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
                 // Widths px
                 for (j = 1; j < nWidths; j += 1) {
-                    widthspx.push({
+                    widthpx.push({
                         selector: '.' + _out.ns + _out.width + '-' + j + 'x' + _out.breakpoints[m].bp,
                         val: _inbreakpointi.base * j + 'px',
                     });
                 }
                 for (j = 1; j < nWidths; j += 1) {
                     widthspx.push({
-                        selector: '.' + _out.ns + _out.width + 's-' + j + 'x > *' + _out.breakpoints[m].bp,
+                        selector: '.' + _out.ns + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *',
+                        val: _inbreakpointi.base * j + 'px',
+                    });
+                }
+                for (j = 1; j < nWidths; j += 1) {
+                    widthspx.push({
+                        selector: '.' + _out.ns + 'child-' + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > * > *',
+                        val: _inbreakpointi.base * j + 'px',
+                    });
+                }
+                for (j = 1; j < nWidths; j += 1) {
+                    widthspx.push({
+                        selector: '.' + _out.ns + 'gchild-' + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > * > * > *',
                         val: _inbreakpointi.base * j + 'px',
                     });
                 }
@@ -1100,6 +1114,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             pullgutrightwidths = pullgutrightwidths;
             gutbottoms = processRules(gutbottoms);
             maxwidths = processRules(maxwidths);
+            widthpx = processRules(widthpx);
             widthspx = processRules(widthspx);
             heights = processRules(heights);
             // ords = ords;
@@ -1174,6 +1189,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             _outbreakpointi.pullgutrightwidths = pullgutrightwidths;
             _outbreakpointi.gutbottoms = gutbottoms;
             _outbreakpointi.maxwidths = maxwidths;
+            _outbreakpointi.widthpx = widthpx;
             _outbreakpointi.widthspx = widthspx;
             // _outbreakpointi.ords = ords;
             if (_in.heightClasses > 0) {
