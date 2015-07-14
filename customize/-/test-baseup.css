@@ -1,6 +1,6 @@
 /*
 //  BaseUp CSS
-//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=true&h1=1.64&h2=1.32&h3=1.16&h4=1.08&h5=1.04&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.28&h2adj=0.28&h3adj=0.28&h4adj=0.28&h5adj=0.28&h6adj=0.28&gutnxsmall=4&gutnxmedium=8&gutnxlarge=12&gutnxxlarge=16&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
+//  Your original custom settings: ?base=30&fontSize=0.7&columns=12&at=0,720,960,1200&basesx=1,1,1,1&decimalPlaces=4&heights=20&ns=&positionClasses=true&layoutClasses=true&copyClasses=true&legacysupport=true&h1=1.64&h2=1.32&h3=1.16&h4=1.08&h5=1.04&h6=1&h1nx=3&h2nx=3&h3nx=3&h4nx=3&h5nx=3&h6nx=3&hadj=nx&h1adj=0.28&h2adj=0.28&h3adj=0.28&h4adj=0.28&h5adj=0.28&h6adj=0.28&sizesmall=4&sizemedium=8&sizelarge=12&sizexlarge=16&scrollbardepthadjust=20&hfont=Georgia&hweight=200&copyfont=Helvetica,Arial&copyweight=200
 */
 
 
@@ -509,76 +509,18 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .width-11o12 {width:91.6666%;}
 
 /* Widths px */
-.widths-1x > *,
-.child-widths-1x > * > *,
-.gchild-widths-1x > * > * > * {width:30px;}
-.widths-2x > *,
-.child-widths-2x > * > *,
-.gchild-widths-2x > * > * > * {width:60px;}
-.widths-3x > *,
-.child-widths-3x > * > *,
-.gchild-widths-3x > * > * > * {width:90px;}
-.widths-4x > *,
-.child-widths-4x > * > *,
-.gchild-widths-4x > * > * > * {width:120px;}
-.widths-5x > *,
-.child-widths-5x > * > *,
-.gchild-widths-5x > * > * > * {width:150px;}
-.widths-6x > *,
-.child-widths-6x > * > *,
-.gchild-widths-6x > * > * > * {width:180px;}
-.widths-7x > *,
-.child-widths-7x > * > *,
-.gchild-widths-7x > * > * > * {width:210px;}
-.widths-8x > *,
-.child-widths-8x > * > *,
-.gchild-widths-8x > * > * > * {width:240px;}
-.widths-9x > *,
-.child-widths-9x > * > *,
-.gchild-widths-9x > * > * > * {width:270px;}
-.widths-10x > *,
-.child-widths-10x > * > *,
-.gchild-widths-10x > * > * > * {width:300px;}
-.widths-11x > *,
-.child-widths-11x > * > *,
-.gchild-widths-11x > * > * > * {width:330px;}
-.widths-12x > *,
-.child-widths-12x > * > *,
-.gchild-widths-12x > * > * > * {width:360px;}
-.widths-13x > *,
-.child-widths-13x > * > *,
-.gchild-widths-13x > * > * > * {width:390px;}
-.widths-14x > *,
-.child-widths-14x > * > *,
-.gchild-widths-14x > * > * > * {width:420px;}
-.widths-15x > *,
-.child-widths-15x > * > *,
-.gchild-widths-15x > * > * > * {width:450px;}
-.widths-16x > *,
-.child-widths-16x > * > *,
-.gchild-widths-16x > * > * > * {width:480px;}
-.widths-17x > *,
-.child-widths-17x > * > *,
-.gchild-widths-17x > * > * > * {width:510px;}
-.widths-18x > *,
-.child-widths-18x > * > *,
-.gchild-widths-18x > * > * > * {width:540px;}
-.widths-19x > *,
-.child-widths-19x > * > *,
-.gchild-widths-19x > * > * > * {width:570px;}
-.widths-20x > *,
-.child-widths-20x > * > *,
-.gchild-widths-20x > * > * > * {width:600px;}
-.widths-21x > *,
-.child-widths-21x > * > *,
-.gchild-widths-21x > * > * > * {width:630px;}
-.widths-22x > *,
-.child-widths-22x > * > *,
-.gchild-widths-22x > * > * > * {width:660px;}
-.widths-23x > *,
-.child-widths-23x > * > *,
-.gchild-widths-23x > * > * > * {width:690px;}
-.width-auto {width:auto;}
+.widths-small,
+.child-widths-small,
+.gchild-widths-small {width:120px;}
+.widths-medium,
+.child-widths-medium,
+.gchild-widths-medium {width:240px;}
+.widths-large,
+.child-widths-large,
+.gchild-widths-large {width:360px;}
+.widths-xlarge,
+.child-widths-xlarge,
+.gchild-widths-xlarge {width:480px;}
 
 /* Width px */
 .width-1x {width:30px;}
@@ -1278,76 +1220,18 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .width-11o12-1up {width:91.6666%;}
 
 /* Widths px */
-.widths-1x-1up > *,
-.child-widths-1x-1up > * > *,
-.gchild-widths-1x-1up > * > * > * {width:30px;}
-.widths-2x-1up > *,
-.child-widths-2x-1up > * > *,
-.gchild-widths-2x-1up > * > * > * {width:60px;}
-.widths-3x-1up > *,
-.child-widths-3x-1up > * > *,
-.gchild-widths-3x-1up > * > * > * {width:90px;}
-.widths-4x-1up > *,
-.child-widths-4x-1up > * > *,
-.gchild-widths-4x-1up > * > * > * {width:120px;}
-.widths-5x-1up > *,
-.child-widths-5x-1up > * > *,
-.gchild-widths-5x-1up > * > * > * {width:150px;}
-.widths-6x-1up > *,
-.child-widths-6x-1up > * > *,
-.gchild-widths-6x-1up > * > * > * {width:180px;}
-.widths-7x-1up > *,
-.child-widths-7x-1up > * > *,
-.gchild-widths-7x-1up > * > * > * {width:210px;}
-.widths-8x-1up > *,
-.child-widths-8x-1up > * > *,
-.gchild-widths-8x-1up > * > * > * {width:240px;}
-.widths-9x-1up > *,
-.child-widths-9x-1up > * > *,
-.gchild-widths-9x-1up > * > * > * {width:270px;}
-.widths-10x-1up > *,
-.child-widths-10x-1up > * > *,
-.gchild-widths-10x-1up > * > * > * {width:300px;}
-.widths-11x-1up > *,
-.child-widths-11x-1up > * > *,
-.gchild-widths-11x-1up > * > * > * {width:330px;}
-.widths-12x-1up > *,
-.child-widths-12x-1up > * > *,
-.gchild-widths-12x-1up > * > * > * {width:360px;}
-.widths-13x-1up > *,
-.child-widths-13x-1up > * > *,
-.gchild-widths-13x-1up > * > * > * {width:390px;}
-.widths-14x-1up > *,
-.child-widths-14x-1up > * > *,
-.gchild-widths-14x-1up > * > * > * {width:420px;}
-.widths-15x-1up > *,
-.child-widths-15x-1up > * > *,
-.gchild-widths-15x-1up > * > * > * {width:450px;}
-.widths-16x-1up > *,
-.child-widths-16x-1up > * > *,
-.gchild-widths-16x-1up > * > * > * {width:480px;}
-.widths-17x-1up > *,
-.child-widths-17x-1up > * > *,
-.gchild-widths-17x-1up > * > * > * {width:510px;}
-.widths-18x-1up > *,
-.child-widths-18x-1up > * > *,
-.gchild-widths-18x-1up > * > * > * {width:540px;}
-.widths-19x-1up > *,
-.child-widths-19x-1up > * > *,
-.gchild-widths-19x-1up > * > * > * {width:570px;}
-.widths-20x-1up > *,
-.child-widths-20x-1up > * > *,
-.gchild-widths-20x-1up > * > * > * {width:600px;}
-.widths-21x-1up > *,
-.child-widths-21x-1up > * > *,
-.gchild-widths-21x-1up > * > * > * {width:630px;}
-.widths-22x-1up > *,
-.child-widths-22x-1up > * > *,
-.gchild-widths-22x-1up > * > * > * {width:660px;}
-.widths-23x-1up > *,
-.child-widths-23x-1up > * > *,
-.gchild-widths-23x-1up > * > * > * {width:690px;}
-.width-auto-1up {width:auto;}
+.widths-small-1up,
+.child-widths-small-1up,
+.gchild-widths-small-1up {width:120px;}
+.widths-medium-1up,
+.child-widths-medium-1up,
+.gchild-widths-medium-1up {width:240px;}
+.widths-large-1up,
+.child-widths-large-1up,
+.gchild-widths-large-1up {width:360px;}
+.widths-xlarge-1up,
+.child-widths-xlarge-1up,
+.gchild-widths-xlarge-1up {width:480px;}
 
 /* Width px */
 .width-1x-1up {width:30px;}
@@ -2045,76 +1929,18 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .width-11o12-2up {width:91.6666%;}
 
 /* Widths px */
-.widths-1x-2up > *,
-.child-widths-1x-2up > * > *,
-.gchild-widths-1x-2up > * > * > * {width:30px;}
-.widths-2x-2up > *,
-.child-widths-2x-2up > * > *,
-.gchild-widths-2x-2up > * > * > * {width:60px;}
-.widths-3x-2up > *,
-.child-widths-3x-2up > * > *,
-.gchild-widths-3x-2up > * > * > * {width:90px;}
-.widths-4x-2up > *,
-.child-widths-4x-2up > * > *,
-.gchild-widths-4x-2up > * > * > * {width:120px;}
-.widths-5x-2up > *,
-.child-widths-5x-2up > * > *,
-.gchild-widths-5x-2up > * > * > * {width:150px;}
-.widths-6x-2up > *,
-.child-widths-6x-2up > * > *,
-.gchild-widths-6x-2up > * > * > * {width:180px;}
-.widths-7x-2up > *,
-.child-widths-7x-2up > * > *,
-.gchild-widths-7x-2up > * > * > * {width:210px;}
-.widths-8x-2up > *,
-.child-widths-8x-2up > * > *,
-.gchild-widths-8x-2up > * > * > * {width:240px;}
-.widths-9x-2up > *,
-.child-widths-9x-2up > * > *,
-.gchild-widths-9x-2up > * > * > * {width:270px;}
-.widths-10x-2up > *,
-.child-widths-10x-2up > * > *,
-.gchild-widths-10x-2up > * > * > * {width:300px;}
-.widths-11x-2up > *,
-.child-widths-11x-2up > * > *,
-.gchild-widths-11x-2up > * > * > * {width:330px;}
-.widths-12x-2up > *,
-.child-widths-12x-2up > * > *,
-.gchild-widths-12x-2up > * > * > * {width:360px;}
-.widths-13x-2up > *,
-.child-widths-13x-2up > * > *,
-.gchild-widths-13x-2up > * > * > * {width:390px;}
-.widths-14x-2up > *,
-.child-widths-14x-2up > * > *,
-.gchild-widths-14x-2up > * > * > * {width:420px;}
-.widths-15x-2up > *,
-.child-widths-15x-2up > * > *,
-.gchild-widths-15x-2up > * > * > * {width:450px;}
-.widths-16x-2up > *,
-.child-widths-16x-2up > * > *,
-.gchild-widths-16x-2up > * > * > * {width:480px;}
-.widths-17x-2up > *,
-.child-widths-17x-2up > * > *,
-.gchild-widths-17x-2up > * > * > * {width:510px;}
-.widths-18x-2up > *,
-.child-widths-18x-2up > * > *,
-.gchild-widths-18x-2up > * > * > * {width:540px;}
-.widths-19x-2up > *,
-.child-widths-19x-2up > * > *,
-.gchild-widths-19x-2up > * > * > * {width:570px;}
-.widths-20x-2up > *,
-.child-widths-20x-2up > * > *,
-.gchild-widths-20x-2up > * > * > * {width:600px;}
-.widths-21x-2up > *,
-.child-widths-21x-2up > * > *,
-.gchild-widths-21x-2up > * > * > * {width:630px;}
-.widths-22x-2up > *,
-.child-widths-22x-2up > * > *,
-.gchild-widths-22x-2up > * > * > * {width:660px;}
-.widths-23x-2up > *,
-.child-widths-23x-2up > * > *,
-.gchild-widths-23x-2up > * > * > * {width:690px;}
-.width-auto-2up {width:auto;}
+.widths-small-2up,
+.child-widths-small-2up,
+.gchild-widths-small-2up {width:120px;}
+.widths-medium-2up,
+.child-widths-medium-2up,
+.gchild-widths-medium-2up {width:240px;}
+.widths-large-2up,
+.child-widths-large-2up,
+.gchild-widths-large-2up {width:360px;}
+.widths-xlarge-2up,
+.child-widths-xlarge-2up,
+.gchild-widths-xlarge-2up {width:480px;}
 
 /* Width px */
 .width-1x-2up {width:30px;}
@@ -2812,76 +2638,18 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .width-11o12-3up {width:91.6666%;}
 
 /* Widths px */
-.widths-1x-3up > *,
-.child-widths-1x-3up > * > *,
-.gchild-widths-1x-3up > * > * > * {width:30px;}
-.widths-2x-3up > *,
-.child-widths-2x-3up > * > *,
-.gchild-widths-2x-3up > * > * > * {width:60px;}
-.widths-3x-3up > *,
-.child-widths-3x-3up > * > *,
-.gchild-widths-3x-3up > * > * > * {width:90px;}
-.widths-4x-3up > *,
-.child-widths-4x-3up > * > *,
-.gchild-widths-4x-3up > * > * > * {width:120px;}
-.widths-5x-3up > *,
-.child-widths-5x-3up > * > *,
-.gchild-widths-5x-3up > * > * > * {width:150px;}
-.widths-6x-3up > *,
-.child-widths-6x-3up > * > *,
-.gchild-widths-6x-3up > * > * > * {width:180px;}
-.widths-7x-3up > *,
-.child-widths-7x-3up > * > *,
-.gchild-widths-7x-3up > * > * > * {width:210px;}
-.widths-8x-3up > *,
-.child-widths-8x-3up > * > *,
-.gchild-widths-8x-3up > * > * > * {width:240px;}
-.widths-9x-3up > *,
-.child-widths-9x-3up > * > *,
-.gchild-widths-9x-3up > * > * > * {width:270px;}
-.widths-10x-3up > *,
-.child-widths-10x-3up > * > *,
-.gchild-widths-10x-3up > * > * > * {width:300px;}
-.widths-11x-3up > *,
-.child-widths-11x-3up > * > *,
-.gchild-widths-11x-3up > * > * > * {width:330px;}
-.widths-12x-3up > *,
-.child-widths-12x-3up > * > *,
-.gchild-widths-12x-3up > * > * > * {width:360px;}
-.widths-13x-3up > *,
-.child-widths-13x-3up > * > *,
-.gchild-widths-13x-3up > * > * > * {width:390px;}
-.widths-14x-3up > *,
-.child-widths-14x-3up > * > *,
-.gchild-widths-14x-3up > * > * > * {width:420px;}
-.widths-15x-3up > *,
-.child-widths-15x-3up > * > *,
-.gchild-widths-15x-3up > * > * > * {width:450px;}
-.widths-16x-3up > *,
-.child-widths-16x-3up > * > *,
-.gchild-widths-16x-3up > * > * > * {width:480px;}
-.widths-17x-3up > *,
-.child-widths-17x-3up > * > *,
-.gchild-widths-17x-3up > * > * > * {width:510px;}
-.widths-18x-3up > *,
-.child-widths-18x-3up > * > *,
-.gchild-widths-18x-3up > * > * > * {width:540px;}
-.widths-19x-3up > *,
-.child-widths-19x-3up > * > *,
-.gchild-widths-19x-3up > * > * > * {width:570px;}
-.widths-20x-3up > *,
-.child-widths-20x-3up > * > *,
-.gchild-widths-20x-3up > * > * > * {width:600px;}
-.widths-21x-3up > *,
-.child-widths-21x-3up > * > *,
-.gchild-widths-21x-3up > * > * > * {width:630px;}
-.widths-22x-3up > *,
-.child-widths-22x-3up > * > *,
-.gchild-widths-22x-3up > * > * > * {width:660px;}
-.widths-23x-3up > *,
-.child-widths-23x-3up > * > *,
-.gchild-widths-23x-3up > * > * > * {width:690px;}
-.width-auto-3up {width:auto;}
+.widths-small-3up,
+.child-widths-small-3up,
+.gchild-widths-small-3up {width:120px;}
+.widths-medium-3up,
+.child-widths-medium-3up,
+.gchild-widths-medium-3up {width:240px;}
+.widths-large-3up,
+.child-widths-large-3up,
+.gchild-widths-large-3up {width:360px;}
+.widths-xlarge-3up,
+.child-widths-xlarge-3up,
+.gchild-widths-xlarge-3up {width:480px;}
 
 /* Width px */
 .width-1x-3up {width:30px;}

@@ -327,7 +327,6 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {width:{{val}};}
 {{/widthspx}}
-.{{ns}}{{width}}-auto{{bp}} {width:auto;}
 
 /* Width px */
 {{#widthpx}}

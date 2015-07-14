@@ -138,10 +138,10 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             h5adj: '#input-h5adj',
             h6adj: '#input-h6adj',
 
-            gutnxsmall: '#input-gutnxsmall',
-            gutnxmedium: '#input-gutnxmedium',
-            gutnxlarge: '#input-gutnxlarge',
-            gutnxxlarge: '#input-gutnxxlarge',
+            sizesmall: '#input-sizesmall',
+            sizemedium: '#input-sizemedium',
+            sizelarge: '#input-sizelarge',
+            sizexlarge: '#input-sizexlarge',
 
             scrollbardepthadjust: '#input-scrollbardepthadjust',
 
@@ -245,11 +245,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         _in.scrollbardepthadjust = $(_selectors.inputs.scrollbardepthadjust).val() * 1;
 
-        _in.gutnxsmall = $(_selectors.inputs.gutnxsmall).val() * 1;
-        _in.gutnxmedium = $(_selectors.inputs.gutnxmedium).val() * 1;
-        _in.gutnxlarge = $(_selectors.inputs.gutnxlarge).val() * 1;
-        _in.gutnxxlarge = $(_selectors.inputs.gutnxxlarge).val() * 1;
-
+        _in.sizes = [
+            {keyword:'small', val: $(_selectors.inputs.sizesmall).val() * 1},
+            {keyword:'medium', val: $(_selectors.inputs.sizemedium).val() * 1},
+            {keyword:'large', val: $(_selectors.inputs.sizelarge).val() * 1},
+            {keyword:'xlarge', val: $(_selectors.inputs.sizexlarge).val() * 1}
+        ];
 
         stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.css === 'undefined') {
@@ -275,7 +276,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         });
         stream.trigger('loadtemplates', function(trigger) {
             if (typeof _in.templates.demo === 'undefined') {
-                $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false}).done(function(text) {
+                $.ajax(_urls.templateDemoHTML, {dataType:'text',async:false, cache:false}).done(function(text) {
                     _in.templates.demo = text;
                     trigger();
                 });
@@ -367,17 +368,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         _out.gut = 'gut';
         _out.gutleft = 'gut-left';
-        _out.gutsmall = 'gut-left-small';
-        _out.gutmedium = 'gut-left-medium';
-        _out.gutlarge = 'gut-left-large';
-        _out.gutxlarge = 'gut-left-xlarge';
-
         _out.gutright = 'gut-right';
-        _out.gutrightsmall = 'gut-right-small';
-        _out.gutrightmedium = 'gut-right-medium';
-        _out.gutrightlarge = 'gut-right-large';
-        _out.gutrightxlarge = 'gut-right-xlarge';
-
         _out.gutbot = 'gut-bottom';
 
         _out.pullleft = 'pull-left';
@@ -398,6 +389,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         _out.layie6fix = 'lay-ie6fix';
         _out.layoutgutter = 'layout-gutter';
         _out.rizzlecssproperty = 'rizzlecssproperty';
+
 
 
         // Breakpoints
@@ -600,29 +592,30 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
 
-                // Widths px
+                // Width px
                 for (j = 1; j < nWidths; j += 1) {
                     widthpx.push({
                         selector: '.' + _out.ns + _out.width + '-' + j + 'x' + _out.breakpoints[m].bp,
                         val: _inbreakpointi.base * j + 'px',
                     });
                 }
-                for (j = 1; j < nWidths; j += 1) {
+                // Widths, childWidths, GrandChildWidths
+                for (j = 0; j < _in.sizes.length; j += 1) {
                     widthspx.push({
-                        selector: '.' + _out.ns + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > *',
-                        val: _inbreakpointi.base * j + 'px',
+                        selector: '.' + _out.ns + _out.width + 's-' + _in.sizes[j].keyword + _out.breakpoints[m].bp,
+                        val: _inbreakpointi.base * _in.sizes[j].val + 'px',
                     });
                 }
-                for (j = 1; j < nWidths; j += 1) {
+                for (j = 0; j < _in.sizes.length; j += 1) {
                     widthspx.push({
-                        selector: '.' + _out.ns + 'child-' + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > * > *',
-                        val: _inbreakpointi.base * j + 'px',
+                        selector: '.' + _out.ns + 'child-' + _out.width + 's-' + _in.sizes[j].keyword + _out.breakpoints[m].bp,
+                        val: _inbreakpointi.base * _in.sizes[j].val + 'px',
                     });
                 }
-                for (j = 1; j < nWidths; j += 1) {
+                for (j = 0; j < _in.sizes.length; j += 1) {
                     widthspx.push({
-                        selector: '.' + _out.ns + 'gchild-' + _out.width + 's-' + j + 'x' + _out.breakpoints[m].bp + ' > * > * > *',
-                        val: _inbreakpointi.base * j + 'px',
+                        selector: '.' + _out.ns + 'gchild-' + _out.width + 's-' + _in.sizes[j].keyword + _out.breakpoints[m].bp,
+                        val: _inbreakpointi.base * _in.sizes[j].val + 'px',
                     });
                 }
 
@@ -895,28 +888,16 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         });
                     }
                 }
-                gutlefts.push(
-                    {
-                        val: '0',
-                        selector: '.' + _out.ns + _out.gutleft + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxsmall + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutsmall + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxmedium + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutmedium + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxlarge + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutlarge + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxxlarge + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutxlarge + _out.breakpoints[m].bp
-                    }
-                );
+                gutlefts.push({
+                    val: '0',
+                    selector: '.' + _out.ns + _out.gutleft + '-none' + _out.breakpoints[m].bp
+                });
+                for (j = 0; j < _in.sizes.length; j++) {
+                    gutlefts.push({
+                        val: _inbreakpointi.base * (_in.sizes[j].val + 1) + 'px',
+                        selector: '.' + _out.ns + _out.gutleft + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
 
 
 
@@ -939,28 +920,16 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         });
                     }
                 }
-                gutrights.push(
-                    {
-                        val: '0',
-                        selector: '.' + _out.ns + _out.gutright + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxsmall + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutrightsmall + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxmedium + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutrightmedium + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxlarge + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutrightlarge + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * (_in.gutnxxlarge + 1) + 'px',
-                        selector: '.' + _out.ns + _out.gutrightxlarge + _out.breakpoints[m].bp
-                    }
-                );
+                gutrights.push({
+                    val: '0',
+                    selector: '.' + _out.ns + _out.gutright + '-none' + _out.breakpoints[m].bp
+                });
+                for (j = 0; j < _in.sizes.length; j++) {
+                    gutrights.push({
+                        val: _inbreakpointi.base * (_in.sizes[j].val + 1) + 'px',
+                        selector: '.' + _out.ns + _out.gutright + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
 
 
 
@@ -1001,47 +970,24 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     {
                         val: _inbreakpointi.base + 'px',
                         selector: '.' + _out.ns + _out.pullgut + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-small' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-medium' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-large' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _out.breakpoints[m].bp
                     }
                 );
-                pullgutleftwidths.push(
-                    {
-                        val: 'auto',
-                        selector: '.' + _out.ns + _out.pullgut + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-small' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-medium' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-large' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxxlarge + 'px',
-                        selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _out.breakpoints[m].bp
-                    }
-                );
-
+                for (j = 0; j < _in.sizes.length; j++) {
+                    pullgutlefts.push({
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
+                pullgutleftwidths.push({
+                    val: 'auto',
+                    selector: '.' + _out.ns + _out.pullgut + '-none' + _out.breakpoints[m].bp
+                });
+                for (j = 0; j < _in.sizes.length; j++) {
+                    pullgutleftwidths.push({
+                        val: _inbreakpointi.base * _in.sizes[j].val + 'px',
+                        selector: '.' + _out.ns + _out.pullgut + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
 
 
                 // Pull Gut Rights
@@ -1053,48 +999,24 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                     {
                         val: _inbreakpointi.base + 'px',
                         selector: '.' + _out.ns + _out.pullgutright + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-small' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-medium' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-large' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _out.breakpoints[m].bp
                     }
                 );
-                pullgutrightwidths.push(
-                    {
-                        val: 'auto',
-                        selector: '.' + _out.ns + _out.pullgutright + '-none' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxsmall + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-small' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxmedium + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-medium' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxlarge + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-large' + _out.breakpoints[m].bp
-                    },
-                    {
-                        val: _inbreakpointi.base * _in.gutnxxlarge + 'px',
-                        selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _out.breakpoints[m].bp
-                    }
-                );
-
-
+                for (j = 0; j < _in.sizes.length; j++) {
+                    pullgutrights.push({
+                        val: _inbreakpointi.base + 'px',
+                        selector: '.' + _out.ns + _out.pullgutright + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
+                pullgutrightwidths.push({
+                    val: 'auto',
+                    selector: '.' + _out.ns + _out.pullgutright + '-none' + _out.breakpoints[m].bp
+                });
+                for (j = 0; j < _in.sizes.length; j++) {
+                    pullgutrightwidths.push({
+                        val: _inbreakpointi.base * _in.sizes[j].val + 'px',
+                        selector: '.' + _out.ns + _out.pullgutright + '-' + _in.sizes[j].keyword + _out.breakpoints[m].bp
+                    });
+                }
 
             }
 
@@ -1120,60 +1042,48 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             // ords = ords;
 
 
-
-            // Not dependent on base
-            pullgutlefts.main = processRules([
-                {
-                    selector: '.' + _out.ns + _out.pullgut + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgut + '-none' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgut + '-small' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgut + '-medium' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgut + '-large' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgut + '-xlarge' + _outbreakpointi.bp
-                }
-            ]);
             pullgutlefts.none = {
                 selector: '.' + _out.ns + _out.pullgut + '-none' + _outbreakpointi.bp
             };
             pullgutlefts.legacy = {
                 selector: '.' + _out.ns + _out.pullgut + _outbreakpointi.bp
             };
-            pullgutrights.main = processRules([
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + '-none' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + '-small' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + '-medium' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + '-large' + _outbreakpointi.bp
-                },
-                {
-                    selector: '.' + _out.ns + _out.pullgutright + '-xlarge' + _outbreakpointi.bp
-                }
-            ]);
+            pullgutlefts.main = [];
+            pullgutlefts.main.push({
+                selector: '.' + _out.ns + _out.pullgut + _outbreakpointi.bp
+            });
+            pullgutlefts.main.push({
+                selector: '.' + _out.ns + _out.pullgut + '-none' + _outbreakpointi.bp
+            });
+            for (j = 0; j < _in.sizes.length; j++) {
+                pullgutlefts.main.push({
+                    selector: '.' + _out.ns + _out.pullgut + '-' + _in.sizes[j].keyword + _outbreakpointi.bp
+                });
+            }
+            pullgutlefts.main = processRules(pullgutlefts.main);
+
+
             pullgutrights.none = {
                 selector: '.' + _out.ns + _out.pullgutright + '-none' + _outbreakpointi.bp
             };
             pullgutrights.legacy = {
                 selector: '.' + _out.ns + _out.pullgutright + _outbreakpointi.bp
             };
+            pullgutrights.main = [];
+            pullgutrights.main.push({
+                selector: '.' + _out.ns + _out.pullgutright + _outbreakpointi.bp
+            });
+            pullgutrights.main.push({
+                selector: '.' + _out.ns + _out.pullgutright + '-none' + _outbreakpointi.bp
+            });
+            for (j = 0; j < _in.sizes.length; j++) {
+                pullgutrights.main.push({
+                    selector: '.' + _out.ns + _out.pullgutright + '-' + _in.sizes[j].keyword + _outbreakpointi.bp
+                });
+            }
+            pullgutrights.main = processRules(pullgutrights.main);
+
+
             _outbreakpointi.innguthides = hidegutlefts;
             _outbreakpointi.gutsfws = gutsfws;
             _outbreakpointi.gutbottoms = gutbottoms;
@@ -1696,8 +1606,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
     $(document)
         .on('change', function(e) {
 
-            var $t = $(e.target)
-            ;
+            var $t = $(e.target);
 
             _out.uriPermalink = makeSettingsForURI();
             if (window.history.replaceState !== undefined) {
@@ -1715,10 +1624,10 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                 $t.is(_selectors.inputs.columns) ||
                 $t.is(_selectors.inputs.ns) ||
                 $t.is(_selectors.inputs.legacysupport) ||
-                $t.is(_selectors.inputs.gutnxsmall) ||
-                $t.is(_selectors.inputs.gutnxmedium) ||
-                $t.is(_selectors.inputs.gutnxlarge) ||
-                $t.is(_selectors.inputs.gutnxxlarge) ||
+                $t.is(_selectors.inputs.sizesmall) ||
+                $t.is(_selectors.inputs.sizemedium) ||
+                $t.is(_selectors.inputs.sizelarge) ||
+                $t.is(_selectors.inputs.sizexlarge) ||
                 $t.is(_selectors.inputs.scrollbardepthadjust) ||
                 $t.is(_selectors.inputs.fontSize) ||
                 $t.is(_selectors.inputs.hfont) ||
