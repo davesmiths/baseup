@@ -53,10 +53,10 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}gchild-{{lay}} > * > * {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
 .{{ns}}{{lay}}:after,
 .{{ns}}{{lay}}:before,
-.{{ns}}child-{{lay}} > *:after
-.{{ns}}child-{{lay}} > *:before
-.{{ns}}gchild-{{lay}} > * > *:after
-.{{ns}}gchild-{{lay}} > * > *:before
+.{{ns}}child-{{lay}} > *:after,
+.{{ns}}child-{{lay}} > *:before,
+.{{ns}}gchild-{{lay}} > * > *:after,
+.{{ns}}gchild-{{lay}} > * > *:before,
 .{{ns}}{{layleft}}:after,
 .{{ns}}{{layleft}}:before,
 .{{ns}}{{layright}}:after,
@@ -64,8 +64,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{laycentered}}:after,
 .{{ns}}{{laycentered}}:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 .{{ns}}{{lay}}:after,
-.{{ns}}child-{{lay}} > *:after
-.{{ns}}gchild-{{lay}} > * > *:after
+.{{ns}}child-{{lay}} > *:after,
+.{{ns}}gchild-{{lay}} > * > *:after,
 .{{ns}}{{layleft}}:after,
 .{{ns}}{{layright}}:after,
 .{{ns}}{{laycentered}}:after {clear:both;}
