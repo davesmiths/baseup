@@ -28,12 +28,12 @@
     .rows {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
     .rows > * {-webkit-flex:1;flex:1;}
 
-    .cols-first-auto > *:first-child.child-media-cover > img,
-    .cols-first-auto > *:first-child.child-media-cover > video {width:100%;height:auto;}
+    .cols-left > *:first-child.child-media-cover > img,
+    .cols-left > *:first-child.child-media-cover > video {width:100%;height:auto;}
     @supports ((object-fit:cover) and (object-position:0 0)) {
-        .cols-first-auto > *:first-child.child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
-        .cols-first-auto > *:first-child.child-media-cover > img,
-        .cols-first-auto > *:first-child.child-media-cover > video {-webkit-flex:1;flex:1;object-fit:cover;object-position:0 100%;}
+        .cols-left > *:first-child.child-media-cover {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+        .cols-left > *:first-child.child-media-cover > img,
+        .cols-left > *:first-child.child-media-cover > video {-webkit-flex:1;flex:1;object-fit:cover;object-position:0 100%;}
     }
     .child-media-cover > img,
     .child-media-cover > video {width:100%;height:auto;}
@@ -62,7 +62,7 @@
 </head>
 <body>
 
-<ul class="lay gchild-cols-first-auto gchild-widths-8x">
+<ul class="lay gchild-cols-left gchild-widths-small gchild-widths-medium-1up">
     <li>
         <a href="#">
             <div>
@@ -82,7 +82,7 @@
         </a>
     </li>
 </ul>
-<ul class="lay gchild-cols-auto-first gchild-widths-8x">
+<ul class="lay gchild-cols-right gchild-widths-medium">
     <li>
         <a href="#">
             <div>
@@ -102,7 +102,7 @@
         </a>
     </li>
 </ul>
-<div class="child-cols-first-auto child-widths-5x">
+<div class="child-cols-left child-widths-small">
     <section>
         <div class="width-3x">
             First
@@ -129,7 +129,7 @@
     <p>
         First column is image, therefore treated as cover
     </p>
-    <div class="lay cols-first-auto widths-8x">
+    <div class="lay cols-left widths-small widths-medium-1up">
         <div class="rows">
             <div class="child-media-cover">
                 <img src="-/images/toby.jpg" width="640" height="480" alt="" style="object-position:33% 50%" />
@@ -154,7 +154,7 @@
     <p>
         No attributes
     </p>
-    <div class="lay cols-first-auto widths-8x guts">
+    <div class="lay cols-left widths-medium guts">
         <div class="child-media-cover">
             <img src="-/images/toby.jpg" alt="" style="object-position:66% 50%" />
         </div>
@@ -174,7 +174,7 @@
     <p>
         First column has image inside
     </p>
-    <div class="lay cols-first-auto widths-10x guts achild-heights-fill">
+    <div class="lay cols-left widths-medium guts achild-heights-fill">
         <div>
             <img src="-/images/toby.jpg" alt="" style="width:100%;height:auto;" />
         </div>
@@ -189,7 +189,7 @@
             <div class="component">Auto</div>
         </div>
     </div>
-    <div class="lay cols-first-auto widths-10x guts child-heights-fill">
+    <div class="lay cols-left widths-medium guts child-heights-fill">
         <div>
             <div class="component">Fixed
                 <br />Fixed
@@ -208,27 +208,7 @@
         </div>
     </div>
     <p>Clear left in auto</p>
-    <div class="lay cols-auto-first widths-10x">
-        <div>
-            <div class="component">Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />Fixed
-                <br />
-            </div>
-        </div>
-        <div>
-            <div class="component">Auto</div>
-            <div class="component clear">Auto</div>
-        </div>
-    </div>
-    <p>Clear left in auto</p>
-    <div class="lay cols-auto-first widths-11x guts">
+    <div class="lay cols-right widths-medium">
         <div>
             <div class="component">Fixed
                 <br />Fixed
@@ -248,7 +228,27 @@
         </div>
     </div>
     <p>Clear left in auto</p>
-    <div class="lay cols-first-auto widths-10x">
+    <div class="lay cols-right widths-medium guts">
+        <div>
+            <div class="component">Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />Fixed
+                <br />
+            </div>
+        </div>
+        <div>
+            <div class="component">Auto</div>
+            <div class="component clear">Auto</div>
+        </div>
+    </div>
+    <p>Clear left in auto</p>
+    <div class="lay cols-left widths-medium">
         <div>
             <div class="component">Fixed
                 <br />Fixed
@@ -268,7 +268,7 @@
         </div>
     </div>
     <p>Longer auto</p>
-    <div class="lay cols-first-auto widths-10x child-heights-fill">
+    <div class="lay cols-left widths-medium child-heights-fill">
         <div>
             <div class="component">Fixed</div>
         </div>

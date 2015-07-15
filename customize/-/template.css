@@ -48,10 +48,15 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Layout */
-.{{ns}}{{lay}} {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
-
+.{{ns}}{{lay}},
+.{{ns}}child-{{lay}} > *,
+.{{ns}}gchild-{{lay}} > * > * {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
 .{{ns}}{{lay}}:after,
 .{{ns}}{{lay}}:before,
+.{{ns}}child-{{lay}} > *:after
+.{{ns}}child-{{lay}} > *:before
+.{{ns}}gchild-{{lay}} > * > *:after
+.{{ns}}gchild-{{lay}} > * > *:before
 .{{ns}}{{layleft}}:after,
 .{{ns}}{{layleft}}:before,
 .{{ns}}{{layright}}:after,
@@ -59,6 +64,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{laycentered}}:after,
 .{{ns}}{{laycentered}}:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 .{{ns}}{{lay}}:after,
+.{{ns}}child-{{lay}} > *:after
+.{{ns}}gchild-{{lay}} > * > *:after
 .{{ns}}{{layleft}}:after,
 .{{ns}}{{layright}}:after,
 .{{ns}}{{laycentered}}:after {clear:both;}
@@ -66,20 +73,23 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{#legacysupport}}
 /* Layout > Legacy Support > IE 6 and 7 fix to trigger hasLayout */
 .{{ns}}{{lay}},
+.{{ns}}child-{{lay}} > *,
+.{{ns}}gchild-{{lay}} > * > *,
 .{{ns}}{{layleft}},
 .{{ns}}{{layright}},
 .{{ns}}{{laycentered}} {display:inline-block;}
 .{{ns}}{{lay}},
+.{{ns}}child-{{lay}} > *,
+.{{ns}}gchild-{{lay}} > * > *,
 .{{ns}}{{layleft}},
 .{{ns}}{{layright}},
 .{{ns}}{{laycentered}} {display:block;}
 {{/legacysupport}}
 
-
+/* Layout > Left / Right / Centered / Clear */
 .{{ns}}{{layleft}} {margin-right:auto;}
 .{{ns}}{{layright}} {margin-left:auto;}
 .{{ns}}{{laycentered}} {margin-left:auto;margin-right:auto;}
-
 .{{ns}}{{clear}} {clear:both;}
 
 
@@ -89,6 +99,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{col}}s {display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
 .{{ns}}{{col}} {float:left;width:100%;-webkit-flex:none;flex:none;}
 .{{ns}}{{col}}s > * {float:left;width:100%;-webkit-flex:none;flex:none;}
+
 {{#legacysupport}}
 /* Layout > Columns > Legacy Support */
 /*  IE 6 and 7 fix */
@@ -110,48 +121,50 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/legacysupport}}
 
 
-/* Layout > Columns First Auto */
-.{{ns}}{{col}}s-first-auto,
-.{{ns}}child-{{col}}s-first-auto > *,
-.{{ns}}gchild-{{col}}s-first-auto > * > * {display:-webkit-flex;display:flex;}
-.{{ns}}{{col}}s-first-auto > *:first-child,
-.{{ns}}child-{{col}}s-first-auto > * > *:first-child,
-.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child {-webkit-flex:none;flex:none;}
-.{{ns}}{{col}}s-first-auto > *:first-child + *,
-.{{ns}}child-{{col}}s-first-auto > * > *:first-child + *,
-.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child + * {-webkit-flex:1;flex:1;}
+/* Layout > Columns > First Auto */
+.{{ns}}{{col}}s-left,
+.{{ns}}child-{{col}}s-left > *,
+.{{ns}}gchild-{{col}}s-left > * > * {display:-webkit-flex;display:flex;}
+.{{ns}}{{col}}s-left > *:first-child,
+.{{ns}}child-{{col}}s-left > * > *:first-child,
+.{{ns}}gchild-{{col}}s-left > * > * > *:first-child {-webkit-flex:none;flex:none;}
+.{{ns}}{{col}}s-left > *:first-child + *,
+.{{ns}}child-{{col}}s-left > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-left > * > * > *:first-child + * {-webkit-flex:1;flex:1;}
+
 {{#legacysupport}}
-/* Layout > Columns First Auto Legacy Support */
-.{{ns}}{{col}}s-first-auto,
-.{{ns}}child-{{col}}s-first-auto > *,
-.{{ns}}gchild-{{col}}s-first-auto > * > * {margin-left:0;}
-.{{ns}}{{col}}s-first-auto > *:first-child,
-.{{ns}}child-{{col}}s-first-auto > * > *:first-child,
-.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child {padding-left:0;float:left;*display:inline;}
-.{{ns}}{{col}}s-first-auto > *:first-child + *,
-.{{ns}}child-{{col}}s-first-auto > * > *:first-child + *,
-.{{ns}}gchild-{{col}}s-first-auto > * > * > *:first-child + * {overflow:hidden;width:auto;}
+/* Layout > Columns > First Auto > Legacy Support */
+.{{ns}}{{col}}s-left,
+.{{ns}}child-{{col}}s-left > *,
+.{{ns}}gchild-{{col}}s-left > * > * {margin-left:0;}
+.{{ns}}{{col}}s-left > *:first-child,
+.{{ns}}child-{{col}}s-left > * > *:first-child,
+.{{ns}}gchild-{{col}}s-left > * > * > *:first-child {padding-left:0;float:left;*display:inline;}
+.{{ns}}{{col}}s-left > *:first-child + *,
+.{{ns}}child-{{col}}s-left > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-left > * > * > *:first-child + * {overflow:hidden;width:auto;}
 {{/legacysupport}}
 
 
-/* Layout > Columns Auto First */
-.{{ns}}{{col}}s-auto-first,
-.{{ns}}child-{{col}}s-auto-first > *,
-.{{ns}}gchild-{{col}}s-auto-first > * > * {display:-webkit-flex;display:flex;}
-.{{ns}}{{col}}s-auto-first > *:first-child,
-.{{ns}}child-{{col}}s-auto-first > * > *:first-child,
-.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;}
-.{{ns}}{{col}}s-auto-first > *:first-child + *,
-.{{ns}}child-{{col}}s-auto-first > * > *:first-child + *,
-.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child + * {-webkit-flex:1;flex:1;order:1;}
+/* Layout > Columns > Auto First */
+.{{ns}}{{col}}s-right,
+.{{ns}}child-{{col}}s-right > *,
+.{{ns}}gchild-{{col}}s-right > * > * {display:-webkit-flex;display:flex;}
+.{{ns}}{{col}}s-right > *:first-child,
+.{{ns}}child-{{col}}s-right > * > *:first-child,
+.{{ns}}gchild-{{col}}s-right > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;}
+.{{ns}}{{col}}s-right > *:first-child + *,
+.{{ns}}child-{{col}}s-right > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-right > * > * > *:first-child + * {-webkit-flex:1;flex:1;order:1;}
+
 {{#legacysupport}}
-/* Layout > Columns Auto First Legacy Support */
-.{{ns}}{{col}}s-auto-first > *:first-child,
-.{{ns}}child-{{col}}s-auto-first > * > *:first-child,
-.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child {float:right;*display:inline;}
-.{{ns}}{{col}}s-auto-first > *:first-child + *,
-.{{ns}}child-{{col}}s-auto-first > * > *:first-child + *,
-.{{ns}}gchild-{{col}}s-auto-first > * > * > *:first-child + * {overflow:hidden;width:auto;}
+/* Layout > Columns > Auto First > Legacy Support */
+.{{ns}}{{col}}s-right > *:first-child,
+.{{ns}}child-{{col}}s-right > * > *:first-child,
+.{{ns}}gchild-{{col}}s-right > * > * > *:first-child {float:right;*display:inline;}
+.{{ns}}{{col}}s-right > *:first-child + *,
+.{{ns}}child-{{col}}s-right > * > *:first-child + *,
+.{{ns}}gchild-{{col}}s-right > * > * > *:first-child + * {overflow:hidden;width:auto;}
 {{/legacysupport}}
 
 
@@ -239,28 +252,29 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Layout > Pull Gut Left */
 {{#pullgutlefts}}
 {{#main}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {float:right;position:relative;margin-left:-100%;right:100%;clear:both;display:inline;}
 {{/main}}
 {{#legacysupport}}
 {{#main}}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {*margin-left:0;*right:0;*float:left;}
 {{/main}}
 {{/legacysupport}}
 {{#none}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:0;width:auto;float:none;position:static;}
 {{/none}}
+
 {{#more}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-right:{{val}};}
 {{/more}}
 {{/pullgutlefts}}
 
 {{#pullgutleftwidths}}
-{{selector}} {width:{{val}};}
+{{{selector}}} {width:{{val}};}
 {{/pullgutleftwidths}}
 
 
@@ -268,32 +282,32 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{#pullgutrights}}
 
 {{#main}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {float:left;position:relative;margin-right:-100%;left:100%;clear:both;display:inline;}
 {{/main}}
 
 {{#legacysupport}}
 {{#main}}
 /* Legacy Support > Layout > Pull Gut Left > IE 6 and 7 graceful degradation */
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {_margin-right:0;_left:0;_float:right;}
 {{/main}}
 {{/legacysupport}}
 
 {{#none}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-right:0;width:auto;float:none;position:static;}
 {{/none}}
 
 {{#more}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:{{val}};}
 {{/more}}
 
 {{/pullgutrights}}
 
 {{#pullgutrightwidths}}
-{{selector}} {width:{{val}};}
+{{{selector}}} {width:{{val}};}
 {{/pullgutrightwidths}}
 
 
