@@ -563,11 +563,11 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             // ords = [];
 
             nMaxWidths = 8;
-            nWidths = 24;
+            nWidths = 10;
             nHeight = _in.heightClasses + 1;
             nGutsWhole = 7;
-            nGutsFraction = 5;
-            nGutsPX = 11;
+            nGutsFraction = 2;
+            nGutsPX = 10;
 
 
             for (m = bpi; m <= i; m++) {
@@ -596,7 +596,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
                 // Width px
-                for (j = 1; j < nWidths; j += 1) {
+                for (j = 1; j <= nWidths; j += 1) {
                     widthpx.push({
                         selector: '.' + _out.ns + _out.width + '-' + j + 'x' + _out.breakpoints[m].bp,
                         val: _inbreakpointi.base * j + 'px',
@@ -659,7 +659,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         selector: '.' + _out.ns + _out.innguthide + '-' + j + 'x' + _out.breakpoints[m].bp
                     });
                 }
-                for (j = 1; j < nGutsFraction; j += 1) {
+                for (j = 1; j <= nGutsFraction; j += 1) {
                     for (k = 1; k < j; k++) {
                         hidegutlefts.push({
                             val: round(-_inbreakpointi.base * k / j, _in.decimalPlaces) + 'px',
@@ -667,7 +667,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
                         });
                     }
                 }
-                for (j = 1; j < nGutsPX; j += 1) {
+                for (j = 1; j <= nGutsPX; j += 1) {
                     hidegutlefts.push({
                         val: -j + 'px',
                         selector: '.' + _out.ns + _out.innguthide + '-' + j + 'px' + _out.breakpoints[m].bp
