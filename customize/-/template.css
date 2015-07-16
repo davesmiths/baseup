@@ -201,8 +201,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Layout > Pull Left and Right */
-.{{ns}}{{pullleft}} {float:left;width:100%;}
-.{{ns}}{{pullright}} {float:right;width:100%;}
+.{{ns}}{{pullleft}} {float:left;}
+.{{ns}}{{pullright}} {float:right;}
 
 
 /* Child Height Fill */
@@ -223,11 +223,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}{{clear}}{{bp}} {clear:left;}
 .{{ns}}{{clearnone}}{{bp}} {clear:none;}
 
-{{#is1}}
-.{{ns}}{{pullleft}},
-.{{ns}}{{pullright}} {width:auto;}
-
-{{/is1}}
+.{{ns}}{{pullleft}}{{bp}} {float:left;}
+.{{ns}}{{pullright}}{{bp}} {float:right;}
 
 {{/isgt0}}
 

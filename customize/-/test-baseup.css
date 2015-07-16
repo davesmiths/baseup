@@ -172,8 +172,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Layout > Pull Left and Right */
-.pull-left {float:left;width:100%;}
-.pull-right {float:right;width:100%;}
+.pull-left {float:left;}
+.pull-right {float:right;}
 
 
 /* Child Height Fill */
@@ -945,9 +945,8 @@ form.gut-left-xlarge > label {width:480px;}
 .clear-1up {clear:left;}
 .clear-none-1up {clear:none;}
 
-.pull-left,
-.pull-right {width:auto;}
-
+.pull-left-1up {float:left;}
+.pull-right-1up {float:right;}
 
 
 
@@ -1711,6 +1710,8 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .clear-2up {clear:left;}
 .clear-none-2up {clear:none;}
 
+.pull-left-2up {float:left;}
+.pull-right-2up {float:right;}
 
 
 
@@ -2474,6 +2475,8 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .clear-3up {clear:left;}
 .clear-none-3up {clear:none;}
 
+.pull-left-3up {float:left;}
+.pull-right-3up {float:right;}
 
 
 
