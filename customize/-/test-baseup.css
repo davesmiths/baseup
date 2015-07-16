@@ -32,10 +32,16 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 /* Layout */
 .lay,
+.child-lay,
+.gchild-lay,
 .child-lay > *,
 .gchild-lay > * > * {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
 .lay:after,
 .lay:before,
+.child-lay:after,
+.child-lay:before,
+.gchild-lay:after,
+.gchild-lay:before,
 .child-lay > *:after,
 .child-lay > *:before,
 .gchild-lay > * > *:after,
@@ -47,6 +53,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .lay-centered:after,
 .lay-centered:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 .lay:after,
+.child-lay:after,
+.gchild-lay:after,
 .child-lay > *:after,
 .gchild-lay > * > *:after,
 .lay-left:after,
@@ -55,12 +63,16 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 /* Layout > Legacy Support > IE 6 and 7 fix to trigger hasLayout */
 .lay,
+.child-lay,
+.gchild-lay,
 .child-lay > *,
 .gchild-lay > * > *,
 .lay-left,
 .lay-right,
 .lay-centered {display:inline-block;}
 .lay,
+.child-lay,
+.gchild-lay,
 .child-lay > *,
 .gchild-lay > * > *,
 .lay-left,

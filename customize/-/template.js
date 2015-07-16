@@ -164,7 +164,7 @@
 
     }
     if (!flexsupported) {
-        document.documentElement.class += ' baseup-legacy-noflex';
+        document.documentElement.className += ' baseup-noflex';
     }
 
 }(jQuery));
