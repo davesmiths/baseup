@@ -335,6 +335,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             isforlay,
             maxwidthbps = [],
             maxwidthbp,
+            maxwidthbpunit,
             pullgutGutters,
             pullgutGuttersLength,
             pullgutNames,
@@ -442,7 +443,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         for (i = 0; i < _in.breakpointsLength; i += 1) {
 
-            _outbreakpointi = _out.breakpoints[i] = {};
+            _outbreakpointi = _out.breakpoints[i] = {index:i};
             _inbreakpointi = _in.breakpoints[i];
 
             baseChanged = false;
@@ -520,8 +521,16 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
 
             // maxwidth based on breakpoints
-            maxwidthbp = _inbreakpointi.at - _inbreakpointi.base;
+            if (is0) {
+                maxwidthbp = 'none';
+                maxwidthbpunit = '';
+            }
+            else {
+                maxwidthbp = _inbreakpointi.at - _inbreakpointi.base;
+                maxwidthbpunit = 'px';
+            }
             _outbreakpointi.maxwidthbp = maxwidthbp;
+            _outbreakpointi.maxwidthbpunit = maxwidthbpunit;
             maxwidthbps.push(maxwidthbp);
 
 

@@ -412,6 +412,10 @@ form.gut-left-xlarge > label {width:480px;}
 
 
 /* Max Width */
+.baseup-legacy-bp-0 .width-max {max-width:none;}
+.baseup-legacy-bp-1 .width-max {max-width:690px;}
+.baseup-legacy-bp-2 .width-max {max-width:930px;}
+.baseup-legacy-bp-3 .width-max {max-width:1170px;}
 .width-max-1dx {max-width:330px;}
 .width-max-2dx {max-width:690px;}
 .width-max-3dx {max-width:1050px;}

@@ -322,6 +322,11 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Max Width */
+{{#is0}}
+{{#breakpoints}}
+.baseup-legacy-bp-{{index}} .{{ns}}{{widthmax}} {max-width:{{maxwidthbp}}{{maxwidthbpunit}};}
+{{/breakpoints}}
+{{/is0}}
 {{#isgt0}}
 .{{ns}}{{widthmax}} {max-width:{{maxwidthbp}}px;}
 {{/isgt0}}
