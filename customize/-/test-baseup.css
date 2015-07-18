@@ -112,10 +112,10 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 */
 
 
-/* Layout > Columns > First Auto */
+/* Layout > Columns > Left */
 .cols-left,
 .child-cols-left > *,
-.gchild-cols-left > * > * {display:-webkit-flex;display:flex;}
+.gchild-cols-left > * > * {display:-webkit-flex;display:flex;margin-left:0!important;}
 .cols-left > *:first-child,
 .child-cols-left > * > *:first-child,
 .gchild-cols-left > * > * > *:first-child {-webkit-flex:none;flex:none;}
@@ -123,7 +123,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .child-cols-left > * > *:first-child + *,
 .gchild-cols-left > * > * > *:first-child + * {-webkit-flex:1;flex:1;}
 
-/* Layout > Columns > First Auto > Legacy Support */
+/* Layout > Columns > Left > Legacy Support */
 .cols-left,
 .child-cols-left > *,
 .gchild-cols-left > * > * {margin-left:0;}
@@ -135,18 +135,18 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gchild-cols-left > * > * > *:first-child + * {overflow:hidden;width:auto;}
 
 
-/* Layout > Columns > Auto First */
+/* Layout > Columns > Right */
 .cols-right,
 .child-cols-right > *,
 .gchild-cols-right > * > * {display:-webkit-flex;display:flex;}
 .cols-right > *:first-child,
 .child-cols-right > * > *:first-child,
-.gchild-cols-right > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;}
+.gchild-cols-right > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;box-sizing:content-box;}
 .cols-right > *:first-child + *,
 .child-cols-right > * > *:first-child + *,
 .gchild-cols-right > * > * > *:first-child + * {-webkit-flex:1;flex:1;order:1;}
 
-/* Layout > Columns > Auto First > Legacy Support */
+/* Layout > Columns > Right > Legacy Support */
 .cols-right > *:first-child,
 .child-cols-right > * > *:first-child,
 .gchild-cols-right > * > * > *:first-child {float:right;*display:inline;}
@@ -188,7 +188,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 
-
 /* Layout > Heights */
 .height-1o2x {height:15px;}
 .height-1x {height:30px;}
@@ -215,7 +214,9 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .height-auto {height:auto;}
 
 
-/* Layout > Gut Left */
+
+
+/* Layout > Guts > Left */
 .gut-left,
 .gut-left-1x {margin-left:30px;}
 .gut-left-2x {margin-left:60px;}
@@ -225,18 +226,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-left-5x,
 .gut-left-small {margin-left:150px;}
 .gut-left-6x {margin-left:180px;}
-.gut-left-1o2x,
-.gut-left-2o4x {margin-left:15px;}
-.gut-left-1o3x {margin-left:10px;}
-.gut-left-2o3x {margin-left:20px;}
-.gut-left-1o4x {margin-left:7.5px;}
-.gut-left-3o4x {margin-left:22.5px;}
 .gut-left-none {margin-left:0;}
 .gut-left-medium {margin-left:270px;}
 .gut-left-large {margin-left:390px;}
 .gut-left-xlarge {margin-left:510px;}
 
-/* Layout > Gut Right */
+/* Layout > Guts > Right */
 .gut-right,
 .gut-right-1x {margin-right:30px;}
 .gut-right-2x {margin-right:60px;}
@@ -246,18 +241,12 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-5x,
 .gut-right-small {margin-right:150px;}
 .gut-right-6x {margin-right:180px;}
-.gut-right-1o2x,
-.gut-right-2o4x {margin-right:15px;}
-.gut-right-1o3x {margin-right:10px;}
-.gut-right-2o3x {margin-right:20px;}
-.gut-right-1o4x {margin-right:7.5px;}
-.gut-right-3o4x {margin-right:22.5px;}
 .gut-right-none {margin-right:0;}
 .gut-right-medium {margin-right:270px;}
 .gut-right-large {margin-right:390px;}
 .gut-right-xlarge {margin-right:510px;}
 
-/* Layout > Gut Bottoms */
+/* Layout > Guts > Bottom and Bottoms */
 .gut-bottoms > *,
 .gut-bottoms-1x > *,
 .gut-bottom,
@@ -272,19 +261,6 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-bottom-5x {margin-bottom:150px;}
 .gut-bottoms-6x > *,
 .gut-bottom-6x {margin-bottom:180px;}
-.gut-bottoms-1o2x > *,
-.gut-bottoms-2o4x > *,
-.gut-bottom-1o2x,
-.gut-bottom-2o4x {margin-bottom:15px;}
-.gut-bottoms-1o3x > *,
-.gut-bottoms-10px > *,
-.gut-bottom-1o3x {margin-bottom:10px;}
-.gut-bottoms-2o3x > *,
-.gut-bottom-2o3x {margin-bottom:20px;}
-.gut-bottoms-1o4x > *,
-.gut-bottom-1o4x {margin-bottom:7.5px;}
-.gut-bottoms-3o4x > *,
-.gut-bottom-3o4x {margin-bottom:22.5px;}
 .gut-bottoms-1px > * {margin-bottom:1px;}
 .gut-bottoms-2px > * {margin-bottom:2px;}
 .gut-bottoms-3px > * {margin-bottom:3px;}
@@ -620,29 +596,23 @@ form.gut-left-xlarge > label {width:480px;}
 
 
 /* Guts */
+/* IE 6 and 7 star-hack fixes because they don't support box-sizing */
 .guts,
-.guts-1x {margin-left:-30px;}
-.guts-2x {margin-left:-60px;}
-.guts-3x {margin-left:-90px;}
-.guts-4x {margin-left:-120px;}
-.guts-5x {margin-left:-150px;}
-.guts-6x {margin-left:-180px;}
-.guts-1o2x,
-.guts-2o4x {margin-left:-15px;}
-.guts-1o3x,
-.guts-10px {margin-left:-10px;}
-.guts-2o3x {margin-left:-20px;}
-.guts-1o4x {margin-left:-7.5px;}
-.guts-3o4x {margin-left:-22.5px;}
-.guts-1px {margin-left:-1px;}
-.guts-2px {margin-left:-2px;}
-.guts-3px {margin-left:-3px;}
-.guts-4px {margin-left:-4px;}
-.guts-5px {margin-left:-5px;}
-.guts-6px {margin-left:-6px;}
-.guts-7px {margin-left:-7px;}
-.guts-8px {margin-left:-8px;}
-.guts-9px {margin-left:-9px;}
+.guts-1x {margin-left:-30px;*margin-left:0;}
+.guts-2x {margin-left:-60px;*margin-left:0;}
+.guts-3x {margin-left:-90px;*margin-left:0;}
+.guts-4x {margin-left:-120px;*margin-left:0;}
+.guts-5x {margin-left:-150px;*margin-left:0;}
+.guts-6x {margin-left:-180px;*margin-left:0;}
+.guts-1px {margin-left:-1px;*margin-left:0;}
+.guts-2px {margin-left:-2px;*margin-left:0;}
+.guts-3px {margin-left:-3px;*margin-left:0;}
+.guts-4px {margin-left:-4px;*margin-left:0;}
+.guts-5px {margin-left:-5px;*margin-left:0;}
+.guts-6px {margin-left:-6px;*margin-left:0;}
+.guts-7px {margin-left:-7px;*margin-left:0;}
+.guts-8px {margin-left:-8px;*margin-left:0;}
+.guts-9px {margin-left:-9px;*margin-left:0;}
 .guts > *,
 .guts-1x > *,
 .guts-2x > *,
@@ -650,12 +620,6 @@ form.gut-left-xlarge > label {width:480px;}
 .guts-4x > *,
 .guts-5x > *,
 .guts-6x > *,
-.guts-1o2x > *,
-.guts-1o3x > *,
-.guts-2o3x > *,
-.guts-1o4x > *,
-.guts-2o4x > *,
-.guts-3o4x > *,
 .guts-1px > *,
 .guts-2px > *,
 .guts-3px > *,
@@ -664,81 +628,23 @@ form.gut-left-xlarge > label {width:480px;}
 .guts-6px > *,
 .guts-7px > *,
 .guts-8px > *,
-.guts-9px > *,
-.guts-10px > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.guts-9px > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .guts > *,
-.guts-1x > * {padding-left:30px;}
-.guts-2x > * {padding-left:60px;}
-.guts-3x > * {padding-left:90px;}
-.guts-4x > * {padding-left:120px;}
-.guts-5x > * {padding-left:150px;}
-.guts-6x > * {padding-left:180px;}
-.guts-1o2x > *,
-.guts-2o4x > * {padding-left:15px;}
-.guts-1o3x > *,
-.guts-10px > * {padding-left:10px;}
-.guts-2o3x > * {padding-left:20px;}
-.guts-1o4x > * {padding-left:7.5px;}
-.guts-3o4x > * {padding-left:22.5px;}
-.guts-1px > * {padding-left:1px;}
-.guts-2px > * {padding-left:2px;}
-.guts-3px > * {padding-left:3px;}
-.guts-4px > * {padding-left:4px;}
-.guts-5px > * {padding-left:5px;}
-.guts-6px > * {padding-left:6px;}
-.guts-7px > * {padding-left:7px;}
-.guts-8px > * {padding-left:8px;}
-.guts-9px > * {padding-left:9px;}
-
-
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts,
-.guts-1x,
-.guts-2x,
-.guts-3x,
-.guts-4x,
-.guts-5x,
-.guts-6x,
-.guts-1o2x,
-.guts-1o3x,
-.guts-2o3x,
-.guts-1o4x,
-.guts-2o4x,
-.guts-3o4x,
-.guts-1px,
-.guts-2px,
-.guts-3px,
-.guts-4px,
-.guts-5px,
-.guts-6px,
-.guts-7px,
-.guts-8px,
-.guts-9px,
-.guts-10px {*margin-left:0;*margin-right:0;}
-.guts > *,
-.guts-1x > *,
-.guts-2x > *,
-.guts-3x > *,
-.guts-4x > *,
-.guts-5x > *,
-.guts-6x > *,
-.guts-1o2x > *,
-.guts-1o3x > *,
-.guts-2o3x > *,
-.guts-1o4x > *,
-.guts-2o4x > *,
-.guts-3o4x > *,
-.guts-1px > *,
-.guts-2px > *,
-.guts-3px > *,
-.guts-4px > *,
-.guts-5px > *,
-.guts-6px > *,
-.guts-7px > *,
-.guts-8px > *,
-.guts-9px > *,
-.guts-10px > * {*padding-left:0;*padding-right:0;}
-
+.guts-1x > * {padding-left:30px;*padding-left:0;}
+.guts-2x > * {padding-left:60px;*padding-left:0;}
+.guts-3x > * {padding-left:90px;*padding-left:0;}
+.guts-4x > * {padding-left:120px;*padding-left:0;}
+.guts-5x > * {padding-left:150px;*padding-left:0;}
+.guts-6x > * {padding-left:180px;*padding-left:0;}
+.guts-1px > * {padding-left:1px;*padding-left:0;}
+.guts-2px > * {padding-left:2px;*padding-left:0;}
+.guts-3px > * {padding-left:3px;*padding-left:0;}
+.guts-4px > * {padding-left:4px;*padding-left:0;}
+.guts-5px > * {padding-left:5px;*padding-left:0;}
+.guts-6px > * {padding-left:6px;*padding-left:0;}
+.guts-7px > * {padding-left:7px;*padding-left:0;}
+.guts-8px > * {padding-left:8px;*padding-left:0;}
+.guts-9px > * {padding-left:9px;*padding-left:0;}
 
 
 
@@ -942,7 +848,6 @@ form.gut-left-xlarge > label {width:480px;}
 
 
 
-
 /* Layout > Heights */
 .height-1o2x-1up {height:15px;}
 .height-1x-1up {height:30px;}
@@ -969,7 +874,9 @@ form.gut-left-xlarge > label {width:480px;}
 .height-auto-1up {height:auto;}
 
 
-/* Layout > Gut Left */
+
+
+/* Layout > Guts > Left */
 .gut-left-1up,
 .gut-left-1x-1up {margin-left:30px;}
 .gut-left-2x-1up {margin-left:60px;}
@@ -979,18 +886,12 @@ form.gut-left-xlarge > label {width:480px;}
 .gut-left-5x-1up,
 .gut-left-small-1up {margin-left:150px;}
 .gut-left-6x-1up {margin-left:180px;}
-.gut-left-1o2x-1up,
-.gut-left-2o4x-1up {margin-left:15px;}
-.gut-left-1o3x-1up {margin-left:10px;}
-.gut-left-2o3x-1up {margin-left:20px;}
-.gut-left-1o4x-1up {margin-left:7.5px;}
-.gut-left-3o4x-1up {margin-left:22.5px;}
 .gut-left-none-1up {margin-left:0;}
 .gut-left-medium-1up {margin-left:270px;}
 .gut-left-large-1up {margin-left:390px;}
 .gut-left-xlarge-1up {margin-left:510px;}
 
-/* Layout > Gut Right */
+/* Layout > Guts > Right */
 .gut-right-1up,
 .gut-right-1x-1up {margin-right:30px;}
 .gut-right-2x-1up {margin-right:60px;}
@@ -1000,18 +901,12 @@ form.gut-left-xlarge > label {width:480px;}
 .gut-right-5x-1up,
 .gut-right-small-1up {margin-right:150px;}
 .gut-right-6x-1up {margin-right:180px;}
-.gut-right-1o2x-1up,
-.gut-right-2o4x-1up {margin-right:15px;}
-.gut-right-1o3x-1up {margin-right:10px;}
-.gut-right-2o3x-1up {margin-right:20px;}
-.gut-right-1o4x-1up {margin-right:7.5px;}
-.gut-right-3o4x-1up {margin-right:22.5px;}
 .gut-right-none-1up {margin-right:0;}
 .gut-right-medium-1up {margin-right:270px;}
 .gut-right-large-1up {margin-right:390px;}
 .gut-right-xlarge-1up {margin-right:510px;}
 
-/* Layout > Gut Bottoms */
+/* Layout > Guts > Bottom and Bottoms */
 .gut-bottoms-1up > *,
 .gut-bottoms-1x-1up > *,
 .gut-bottom-1up,
@@ -1026,19 +921,6 @@ form.gut-left-xlarge > label {width:480px;}
 .gut-bottom-5x-1up {margin-bottom:150px;}
 .gut-bottoms-6x-1up > *,
 .gut-bottom-6x-1up {margin-bottom:180px;}
-.gut-bottoms-1o2x-1up > *,
-.gut-bottoms-2o4x-1up > *,
-.gut-bottom-1o2x-1up,
-.gut-bottom-2o4x-1up {margin-bottom:15px;}
-.gut-bottoms-1o3x-1up > *,
-.gut-bottoms-10px-1up > *,
-.gut-bottom-1o3x-1up {margin-bottom:10px;}
-.gut-bottoms-2o3x-1up > *,
-.gut-bottom-2o3x-1up {margin-bottom:20px;}
-.gut-bottoms-1o4x-1up > *,
-.gut-bottom-1o4x-1up {margin-bottom:7.5px;}
-.gut-bottoms-3o4x-1up > *,
-.gut-bottom-3o4x-1up {margin-bottom:22.5px;}
 .gut-bottoms-1px-1up > * {margin-bottom:1px;}
 .gut-bottoms-2px-1up > * {margin-bottom:2px;}
 .gut-bottoms-3px-1up > * {margin-bottom:3px;}
@@ -1371,29 +1253,23 @@ form.gut-left-xlarge-1up > label {width:480px;}
 
 
 /* Guts */
+/* IE 6 and 7 star-hack fixes because they don't support box-sizing */
 .guts-1up,
-.guts-1x-1up {margin-left:-30px;}
-.guts-2x-1up {margin-left:-60px;}
-.guts-3x-1up {margin-left:-90px;}
-.guts-4x-1up {margin-left:-120px;}
-.guts-5x-1up {margin-left:-150px;}
-.guts-6x-1up {margin-left:-180px;}
-.guts-1o2x-1up,
-.guts-2o4x-1up {margin-left:-15px;}
-.guts-1o3x-1up,
-.guts-10px-1up {margin-left:-10px;}
-.guts-2o3x-1up {margin-left:-20px;}
-.guts-1o4x-1up {margin-left:-7.5px;}
-.guts-3o4x-1up {margin-left:-22.5px;}
-.guts-1px-1up {margin-left:-1px;}
-.guts-2px-1up {margin-left:-2px;}
-.guts-3px-1up {margin-left:-3px;}
-.guts-4px-1up {margin-left:-4px;}
-.guts-5px-1up {margin-left:-5px;}
-.guts-6px-1up {margin-left:-6px;}
-.guts-7px-1up {margin-left:-7px;}
-.guts-8px-1up {margin-left:-8px;}
-.guts-9px-1up {margin-left:-9px;}
+.guts-1x-1up {margin-left:-30px;*margin-left:0;}
+.guts-2x-1up {margin-left:-60px;*margin-left:0;}
+.guts-3x-1up {margin-left:-90px;*margin-left:0;}
+.guts-4x-1up {margin-left:-120px;*margin-left:0;}
+.guts-5x-1up {margin-left:-150px;*margin-left:0;}
+.guts-6x-1up {margin-left:-180px;*margin-left:0;}
+.guts-1px-1up {margin-left:-1px;*margin-left:0;}
+.guts-2px-1up {margin-left:-2px;*margin-left:0;}
+.guts-3px-1up {margin-left:-3px;*margin-left:0;}
+.guts-4px-1up {margin-left:-4px;*margin-left:0;}
+.guts-5px-1up {margin-left:-5px;*margin-left:0;}
+.guts-6px-1up {margin-left:-6px;*margin-left:0;}
+.guts-7px-1up {margin-left:-7px;*margin-left:0;}
+.guts-8px-1up {margin-left:-8px;*margin-left:0;}
+.guts-9px-1up {margin-left:-9px;*margin-left:0;}
 .guts-1up > *,
 .guts-1x-1up > *,
 .guts-2x-1up > *,
@@ -1401,12 +1277,6 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .guts-4x-1up > *,
 .guts-5x-1up > *,
 .guts-6x-1up > *,
-.guts-1o2x-1up > *,
-.guts-1o3x-1up > *,
-.guts-2o3x-1up > *,
-.guts-1o4x-1up > *,
-.guts-2o4x-1up > *,
-.guts-3o4x-1up > *,
 .guts-1px-1up > *,
 .guts-2px-1up > *,
 .guts-3px-1up > *,
@@ -1415,81 +1285,23 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .guts-6px-1up > *,
 .guts-7px-1up > *,
 .guts-8px-1up > *,
-.guts-9px-1up > *,
-.guts-10px-1up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.guts-9px-1up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .guts-1up > *,
-.guts-1x-1up > * {padding-left:30px;}
-.guts-2x-1up > * {padding-left:60px;}
-.guts-3x-1up > * {padding-left:90px;}
-.guts-4x-1up > * {padding-left:120px;}
-.guts-5x-1up > * {padding-left:150px;}
-.guts-6x-1up > * {padding-left:180px;}
-.guts-1o2x-1up > *,
-.guts-2o4x-1up > * {padding-left:15px;}
-.guts-1o3x-1up > *,
-.guts-10px-1up > * {padding-left:10px;}
-.guts-2o3x-1up > * {padding-left:20px;}
-.guts-1o4x-1up > * {padding-left:7.5px;}
-.guts-3o4x-1up > * {padding-left:22.5px;}
-.guts-1px-1up > * {padding-left:1px;}
-.guts-2px-1up > * {padding-left:2px;}
-.guts-3px-1up > * {padding-left:3px;}
-.guts-4px-1up > * {padding-left:4px;}
-.guts-5px-1up > * {padding-left:5px;}
-.guts-6px-1up > * {padding-left:6px;}
-.guts-7px-1up > * {padding-left:7px;}
-.guts-8px-1up > * {padding-left:8px;}
-.guts-9px-1up > * {padding-left:9px;}
-
-
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-1up,
-.guts-1x-1up,
-.guts-2x-1up,
-.guts-3x-1up,
-.guts-4x-1up,
-.guts-5x-1up,
-.guts-6x-1up,
-.guts-1o2x-1up,
-.guts-1o3x-1up,
-.guts-2o3x-1up,
-.guts-1o4x-1up,
-.guts-2o4x-1up,
-.guts-3o4x-1up,
-.guts-1px-1up,
-.guts-2px-1up,
-.guts-3px-1up,
-.guts-4px-1up,
-.guts-5px-1up,
-.guts-6px-1up,
-.guts-7px-1up,
-.guts-8px-1up,
-.guts-9px-1up,
-.guts-10px-1up {*margin-left:0;*margin-right:0;}
-.guts-1up > *,
-.guts-1x-1up > *,
-.guts-2x-1up > *,
-.guts-3x-1up > *,
-.guts-4x-1up > *,
-.guts-5x-1up > *,
-.guts-6x-1up > *,
-.guts-1o2x-1up > *,
-.guts-1o3x-1up > *,
-.guts-2o3x-1up > *,
-.guts-1o4x-1up > *,
-.guts-2o4x-1up > *,
-.guts-3o4x-1up > *,
-.guts-1px-1up > *,
-.guts-2px-1up > *,
-.guts-3px-1up > *,
-.guts-4px-1up > *,
-.guts-5px-1up > *,
-.guts-6px-1up > *,
-.guts-7px-1up > *,
-.guts-8px-1up > *,
-.guts-9px-1up > *,
-.guts-10px-1up > * {*padding-left:0;*padding-right:0;}
-
+.guts-1x-1up > * {padding-left:30px;*padding-left:0;}
+.guts-2x-1up > * {padding-left:60px;*padding-left:0;}
+.guts-3x-1up > * {padding-left:90px;*padding-left:0;}
+.guts-4x-1up > * {padding-left:120px;*padding-left:0;}
+.guts-5x-1up > * {padding-left:150px;*padding-left:0;}
+.guts-6x-1up > * {padding-left:180px;*padding-left:0;}
+.guts-1px-1up > * {padding-left:1px;*padding-left:0;}
+.guts-2px-1up > * {padding-left:2px;*padding-left:0;}
+.guts-3px-1up > * {padding-left:3px;*padding-left:0;}
+.guts-4px-1up > * {padding-left:4px;*padding-left:0;}
+.guts-5px-1up > * {padding-left:5px;*padding-left:0;}
+.guts-6px-1up > * {padding-left:6px;*padding-left:0;}
+.guts-7px-1up > * {padding-left:7px;*padding-left:0;}
+.guts-8px-1up > * {padding-left:8px;*padding-left:0;}
+.guts-9px-1up > * {padding-left:9px;*padding-left:0;}
 
 
 
@@ -1694,7 +1506,6 @@ form.gut-left-xlarge-1up > label {width:480px;}
 
 
 
-
 /* Layout > Heights */
 .height-1o2x-2up {height:15px;}
 .height-1x-2up {height:30px;}
@@ -1721,7 +1532,9 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .height-auto-2up {height:auto;}
 
 
-/* Layout > Gut Left */
+
+
+/* Layout > Guts > Left */
 .gut-left-2up,
 .gut-left-1x-2up {margin-left:30px;}
 .gut-left-2x-2up {margin-left:60px;}
@@ -1731,18 +1544,12 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .gut-left-5x-2up,
 .gut-left-small-2up {margin-left:150px;}
 .gut-left-6x-2up {margin-left:180px;}
-.gut-left-1o2x-2up,
-.gut-left-2o4x-2up {margin-left:15px;}
-.gut-left-1o3x-2up {margin-left:10px;}
-.gut-left-2o3x-2up {margin-left:20px;}
-.gut-left-1o4x-2up {margin-left:7.5px;}
-.gut-left-3o4x-2up {margin-left:22.5px;}
 .gut-left-none-2up {margin-left:0;}
 .gut-left-medium-2up {margin-left:270px;}
 .gut-left-large-2up {margin-left:390px;}
 .gut-left-xlarge-2up {margin-left:510px;}
 
-/* Layout > Gut Right */
+/* Layout > Guts > Right */
 .gut-right-2up,
 .gut-right-1x-2up {margin-right:30px;}
 .gut-right-2x-2up {margin-right:60px;}
@@ -1752,18 +1559,12 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .gut-right-5x-2up,
 .gut-right-small-2up {margin-right:150px;}
 .gut-right-6x-2up {margin-right:180px;}
-.gut-right-1o2x-2up,
-.gut-right-2o4x-2up {margin-right:15px;}
-.gut-right-1o3x-2up {margin-right:10px;}
-.gut-right-2o3x-2up {margin-right:20px;}
-.gut-right-1o4x-2up {margin-right:7.5px;}
-.gut-right-3o4x-2up {margin-right:22.5px;}
 .gut-right-none-2up {margin-right:0;}
 .gut-right-medium-2up {margin-right:270px;}
 .gut-right-large-2up {margin-right:390px;}
 .gut-right-xlarge-2up {margin-right:510px;}
 
-/* Layout > Gut Bottoms */
+/* Layout > Guts > Bottom and Bottoms */
 .gut-bottoms-2up > *,
 .gut-bottoms-1x-2up > *,
 .gut-bottom-2up,
@@ -1778,19 +1579,6 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .gut-bottom-5x-2up {margin-bottom:150px;}
 .gut-bottoms-6x-2up > *,
 .gut-bottom-6x-2up {margin-bottom:180px;}
-.gut-bottoms-1o2x-2up > *,
-.gut-bottoms-2o4x-2up > *,
-.gut-bottom-1o2x-2up,
-.gut-bottom-2o4x-2up {margin-bottom:15px;}
-.gut-bottoms-1o3x-2up > *,
-.gut-bottoms-10px-2up > *,
-.gut-bottom-1o3x-2up {margin-bottom:10px;}
-.gut-bottoms-2o3x-2up > *,
-.gut-bottom-2o3x-2up {margin-bottom:20px;}
-.gut-bottoms-1o4x-2up > *,
-.gut-bottom-1o4x-2up {margin-bottom:7.5px;}
-.gut-bottoms-3o4x-2up > *,
-.gut-bottom-3o4x-2up {margin-bottom:22.5px;}
 .gut-bottoms-1px-2up > * {margin-bottom:1px;}
 .gut-bottoms-2px-2up > * {margin-bottom:2px;}
 .gut-bottoms-3px-2up > * {margin-bottom:3px;}
@@ -2123,29 +1911,23 @@ form.gut-left-xlarge-2up > label {width:480px;}
 
 
 /* Guts */
+/* IE 6 and 7 star-hack fixes because they don't support box-sizing */
 .guts-2up,
-.guts-1x-2up {margin-left:-30px;}
-.guts-2x-2up {margin-left:-60px;}
-.guts-3x-2up {margin-left:-90px;}
-.guts-4x-2up {margin-left:-120px;}
-.guts-5x-2up {margin-left:-150px;}
-.guts-6x-2up {margin-left:-180px;}
-.guts-1o2x-2up,
-.guts-2o4x-2up {margin-left:-15px;}
-.guts-1o3x-2up,
-.guts-10px-2up {margin-left:-10px;}
-.guts-2o3x-2up {margin-left:-20px;}
-.guts-1o4x-2up {margin-left:-7.5px;}
-.guts-3o4x-2up {margin-left:-22.5px;}
-.guts-1px-2up {margin-left:-1px;}
-.guts-2px-2up {margin-left:-2px;}
-.guts-3px-2up {margin-left:-3px;}
-.guts-4px-2up {margin-left:-4px;}
-.guts-5px-2up {margin-left:-5px;}
-.guts-6px-2up {margin-left:-6px;}
-.guts-7px-2up {margin-left:-7px;}
-.guts-8px-2up {margin-left:-8px;}
-.guts-9px-2up {margin-left:-9px;}
+.guts-1x-2up {margin-left:-30px;*margin-left:0;}
+.guts-2x-2up {margin-left:-60px;*margin-left:0;}
+.guts-3x-2up {margin-left:-90px;*margin-left:0;}
+.guts-4x-2up {margin-left:-120px;*margin-left:0;}
+.guts-5x-2up {margin-left:-150px;*margin-left:0;}
+.guts-6x-2up {margin-left:-180px;*margin-left:0;}
+.guts-1px-2up {margin-left:-1px;*margin-left:0;}
+.guts-2px-2up {margin-left:-2px;*margin-left:0;}
+.guts-3px-2up {margin-left:-3px;*margin-left:0;}
+.guts-4px-2up {margin-left:-4px;*margin-left:0;}
+.guts-5px-2up {margin-left:-5px;*margin-left:0;}
+.guts-6px-2up {margin-left:-6px;*margin-left:0;}
+.guts-7px-2up {margin-left:-7px;*margin-left:0;}
+.guts-8px-2up {margin-left:-8px;*margin-left:0;}
+.guts-9px-2up {margin-left:-9px;*margin-left:0;}
 .guts-2up > *,
 .guts-1x-2up > *,
 .guts-2x-2up > *,
@@ -2153,12 +1935,6 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .guts-4x-2up > *,
 .guts-5x-2up > *,
 .guts-6x-2up > *,
-.guts-1o2x-2up > *,
-.guts-1o3x-2up > *,
-.guts-2o3x-2up > *,
-.guts-1o4x-2up > *,
-.guts-2o4x-2up > *,
-.guts-3o4x-2up > *,
 .guts-1px-2up > *,
 .guts-2px-2up > *,
 .guts-3px-2up > *,
@@ -2167,81 +1943,23 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .guts-6px-2up > *,
 .guts-7px-2up > *,
 .guts-8px-2up > *,
-.guts-9px-2up > *,
-.guts-10px-2up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.guts-9px-2up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .guts-2up > *,
-.guts-1x-2up > * {padding-left:30px;}
-.guts-2x-2up > * {padding-left:60px;}
-.guts-3x-2up > * {padding-left:90px;}
-.guts-4x-2up > * {padding-left:120px;}
-.guts-5x-2up > * {padding-left:150px;}
-.guts-6x-2up > * {padding-left:180px;}
-.guts-1o2x-2up > *,
-.guts-2o4x-2up > * {padding-left:15px;}
-.guts-1o3x-2up > *,
-.guts-10px-2up > * {padding-left:10px;}
-.guts-2o3x-2up > * {padding-left:20px;}
-.guts-1o4x-2up > * {padding-left:7.5px;}
-.guts-3o4x-2up > * {padding-left:22.5px;}
-.guts-1px-2up > * {padding-left:1px;}
-.guts-2px-2up > * {padding-left:2px;}
-.guts-3px-2up > * {padding-left:3px;}
-.guts-4px-2up > * {padding-left:4px;}
-.guts-5px-2up > * {padding-left:5px;}
-.guts-6px-2up > * {padding-left:6px;}
-.guts-7px-2up > * {padding-left:7px;}
-.guts-8px-2up > * {padding-left:8px;}
-.guts-9px-2up > * {padding-left:9px;}
-
-
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-2up,
-.guts-1x-2up,
-.guts-2x-2up,
-.guts-3x-2up,
-.guts-4x-2up,
-.guts-5x-2up,
-.guts-6x-2up,
-.guts-1o2x-2up,
-.guts-1o3x-2up,
-.guts-2o3x-2up,
-.guts-1o4x-2up,
-.guts-2o4x-2up,
-.guts-3o4x-2up,
-.guts-1px-2up,
-.guts-2px-2up,
-.guts-3px-2up,
-.guts-4px-2up,
-.guts-5px-2up,
-.guts-6px-2up,
-.guts-7px-2up,
-.guts-8px-2up,
-.guts-9px-2up,
-.guts-10px-2up {*margin-left:0;*margin-right:0;}
-.guts-2up > *,
-.guts-1x-2up > *,
-.guts-2x-2up > *,
-.guts-3x-2up > *,
-.guts-4x-2up > *,
-.guts-5x-2up > *,
-.guts-6x-2up > *,
-.guts-1o2x-2up > *,
-.guts-1o3x-2up > *,
-.guts-2o3x-2up > *,
-.guts-1o4x-2up > *,
-.guts-2o4x-2up > *,
-.guts-3o4x-2up > *,
-.guts-1px-2up > *,
-.guts-2px-2up > *,
-.guts-3px-2up > *,
-.guts-4px-2up > *,
-.guts-5px-2up > *,
-.guts-6px-2up > *,
-.guts-7px-2up > *,
-.guts-8px-2up > *,
-.guts-9px-2up > *,
-.guts-10px-2up > * {*padding-left:0;*padding-right:0;}
-
+.guts-1x-2up > * {padding-left:30px;*padding-left:0;}
+.guts-2x-2up > * {padding-left:60px;*padding-left:0;}
+.guts-3x-2up > * {padding-left:90px;*padding-left:0;}
+.guts-4x-2up > * {padding-left:120px;*padding-left:0;}
+.guts-5x-2up > * {padding-left:150px;*padding-left:0;}
+.guts-6x-2up > * {padding-left:180px;*padding-left:0;}
+.guts-1px-2up > * {padding-left:1px;*padding-left:0;}
+.guts-2px-2up > * {padding-left:2px;*padding-left:0;}
+.guts-3px-2up > * {padding-left:3px;*padding-left:0;}
+.guts-4px-2up > * {padding-left:4px;*padding-left:0;}
+.guts-5px-2up > * {padding-left:5px;*padding-left:0;}
+.guts-6px-2up > * {padding-left:6px;*padding-left:0;}
+.guts-7px-2up > * {padding-left:7px;*padding-left:0;}
+.guts-8px-2up > * {padding-left:8px;*padding-left:0;}
+.guts-9px-2up > * {padding-left:9px;*padding-left:0;}
 
 
 
@@ -2446,7 +2164,6 @@ form.gut-left-xlarge-2up > label {width:480px;}
 
 
 
-
 /* Layout > Heights */
 .height-1o2x-3up {height:15px;}
 .height-1x-3up {height:30px;}
@@ -2473,7 +2190,9 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .height-auto-3up {height:auto;}
 
 
-/* Layout > Gut Left */
+
+
+/* Layout > Guts > Left */
 .gut-left-3up,
 .gut-left-1x-3up {margin-left:30px;}
 .gut-left-2x-3up {margin-left:60px;}
@@ -2483,18 +2202,12 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .gut-left-5x-3up,
 .gut-left-small-3up {margin-left:150px;}
 .gut-left-6x-3up {margin-left:180px;}
-.gut-left-1o2x-3up,
-.gut-left-2o4x-3up {margin-left:15px;}
-.gut-left-1o3x-3up {margin-left:10px;}
-.gut-left-2o3x-3up {margin-left:20px;}
-.gut-left-1o4x-3up {margin-left:7.5px;}
-.gut-left-3o4x-3up {margin-left:22.5px;}
 .gut-left-none-3up {margin-left:0;}
 .gut-left-medium-3up {margin-left:270px;}
 .gut-left-large-3up {margin-left:390px;}
 .gut-left-xlarge-3up {margin-left:510px;}
 
-/* Layout > Gut Right */
+/* Layout > Guts > Right */
 .gut-right-3up,
 .gut-right-1x-3up {margin-right:30px;}
 .gut-right-2x-3up {margin-right:60px;}
@@ -2504,18 +2217,12 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .gut-right-5x-3up,
 .gut-right-small-3up {margin-right:150px;}
 .gut-right-6x-3up {margin-right:180px;}
-.gut-right-1o2x-3up,
-.gut-right-2o4x-3up {margin-right:15px;}
-.gut-right-1o3x-3up {margin-right:10px;}
-.gut-right-2o3x-3up {margin-right:20px;}
-.gut-right-1o4x-3up {margin-right:7.5px;}
-.gut-right-3o4x-3up {margin-right:22.5px;}
 .gut-right-none-3up {margin-right:0;}
 .gut-right-medium-3up {margin-right:270px;}
 .gut-right-large-3up {margin-right:390px;}
 .gut-right-xlarge-3up {margin-right:510px;}
 
-/* Layout > Gut Bottoms */
+/* Layout > Guts > Bottom and Bottoms */
 .gut-bottoms-3up > *,
 .gut-bottoms-1x-3up > *,
 .gut-bottom-3up,
@@ -2530,19 +2237,6 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .gut-bottom-5x-3up {margin-bottom:150px;}
 .gut-bottoms-6x-3up > *,
 .gut-bottom-6x-3up {margin-bottom:180px;}
-.gut-bottoms-1o2x-3up > *,
-.gut-bottoms-2o4x-3up > *,
-.gut-bottom-1o2x-3up,
-.gut-bottom-2o4x-3up {margin-bottom:15px;}
-.gut-bottoms-1o3x-3up > *,
-.gut-bottoms-10px-3up > *,
-.gut-bottom-1o3x-3up {margin-bottom:10px;}
-.gut-bottoms-2o3x-3up > *,
-.gut-bottom-2o3x-3up {margin-bottom:20px;}
-.gut-bottoms-1o4x-3up > *,
-.gut-bottom-1o4x-3up {margin-bottom:7.5px;}
-.gut-bottoms-3o4x-3up > *,
-.gut-bottom-3o4x-3up {margin-bottom:22.5px;}
 .gut-bottoms-1px-3up > * {margin-bottom:1px;}
 .gut-bottoms-2px-3up > * {margin-bottom:2px;}
 .gut-bottoms-3px-3up > * {margin-bottom:3px;}
@@ -2875,29 +2569,23 @@ form.gut-left-xlarge-3up > label {width:480px;}
 
 
 /* Guts */
+/* IE 6 and 7 star-hack fixes because they don't support box-sizing */
 .guts-3up,
-.guts-1x-3up {margin-left:-30px;}
-.guts-2x-3up {margin-left:-60px;}
-.guts-3x-3up {margin-left:-90px;}
-.guts-4x-3up {margin-left:-120px;}
-.guts-5x-3up {margin-left:-150px;}
-.guts-6x-3up {margin-left:-180px;}
-.guts-1o2x-3up,
-.guts-2o4x-3up {margin-left:-15px;}
-.guts-1o3x-3up,
-.guts-10px-3up {margin-left:-10px;}
-.guts-2o3x-3up {margin-left:-20px;}
-.guts-1o4x-3up {margin-left:-7.5px;}
-.guts-3o4x-3up {margin-left:-22.5px;}
-.guts-1px-3up {margin-left:-1px;}
-.guts-2px-3up {margin-left:-2px;}
-.guts-3px-3up {margin-left:-3px;}
-.guts-4px-3up {margin-left:-4px;}
-.guts-5px-3up {margin-left:-5px;}
-.guts-6px-3up {margin-left:-6px;}
-.guts-7px-3up {margin-left:-7px;}
-.guts-8px-3up {margin-left:-8px;}
-.guts-9px-3up {margin-left:-9px;}
+.guts-1x-3up {margin-left:-30px;*margin-left:0;}
+.guts-2x-3up {margin-left:-60px;*margin-left:0;}
+.guts-3x-3up {margin-left:-90px;*margin-left:0;}
+.guts-4x-3up {margin-left:-120px;*margin-left:0;}
+.guts-5x-3up {margin-left:-150px;*margin-left:0;}
+.guts-6x-3up {margin-left:-180px;*margin-left:0;}
+.guts-1px-3up {margin-left:-1px;*margin-left:0;}
+.guts-2px-3up {margin-left:-2px;*margin-left:0;}
+.guts-3px-3up {margin-left:-3px;*margin-left:0;}
+.guts-4px-3up {margin-left:-4px;*margin-left:0;}
+.guts-5px-3up {margin-left:-5px;*margin-left:0;}
+.guts-6px-3up {margin-left:-6px;*margin-left:0;}
+.guts-7px-3up {margin-left:-7px;*margin-left:0;}
+.guts-8px-3up {margin-left:-8px;*margin-left:0;}
+.guts-9px-3up {margin-left:-9px;*margin-left:0;}
 .guts-3up > *,
 .guts-1x-3up > *,
 .guts-2x-3up > *,
@@ -2905,12 +2593,6 @@ form.gut-left-xlarge-3up > label {width:480px;}
 .guts-4x-3up > *,
 .guts-5x-3up > *,
 .guts-6x-3up > *,
-.guts-1o2x-3up > *,
-.guts-1o3x-3up > *,
-.guts-2o3x-3up > *,
-.guts-1o4x-3up > *,
-.guts-2o4x-3up > *,
-.guts-3o4x-3up > *,
 .guts-1px-3up > *,
 .guts-2px-3up > *,
 .guts-3px-3up > *,
@@ -2919,81 +2601,23 @@ form.gut-left-xlarge-3up > label {width:480px;}
 .guts-6px-3up > *,
 .guts-7px-3up > *,
 .guts-8px-3up > *,
-.guts-9px-3up > *,
-.guts-10px-3up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.guts-9px-3up > * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .guts-3up > *,
-.guts-1x-3up > * {padding-left:30px;}
-.guts-2x-3up > * {padding-left:60px;}
-.guts-3x-3up > * {padding-left:90px;}
-.guts-4x-3up > * {padding-left:120px;}
-.guts-5x-3up > * {padding-left:150px;}
-.guts-6x-3up > * {padding-left:180px;}
-.guts-1o2x-3up > *,
-.guts-2o4x-3up > * {padding-left:15px;}
-.guts-1o3x-3up > *,
-.guts-10px-3up > * {padding-left:10px;}
-.guts-2o3x-3up > * {padding-left:20px;}
-.guts-1o4x-3up > * {padding-left:7.5px;}
-.guts-3o4x-3up > * {padding-left:22.5px;}
-.guts-1px-3up > * {padding-left:1px;}
-.guts-2px-3up > * {padding-left:2px;}
-.guts-3px-3up > * {padding-left:3px;}
-.guts-4px-3up > * {padding-left:4px;}
-.guts-5px-3up > * {padding-left:5px;}
-.guts-6px-3up > * {padding-left:6px;}
-.guts-7px-3up > * {padding-left:7px;}
-.guts-8px-3up > * {padding-left:8px;}
-.guts-9px-3up > * {padding-left:9px;}
-
-
-/* IE 6 and 7 fixes because they don't support box-sizing */
-.guts-3up,
-.guts-1x-3up,
-.guts-2x-3up,
-.guts-3x-3up,
-.guts-4x-3up,
-.guts-5x-3up,
-.guts-6x-3up,
-.guts-1o2x-3up,
-.guts-1o3x-3up,
-.guts-2o3x-3up,
-.guts-1o4x-3up,
-.guts-2o4x-3up,
-.guts-3o4x-3up,
-.guts-1px-3up,
-.guts-2px-3up,
-.guts-3px-3up,
-.guts-4px-3up,
-.guts-5px-3up,
-.guts-6px-3up,
-.guts-7px-3up,
-.guts-8px-3up,
-.guts-9px-3up,
-.guts-10px-3up {*margin-left:0;*margin-right:0;}
-.guts-3up > *,
-.guts-1x-3up > *,
-.guts-2x-3up > *,
-.guts-3x-3up > *,
-.guts-4x-3up > *,
-.guts-5x-3up > *,
-.guts-6x-3up > *,
-.guts-1o2x-3up > *,
-.guts-1o3x-3up > *,
-.guts-2o3x-3up > *,
-.guts-1o4x-3up > *,
-.guts-2o4x-3up > *,
-.guts-3o4x-3up > *,
-.guts-1px-3up > *,
-.guts-2px-3up > *,
-.guts-3px-3up > *,
-.guts-4px-3up > *,
-.guts-5px-3up > *,
-.guts-6px-3up > *,
-.guts-7px-3up > *,
-.guts-8px-3up > *,
-.guts-9px-3up > *,
-.guts-10px-3up > * {*padding-left:0;*padding-right:0;}
-
+.guts-1x-3up > * {padding-left:30px;*padding-left:0;}
+.guts-2x-3up > * {padding-left:60px;*padding-left:0;}
+.guts-3x-3up > * {padding-left:90px;*padding-left:0;}
+.guts-4x-3up > * {padding-left:120px;*padding-left:0;}
+.guts-5x-3up > * {padding-left:150px;*padding-left:0;}
+.guts-6x-3up > * {padding-left:180px;*padding-left:0;}
+.guts-1px-3up > * {padding-left:1px;*padding-left:0;}
+.guts-2px-3up > * {padding-left:2px;*padding-left:0;}
+.guts-3px-3up > * {padding-left:3px;*padding-left:0;}
+.guts-4px-3up > * {padding-left:4px;*padding-left:0;}
+.guts-5px-3up > * {padding-left:5px;*padding-left:0;}
+.guts-6px-3up > * {padding-left:6px;*padding-left:0;}
+.guts-7px-3up > * {padding-left:7px;*padding-left:0;}
+.guts-8px-3up > * {padding-left:8px;*padding-left:0;}
+.guts-9px-3up > * {padding-left:9px;*padding-left:0;}
 
 
 

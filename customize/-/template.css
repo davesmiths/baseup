@@ -133,10 +133,10 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/legacysupport}}
 
 
-/* Layout > Columns > First Auto */
+/* Layout > Columns > Left */
 .{{ns}}{{col}}s-left,
 .{{ns}}child-{{col}}s-left > *,
-.{{ns}}gchild-{{col}}s-left > * > * {display:-webkit-flex;display:flex;}
+.{{ns}}gchild-{{col}}s-left > * > * {display:-webkit-flex;display:flex;margin-left:0!important;}
 .{{ns}}{{col}}s-left > *:first-child,
 .{{ns}}child-{{col}}s-left > * > *:first-child,
 .{{ns}}gchild-{{col}}s-left > * > * > *:first-child {-webkit-flex:none;flex:none;}
@@ -145,7 +145,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}gchild-{{col}}s-left > * > * > *:first-child + * {-webkit-flex:1;flex:1;}
 
 {{#legacysupport}}
-/* Layout > Columns > First Auto > Legacy Support */
+/* Layout > Columns > Left > Legacy Support */
 .{{ns}}{{col}}s-left,
 .{{ns}}child-{{col}}s-left > *,
 .{{ns}}gchild-{{col}}s-left > * > * {margin-left:0;}
@@ -158,19 +158,19 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/legacysupport}}
 
 
-/* Layout > Columns > Auto First */
+/* Layout > Columns > Right */
 .{{ns}}{{col}}s-right,
 .{{ns}}child-{{col}}s-right > *,
 .{{ns}}gchild-{{col}}s-right > * > * {display:-webkit-flex;display:flex;}
 .{{ns}}{{col}}s-right > *:first-child,
 .{{ns}}child-{{col}}s-right > * > *:first-child,
-.{{ns}}gchild-{{col}}s-right > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;}
+.{{ns}}gchild-{{col}}s-right > * > * > *:first-child {-webkit-flex:none;flex:none;order:2;box-sizing:content-box;}
 .{{ns}}{{col}}s-right > *:first-child + *,
 .{{ns}}child-{{col}}s-right > * > *:first-child + *,
 .{{ns}}gchild-{{col}}s-right > * > * > *:first-child + * {-webkit-flex:1;flex:1;order:1;}
 
 {{#legacysupport}}
-/* Layout > Columns > Auto First > Legacy Support */
+/* Layout > Columns > Right > Legacy Support */
 .{{ns}}{{col}}s-right > *:first-child,
 .{{ns}}child-{{col}}s-right > * > *:first-child,
 .{{ns}}gchild-{{col}}s-right > * > * > *:first-child {float:right;*display:inline;}
@@ -230,7 +230,6 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 
-
 /* Layout > Heights */
 {{#heights}}
 {{selector}}{{#isnotlast}},
@@ -238,19 +237,21 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/heights}}
 
 
-/* Layout > Gut Left */
+
+
+/* Layout > Guts > Left */
 {{#gutlefts}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:{{val}};}
 {{/gutlefts}}
 
-/* Layout > Gut Right */
+/* Layout > Guts > Right */
 {{#gutrights}}
 {{selector}}{{#isnotlast}},
 {{/isnotlast}} {margin-right:{{val}};}
 {{/gutrights}}
 
-/* Layout > Gut Bottoms */
+/* Layout > Guts > Bottom and Bottoms */
 {{#gutbottoms}}
 {{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-bottom:{{val}};}
@@ -365,9 +366,10 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 
 /* Guts */
+{{#legacysupport}}/* IE 6 and 7 star-hack fixes because they don't support box-sizing */{{/legacysupport}}
 {{#gutsmargin}}
 {{selector}}{{#isnotlast}},
-{{/isnotlast}} {margin-left:{{val}};}
+{{/isnotlast}} {margin-left:{{val}};{{#legacysupport}}*margin-left:0;{{/legacysupport}}}
 {{/gutsmargin}}
 {{#gutspaddingall}}
 {{{selector}}}{{#isnotlast}},
@@ -375,22 +377,8 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 {{/gutspaddingall}}
 {{#gutspadding}}
 {{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {padding-left:{{val}};}
+{{/isnotlast}} {padding-left:{{val}};{{#legacysupport}}*padding-left:0;{{/legacysupport}}}
 {{/gutspadding}}
-
-{{#legacysupport}}
-
-/* IE 6 and 7 fixes because they don't support box-sizing */
-{{#gutsmarginall}}
-{{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {*margin-left:0;*margin-right:0;}
-{{/gutsmarginall}}
-{{#gutspaddingall}}
-{{{selector}}}{{#isnotlast}},
-{{/isnotlast}} {*padding-left:0;*padding-right:0;}
-{{/gutspaddingall}}
-{{/legacysupport}}
-
 
 
 
