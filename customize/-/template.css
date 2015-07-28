@@ -368,7 +368,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 /* Guts */
 {{#legacysupport}}/* IE 6 and 7 star-hack fixes because they don't support box-sizing */{{/legacysupport}}
 {{#gutsmargin}}
-{{selector}}{{#isnotlast}},
+{{{selector}}}{{#isnotlast}},
 {{/isnotlast}} {margin-left:{{val}};{{#legacysupport}}*margin-left:0;{{/legacysupport}}}
 {{/gutsmargin}}
 {{#gutspaddingall}}

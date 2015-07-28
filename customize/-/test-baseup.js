@@ -100,22 +100,6 @@
                         });
                     }
 
-
-
-                    // Guts Full Width Friendly classes
-                    val = $this.attr('class').match(/\s?guts-fw[0-9a-z-]*/g);
-
-                    if (val) {
-                        // Get the last set widths class if more than one is set
-                        val = val[val.length - 1];
-                        val = val.replace('guts-fw', 'gut-left');
-
-                        $cols.find('> * > *').not(".clear, [class^='gut-left-'],[class*=' gut-left-']").each(function() {
-                            $(this).addClass(val);
-                        });
-                    }
-
-
                 });
 
             }
@@ -180,8 +164,6 @@
     /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
 
     window.matchMedia || (window.matchMedia = function() {
-
-        "use strict";
 
         // For browsers that support matchMedium api such as IE 9 and webkit
         var styleMedia = (window.styleMedia || window.media);
