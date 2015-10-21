@@ -52,7 +52,7 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 .{{ns}}child-{{lay}},
 .{{ns}}gchild-{{lay}},
 .{{ns}}child-{{lay}} > *,
-.{{ns}}gchild-{{lay}} > * > * {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
+.{{ns}}gchild-{{lay}} > * > * {list-style-type:none;margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-left:0;padding-right:0;}
 .{{ns}}{{lay}}:after,
 .{{ns}}{{lay}}:before,
 .{{ns}}child-{{lay}}:after,
