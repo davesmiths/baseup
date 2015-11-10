@@ -207,9 +207,9 @@ h6, .h6 {font-size:{{h6}}%;font-weight:{{hweight}};line-height:{{h6lineheight}};
 
 /* Child Height Fill */
 .{{ns}}child-heights-fill > * {display:-webkit-flex;display:flex;}
-.{{ns}}child-heights-fill > * > * {-webkit-flex:1;flex:1;}
+.{{ns}}child-heights-fill > * > * {-webkit-flex:1;flex:1;min-width:0;}
 .{{ns}}child-height-fill {display:-webkit-flex;display:flex;}
-.{{ns}}child-height-fill > * {-webkit-flex:1;flex:1;}
+.{{ns}}child-height-fill > * {-webkit-flex:1;flex:1;min-width:0;}
 
 
 {{/is0}}
