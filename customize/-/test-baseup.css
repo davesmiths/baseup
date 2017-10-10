@@ -35,23 +35,7 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .child-lay,
 .gchild-lay,
 .child-lay > *,
-.gchild-lay > * > * {list-style-type:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0;}
-.lay:after,
-.lay:before,
-.child-lay:after,
-.child-lay:before,
-.gchild-lay:after,
-.gchild-lay:before,
-.child-lay > *:after,
-.child-lay > *:before,
-.gchild-lay > * > *:after,
-.gchild-lay > * > *:before,
-.lay-left:after,
-.lay-left:before,
-.lay-right:after,
-.lay-right:before,
-.lay-centered:after,
-.lay-centered:before {content:"";display:table;-webkit-flex:0;flex:0;}/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
+.gchild-lay > * > * {list-style-type:none;margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-left:0;padding-right:0;}
 .lay:after,
 .child-lay:after,
 .gchild-lay:after,
@@ -59,7 +43,8 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gchild-lay > * > *:after,
 .lay-left:after,
 .lay-right:after,
-.lay-centered:after {clear:both;}
+.lay-centered:after {content:"";display:block;clear:both;-webkit-flex:0;flex:0;}
+/* flex:0 used to solve issue where the pseudo elements had flex applied in webkit browsers and therefore were taking up space */
 
 /* Layout > Legacy Support > IE 6 and 7 fix to trigger hasLayout */
 .lay,
@@ -177,10 +162,10 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 
 
 /* Child Height Fill */
-.child-heights-fill > * {display:-webkit-flex;display:flex;}
-.child-heights-fill > * > * {-webkit-flex:1;flex:1;}
-.child-height-fill {display:-webkit-flex;display:flex;}
-.child-height-fill > * {-webkit-flex:1;flex:1;}
+.child-heights-fill > * {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+.child-heights-fill > * > * {-webkit-flex:1 0 auto;flex:1 0 auto;min-width:0;}
+.child-height-fill {display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
+.child-height-fill > * {-webkit-flex:1 0 auto;flex:1 0 auto;min-width:0;}
 
 
 
@@ -249,28 +234,28 @@ h6, .h6 {font-size:100%;font-weight:200;line-height:1.4285;padding-top:21.6px;pa
 .gut-right-xlarge {margin-right:510px;}
 
 /* Layout > Guts > Bottom and Bottoms */
-.gut-bottoms > *,
-.gut-bottoms-1x > *,
 .gut-bottom,
-.gut-bottom-1x {margin-bottom:30px;}
-.gut-bottoms-2x > *,
-.gut-bottom-2x {margin-bottom:60px;}
-.gut-bottoms-3x > *,
-.gut-bottom-3x {margin-bottom:90px;}
-.gut-bottoms-4x > *,
-.gut-bottom-4x {margin-bottom:120px;}
-.gut-bottoms-5x > *,
-.gut-bottom-5x {margin-bottom:150px;}
-.gut-bottoms-6x > *,
-.gut-bottom-6x {margin-bottom:180px;}
-.gut-bottoms-1o2x > *,
-.gut-bottom-1o2x {margin-bottom:15px;}
+.gut-bottom-1x,
+.gut-bottoms > *,
+.gut-bottoms-1x > * {margin-bottom:30px;}
+.gut-bottom-2x,
+.gut-bottoms-2x > * {margin-bottom:60px;}
+.gut-bottom-3x,
+.gut-bottoms-3x > * {margin-bottom:90px;}
+.gut-bottom-4x,
+.gut-bottoms-4x > * {margin-bottom:120px;}
+.gut-bottom-5x,
+.gut-bottoms-5x > * {margin-bottom:150px;}
+.gut-bottom-6x,
+.gut-bottoms-6x > * {margin-bottom:180px;}
+.gut-bottom-1o2x,
+.gut-bottoms-1o2x > * {margin-bottom:15px;}
+.gut-bottom-none {margin-bottom:0;}
 .gut-bottoms-1px > * {margin-bottom:1px;}
 .gut-bottoms-2px > * {margin-bottom:2px;}
 .gut-bottoms-3px > * {margin-bottom:3px;}
 .gut-bottoms-4px > * {margin-bottom:4px;}
 .gut-bottoms-5px > * {margin-bottom:5px;}
-.gut-bottom-none {margin-bottom:0;}
 
 
 
@@ -951,28 +936,28 @@ form.gut-left-xlarge > label {width:480px;}
 .gut-right-xlarge-1up {margin-right:510px;}
 
 /* Layout > Guts > Bottom and Bottoms */
-.gut-bottoms-1up > *,
-.gut-bottoms-1x-1up > *,
 .gut-bottom-1up,
-.gut-bottom-1x-1up {margin-bottom:30px;}
-.gut-bottoms-2x-1up > *,
-.gut-bottom-2x-1up {margin-bottom:60px;}
-.gut-bottoms-3x-1up > *,
-.gut-bottom-3x-1up {margin-bottom:90px;}
-.gut-bottoms-4x-1up > *,
-.gut-bottom-4x-1up {margin-bottom:120px;}
-.gut-bottoms-5x-1up > *,
-.gut-bottom-5x-1up {margin-bottom:150px;}
-.gut-bottoms-6x-1up > *,
-.gut-bottom-6x-1up {margin-bottom:180px;}
-.gut-bottoms-1o2x-1up > *,
-.gut-bottom-1o2x-1up {margin-bottom:15px;}
+.gut-bottom-1x-1up,
+.gut-bottoms-1up > *,
+.gut-bottoms-1x-1up > * {margin-bottom:30px;}
+.gut-bottom-2x-1up,
+.gut-bottoms-2x-1up > * {margin-bottom:60px;}
+.gut-bottom-3x-1up,
+.gut-bottoms-3x-1up > * {margin-bottom:90px;}
+.gut-bottom-4x-1up,
+.gut-bottoms-4x-1up > * {margin-bottom:120px;}
+.gut-bottom-5x-1up,
+.gut-bottoms-5x-1up > * {margin-bottom:150px;}
+.gut-bottom-6x-1up,
+.gut-bottoms-6x-1up > * {margin-bottom:180px;}
+.gut-bottom-1o2x-1up,
+.gut-bottoms-1o2x-1up > * {margin-bottom:15px;}
+.gut-bottom-none-1up {margin-bottom:0;}
 .gut-bottoms-1px-1up > * {margin-bottom:1px;}
 .gut-bottoms-2px-1up > * {margin-bottom:2px;}
 .gut-bottoms-3px-1up > * {margin-bottom:3px;}
 .gut-bottoms-4px-1up > * {margin-bottom:4px;}
 .gut-bottoms-5px-1up > * {margin-bottom:5px;}
-.gut-bottom-none-1up {margin-bottom:0;}
 
 
 
@@ -1651,28 +1636,28 @@ form.gut-left-xlarge-1up > label {width:480px;}
 .gut-right-xlarge-2up {margin-right:510px;}
 
 /* Layout > Guts > Bottom and Bottoms */
-.gut-bottoms-2up > *,
-.gut-bottoms-1x-2up > *,
 .gut-bottom-2up,
-.gut-bottom-1x-2up {margin-bottom:30px;}
-.gut-bottoms-2x-2up > *,
-.gut-bottom-2x-2up {margin-bottom:60px;}
-.gut-bottoms-3x-2up > *,
-.gut-bottom-3x-2up {margin-bottom:90px;}
-.gut-bottoms-4x-2up > *,
-.gut-bottom-4x-2up {margin-bottom:120px;}
-.gut-bottoms-5x-2up > *,
-.gut-bottom-5x-2up {margin-bottom:150px;}
-.gut-bottoms-6x-2up > *,
-.gut-bottom-6x-2up {margin-bottom:180px;}
-.gut-bottoms-1o2x-2up > *,
-.gut-bottom-1o2x-2up {margin-bottom:15px;}
+.gut-bottom-1x-2up,
+.gut-bottoms-2up > *,
+.gut-bottoms-1x-2up > * {margin-bottom:30px;}
+.gut-bottom-2x-2up,
+.gut-bottoms-2x-2up > * {margin-bottom:60px;}
+.gut-bottom-3x-2up,
+.gut-bottoms-3x-2up > * {margin-bottom:90px;}
+.gut-bottom-4x-2up,
+.gut-bottoms-4x-2up > * {margin-bottom:120px;}
+.gut-bottom-5x-2up,
+.gut-bottoms-5x-2up > * {margin-bottom:150px;}
+.gut-bottom-6x-2up,
+.gut-bottoms-6x-2up > * {margin-bottom:180px;}
+.gut-bottom-1o2x-2up,
+.gut-bottoms-1o2x-2up > * {margin-bottom:15px;}
+.gut-bottom-none-2up {margin-bottom:0;}
 .gut-bottoms-1px-2up > * {margin-bottom:1px;}
 .gut-bottoms-2px-2up > * {margin-bottom:2px;}
 .gut-bottoms-3px-2up > * {margin-bottom:3px;}
 .gut-bottoms-4px-2up > * {margin-bottom:4px;}
 .gut-bottoms-5px-2up > * {margin-bottom:5px;}
-.gut-bottom-none-2up {margin-bottom:0;}
 
 
 
@@ -2351,28 +2336,28 @@ form.gut-left-xlarge-2up > label {width:480px;}
 .gut-right-xlarge-3up {margin-right:510px;}
 
 /* Layout > Guts > Bottom and Bottoms */
-.gut-bottoms-3up > *,
-.gut-bottoms-1x-3up > *,
 .gut-bottom-3up,
-.gut-bottom-1x-3up {margin-bottom:30px;}
-.gut-bottoms-2x-3up > *,
-.gut-bottom-2x-3up {margin-bottom:60px;}
-.gut-bottoms-3x-3up > *,
-.gut-bottom-3x-3up {margin-bottom:90px;}
-.gut-bottoms-4x-3up > *,
-.gut-bottom-4x-3up {margin-bottom:120px;}
-.gut-bottoms-5x-3up > *,
-.gut-bottom-5x-3up {margin-bottom:150px;}
-.gut-bottoms-6x-3up > *,
-.gut-bottom-6x-3up {margin-bottom:180px;}
-.gut-bottoms-1o2x-3up > *,
-.gut-bottom-1o2x-3up {margin-bottom:15px;}
+.gut-bottom-1x-3up,
+.gut-bottoms-3up > *,
+.gut-bottoms-1x-3up > * {margin-bottom:30px;}
+.gut-bottom-2x-3up,
+.gut-bottoms-2x-3up > * {margin-bottom:60px;}
+.gut-bottom-3x-3up,
+.gut-bottoms-3x-3up > * {margin-bottom:90px;}
+.gut-bottom-4x-3up,
+.gut-bottoms-4x-3up > * {margin-bottom:120px;}
+.gut-bottom-5x-3up,
+.gut-bottoms-5x-3up > * {margin-bottom:150px;}
+.gut-bottom-6x-3up,
+.gut-bottoms-6x-3up > * {margin-bottom:180px;}
+.gut-bottom-1o2x-3up,
+.gut-bottoms-1o2x-3up > * {margin-bottom:15px;}
+.gut-bottom-none-3up {margin-bottom:0;}
 .gut-bottoms-1px-3up > * {margin-bottom:1px;}
 .gut-bottoms-2px-3up > * {margin-bottom:2px;}
 .gut-bottoms-3px-3up > * {margin-bottom:3px;}
 .gut-bottoms-4px-3up > * {margin-bottom:4px;}
 .gut-bottoms-5px-3up > * {margin-bottom:5px;}
-.gut-bottom-none-3up {margin-bottom:0;}
 
 
 
