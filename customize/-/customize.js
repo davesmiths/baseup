@@ -1,4 +1,4 @@
-window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=s,u=[],c={},f=":",m="/",l="indexOf",d="split",v="shift",y="join",b=s[l](f),g=s[l](m),w=s[l]("?"),j=s[l]("#");return s=s.replace(/^\s+|\s+$/g,""),-1!==b&&(-1===g||g>b)&&(-1===w||w>b)&&(s=s[d](f),a=s[v](),s=s[y](f)),(a===r||"http,https,ftp"[d](a,2)[1])&&(-1!==j&&(b=s[d]("#"),s=b[v](),t=b[y]("#")||""),-1!==w&&(-1===j||j>w)&&(b=s[d]("?"),s=b[v](),b=b[y]("?")[d]("&"),u=b.map(function(s,r){return s=s[d]("="),r=s[v]().replace(/^amp;/,""),s=s[y]("="),c[r]=s,{key:r,value:s}})),s.substr(0,2)===m+m&&(s=s.substr(2)[d](m),b=s[v]()[d]("@"),g=b.pop()[d](f),b=b[y]("@")[d](f),e=b[v]()||r,p=b[y](f)||r,h=g[v](),i=g[y](f)||r,s=m+s[y](m))),n=s||r,{readonly:{source:o,params:u},params:c,hash:t,scheme:a,user:e,pass:p,host:h,port:i,path:n}},stringify:function(s,r){var t,a=s.scheme,e="",p=s.params,h=s.host,i=s.user,n=s.pass,o=s.port,u=s.hash,c=a?a+":":"";if(h&&(c+="//"),i&&(c+=i,n&&(c+=":"+n),c+="@"),c+=h||"",o&&(c+=":"+o),c+=s.path||"",p){for(t in p)p.hasOwnProperty(t)&&(e+=t+(p[t]?"="+p[t]:"")+"&");e&&(c+="?"+e.slice(0,-1))}return u!==r&&(c+="#"+u),c}};
+HBaseswindow["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=s,u=[],c={},f=":",m="/",l="indexOf",d="split",v="shift",y="join",b=s[l](f),g=s[l](m),w=s[l]("?"),j=s[l]("#");return s=s.replace(/^\s+|\s+$/g,""),-1!==b&&(-1===g||g>b)&&(-1===w||w>b)&&(s=s[d](f),a=s[v](),s=s[y](f)),(a===r||"http,https,ftp"[d](a,2)[1])&&(-1!==j&&(b=s[d]("#"),s=b[v](),t=b[y]("#")||""),-1!==w&&(-1===j||j>w)&&(b=s[d]("?"),s=b[v](),b=b[y]("?")[d]("&"),u=b.map(function(s,r){return s=s[d]("="),r=s[v]().replace(/^amp;/,""),s=s[y]("="),c[r]=s,{key:r,value:s}})),s.substr(0,2)===m+m&&(s=s.substr(2)[d](m),b=s[v]()[d]("@"),g=b.pop()[d](f),b=b[y]("@")[d](f),e=b[v]()||r,p=b[y](f)||r,h=g[v](),i=g[y](f)||r,s=m+s[y](m))),n=s||r,{readonly:{source:o,params:u},params:c,hash:t,scheme:a,user:e,pass:p,host:h,port:i,path:n}},stringify:function(s,r){var t,a=s.scheme,e="",p=s.params,h=s.host,i=s.user,n=s.pass,o=s.port,u=s.hash,c=a?a+":":"";if(h&&(c+="//"),i&&(c+=i,n&&(c+=":"+n),c+="@"),c+=h||"",o&&(c+=":"+o),c+=s.path||"",p){for(t in p)p.hasOwnProperty(t)&&(e+=t+(p[t]?"="+p[t]:"")+"&");e&&(c+="?"+e.slice(0,-1))}return u!==r&&(c+="#"+u),c}};
 
 
 // Custom events
@@ -84,8 +84,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         round,
         inputChange,
         inputBaseChange,
-        inputBasesChange,
-        inputBasesxChange,
+        inputHBasesChange,
+        inputHBasesxChange,
         breakpointAdd,
         init,
         redraw;
@@ -101,11 +101,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         inputs: {
 
             base: '#input-base',
+            hbase: '#input-hbase',
             fontSize: '#input-fontsize',
             columns: '.input-columns',
 
             at: '.input-at',
-            basesx: '.input-basesx',
+            hbasesx: '.input-hbasesx',
 
             decimalPlaces: '#input-decimalplaces',
             heights: '#input-heights',
@@ -159,7 +160,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         maxWidths: '.input-maxwidths',
         maxWidthsBP: '.input-maxwidths-bp',
-        bases: '.input-bases',
+        hbases: '.input-hbases',
 
         formbreakpoint: '.form-breakpoint',
         formbreakpointremove: '.form-breakpoint-remove',
@@ -187,8 +188,8 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
         $(_selectors.formbreakpoint).each(function(i) {
             _in.breakpoints[i] = {
                 at: $(this).find(_selectors.inputs.at).val() * 1,
-                base: $(this).find(_selectors.bases).val() * 1,
-                basex: $(this).find(_selectors.inputs.basesx).val() * 1
+                base: $(this).find(_selectors.hbases).val() * 1,
+                basex: $(this).find(_selectors.inputs.hbasesx).val() * 1
             };
         });
         _in.breakpointsLength = _in.breakpoints.length;
@@ -1520,40 +1521,40 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
     };
 
     inputBaseChange = function() {
-        inputBasesxChange();
+        inputHBasesxChange();
     };
-    inputBasesxChange = function() {
+    inputHBasesxChange = function() {
 
         var multipliers = [];
 
-        clearTimeout(_tid.inputBasesxChange);
+        clearTimeout(_tid.inputHBasesxChange);
 
-        $(_selectors.inputs.basesx).each(function() {
+        $(_selectors.inputs.hbasesx).each(function() {
             multipliers.push($(this).val());
         });
-        $(_selectors.bases).each(function(i) {
+        $(_selectors.hbases).each(function(i) {
             var $this = $(this);
             $this.val(multipliers[i] * $(_selectors.inputs.base).val());
         });
 
-        _tid.inputBasesxChange = setTimeout(redraw, 1);
+        _tid.inputHBasesxChange = setTimeout(redraw, 1);
 
     };
-    inputBasesChange = function() {
+    inputHBasesChange = function() {
 
-        var bases = [];
+        var hbases = [];
 
-        clearTimeout(_tid.inputBasesChange);
+        clearTimeout(_tid.inputHBasesChange);
 
-        $(_selectors.bases).each(function() {
-            bases.push($(this).val());
+        $(_selectors.hbases).each(function() {
+            hbases.push($(this).val());
         });
         $(_selectors.inputs.basesx).each(function(i) {
             var $this = $(this);
-            $this.val(bases[i] / $(_selectors.inputs.base).val());
+            $this.val(hbases[i] / $(_selectors.inputs.base).val());
         });
 
-        _tid.inputBasesChange = setTimeout(redraw, 1);
+        _tid.inputHBasesChange = setTimeout(redraw, 1);
 
     };
 
@@ -1578,7 +1579,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
         for (i in _selectors.inputs) {
             if (_selectors.inputs.hasOwnProperty(i)) {
-                if (i === 'at' || i === 'basesx') {
+                if (i === 'at' || i === 'hbasesx') {
                     val = '';
                     $(_selectors.inputs[i]).each(function() {
                         val += ',' + $(this).val();
@@ -1598,7 +1599,7 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
     };
     getSettingsFromURI = function() {
 
-        var uri,i,selector,at,atLength,basesx;
+        var uri,i,selector,at,atLength,hbasesx;
 
         uri = window["github.com/davesmiths/uri-js"].parse(window.location.href);
 
@@ -1606,7 +1607,13 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             at = uri.params.at.split(',');
             atLength = at.length;
-            basesx = uri.params.basesx.split(',');
+            if (typeof uri.params.hbasesx !== 'undefined) {
+              hbasesx = uri.params.hbasesx.split(',');
+            }
+            else {
+              // Previously the URI was basesx, changed to hbasesx 2020-04-06
+              hbasesx = uri.params.basesx.split(',');
+            }
 
             $(_selectors.formbreakpoint).slice(1).remove();
             for (i = 1; i < atLength; i++) {
@@ -1615,12 +1622,12 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
 
             $(_selectors.formbreakpoint).each(function(i) {
                 $(this).find(_selectors.inputs.at).val(at[i]);
-                $(this).find(_selectors.inputs.basesx).val(basesx[i]);
+                $(this).find(_selectors.inputs.hbasesx).val(hbasesx[i]);
             });
         }
 
         for (i in _selectors.inputs) {
-            if (_selectors.inputs.hasOwnProperty(i) && i !== 'at' && i !== 'basesx') {
+            if (_selectors.inputs.hasOwnProperty(i) && i !== 'at' && i !== 'hbasesx') {
                 selector = _selectors.inputs[i];
                 if (uri.params[i] !== undefined) {
                     if (i === 'positionClasses' || i === 'legacysupport' || i === 'layoutClasses' || i === 'copyClasses') {
@@ -1721,11 +1728,11 @@ window["github.com/davesmiths/uri-js"]={parse:function(s,r){var t,a,e,p,h,i,n,o=
             else if ($t.is(_selectors.inputs.base)) {
                 inputBaseChange();
             }
-            else if ($t.is(_selectors.inputs.basesx)) {
-                inputBasesxChange();
+            else if ($t.is(_selectors.inputs.hbasesx)) {
+                inputHBasesxChange();
             }
-            else if ($t.is(_selectors.bases)) {
-                inputBasesChange();
+            else if ($t.is(_selectors.hbases)) {
+                inputHBasesChange();
             }
 
 
